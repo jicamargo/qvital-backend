@@ -1,0 +1,4 @@
+- Controllers minimalistas
+- Logica en interactors 
+- uso de blueprinter para serializar las respuestas
+- DRY, SOLID, DESACOPLADO 

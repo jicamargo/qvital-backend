@@ -1,0 +1,186 @@
+APP QVITAL - PRD
+
+Perfecto. Esto cambia completamente el enfoque 👌
+No estás construyendo todavía un “SaaS abierto”.
+Estás construyendo TU tienda privada inteligente, que luego podrá evolucionar a SaaS.
+Eso es una estrategia MUY inteligente.
+________________________________________
+🌿 PROYECTO HERBAL – FASE 1 (Tu Tienda Inteligente)
+Basado en tu stack PITZ (Rails + React + Supabase + Mercado Pago), vamos a diseñar esto como:
+Plataforma privada para tus clientes
+Con niveles de precios personalizados
+•	Marketplace + Blog + Pagos
+Trabajamos sobre productos de Herbalife, pero sin inventario complejo.
+________________________________________
+🎯 OBJETIVO FASE 1
+Permitir que tus clientes:
+1.	Se registren / inicien sesión
+2.	Vean contenido exclusivo (blog saludable)
+3.	Compren productos según su nivel de precio
+4.	Paguen con Mercado Pago
+5.	Vean su historial de pedidos
+Tú:
+•	Recibes pedido
+•	Envías manualmente
+•	No necesitas control de inventario aún
+________________________________________
+🏗 Arquitectura Recomendada (Simplificada)
+Backend (Rails API)
+•	Auth
+•	Productos
+•	Niveles
+•	Pedidos
+•	Mercado Pago
+•	Blog
+Frontend (React)
+•	Landing
+•	Login
+•	Dashboard cliente
+•	Marketplace
+•	Checkout
+DB (Supabase Postgres)
+Multi-tenant todavía NO es necesario.
+Por ahora es single-tenant (tú).
+________________________________________
+🧱 Modelo de Datos — Diseño Correcto
+Aquí es donde debes hacerlo bien desde el inicio.
+________________________________________
+1️⃣ users
+id
+email
+encrypted_password
+role (admin | cliente)
+level_id
+created_at
+________________________________________
+2️⃣ levels
+Aquí defines los niveles de cliente:
+id
+name
+priority
+Ejemplo de registros:
+•	Cliente
+•	Cliente VIP
+•	Distribuidor
+•	Distrib VIP
+•	Constructor del Éxito
+•	Mayorista
+Esto te da flexibilidad futura.
+________________________________________
+3️⃣ products
+id
+name
+description
+image_url
+active
+created_at
+________________________________________
+4️⃣ product_prices 🔥 (IMPORTANTE)
+En lugar de meter 6 columnas en products, haces esto mejor:
+id
+product_id
+level_id
+price
+Esto te permite:
+•	Agregar niveles nuevos sin cambiar estructura
+•	Escalar a SaaS después
+•	Control total
+Cuando el cliente entra:
+SELECT * FROM product_prices
+WHERE product_id = X
+AND level_id = user.level_id
+________________________________________
+5️⃣ orders
+id
+user_id
+status (pending, paid, shipped, cancelled)
+total_amount
+mercadopago_payment_id
+created_at
+________________________________________
+6️⃣ order_items
+id
+order_id
+product_id
+quantity
+unit_price
+⚠️ Guardas el precio en el momento de compra para que no cambie si editas el producto después.
+________________________________________
+7️⃣ blog_posts
+id
+title
+content
+image_url
+published
+created_at
+________________________________________
+💳 Flujo de Compra
+1.	Cliente agrega productos
+2.	Backend calcula precios según nivel
+3.	Se crea order con status = pending
+4.	Se genera preferencia Mercado Pago
+5.	Cliente paga
+6.	Webhook confirma pago
+7.	Order → status = paid
+8.	Tú recibes notificación
+________________________________________
+🧠 Flujo del Usuario
+Login →
+Dashboard →
+En el dashboard ve:
+•	Saludo personalizado
+•	Nivel actual
+•	Últimos pedidos
+•	Artículos recientes del blog
+•	Botón “Ir al Marketplace”
+________________________________________
+🏷 Lógica de Niveles (Muy Importante)
+El nivel controla:
+•	Precio visible
+•	Acceso a ciertos productos (opcional futuro)
+•	Descuentos especiales
+•	Promociones exclusivas
+Más adelante podrías automatizar nivel por volumen de compra.
+________________________________________
+🔐 Roles
+Por ahora solo necesitas:
+•	admin (tú)
+•	cliente
+No necesitas roles de seller todavía.
+________________________________________
+🚀 Fase 2 (Cuando ya funcione)
+Aquí es donde lo conviertes en SaaS:
+Agregas:
+•	Tabla stores
+•	store_id en todas las tablas
+•	Distribuidores como “owners” de una tienda
+•	Suscripciones
+•	Multi-tenant
+Como ya diseñamos levels y product_prices correctamente,
+la migración será limpia.
+________________________________________
+🧩 Ventaja Estratégica de Este Enfoque
+Estás construyendo:
+Versión 1:
+Tienda privada
+Versión 2:
+SaaS Marketplace para distribuidores
+Sin rehacer arquitectura.
+________________________________________
+📌 Decisión Técnica Importante
+¿Vas a usar:
+A) Devise + JWT en Rails
+B) Supabase Auth
+C) Auth propia en Rails como en PITZ
+Dado que ya trabajas fuerte con Supabase,
+podríamos usar Supabase Auth y simplificar bastante.
+________________________________________
+🎯 Siguiente Paso Recomendado
+Yo haría esto en orden:
+1.	Crear base de datos (con levels y product_prices bien hechos)
+2.	Crear seed con los 6 niveles
+3.	CRUD productos
+4.	Mostrar precios dinámicos según nivel
+5.	Luego integrar Mercado Pago
+________________________________________
+
