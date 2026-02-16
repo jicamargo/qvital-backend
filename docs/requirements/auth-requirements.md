@@ -201,35 +201,35 @@ end
 
 ### Configuración Inicial
 
-- [ ] **Cliente Supabase**
-  - [ ] Configurar cliente de Supabase en el proyecto
-  - [ ] Verificar variables de entorno: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-  - [ ] Configurar instancia de `createClient()`
+- [x] **Cliente Supabase**
+  - [x] Configurar cliente de Supabase en el proyecto
+  - [x] Verificar variables de entorno: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+  - [x] Configurar instancia de `createClient()`
 
-- [ ] **Servicio de Autenticación**
-  - [ ] Crear servicio/hook para autenticación
-  - [ ] Implementar función para obtener token de sesión
-  - [ ] Implementar función para sincronizar con backend
+- [x] **Servicio de Autenticación**
+  - [x] Crear servicio/hook para autenticación
+  - [x] Implementar función para obtener token de sesión
+  - [x] Implementar función para sincronizar con backend
 
 ### Implementación
 
-- [ ] **Hook de Autenticación**
-  - [ ] Crear `hooks/useAuth.ts` o similar
-  - [ ] Implementar función `syncUserWithBackend()`
-  - [ ] Manejar estados de carga y error
-  - [ ] Almacenar usuario en contexto/estado global
+- [x] **Hook de Autenticación**
+  - [x] Crear `hooks/useAuth.ts` o similar
+  - [x] Implementar función `syncUserWithBackend()`
+  - [x] Manejar estados de carga y error
+  - [x] Almacenar usuario en contexto/estado global
 
-- [ ] **Integración con Supabase Auth**
-  - [ ] Implementar login/signup con Supabase
-  - [ ] Obtener sesión después de autenticación exitosa
-  - [ ] Extraer `access_token` de la sesión
-  - [ ] Llamar a endpoint de sincronización
+- [x] **Integración con Supabase Auth**
+  - [x] Implementar login/signup con Supabase
+  - [x] Obtener sesión después de autenticación exitosa
+  - [x] Extraer `access_token` de la sesión
+  - [x] Llamar a endpoint de sincronización
 
-- [ ] **Manejo de Respuestas**
-  - [ ] Procesar respuesta del backend
-  - [ ] Almacenar datos de usuario en estado
-  - [ ] Manejar errores de autenticación
-  - [ ] Redirigir según estado de autenticación
+- [x] **Manejo de Respuestas**
+  - [x] Procesar respuesta del backend
+  - [x] Almacenar datos de usuario en estado
+  - [x] Manejar errores de autenticación
+  - [x] Redirigir según estado de autenticación
 
 ### Flujo de Usuario
 
