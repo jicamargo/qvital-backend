@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+# Guía de arquitectura QVITAL
+
+- Las reglas generales del proyecto están documentadas en
+  [`docs/requirements/general-rules.md`](mdc:docs/requirements/general-rules.md).
+- Para autenticación y validación de JWT con Supabase se sigue la especificación en
+  [`docs/requirements/auth-requirements.md`](mdc:docs/requirements/auth-requirements.md).
+- Para el sistema de productos y marketplace se sigue la especificación en
+  [`docs/requirements/fase2-products-requirements.md`](mdc:docs/requirements/fase2-products-requirements.md).
