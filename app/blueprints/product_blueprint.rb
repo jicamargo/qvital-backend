@@ -17,5 +17,10 @@ class ProductBlueprint < Blueprinter::Base
   end
 
   association :category, blueprint: CategoryBlueprint
+
+  view :admin do
+    include_view :default
+    fields :active, :created_at, :updated_at
+  end
 end
 

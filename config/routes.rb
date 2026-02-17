@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "auth/sync", to: "auth#sync"
       resources :products, only: [:index]
+
+      namespace :admin do
+        resources :products
+      end
     end
   end
 
