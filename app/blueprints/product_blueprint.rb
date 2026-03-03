@@ -5,7 +5,9 @@ class ProductBlueprint < Blueprinter::Base
 
   field :price do |product, options|
     level_id = options[:level_id]
-    product.price_for_level(level_id)
+    # Solo calcular precio si se pasa level_id (marketplace público)
+    # En admin no se pasa level_id, así que retornamos null
+    product.price_for_level(level_id) if level_id
   end
 
   field :level_id do |_product, options|

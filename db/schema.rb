@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_13_180312) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_18_183433) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_13_180312) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", default: 0, null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["position"], name: "index_categories_on_position"
   end
 
   create_table "health_checks", force: :cascade do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_13_180312) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_path"
     t.index ["active"], name: "index_products_on_active"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["sku"], name: "index_products_on_sku", unique: true

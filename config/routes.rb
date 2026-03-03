@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post "auth/sync", to: "auth#sync"
+      post "auth/update_metadata", to: "auth#update_metadata" # Endpoint de debug para forzar actualización
       resources :products, only: [:index]
+      resources :categories, only: [:index]
 
       namespace :admin do
         resources :products

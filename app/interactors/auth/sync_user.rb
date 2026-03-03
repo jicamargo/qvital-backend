@@ -121,12 +121,28 @@ module Auth
       end
 
       @user.save!
+
+      # Actualizar metadata en Supabase con el role del usuario
+      # Esto permite que supabase.auth.getUser() incluya el role en app_metadata
+      update_supabase_metadata
     rescue ActiveRecord::RecordInvalid => e
       @error = "User validation failed: #{e.message}"
       @user = nil
     rescue StandardError => e
       @error = "User sync error: #{e.message}"
       @user = nil
+    end
+
+    def update_supabase_metadata
+      return unless @user.persisted? && @user.supabase_uid.present?
+
+      metadata_result = Auth::UpdateSupabaseMetadata.call(user: @user)
+      
+      unless metadata_result.success?
+        # Log el error pero no fallar la sincronización completa
+        # El usuario ya está guardado en Rails, solo falló la actualización de metadata
+        Rails.logger.warn "Failed to update Supabase metadata for user #{@user.supabase_uid}: #{metadata_result.error}"
+      end
     end
 
     def failure(message)

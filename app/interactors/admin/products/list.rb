@@ -14,7 +14,7 @@ module Admin
       end
 
       def call
-        scope = Product.includes(:category)
+        scope = Product.includes(:category, :product_prices).joins(:category)
         scope = scope.where(active: to_bool(@params[:active])) if @params.key?(:active)
         scope = scope.where(category_id: @params[:category_id]) if @params[:category_id].present?
 
@@ -23,7 +23,7 @@ module Admin
           scope = scope.where("products.name ILIKE :term OR products.sku ILIKE :term", term: term)
         end
 
-        @products = scope.order(created_at: :desc)
+        @products = scope.order('categories.position ASC, products.name ASC')
         self
       rescue StandardError => e
         @error = "Error listing products: #{e.message}"

@@ -70,6 +70,8 @@ module Api
           params.require(:product).permit(
             :name,
             :description,
+            :image_url,
+            :image_path,
             :sku,
             :pv,
             :category_id,

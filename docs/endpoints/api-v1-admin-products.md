@@ -61,7 +61,7 @@ Content-Type: application/json
     "id": 1,
     "name": "Fórmula 1 - Banana Caramelo",
     "description": "Fórmula 1 - Banana Caramelo",
-    "image_url": null,
+    "image_url": "https://<project>.supabase.co/storage/v1/object/public/products/abc123.webp",
     "pv": 25.75,
     "sku": "1522",
     "category": {
@@ -117,7 +117,7 @@ Content-Type: application/json
   "id": 1,
   "name": "Fórmula 1 - Banana Caramelo",
   "description": "Fórmula 1 - Banana Caramelo",
-  "image_url": null,
+  "image_url": "https://<project>.supabase.co/storage/v1/object/public/products/abc123.webp",
   "pv": 25.75,
   "sku": "1522",
   "category": {
@@ -168,6 +168,8 @@ Content-Type: application/json
     "pv": 25.75,
     "category_id": 1,
     "active": true,
+    "image_url": "https://<project>.supabase.co/storage/v1/object/public/products/abc123.webp",
+    "image_path": "products/abc123.webp",
     "prices": {
       "Cliente": 137468,
       "Cliente VIP": 132939,
@@ -268,7 +270,7 @@ Content-Type: application/json
   "id": 1,
   "name": "Fórmula 1 - Banana Caramelo (Nuevo nombre)",
   "description": "Otro texto",
-  "image_url": null,
+  "image_url": "https://<project>.supabase.co/storage/v1/object/public/products/abc123-new.webp",
   "pv": 26.0,
   "sku": "1522",
   "category": {

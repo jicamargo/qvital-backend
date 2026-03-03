@@ -44,7 +44,7 @@ module Admin
       private
 
       def product_attributes
-        @params.slice(:name, :description, :sku, :pv, :category_id, :active)
+        @params.slice(:name, :description, :image_url, :image_path, :sku, :pv, :category_id, :active)
       end
 
       def assign_prices!

@@ -22,18 +22,20 @@ puts "✅ Niveles creados exitosamente: #{Level.count} niveles"
 
 # Seed de categorías
 categories_data = [
-  "Fórmula 1 - Batido Nutricional",
-  "Proteína",
-  "Herbal Aloe",
-  "Bebida Herbal",
-  "Deportes y vida activa",
-  "Nutrición Específica",
-  "Nutrición Externa",
-  "Otros"
+  { name: "Fórmula 1 - Batido Nutricional", position: 1 },
+  { name: "Proteína", position: 2 },
+  { name: "Herbal Aloe", position: 3 },
+  { name: "Bebida Herbal", position: 4 },
+  { name: "Deportes y vida activa", position: 5 },
+  { name: "Nutrición Específica", position: 6 },
+  { name: "Nutrición Externa", position: 7 },
+  { name: "Otros", position: 8 }
 ]
 
-categories_data.each do |category_name|
-  Category.find_or_create_by!(name: category_name)
+categories_data.each do |category_attrs|
+  category = Category.find_or_initialize_by(name: category_attrs[:name])
+  category.position = category_attrs[:position]
+  category.save!
 end
 
 puts "✅ Categorías creadas exitosamente: #{Category.count} categorías"

@@ -6,4 +6,11 @@ class UserBlueprint < Blueprinter::Base
   field :level_id
 
   association :level, blueprint: LevelBlueprint
+
+  # Incluir app_metadata con el role de Rails (similar a estructura de Supabase)
+  field :app_metadata do |user|
+    {
+      role: user.role
+    }
+  end
 end

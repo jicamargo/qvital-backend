@@ -1,6 +1,6 @@
 class CategoryBlueprint < Blueprinter::Base
   identifier :id
 
-  fields :name
+  fields :name, :position
 end
 

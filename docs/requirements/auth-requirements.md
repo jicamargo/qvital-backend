@@ -27,9 +27,12 @@ Implementar sincronización de usuarios entre Supabase Auth y la base de datos R
 - [ ] **Variables de Entorno**
   - [X] Agregar `SUPABASE_URL` al `.env`
   - [X] Formato: `SUPABASE_URL=https://TU_PROJECT_ID.supabase.co`
+  - [X] Agregar `SUPABASE_SERVICE_ROLE_KEY` al `.env` (para actualizar metadata de usuarios)
+  - [X] Formato: `SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...` (obtener desde Supabase Dashboard → Settings → API → service_role key)
   - [X] **NO** usar `SUPABASE_JWT_SECRET` (legacy)
   - [X] **NO** guardar private keys
   - [X] Verificar que el proyecto use ECC (P-256) en Supabase Dashboard
+  - [X] **IMPORTANTE**: `SUPABASE_SERVICE_ROLE_KEY` solo debe usarse en el backend, NUNCA en el frontend
 
 - [X] **Dependencias**
   - [X] Agregar gem `jwt`: `bundle add jwt`
@@ -117,7 +120,41 @@ Content-Type: application/json
    - Asignar rol "cliente"
 7. Si existe:
    - Actualizar email si cambió
-8. Retornar usuario con relaciones
+8. **Actualizar `app_metadata` en Supabase** con el `role` del usuario de Rails
+9. Retornar usuario con relaciones
+
+### Sincronización de Role con Supabase Metadata
+
+**Objetivo**: Hacer que el `role` del usuario en Rails esté disponible en el JWT de Supabase cuando el frontend usa `supabase.auth.getUser()`.
+
+**Problema**: Si el frontend consulta directamente `supabase.auth.getUser()`, el JWT no incluirá el `role` de Rails a menos que lo actualicemos en Supabase.
+
+**Solución**:
+- Interactor `Auth::UpdateSupabaseMetadata` actualiza `app_metadata.role` en Supabase usando la API Admin
+- Se llama automáticamente después de sincronizar el usuario en `Auth::SyncUser`
+- Se llama automáticamente cuando el `role` cambia en el modelo `User` (callback `after_update`)
+
+**Requisitos**:
+- Variable de entorno `SUPABASE_SERVICE_ROLE_KEY` configurada
+- Esta key solo debe usarse en el backend, nunca en el frontend
+
+**Resultado**:
+Cuando el frontend llama `supabase.auth.getUser()`, el objeto retornado incluirá:
+```json
+{
+  "user": {
+    "app_metadata": {
+      "role": "admin"  // o "cliente" según el role en Rails
+    }
+  }
+}
+```
+
+**Uso en Policies de Supabase**:
+Una vez sincronizado, el JWT incluirá `app_metadata.role` y se puede usar en policies:
+```sql
+auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
+```
 
 ### Código de Referencia
 

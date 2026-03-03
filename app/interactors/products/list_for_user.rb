@@ -36,10 +36,10 @@ module Products
       @products =
         Product
           .active
-          .joins(:product_prices)
+          .joins(:product_prices, :category)
           .where(product_prices: { level_id: level_id })
           .includes(:category, :product_prices)
-          .order(name: :asc)
+          .order('categories.position ASC, products.name ASC')
           .distinct
     rescue StandardError => e
       failure("Error querying products: #{e.message}")
