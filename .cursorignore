@@ -1,0 +1,39 @@
+# Dependencias
+vendor/bundle
+.bundle
+
+# Logs y temporales
+log
+tmp
+tmp/*
+*.log
+
+# Storage (ActiveStorage / uploads)
+storage
+
+# Assets compilados
+public/assets
+public/packs
+public/packs-test
+
+# Node (si usas esbuild / webpacker / vite)
+node_modules
+
+# Coverage / testing
+coverage
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Git (no necesario indexar)
+.git
+
+# Base de datos local
+*.sqlite3
+
+# Archivos binarios grandes
+*.zip
+*.tar
+*.gz
+*.rar

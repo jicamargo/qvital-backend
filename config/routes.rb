@@ -13,6 +13,21 @@ Rails.application.routes.draw do
       resources :products, only: [:index]
       resources :categories, only: [:index]
 
+      namespace :marketplace do
+        resource :cart, only: [:show], controller: "carts" do
+          post :clear, to: "carts_clear#create"
+        end
+
+        # Endpoints de ítems de carrito usando la ruta /cart/items
+        resources :cart_items, path: "cart/items", only: [:create, :update, :destroy]
+
+        post "orders/prepare", to: "orders#prepare"
+        post "orders/complete", to: "orders#complete"
+
+        post "checkout/prepare", to: "checkout#prepare"
+        post "checkout/webhook", to: "checkout#webhook"
+      end
+
       namespace :admin do
         resources :products
       end
