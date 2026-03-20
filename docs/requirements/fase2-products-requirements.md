@@ -104,7 +104,7 @@ Este endpoint devuelve **solo los productos visibles para el usuario actual**, c
         "name": "Proteínas"
       },
       "price": 850.0,
-      "currency": "MXN",
+      "currency": "COP",
       "level_id": 3
     }
   ]

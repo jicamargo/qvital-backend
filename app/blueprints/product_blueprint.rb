@@ -15,7 +15,7 @@ class ProductBlueprint < Blueprinter::Base
   end
 
   field :currency do
-    'MXN'
+    'COP'
   end
 
   association :category, blueprint: CategoryBlueprint

@@ -63,7 +63,7 @@ No requiere body.
             "name": "Proteínas"
           },
           "price": 850.0,
-          "currency": "MXN",
+          "currency": "COP",
           "level_id": 3
         }
       }

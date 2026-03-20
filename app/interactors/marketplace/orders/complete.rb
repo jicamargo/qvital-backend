@@ -29,6 +29,7 @@ module Marketplace
             Order.where(id: @order_ids, purchase_id: @purchase.id)
 
           return failure("Orders not found for purchase") if @orders.empty?
+          return failure("Payment is not approved for this purchase") unless ensure_approved_payment!
 
           if @purchase.purchase_intent
             @purchase.purchase_intent.update!(status: :completed)
@@ -53,6 +54,36 @@ module Marketplace
       end
 
       private
+
+      def ensure_approved_payment!
+        return true if @purchase.payments.approved.exists?
+
+        return false unless mock_auto_approve_enabled?
+
+        mock_payment =
+          @purchase.payments
+                   .where(provider: "mock_provider")
+                   .order(updated_at: :desc)
+                   .first
+        return false unless mock_payment
+
+        mock_payment.update!(
+          status: :approved,
+          provider_payment_id: mock_payment.provider_payment_id.presence || "mock-#{SecureRandom.uuid}",
+          raw_payload: (mock_payment.raw_payload || {}).merge(
+            "mock_auto_approved" => true,
+            "mock_auto_approved_at" => Time.current.iso8601
+          )
+        )
+        Rails.logger.info "Mock payment auto-approved for purchase #{@purchase.id}"
+        true
+      end
+
+      def mock_auto_approve_enabled?
+        default_value = Rails.env.development? || Rails.env.staging?
+        env_value = ENV.fetch("MARKETPLACE_MOCK_AUTO_APPROVE", default_value.to_s)
+        ActiveModel::Type::Boolean.new.cast(env_value)
+      end
 
       def complete_cart!
         cart = Cart.find_by(id: @cart_id, user_id: @purchase.user_id)

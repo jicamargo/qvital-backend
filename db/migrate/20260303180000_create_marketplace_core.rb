@@ -96,7 +96,7 @@ class CreateMarketplaceCore < ActiveRecord::Migration[8.0]
       t.string :provider_preference_id
       t.integer :status, null: false, default: 0
       t.decimal :amount, null: false, precision: 12, scale: 2
-      t.string :currency, null: false, default: 'MXN'
+      t.string :currency, null: false, default: 'COP'
       t.jsonb :raw_payload, null: false, default: {}
 
       t.timestamps

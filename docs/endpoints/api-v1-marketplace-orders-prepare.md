@@ -59,9 +59,15 @@ Y devuelve todo lo necesario para que el frontend inicie el flujo de pago.
   "selected_date": "2026-03-10",
   "shipping_cost": "150.00",
   "payment_method": "credit_card",
-  "purchase_intent_id": null
+  "purchase_intent_id": null,
+  "update_user_profile": true
 }
 ```
+
+> Si `update_user_profile` es `true`, el backend actualiza el perfil del usuario actual con datos del checkout:
+> - `user.phone` <- `shipping_address.phone`
+> - `user.address` <- `shipping_address` completo
+> - `user.name`/`user.nombre` <- `recipient_info.name` solo si actualmente está vacío
 
 ---
 
@@ -159,12 +165,14 @@ Y devuelve todo lo necesario para que el frontend inicie el flujo de pago.
     - `shipping_cost`
     - `payment_method` (opcional)
     - `purchase_intent_id` (opcional, para idempotencia)
+    - `update_user_profile` (opcional, default `false`)
   - Responsabilidades:
     - Calcular `subtotal`, `tax_amount` (por ahora `0`), `total_amount`.
     - Crear o reutilizar `PurchaseIntent` (status `pending`, `external_reference` UUID).
     - Crear o reutilizar `Purchase` y actualizar montos y datos de envío.
     - Recrear los `PurchaseItems` a partir de `cart_items`.
     - Crear o reutilizar una única `Order` asociada al `Purchase`.
+    - Si `update_user_profile = true`, actualizar datos del usuario con la información de envío/recipient.
 
 - **Blueprints**:
   - `PurchaseIntentBlueprint`

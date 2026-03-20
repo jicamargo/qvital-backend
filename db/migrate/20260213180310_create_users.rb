@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.references :level, null: true, foreign_key: true
       t.string :supabase_uid
       t.string :hlf_id
-      t.string :nombre
+      t.string :name
 
       t.timestamps
     end

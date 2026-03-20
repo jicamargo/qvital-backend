@@ -37,7 +37,7 @@ En este MVP:
   },
   "order": {
     "amount": "1850.00",
-    "currency": "MXN",
+    "currency": "COP",
     "provider": "mock_provider"
   }
 }
@@ -59,7 +59,7 @@ En este MVP:
     "provider_preference_id": "88c11dd0-5a9f-4e53-8da1-2a0b9b31b999",
     "status": "pending",
     "amount": "1850.00",
-    "currency": "MXN",
+    "currency": "COP",
     "raw_payload": {
       "payer": {
         "name": "Nombre Cliente",
@@ -67,7 +67,7 @@ En este MVP:
       },
       "order": {
         "amount": "1850.00",
-        "currency": "MXN",
+        "currency": "COP",
         "provider": "mock_provider"
       }
     }
@@ -124,7 +124,7 @@ const response = await fetch(
       payer,
       order: {
         amount: purchase.total_amount,
-        currency: "MXN",
+        currency: "COP",
         provider: "mock_provider",
       },
     }),

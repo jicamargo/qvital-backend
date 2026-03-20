@@ -9,3 +9,13 @@ alwaysApply: true
   [`docs/requirements/auth-requirements.md`](mdc:docs/requirements/auth-requirements.md).
 - Para el sistema de productos y marketplace se sigue la especificación en
   [`docs/requirements/fase2-products-requirements.md`](mdc:docs/requirements/fase2-products-requirements.md).
+
+## Tips para evitar errores de rendimiento
+
+- Evitar N+1 en endpoints: usar `includes/preload` antes de serializar asociaciones.
+- En reconstrucciones de ítems, preferir operaciones por lote (`delete_all` + `insert_all`) sobre `create!` por cada fila.
+- Validar integridad dentro de la misma transacción de negocio y hacer `raise` cuando haya inconsistencia para asegurar rollback.
+- Evitar consultas duplicadas de entidades ya cargadas dentro de una misma operación.
+- Para autenticación con Supabase, cachear JWKS con TTL y evitar llamadas de red innecesarias en cada request.
+- No actualizar metadata externa (ej. Supabase `app_metadata`) en cada petición: hacerlo solo cuando cambie el estado relevante (como `role`) o en creación inicial.
+- Cuando se agreguen nuevos endpoints críticos, medir siempre: tiempo total, `ActiveRecord` time, cantidad de queries y presencia de N+1 en logs antes de cerrar la tarea.

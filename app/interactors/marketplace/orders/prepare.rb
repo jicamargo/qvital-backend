@@ -11,7 +11,7 @@ module Marketplace
 
       MINIMUM_AMOUNT = BigDecimal("0")
 
-      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil)
+      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false)
         new(
           user:,
           cart_items:,
@@ -20,11 +20,12 @@ module Marketplace
           selected_date:,
           shipping_cost:,
           payment_method:,
-          purchase_intent_id:
+          purchase_intent_id:,
+          update_user_profile:
         ).call
       end
 
-      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:)
+      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:)
         @user = user
         @cart_items = cart_items || []
         @shipping_address = shipping_address || {}
@@ -33,11 +34,13 @@ module Marketplace
         @shipping_cost = BigDecimal(shipping_cost.to_s)
         @payment_method = payment_method
         @purchase_intent_id = purchase_intent_id
+        @update_user_profile = ActiveModel::Type::Boolean.new.cast(update_user_profile)
       end
 
       def call
         return Result.new(error: "User is required") unless @user
         return Result.new(error: "Cart items are required") if @cart_items.empty?
+        validate_cart_products!
 
         subtotal = calculate_subtotal
         return Result.new(error: "Total amount must be greater than minimum") if subtotal < MINIMUM_AMOUNT
@@ -51,9 +54,12 @@ module Marketplace
           purchase_intent = find_or_initialize_purchase_intent(total_amount)
           purchase = find_or_initialize_purchase(purchase_intent, total_amount, subtotal, tax_amount)
 
-          rebuild_purchase_items!(purchase)
+          purchase_item_rows = rebuild_purchase_items!(purchase)
 
           order = find_or_initialize_order(purchase, total_amount)
+          rebuild_order_items!(order, purchase_item_rows)
+          validate_order_items_subtotal!(purchase_item_rows, purchase)
+          update_user_profile_from_checkout! if @update_user_profile
 
           result =
             Result.new(
@@ -64,6 +70,8 @@ module Marketplace
         end
 
         result
+      rescue ActiveRecord::RecordNotFound => e
+        Result.new(error: e.message)
       rescue StandardError => e
         Rails.logger.error "Error preparing order: #{e.message}"
         Result.new(error: "Unexpected error preparing order")
@@ -117,26 +125,42 @@ module Marketplace
         purchase
       end
 
-      def rebuild_purchase_items!(purchase)
-        purchase.purchase_items.destroy_all
+      def validate_cart_products!
+        product_ids = @cart_items.map { |item| item[:product_id].to_i }.uniq
+        existing_ids = Product.where(id: product_ids).pluck(:id)
+        missing_ids = product_ids - existing_ids
+        return if missing_ids.empty?
 
-        @cart_items.each do |item|
+        raise ActiveRecord::RecordNotFound, "Products not found: #{missing_ids.join(', ')}"
+      end
+
+      def rebuild_purchase_items!(purchase)
+        purchase.purchase_items.delete_all
+        timestamp = Time.current
+
+        rows = @cart_items.map do |item|
           quantity = item[:quantity].to_i
           price = BigDecimal(item[:price].to_s)
           line_subtotal = quantity * price
           line_tax = BigDecimal("0")
           line_total = line_subtotal + line_tax
 
-          purchase.purchase_items.create!(
+          {
+            purchase_id: purchase.id,
             product_id: item[:product_id],
             quantity:,
             unit_price: price,
             line_subtotal:,
             line_tax:,
             line_total:,
-            metadata: item[:metadata] || {}
-          )
+            metadata: item[:metadata] || {},
+            created_at: timestamp,
+            updated_at: timestamp
+          }
         end
+
+        PurchaseItem.insert_all!(rows) if rows.any?
+        rows
       end
 
       def find_or_initialize_order(purchase, total_amount)
@@ -149,6 +173,56 @@ module Marketplace
 
         order.save!
         order
+      end
+
+      def rebuild_order_items!(order, purchase_item_rows)
+        order.order_items.delete_all
+
+        rows = purchase_item_rows.map do |item|
+          {
+            order_id: order.id,
+            product_id: item[:product_id],
+            quantity: item[:quantity],
+            price: item[:unit_price],
+            metadata: item[:metadata] || {},
+            created_at: item[:created_at],
+            updated_at: item[:updated_at]
+          }
+        end
+
+        OrderItem.insert_all!(rows) if rows.any?
+      end
+
+      def validate_order_items_subtotal!(purchase_item_rows, purchase)
+        order_items_subtotal =
+          purchase_item_rows.sum do |item|
+            BigDecimal(item[:line_subtotal].to_s)
+          end
+
+        expected_subtotal = BigDecimal(purchase.subtotal_amount.to_s)
+        return if order_items_subtotal == expected_subtotal
+
+        raise "Order items subtotal mismatch for purchase #{purchase.id}"
+      end
+
+      def update_user_profile_from_checkout!
+        user_updates = {}
+        shipping = @shipping_address.respond_to?(:to_h) ? @shipping_address.to_h : {}
+        recipient_name = @recipient_info[:name].to_s.strip
+        shipping_phone = shipping["phone"].presence || shipping[:phone].presence
+
+        user_updates[:phone] = shipping_phone if @user.has_attribute?(:phone) && shipping_phone.present?
+        user_updates[:address] = shipping if @user.has_attribute?(:address) && shipping.present?
+
+        if @user.has_attribute?(:name) && @user.name.to_s.strip.blank? && recipient_name.present?
+          user_updates[:name] = recipient_name
+        elsif @user.has_attribute?(:nombre) && @user.nombre.to_s.strip.blank? && recipient_name.present?
+          user_updates[:nombre] = recipient_name
+        end
+
+        return if user_updates.empty?
+
+        @user.update!(user_updates)
       end
 
       def generate_purchase_number

@@ -64,7 +64,7 @@ Por ahora **no** hay filtros obligatorios. Más adelante se pueden agregar:
         "name": "Proteínas"
       },
       "price": 850.0,
-      "currency": "MXN",
+      "currency": "COP",
       "level_id": 3
     }
   ]

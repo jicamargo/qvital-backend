@@ -4,16 +4,19 @@ module Api
       class OrdersController < BaseController
         # POST /api/v1/marketplace/orders/prepare
         def prepare
+          permitted_params = prepare_params
+
           result =
-            Marketplace::Orders::Prepare.call(
+            ::Marketplace::Orders::Prepare.call(
               user: current_user,
-              cart_items: prepare_params[:cart_items] || [],
-              shipping_address: prepare_params[:shipping_address] || {},
-              recipient_info: prepare_params[:recipient_info] || {},
-              selected_date: prepare_params[:selected_date],
-              shipping_cost: prepare_params[:shipping_cost],
-              payment_method: prepare_params[:payment_method],
-              purchase_intent_id: prepare_params[:purchase_intent_id]
+              cart_items: permitted_params[:cart_items] || [],
+              shipping_address: permitted_params[:shipping_address] || {},
+              recipient_info: permitted_params[:recipient_info] || {},
+              selected_date: permitted_params[:selected_date],
+              shipping_cost: permitted_params[:shipping_cost],
+              payment_method: permitted_params[:payment_method],
+              purchase_intent_id: permitted_params[:purchase_intent_id],
+              update_user_profile: permitted_params[:update_user_profile]
             )
 
           if result.error
@@ -29,7 +32,7 @@ module Api
         # POST /api/v1/marketplace/orders/complete
         def complete
           result =
-            Marketplace::Orders::Complete.call(
+            ::Marketplace::Orders::Complete.call(
               purchase_id: complete_params[:purchase_id],
               order_ids: complete_params[:order_ids],
               cart_id: complete_params[:cart_id],
@@ -37,9 +40,18 @@ module Api
             )
 
           if result.success?
+            preloaded_purchase =
+              Purchase
+                .includes(purchase_items: { product: :category })
+                .find(result.purchase.id)
+            preloaded_orders =
+              Order
+                .includes(order_items: { product: :category })
+                .where(id: result.orders.map(&:id))
+
             render json: {
-              purchase: JSON.parse(PurchaseBlueprint.render(result.purchase)),
-              orders: JSON.parse(OrderBlueprint.render(result.orders))
+              purchase: JSON.parse(PurchaseBlueprint.render(preloaded_purchase)),
+              orders: JSON.parse(OrderBlueprint.render(preloaded_orders))
             }, status: :ok
           else
             render json: { error: result.error }, status: :unprocessable_entity
@@ -57,6 +69,8 @@ module Api
             :shipping_cost,
             :payment_method,
             :purchase_intent_id,
+            :update_user_profile,
+            order: {},
             shipping_address: {},
             recipient_info: {},
             cart_items: %i[product_id quantity price] + [metadata: {}]
@@ -64,10 +78,19 @@ module Api
         end
 
         def complete_params
-          params.permit(:purchase_id, :cart_id, order_ids: [])
+          params.permit(:purchase_id, :cart_id, order_ids: [], order: {})
         end
 
         def serialize_prepare_result(result)
+          preloaded_purchase =
+            Purchase
+              .includes(purchase_items: { product: :category })
+              .find(result.purchase.id)
+          preloaded_order =
+            Order
+              .includes(order_items: { product: :category })
+              .find(result.order.id)
+
           {
             purchase_intent:
               JSON.parse(
@@ -75,11 +98,11 @@ module Api
               ),
             purchase:
               JSON.parse(
-                PurchaseBlueprint.render(result.purchase)
+                PurchaseBlueprint.render(preloaded_purchase)
               ),
             orders:
               JSON.parse(
-                OrderBlueprint.render([result.order])
+                OrderBlueprint.render([preloaded_order])
               ),
             external_reference: result.purchase_intent.external_reference
           }

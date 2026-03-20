@@ -91,12 +91,12 @@ module Auth
       
       JSON.parse(response.body)
     rescue SocketError => e
-      @error = "DNS resolution failed for #{url&.host || 'Supabase URL'}. Check your network connection and SUPABASE_URL: #{e.message}"
-      Rails.logger.error "JWKS DNS error: #{@error}"
+      @error = "No se pudo validar tu sesión por un problema de red. Verifica tu conexión a internet e inténtalo de nuevo."
+      Rails.logger.error "JWKS DNS error: #{e.class.name} - #{e.message}"
       nil
     rescue Net::OpenTimeout, Net::ReadTimeout => e
-      @error = "Connection timeout while fetching JWKS: #{e.message}"
-      Rails.logger.error "JWKS timeout: #{@error}"
+      @error = "No se pudo validar tu sesión. Verifica tu conexión a internet e inténtalo de nuevo."
+      Rails.logger.error "JWKS timeout: #{e.class.name} - #{e.message}"
       nil
     rescue StandardError => e
       @error = "Failed to fetch JWKS: #{e.class.name} - #{e.message}"
@@ -112,6 +112,7 @@ module Auth
       return failure('Missing sub or email in token') unless supabase_uid && email
 
       @user = User.find_or_initialize_by(supabase_uid: supabase_uid)
+      new_user = @user.new_record?
       @user.email = email
 
       if @user.new_record?
@@ -122,9 +123,9 @@ module Auth
 
       @user.save!
 
-      # Actualizar metadata en Supabase con el role del usuario
-      # Esto permite que supabase.auth.getUser() incluya el role en app_metadata
-      update_supabase_metadata
+      # Evita llamadas de red en cada request: solo sincroniza metadata
+      # al crear usuario o si cambió el rol.
+      update_supabase_metadata if new_user || @user.saved_change_to_role?
     rescue ActiveRecord::RecordInvalid => e
       @error = "User validation failed: #{e.message}"
       @user = nil

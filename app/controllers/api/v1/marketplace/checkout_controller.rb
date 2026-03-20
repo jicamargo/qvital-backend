@@ -6,11 +6,13 @@ module Api
 
         # POST /api/v1/marketplace/checkout/prepare
         def prepare
+          permitted_params = prepare_params
+
           result =
-            Marketplace::Checkout::Prepare.call(
-              external_reference: prepare_params[:external_reference],
-              payer: prepare_params[:payer] || {},
-              order_info: prepare_params[:order] || {}
+            ::Marketplace::Checkout::Prepare.call(
+              external_reference: permitted_params[:external_reference],
+              payer: permitted_params[:payer] || {},
+              order_info: permitted_params[:order] || {}
             )
 
           if result.error
@@ -29,13 +31,15 @@ module Api
 
         # POST /api/v1/marketplace/checkout/webhook
         def webhook
+          permitted_params = webhook_params
+
           result =
-            Marketplace::Checkout::Webhook.call(
-              external_reference: webhook_params[:external_reference],
-              provider: webhook_params[:provider],
-              status: webhook_params[:status],
-              provider_payment_id: webhook_params[:provider_payment_id],
-              amount: webhook_params[:amount],
+            ::Marketplace::Checkout::Webhook.call(
+              external_reference: permitted_params[:external_reference],
+              provider: permitted_params[:provider],
+              status: permitted_params[:status],
+              provider_payment_id: permitted_params[:provider_payment_id],
+              amount: permitted_params[:amount],
               raw_payload: params.to_unsafe_h
             )
 
@@ -52,7 +56,14 @@ module Api
         private
 
         def prepare_params
-          params.permit(
+          source_params =
+            if params[:checkout].is_a?(ActionController::Parameters)
+              params[:checkout]
+            else
+              params
+            end
+
+          source_params.permit(
             :external_reference,
             payer: %i[name email phone document],
             order: %i[amount currency provider]

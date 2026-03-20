@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_03_180000) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -106,7 +106,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_03_180000) do
     t.string "provider_preference_id"
     t.integer "status", default: 0, null: false
     t.decimal "amount", precision: 12, scale: 2, null: false
-    t.string "currency", default: "MXN", null: false
+    t.string "currency", default: "'COP'::character varying", null: false
     t.jsonb "raw_payload", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -198,9 +198,11 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_03_180000) do
     t.bigint "level_id"
     t.string "supabase_uid"
     t.string "hlf_id"
-    t.string "nombre"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
+    t.jsonb "address", default: {}, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hlf_id"], name: "index_users_on_hlf_id", unique: true
     t.index ["level_id"], name: "index_users_on_level_id"

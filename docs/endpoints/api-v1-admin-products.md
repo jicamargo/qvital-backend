@@ -70,7 +70,7 @@ Content-Type: application/json
     },
     "price": null,
     "level_id": null,
-    "currency": "MXN",
+    "currency": "COP",
     "active": true,
     "created_at": "2026-02-13T15:00:00Z",
     "updated_at": "2026-02-13T15:05:00Z"
@@ -126,7 +126,7 @@ Content-Type: application/json
   },
   "price": null,
   "level_id": null,
-  "currency": "MXN",
+  "currency": "COP",
   "active": true,
   "created_at": "2026-02-13T15:00:00Z",
   "updated_at": "2026-02-13T15:05:00Z"
@@ -200,7 +200,7 @@ Content-Type: application/json
   },
   "price": null,
   "level_id": null,
-  "currency": "MXN",
+  "currency": "COP",
   "active": true,
   "created_at": "2026-02-13T15:00:00Z",
   "updated_at": "2026-02-13T15:00:00Z"
@@ -279,7 +279,7 @@ Content-Type: application/json
   },
   "price": null,
   "level_id": null,
-  "currency": "MXN",
+  "currency": "COP",
   "active": true,
   "created_at": "2026-02-13T15:00:00Z",
   "updated_at": "2026-02-13T16:00:00Z"
