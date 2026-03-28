@@ -21,11 +21,13 @@ Rails.application.routes.draw do
         # Endpoints de ítems de carrito usando la ruta /cart/items
         resources :cart_items, path: "cart/items", only: [:create, :update, :destroy]
 
+        get "orders", to: "orders#index"
         post "orders/prepare", to: "orders#prepare"
         post "orders/complete", to: "orders#complete"
 
         post "checkout/prepare", to: "checkout#prepare"
         post "checkout/webhook", to: "checkout#webhook"
+        get "checkout/status", to: "checkout#status"
       end
 
       namespace :admin do

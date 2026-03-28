@@ -2,6 +2,33 @@ module Api
   module V1
     module Marketplace
       class OrdersController < BaseController
+        # GET /api/v1/marketplace/orders
+        def index
+          result =
+            ::Marketplace::Orders::List.call(
+              user: current_user,
+              status: index_params[:status],
+              page: index_params[:page] || 1,
+              per_page: index_params[:per_page] || 20
+            )
+
+          if result.success?
+            render json: {
+              orders: serialize_orders_list(result.orders),
+              pagination: {
+                page: result.page,
+                per_page: result.per_page,
+                total: result.total
+              }
+            }, status: :ok
+          else
+            render json: { error: result.error }, status: :unprocessable_entity
+          end
+        rescue StandardError => e
+          Rails.logger.error "Marketplace orders index error: #{e.class.name} - #{e.message}"
+          render json: { error: "Internal server error" }, status: :internal_server_error
+        end
+
         # POST /api/v1/marketplace/orders/prepare
         def prepare
           permitted_params = prepare_params
@@ -63,6 +90,10 @@ module Api
 
         private
 
+        def index_params
+          params.permit(:status, :page, :per_page)
+        end
+
         def prepare_params
           params.permit(
             :selected_date,
@@ -106,6 +137,31 @@ module Api
               ),
             external_reference: result.purchase_intent.external_reference
           }
+        end
+
+        def serialize_orders_list(orders)
+          orders.map do |order|
+            latest_payment = order.purchase.payments.max_by(&:updated_at)
+
+            order_payload = JSON.parse(OrderBlueprint.render(order))
+            order_payload.merge(
+              "purchase" => {
+                "id" => order.purchase.id,
+                "purchase_number" => order.purchase.purchase_number,
+                "status" => order.purchase.status,
+                "total_amount" => order.purchase.total_amount,
+                "external_reference" => order.purchase.purchase_intent&.external_reference
+              },
+              "latest_payment" => {
+                "provider" => latest_payment&.provider,
+                "status" => latest_payment&.status,
+                "provider_payment_id" => latest_payment&.provider_payment_id,
+                "amount" => latest_payment&.amount,
+                "currency" => latest_payment&.currency,
+                "updated_at" => latest_payment&.updated_at
+              }
+            )
+          end
         end
       end
     end

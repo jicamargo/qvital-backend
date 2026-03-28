@@ -12,7 +12,10 @@ module Api
             ::Marketplace::Checkout::Prepare.call(
               external_reference: permitted_params[:external_reference],
               payer: permitted_params[:payer] || {},
-              order_info: permitted_params[:order] || {}
+              order_info: permitted_params[:order] || {},
+              shipping_address: permitted_params[:shipping_address] || {},
+              recipient_info: permitted_params[:recipient_info] || {},
+              expiration_time: permitted_params[:expiration_time]
             )
 
           if result.error
@@ -20,8 +23,8 @@ module Api
           else
             render json: {
               payment: JSON.parse(PaymentBlueprint.render(result.payment)),
-              preference_id: result.preference_id,
-              init_point: result.init_point
+              checkout_url: result.checkout_url,
+              fields: result.fields
             }, status: :ok
           end
         rescue StandardError => e
@@ -31,16 +34,10 @@ module Api
 
         # POST /api/v1/marketplace/checkout/webhook
         def webhook
-          permitted_params = webhook_params
-
           result =
             ::Marketplace::Checkout::Webhook.call(
-              external_reference: permitted_params[:external_reference],
-              provider: permitted_params[:provider],
-              status: permitted_params[:status],
-              provider_payment_id: permitted_params[:provider_payment_id],
-              amount: permitted_params[:amount],
-              raw_payload: params.to_unsafe_h
+              payload: params.to_unsafe_h,
+              header_checksum: request.headers["X-Event-Checksum"]
             )
 
           if result.success?
@@ -50,6 +47,32 @@ module Api
           end
         rescue StandardError => e
           Rails.logger.error "Marketplace checkout webhook error: #{e.class.name} - #{e.message}"
+          render json: { error: "Internal server error" }, status: :internal_server_error
+        end
+
+        # GET /api/v1/marketplace/checkout/status
+        def status
+          result =
+            ::Marketplace::Checkout::Status.call(
+              transaction_id: status_params[:transaction_id],
+              external_reference: status_params[:external_reference]
+            )
+
+          if result.error.present?
+            render json: { error: result.error }, status: :unprocessable_entity
+            return
+          end
+
+          render json: {
+            status: result.status,
+            provider_status: result.provider_status,
+            transaction_id: result.transaction_id,
+            external_reference: result.external_reference,
+            amount: result.amount,
+            currency: result.currency
+          }, status: :ok
+        rescue StandardError => e
+          Rails.logger.error "Marketplace checkout status error: #{e.class.name} - #{e.message}"
           render json: { error: "Internal server error" }, status: :internal_server_error
         end
 
@@ -65,19 +88,16 @@ module Api
 
           source_params.permit(
             :external_reference,
+            :expiration_time,
             payer: %i[name email phone document],
-            order: %i[amount currency provider]
+            order: %i[amount currency provider],
+            shipping_address: {},
+            recipient_info: {}
           )
         end
 
-        def webhook_params
-          params.permit(
-            :external_reference,
-            :provider,
-            :status,
-            :provider_payment_id,
-            :amount
-          )
+        def status_params
+          params.permit(:transaction_id, :external_reference)
         end
       end
     end

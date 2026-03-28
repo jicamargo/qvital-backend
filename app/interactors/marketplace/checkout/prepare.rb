@@ -3,20 +3,30 @@ module Marketplace
     class Prepare
       Result = Struct.new(
         :payment,
-        :preference_id,
-        :init_point,
+        :checkout_url,
+        :fields,
         :error,
         keyword_init: true
       )
 
-      def self.call(external_reference:, payer:, order_info:)
-        new(external_reference:, payer:, order_info:).call
+      def self.call(external_reference:, payer:, order_info:, shipping_address: {}, recipient_info: {}, expiration_time: nil)
+        new(
+          external_reference:,
+          payer:,
+          order_info:,
+          shipping_address:,
+          recipient_info:,
+          expiration_time:
+        ).call
       end
 
-      def initialize(external_reference:, payer:, order_info:)
+      def initialize(external_reference:, payer:, order_info:, shipping_address:, recipient_info:, expiration_time:)
         @external_reference = external_reference
         @payer = payer || {}
         @order_info = order_info || {}
+        @shipping_address = shipping_address || {}
+        @recipient_info = recipient_info || {}
+        @expiration_time = expiration_time
       end
 
       def call
@@ -27,12 +37,17 @@ module Marketplace
           purchase = purchase_intent.purchase
           return Result.new(error: "Purchase not found for intent") unless purchase
 
-          amount = purchase.total_amount
-          currency = @order_info[:currency] || "COP"
-          provider = @order_info[:provider] || "mock_provider"
-
-          preference_id = SecureRandom.uuid
-          init_point = "https://payments.qvital.local/checkout/#{preference_id}"
+          # Forzar provider interno para evitar duplicados si FE envía un valor incorrecto.
+          provider = "wompi"
+          wompi_result =
+            ::Wompi::CheckoutPrepare.call(
+              purchase:,
+              payer: @payer,
+              shipping_address: @shipping_address,
+              recipient_info: @recipient_info,
+              expiration_time: @expiration_time
+            )
+          return Result.new(error: wompi_result.error) if wompi_result.error.present?
 
           payment =
             Payment.where(
@@ -41,30 +56,25 @@ module Marketplace
               provider:
             ).first_or_initialize
 
-          payment.amount = amount
-          payment.currency = currency
-          if auto_approve_mock_payment?(provider)
-            payment.status = :approved
-            payment.provider_payment_id ||= "mock-#{SecureRandom.uuid}"
-          elsif payment.status.blank?
-            payment.status = :pending
-          end
-          payment.provider_preference_id = preference_id
+          payment.amount = purchase.total_amount
+          payment.currency = "COP"
+          payment.status = :pending
+          payment.provider_preference_id = wompi_result.reference
           payment.raw_payload = {
             payer: @payer,
-            order: @order_info
+            order: @order_info.merge(provider: provider),
+            wompi_checkout: {
+              checkout_url: wompi_result.checkout_url,
+              fields: wompi_result.fields
+            }
           }
-          if auto_approve_mock_payment?(provider)
-            payment.raw_payload["mock_auto_approved"] = true
-            payment.raw_payload["mock_auto_approved_at"] = Time.current.iso8601
-          end
 
           payment.save!
 
           Result.new(
             payment:,
-            preference_id:,
-            init_point:
+            checkout_url: wompi_result.checkout_url,
+            fields: wompi_result.fields
           )
         end
       rescue ActiveRecord::RecordNotFound
@@ -72,16 +82,6 @@ module Marketplace
       rescue StandardError => e
         Rails.logger.error "Error preparing checkout with provider: #{e.message}"
         Result.new(error: "Unexpected error preparing checkout with provider")
-      end
-
-      private
-
-      def auto_approve_mock_payment?(provider)
-        return false unless provider.to_s == "mock_provider"
-
-        default_value = Rails.env.development? || Rails.env.staging?
-        env_value = ENV.fetch("MARKETPLACE_MOCK_AUTO_APPROVE", default_value.to_s)
-        ActiveModel::Type::Boolean.new.cast(env_value)
       end
     end
   end
