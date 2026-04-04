@@ -43,6 +43,8 @@ module Marketplace
         tx = ::Wompi::Client.fetch_transaction(transaction_id: @transaction_id)
         return Result.new(error: "Payment not found") unless tx
 
+        Rails.logger.info "Wompi transaction: #{tx.inspect}"
+        
         Result.new(
           status: normalize_status(tx["status"]),
           provider_status: tx["status"],
