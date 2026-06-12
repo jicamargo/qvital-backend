@@ -173,6 +173,24 @@ PATCH  /admin/orders/:id
 GET    /up
 ```
 
+## Shared Contract — Frontend Sync
+
+**Every time you create or modify an API endpoint, you MUST also:**
+
+1. Update or create the corresponding endpoint doc in the frontend repo:
+   ```
+   /mnt/d/QVITAL/qvital-frontend/docs/endpoints/
+   ```
+   One markdown file per resource (e.g. `orders.md`, `checkout.md`). Include: method, path, auth required, request params, response shape, and error codes.
+
+2. Update the schema snapshot:
+   ```
+   /mnt/d/QVITAL/qvital-frontend/docs/schema.rb
+   ```
+   Copy the current `db/schema.rb` contents verbatim so the frontend always has a reference of the live DB structure.
+
+This is a hard rule — a backend change without the corresponding frontend doc update is an incomplete task.
+
 ## Rules
 
 All endpoints must:
@@ -618,6 +636,7 @@ Feature branches: `feature/<feature-name>`
 
 When generating backend code:
 
+* **After any endpoint change or creation: update `/mnt/d/QVITAL/qvital-frontend/docs/endpoints/<resource>.md` and copy `db/schema.rb` to `/mnt/d/QVITAL/qvital-frontend/docs/schema.rb`.** This is non-negotiable.
 * Follow existing architecture — thin controllers, interactors for logic.
 * Use `blueprinter` blueprints for serialization (not jbuilder or as_json).
 * Use the Result pattern in interactors (success?, error, data attributes).
