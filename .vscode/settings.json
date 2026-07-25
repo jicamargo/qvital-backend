@@ -1,0 +1,32 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#1B5E20",
+    "titleBar.activeForeground": "#E8F5E9",
+    "titleBar.inactiveBackground": "#2E7D32",
+    "titleBar.inactiveForeground": "#C8E6C9",
+    "titleBar.border": "#145A1F",
+    "activityBar.background": "#1B5E20",
+    "activityBar.foreground": "#E8F5E9",
+    "activityBar.inactiveForeground": "#A5D6A7",
+    "activityBarBadge.background": "#81C784",
+    "activityBarBadge.foreground": "#1B5E20",
+    "statusBar.background": "#2E7D32",
+    "statusBar.foreground": "#E8F5E9",
+    "statusBar.noFolderBackground": "#1B5E20",
+    "statusBarItem.remoteBackground": "#145A1F",
+    "tab.activeBackground": "#1B5E20",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.activeBorderTop": "#A5D6A7",
+    "tab.unfocusedActiveBackground": "#1B5E20",
+    "tab.unfocusedActiveForeground": "#E8F5E9",
+    "editorGroup.border": "#43A047",
+    "editorGroupHeader.border": "#43A047",
+    "editorGroupHeader.tabsBorder": "#43A047",
+    "sideBar.border": "#43A047",
+    "panel.border": "#43A047",
+    "activityBar.border": "#43A047",
+    "focusBorder": "#66BB6A",
+    "contrastActiveBorder": "#66BB6A",
+    "sash.hoverBorder": "#81C784"
+  }
+}
