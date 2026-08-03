@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -24,9 +24,39 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
   enable_extension "extensions.pg_stat_statements"
   enable_extension "extensions.pgcrypto"
   enable_extension "extensions.uuid-ossp"
-  enable_extension "graphql.pg_graphql"
   enable_extension "pg_catalog.plpgsql"
   enable_extension "vault.supabase_vault"
+
+  create_table "body_emotion_insights", force: :cascade do |t|
+    t.bigint "body_region_id", null: false
+    t.text "symptom_pattern", null: false
+    t.string "emotional_theme", null: false
+    t.text "narrative_explanation", null: false
+    t.jsonb "reflective_questions", default: [], null: false
+    t.text "integration_guidance", null: false
+    t.integer "severity_flag", default: 0, null: false
+    t.jsonb "tags", default: [], null: false
+    t.integer "status", default: 0, null: false
+    t.text "content_curation_notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body_region_id", "status"], name: "index_body_emotion_insights_on_body_region_id_and_status"
+    t.index ["body_region_id"], name: "index_body_emotion_insights_on_body_region_id"
+  end
+
+  create_table "body_regions", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "parent_id"
+    t.integer "body_system", null: false
+    t.integer "display_order", default: 0, null: false
+    t.string "illustration_ref"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body_system", "display_order"], name: "index_body_regions_on_body_system_and_display_order"
+    t.index ["name"], name: "index_body_regions_on_name", unique: true
+    t.index ["parent_id"], name: "index_body_regions_on_parent_id"
+  end
 
   create_table "cart_items", force: :cascade do |t|
     t.bigint "cart_id", null: false
@@ -57,6 +87,36 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
     t.integer "position", default: 0, null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
     t.index ["position"], name: "index_categories_on_position"
+  end
+
+  create_table "coach_consultation_entries", force: :cascade do |t|
+    t.bigint "coach_consultation_id", null: false
+    t.integer "sequence", null: false
+    t.integer "entry_type", null: false
+    t.bigint "body_region_id"
+    t.bigint "body_emotion_insight_id"
+    t.text "user_input"
+    t.jsonb "system_response_payload", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body_emotion_insight_id"], name: "index_coach_consultation_entries_on_body_emotion_insight_id"
+    t.index ["body_region_id"], name: "index_coach_consultation_entries_on_body_region_id"
+    t.index ["coach_consultation_id", "sequence"], name: "idx_on_coach_consultation_id_sequence_72b23cb2fc", unique: true
+    t.index ["coach_consultation_id"], name: "index_coach_consultation_entries_on_coach_consultation_id"
+  end
+
+  create_table "coach_consultations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "virtual_coach_profile_id", null: false
+    t.datetime "started_at", null: false
+    t.datetime "ended_at"
+    t.integer "status", default: 0, null: false
+    t.text "session_summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "status"], name: "index_coach_consultations_on_user_id_and_status"
+    t.index ["user_id"], name: "index_coach_consultations_on_user_id"
+    t.index ["virtual_coach_profile_id"], name: "index_coach_consultations_on_virtual_coach_profile_id"
   end
 
   create_table "health_checks", force: :cascade do |t|
@@ -203,6 +263,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
     t.datetime "updated_at", null: false
     t.string "phone"
     t.jsonb "address", default: {}, null: false
+    t.string "last_name"
+    t.boolean "premium_active", default: false, null: false
+    t.datetime "premium_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hlf_id"], name: "index_users_on_hlf_id", unique: true
     t.index ["level_id"], name: "index_users_on_level_id"
@@ -210,9 +273,28 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_05_130000) do
     t.index ["supabase_uid"], name: "index_users_on_supabase_uid", unique: true
   end
 
+  create_table "virtual_coach_profiles", force: :cascade do |t|
+    t.string "display_name", null: false
+    t.integer "gender", default: 0, null: false
+    t.string "specialty_description", default: "Conexión Cuerpo-Emoción", null: false
+    t.jsonb "tone_profile", default: {}, null: false
+    t.string "avatar_url"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_virtual_coach_profiles_on_active"
+  end
+
+  add_foreign_key "body_emotion_insights", "body_regions"
+  add_foreign_key "body_regions", "body_regions", column: "parent_id"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "coach_consultation_entries", "body_emotion_insights"
+  add_foreign_key "coach_consultation_entries", "body_regions"
+  add_foreign_key "coach_consultation_entries", "coach_consultations"
+  add_foreign_key "coach_consultations", "users"
+  add_foreign_key "coach_consultations", "virtual_coach_profiles"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "purchases"

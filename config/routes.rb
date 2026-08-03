@@ -13,6 +13,19 @@ Rails.application.routes.draw do
       resources :products, only: [:index]
       resources :categories, only: [:index]
 
+      namespace :coach_virtual do
+        get "profile", to: "profile#show"
+        get "body_regions", to: "body_regions#index"
+
+        resources :consultations, only: [:index, :show, :create] do
+          member do
+            post :close
+            post :zone_selections
+            post :reflection_answers
+          end
+        end
+      end
+
       namespace :marketplace do
         resource :cart, only: [:show], controller: "carts" do
           post :clear, to: "carts_clear#create"
@@ -31,6 +44,14 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        namespace :coach_virtual do
+          get "profile", to: "profile#show"
+          patch "profile", to: "profile#update"
+          resources :body_regions
+          resources :insights
+        end
+
+        resources :users, only: [:index]
         resources :products
         resources :orders, only: %i[index show update]
       end
