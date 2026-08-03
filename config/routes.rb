@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "auth/sync", to: "auth#sync"
       post "auth/update_metadata", to: "auth#update_metadata" # Endpoint de debug para forzar actualización
+      patch "users/me", to: "users#update_me"
       resources :products, only: [:index]
       resources :categories, only: [:index]
 
@@ -53,7 +54,12 @@ Rails.application.routes.draw do
 
         resources :users, only: [:index]
         resources :products
-        resources :orders, only: %i[index show update]
+        resources :orders, only: %i[index show update] do
+          member do
+            post :check_wompi_status
+            post :reconcile_wompi_payment
+          end
+        end
       end
     end
   end

@@ -1,7 +1,7 @@
 class UserBlueprint < Blueprinter::Base
   identifier :id
 
-  fields :email, :supabase_uid, :role, :name, :hlf_id
+  fields :email, :supabase_uid, :role, :name, :last_name, :hlf_id, :phone, :address
 
   field :level_id
 

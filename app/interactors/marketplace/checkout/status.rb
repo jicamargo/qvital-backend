@@ -44,20 +44,50 @@ module Marketplace
         return Result.new(error: "Payment not found") unless tx
 
         Rails.logger.info "Wompi transaction: #{tx.inspect}"
-        
+
+        normalized_status = normalize_status(tx["status"])
+        reconciled_payment = reconcile_if_approved!(tx, normalized_status)
+
         Result.new(
-          status: normalize_status(tx["status"]),
+          status: normalized_status,
           provider_status: tx["status"],
           transaction_id: tx["id"],
           external_reference: tx["reference"],
           amount: BigDecimal(tx["amount_in_cents"].to_s) / 100,
-          currency: tx["currency"]
+          currency: tx["currency"],
+          payment: reconciled_payment
         )
       rescue StandardError => e
         Result.new(error: "Unexpected error fetching payment status: #{e.message}")
       end
 
       private
+
+      # El estado "approved" normalmente lo procesa el webhook de Wompi (upsert de Payment
+      # + completar orden/carrito). Si el webhook aún no llegó (o nunca llega), este polling
+      # de status hace lo mismo al detectar APPROVED, para no depender solo del webhook.
+      def reconcile_if_approved!(tx, normalized_status)
+        return nil unless normalized_status == "approved"
+
+        result =
+          ReconcileTransaction.call(
+            external_reference: tx["reference"],
+            provider_payment_id: tx["id"],
+            status: tx["status"],
+            amount_in_cents: tx["amount_in_cents"],
+            currency: tx["currency"] || "COP"
+          )
+
+        unless result.success?
+          Rails.logger.warn "Failed to reconcile approved transaction #{tx['id']}: #{result.error}"
+          return nil
+        end
+
+        result.payment
+      rescue StandardError => e
+        Rails.logger.error "Error reconciling approved transaction from status poll: #{e.class.name} - #{e.message}"
+        nil
+      end
 
       def find_local_payment
         if @transaction_id.present?

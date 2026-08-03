@@ -67,6 +67,40 @@ module Api
           render json: { error: "Internal server error" }, status: :internal_server_error
         end
 
+        # POST /api/v1/admin/orders/:id/check_wompi_status
+        def check_wompi_status
+          result = ::Admin::Orders::CheckWompiStatus.call(order_id: params[:id])
+
+          if result.error.present?
+            render json: { error: result.error }, status: :unprocessable_entity
+          else
+            render json: {
+              external_reference: result.external_reference,
+              local_status: result.local_status,
+              wompi_transaction: result.wompi_transaction,
+              mismatch: result.mismatch
+            }, status: :ok
+          end
+        rescue StandardError => e
+          Rails.logger.error "Admin orders check_wompi_status error: #{e.class.name} - #{e.message}"
+          render json: { error: "Internal server error" }, status: :internal_server_error
+        end
+
+        # POST /api/v1/admin/orders/:id/reconcile_wompi_payment
+        def reconcile_wompi_payment
+          result = ::Admin::Orders::ReconcileWompiPayment.call(order_id: params[:id])
+
+          if result.error.present?
+            render json: { error: result.error }, status: :unprocessable_entity
+          else
+            refreshed = ::Admin::Orders::Show.call(id: result.order.id)
+            render json: serialize_admin_order_show(refreshed.order), status: :ok
+          end
+        rescue StandardError => e
+          Rails.logger.error "Admin orders reconcile_wompi_payment error: #{e.class.name} - #{e.message}"
+          render json: { error: "Internal server error" }, status: :internal_server_error
+        end
+
         private
 
         def authorize_admin!

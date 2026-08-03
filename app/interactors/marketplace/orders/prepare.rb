@@ -118,7 +118,7 @@ module Marketplace
         purchase.status ||= :pending
         purchase.purchase_number ||= generate_purchase_number
         purchase.shipping_address = @shipping_address
-        purchase.recipient_name = @recipient_info[:name]
+        purchase.recipient_name = recipient_full_name
         purchase.recipient_phone = @recipient_info[:phone]
 
         purchase.save!
@@ -205,20 +205,25 @@ module Marketplace
         raise "Order items subtotal mismatch for purchase #{purchase.id}"
       end
 
+      def recipient_full_name
+        [@recipient_info[:name], @recipient_info[:last_name]]
+          .map { |part| part.to_s.strip }
+          .reject(&:blank?)
+          .join(" ")
+      end
+
       def update_user_profile_from_checkout!
         user_updates = {}
         shipping = @shipping_address.respond_to?(:to_h) ? @shipping_address.to_h : {}
         recipient_name = @recipient_info[:name].to_s.strip
+        recipient_last_name = @recipient_info[:last_name].to_s.strip
         shipping_phone = shipping["phone"].presence || shipping[:phone].presence
+        address_only = shipping.except("phone", :phone)
 
-        user_updates[:phone] = shipping_phone if @user.has_attribute?(:phone) && shipping_phone.present?
-        user_updates[:address] = shipping if @user.has_attribute?(:address) && shipping.present?
-
-        if @user.has_attribute?(:name) && @user.name.to_s.strip.blank? && recipient_name.present?
-          user_updates[:name] = recipient_name
-        elsif @user.has_attribute?(:nombre) && @user.nombre.to_s.strip.blank? && recipient_name.present?
-          user_updates[:nombre] = recipient_name
-        end
+        user_updates[:phone] = shipping_phone if shipping_phone.present?
+        user_updates[:address] = address_only if address_only.present?
+        user_updates[:name] = recipient_name if recipient_name.present?
+        user_updates[:last_name] = recipient_last_name if recipient_last_name.present?
 
         return if user_updates.empty?
 
