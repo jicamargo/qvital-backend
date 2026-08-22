@@ -60,9 +60,12 @@ Y devuelve todo lo necesario para que el frontend inicie el flujo de pago.
   "shipping_cost": "150.00",
   "payment_method": "credit_card",
   "purchase_intent_id": null,
-  "update_user_profile": true
+  "update_user_profile": true,
+  "medical_disclaimer_accepted": true
 }
 ```
+
+> `medical_disclaimer_accepted` (opcional por ahora, default `false`): si es `true`, se persiste `purchases.medical_disclaimer_accepted_at` (solo la primera vez). **Todavía no es obligatorio** — el frontend aún no envía el checkbox de descargo médico (sub-fase 3.4 frontend, `fase3-personalizacion-objetivos-salud.md` §5.1). Una vez el frontend lo envíe siempre, este campo pasará a ser requerido (422 si falta).
 
 > Si `update_user_profile` es `true`, el backend actualiza el perfil del usuario actual con datos del checkout:
 > - `user.phone` <- `shipping_address.phone`
@@ -166,6 +169,7 @@ Y devuelve todo lo necesario para que el frontend inicie el flujo de pago.
     - `payment_method` (opcional)
     - `purchase_intent_id` (opcional, para idempotencia)
     - `update_user_profile` (opcional, default `false`)
+    - `medical_disclaimer_accepted` (opcional por ahora, default `false`)
   - Responsabilidades:
     - Calcular `subtotal`, `tax_amount` (por ahora `0`), `total_amount`.
     - Crear o reutilizar `PurchaseIntent` (status `pending`, `external_reference` UUID).
@@ -173,6 +177,7 @@ Y devuelve todo lo necesario para que el frontend inicie el flujo de pago.
     - Recrear los `PurchaseItems` a partir de `cart_items`.
     - Crear o reutilizar una única `Order` asociada al `Purchase`.
     - Si `update_user_profile = true`, actualizar datos del usuario con la información de envío/recipient.
+    - Si `medical_disclaimer_accepted = true`, persistir `purchase.medical_disclaimer_accepted_at` (solo la primera vez).
 
 - **Blueprints**:
   - `PurchaseIntentBlueprint`

@@ -41,6 +41,7 @@ module Marketplace
           complete_cart! if @cart_id
         end
 
+        send_confirmation_email
         self
       rescue ActiveRecord::RecordNotFound => e
         failure(e.message)
@@ -92,6 +93,27 @@ module Marketplace
         cart.update!(status: :completed)
       end
 
+      # El pedido ya quedó confirmado en la transacción anterior; un fallo de
+      # email nunca debe revertir ni reportar error en la compra (ver
+      # docs/requirements/fase3-personalizacion-objetivos-salud.md §5.2).
+      def send_confirmation_email
+        if @purchase.user&.email.present?
+          OrderMailer.confirmation(@purchase).deliver_later
+        end
+      rescue StandardError => e
+        Rails.logger.error "Failed to enqueue order confirmation email for purchase #{@purchase.id}: #{e.message}"
+      ensure
+        send_admin_notification_email
+      end
+
+      def send_admin_notification_email
+        return unless ENV["ADMIN_NOTIFICATION_EMAIL"].present?
+
+        OrderMailer.admin_notification(@purchase).deliver_later
+      rescue StandardError => e
+        Rails.logger.error "Failed to enqueue admin order notification for purchase #{@purchase.id}: #{e.message}"
+      end
+
       def failure(message)
         @error = message
         self
@@ -99,4 +121,3 @@ module Marketplace
     end
   end
 end
-

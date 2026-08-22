@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       patch "users/me", to: "users#update_me"
       resources :products, only: [:index]
       resources :categories, only: [:index]
+      resources :health_goals, only: [:index]
 
       namespace :coach_virtual do
         get "profile", to: "profile#show"

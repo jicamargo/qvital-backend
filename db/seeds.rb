@@ -947,3 +947,32 @@ insights_data.each do |attrs|
 end
 
 puts "✅ Fichas Cuerpo-Emoción creadas: #{BodyEmotionInsight.count}"
+
+# Seed de objetivos de salud (Fase 3 — ver docs/requirements/fase3-personalizacion-objetivos-salud.md §2.1)
+# Iconos: nombres de lucide-react, usados directamente por el frontend.
+health_goals_data = [
+  { key: "bajar_peso", name: "Bajar de peso", icon: "TrendingDown", color: "#3d7ea3", position: 1,
+    description: "Productos y recetas pensados para perder peso de forma saludable." },
+  { key: "subir_peso", name: "Subir de peso", icon: "TrendingUp", color: "#6da8cb", position: 2,
+    description: "Productos y recetas para ganar peso de forma saludable." },
+  { key: "mantener_peso", name: "Mantener mi peso", icon: "Scale", color: "#43a047", position: 3,
+    description: "Productos y recetas para mantener tu peso actual." },
+  { key: "nutrirse_bien", name: "Nutrirme bien", icon: "Apple", color: "#cc8079", position: 4,
+    description: "Nutrición balanceada para el día a día." },
+  { key: "mas_energia", name: "Aumentar mi energía", icon: "Zap", color: "#f59e0b", position: 5,
+    description: "Productos pensados para más energía y menos cansancio." },
+  { key: "salud_cardiovascular", name: "Cuidar mi corazón", icon: "Heart", color: "#dc2626", position: 6,
+    description: "Productos orientados a la salud cardiovascular." },
+  { key: "mejorar_digestion", name: "Mejorar mi digestión", icon: "Activity", color: "#9e4c45", position: 7,
+    description: "Productos y recetas para una mejor digestión." },
+  { key: "comprar_por_mi_cuenta", name: "Comprar por mi cuenta", icon: "ShoppingBag", color: "#475569", position: 8,
+    description: "Omite el filtro por objetivo y muestra todo el catálogo." }
+]
+
+health_goals_data.each do |attrs|
+  goal = HealthGoal.find_or_initialize_by(key: attrs[:key])
+  goal.assign_attributes(attrs.except(:key))
+  goal.save!
+end
+
+puts "✅ Objetivos de salud creados: #{HealthGoal.count}"

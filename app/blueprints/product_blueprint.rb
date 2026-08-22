@@ -1,7 +1,7 @@
 class ProductBlueprint < Blueprinter::Base
   identifier :id
 
-  fields :name, :description, :image_url, :pv, :sku
+  fields :name, :description, :image_url, :pv, :sku, :flavor, :disclaimer
 
   field :price do |product, options|
     level_id = options[:level_id]
@@ -19,10 +19,10 @@ class ProductBlueprint < Blueprinter::Base
   end
 
   association :category, blueprint: CategoryBlueprint
+  association :health_goals, blueprint: HealthGoalBlueprint
 
   view :admin do
     include_view :default
     fields :active, :created_at, :updated_at
   end
 end
-
