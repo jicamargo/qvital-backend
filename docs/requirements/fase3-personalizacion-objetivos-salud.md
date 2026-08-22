@@ -148,12 +148,13 @@ Resuelve las ideas #1 y #6 directamente: minimizar clics entre "entro a la app" 
 ### 5.2 Email de confirmación de pedido (idea #10)
 
 **Backend**
-- [X] Crear `OrderMailer < ApplicationMailer` con método `confirmation(order)`:
-  - Destinatario: `order.purchase.user.email`.
-  - `bcc`: `ENV["ADMIN_NOTIFICATION_EMAIL"]` (copia al admin, sin exponerlo al cliente).
-  - Cuerpo: número de compra, fecha, items comprados (nombre, cantidad, precio), subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega.
-- [X] Vista `app/views/order_mailer/confirmation.html.erb` (+ `.text.erb` como fallback).
-- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encola `OrderMailer.confirmation(purchase).deliver_later` (usa `solid_queue`, ya instalado — alineado con "Background Jobs" del `CLAUDE.md`).
+- [X] Crear `OrderMailer < ApplicationMailer` con **dos** métodos (no uno con `bcc`):
+  - `confirmation(purchase)` → al cliente (`purchase.user.email`). Cuerpo: número de compra, items, subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega, descargo médico.
+  - `admin_notification(purchase)` → a `ENV["ADMIN_NOTIFICATION_EMAIL"]` (default `admin@qvital.com` si no está seteada, para que siempre renderice en dev). Contenido propio orientado a operación (nombre/email/teléfono del cliente al frente, mismo resumen de items, sin saludo ni descargo médico).
+  - **Ajuste sobre la spec original**: se descartó el `bcc` — dos emails con contenido y propósito distintos son más útiles que una copia idéntica del correo del cliente, y permiten previsualizarlos/prooarlos por separado (ver `CLAUDE.md` § "Testing Mailers Locally").
+  - Ambos comparten un parcial `app/views/order_mailer/_summary.html.erb` / `.text.erb` (tabla de items + totales + dirección) para no duplicar esa lógica.
+- [X] Vistas `confirmation.html/text.erb` y `admin_notification.html/text.erb`.
+- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encolan ambos correos por separado (`deliver_later`, vía `solid_queue`), cada uno con su propio guard + rescue independiente — si falla el del admin no afecta el del cliente y viceversa.
   - **Ajuste sobre la spec original**: se dispara después del `commit`, no dentro de la transacción — evita acoplar un side-effect externo (aunque sea solo encolar) a una transacción de DB que podría hacer rollback por otra razón.
 - [X] **Decisión pendiente a confirmar con el owner**: proveedor SMTP/API de envío (ej. Resend, Postmark, SMTP de Supabase/otro). Se requiere `ENV` nuevo: `SMTP_*` o `RESEND_API_KEY`, y `ADMIN_NOTIFICATION_EMAIL`. No se debe improvisar un proveedor sin confirmarlo, por la regla de `general-rules.md` de justificar y confirmar decisiones fuera del stack ya definido.
 - [X] Manejar fallos de envío sin romper el flujo de compra (el pedido se confirma igual aunque el email falle; loggear el error).

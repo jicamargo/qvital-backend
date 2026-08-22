@@ -596,6 +596,52 @@ To add a job: inherit from `ApplicationJob`, enqueue with `MyJob.perform_later(.
 
 ---
 
+# Testing Mailers Locally
+
+QVITAL sends two separate emails per completed order (`app/mailers/order_mailer.rb`):
+
+* `OrderMailer#confirmation(purchase)` → to the customer.
+* `OrderMailer#admin_notification(purchase)` → to `ENV["ADMIN_NOTIFICATION_EMAIL"]` (falls back to `admin@qvital.com` if unset, so it always renders even without that env var configured).
+
+Both are triggered from `Marketplace::Orders::Complete` right after a successful checkout, each independently rescued so a mail failure never breaks order completion.
+
+## Option 1 — Rails Mailer Previews (recommended, no real send)
+
+Previews live in `test/mailers/previews/order_mailer_preview.rb`. They render the mailer views in a browser **without delivering anything** — works regardless of whether `RESEND_API_KEY` is configured.
+
+1. Start the server: `bin/rails server` (default port 3001).
+2. Open:
+   * `http://localhost:3001/rails/mailers/order_mailer/confirmation` — customer email.
+   * `http://localhost:3001/rails/mailers/order_mailer/admin_notification` — admin email.
+   * `http://localhost:3001/rails/mailers` — index of all mailer previews.
+3. Toggle between the HTML and plain-text parts from the preview UI.
+
+The preview uses the most recent `Purchase` that has items and a user (`Purchase.joins(:purchase_items).where.not(user_id: nil).last`). If your local/staging DB has no such purchase, the preview will raise — create a test order through the marketplace checkout first, or adjust the preview to build an in-memory `Purchase`/`PurchaseItem` instead of querying the DB.
+
+**Live reload**: editing `app/views/order_mailer/*.erb` or `order_mailer.rb` and refreshing the preview page shows the change immediately — no server restart needed.
+
+## Option 2 — `bin/rails runner` (no browser needed)
+
+Useful for a quick sanity check of `to`/`subject`/body sizes without touching a browser:
+
+```bash
+bin/rails runner "
+p = Purchase.joins(:purchase_items).where.not(user_id: nil).first
+mail = OrderMailer.admin_notification(p)   # or .confirmation(p)
+puts mail.to.inspect
+puts mail.subject
+puts mail.html_part.body.to_s
+"
+```
+
+Calling only `OrderMailer.confirmation(p)` (without `.deliver_now`/`.deliver_later`) renders the message lazily but never sends it — safe to run against production data.
+
+## Option 3 — Actually sending a real email
+
+Only relevant once `RESEND_API_KEY` is configured (see "Environment Variables" above) and a sending domain is verified in Resend. Then `OrderMailer.confirmation(purchase).deliver_now` will really send. Without `RESEND_API_KEY`, ActionMailer falls back to the `:test` delivery method — `deliver_now`/`deliver_later` succeed but nothing leaves the server (captured in `ActionMailer::Base.deliveries` if run inside a Rails console).
+
+---
+
 # AI Features (Future)
 
 Planned future modules:

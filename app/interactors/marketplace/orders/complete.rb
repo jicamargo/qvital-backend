@@ -97,11 +97,21 @@ module Marketplace
       # email nunca debe revertir ni reportar error en la compra (ver
       # docs/requirements/fase3-personalizacion-objetivos-salud.md §5.2).
       def send_confirmation_email
-        return unless @purchase.user&.email.present?
-
-        OrderMailer.confirmation(@purchase).deliver_later
+        if @purchase.user&.email.present?
+          OrderMailer.confirmation(@purchase).deliver_later
+        end
       rescue StandardError => e
         Rails.logger.error "Failed to enqueue order confirmation email for purchase #{@purchase.id}: #{e.message}"
+      ensure
+        send_admin_notification_email
+      end
+
+      def send_admin_notification_email
+        return unless ENV["ADMIN_NOTIFICATION_EMAIL"].present?
+
+        OrderMailer.admin_notification(@purchase).deliver_later
+      rescue StandardError => e
+        Rails.logger.error "Failed to enqueue admin order notification for purchase #{@purchase.id}: #{e.message}"
       end
 
       def failure(message)

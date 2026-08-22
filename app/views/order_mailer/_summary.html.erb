@@ -1,0 +1,43 @@
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+  <thead>
+    <tr>
+      <th style="text-align: left; border-bottom: 1px solid #e5e7eb; padding: 8px 4px;">Producto</th>
+      <th style="text-align: center; border-bottom: 1px solid #e5e7eb; padding: 8px 4px;">Cant.</th>
+      <th style="text-align: right; border-bottom: 1px solid #e5e7eb; padding: 8px 4px;">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td style="padding: 8px 4px; border-bottom: 1px solid #f3f4f6;"><%= item.product.name %></td>
+        <td style="text-align: center; padding: 8px 4px; border-bottom: 1px solid #f3f4f6;"><%= item.quantity %></td>
+        <td style="text-align: right; padding: 8px 4px; border-bottom: 1px solid #f3f4f6;">$<%= number_with_delimiter(item.line_subtotal.to_i) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table style="width: 100%; margin-bottom: 16px;">
+  <tr>
+    <td>Subtotal</td>
+    <td style="text-align: right;">$<%= number_with_delimiter(purchase.subtotal_amount.to_i) %></td>
+  </tr>
+  <tr>
+    <td>Impuestos</td>
+    <td style="text-align: right;">$<%= number_with_delimiter(purchase.tax_amount.to_i) %></td>
+  </tr>
+  <tr>
+    <td>Envío</td>
+    <td style="text-align: right;">$<%= number_with_delimiter(purchase.shipping_cost.to_i) %></td>
+  </tr>
+  <tr style="font-weight: bold;">
+    <td>Total</td>
+    <td style="text-align: right;">$<%= number_with_delimiter(purchase.total_amount.to_i) %> COP</td>
+  </tr>
+</table>
+
+<h2 style="font-size: 16px;">Dirección de envío</h2>
+<p style="white-space: pre-line;"><%= purchase.shipping_address.values.compact.join(", ") %></p>
+<% if order&.shipping_date_estimated %>
+  <p>Fecha estimada de entrega: <strong><%= order.shipping_date_estimated.strftime("%d/%m/%Y") %></strong></p>
+<% end %>

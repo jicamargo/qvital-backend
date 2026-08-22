@@ -1,0 +1,12 @@
+<div style="font-family: Arial, Helvetica, sans-serif; color: #171717; max-width: 480px; margin: 0 auto;">
+  <h1 style="font-size: 20px;">Nuevo pedido recibido: <%= @purchase.purchase_number %></h1>
+  <p>
+    Cliente: <strong><%= @purchase.user.name.presence || @purchase.user.email %></strong><br>
+    Email: <%= @purchase.user.email %><br>
+    <% if @purchase.recipient_name.present? %>
+      Recibe: <%= @purchase.recipient_name %> — <%= @purchase.recipient_phone %><br>
+    <% end %>
+  </p>
+
+  <%= render partial: "order_mailer/summary", locals: { purchase: @purchase, order: @order, items: @items } %>
+</div>
