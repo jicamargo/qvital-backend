@@ -61,6 +61,7 @@ Todos opcionales:
       "pv": 230.85,
       "sku": "HBL-123",
       "flavor": "Vainilla",
+      "disclaimer": null,
       "category": {
         "id": 2,
         "name": "Proteínas"
@@ -76,7 +77,7 @@ Todos opcionales:
 }
 ```
 
-`flavor` puede ser `null` (no todos los productos tienen sabor). `health_goals` puede ser un array vacío si el producto no ha sido taggeado todavía (la asignación desde el panel admin llega en la sub-fase 3.2).
+`flavor` puede ser `null` (no todos los productos tienen sabor). `disclaimer` puede ser `null` (si es así, el frontend debe mostrar el texto genérico de `MedicalDisclaimer`, no ocultar el aviso). `health_goals` puede ser un array vacío si el producto no ha sido taggeado todavía (la asignación desde el panel admin llega en la sub-fase 3.2).
 
 ### 401 Unauthorized
 

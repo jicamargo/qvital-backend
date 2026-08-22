@@ -1,0 +1,9 @@
+¡Gracias por tu compra, <%= @purchase.recipient_name.presence || @purchase.user.name %>!
+
+Confirmamos tu pedido <%= @purchase.purchase_number %>.
+
+<%= render partial: "order_mailer/summary", locals: { purchase: @purchase, order: @order, items: @items } %>
+
+Este producto no reemplaza el consejo, diagnóstico o tratamiento médico profesional.
+Consulta a tu médico antes de consumir cualquier producto, especialmente si tienes una
+condición preexistente, estás en embarazo o lactancia.
