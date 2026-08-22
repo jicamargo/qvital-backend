@@ -965,7 +965,9 @@ health_goals_data = [
     description: "Productos orientados a la salud cardiovascular." },
   { key: "mejorar_digestion", name: "Mejorar mi digestión", icon: "Activity", color: "#9e4c45", position: 7,
     description: "Productos y recetas para una mejor digestión." },
-  { key: "comprar_por_mi_cuenta", name: "Comprar por mi cuenta", icon: "ShoppingBag", color: "#475569", position: 8,
+  { key: "snacks_sanos", name: "Snacks sanos", icon: "Sandwich", color: "#bd645c", position: 8,
+    description: "Opciones ligeras y saludables para picar entre comidas." },
+  { key: "comprar_por_mi_cuenta", name: "Comprar por mi cuenta", icon: "ShoppingBag", color: "#475569", position: 9,
     description: "Omite el filtro por objetivo y muestra todo el catálogo." }
 ]
 
