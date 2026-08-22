@@ -625,6 +625,18 @@ If your local/staging DB has no matching purchase, the preview will raise — cr
 
 **Live reload**: editing `app/views/order_mailer/*.erb` or `order_mailer.rb` and refreshing the preview page shows the change immediately — no server restart needed.
 
+### Quick recipe: view both emails (customer + admin) for the same order
+
+1. Start the server: `bin/rails server` (port 3001).
+2. Get a real `purchase_number` to pin both previews to:
+   ```bash
+   bin/rails runner "puts Purchase.joins(:purchase_items).where.not(user_id: nil).last&.purchase_number"
+   ```
+3. Open both, replacing `PUR-XXXX` with the value from step 2:
+   * `http://localhost:3001/rails/mailers/order_mailer/confirmation?purchase_number=PUR-XXXX`
+   * `http://localhost:3001/rails/mailers/order_mailer/admin_notification?purchase_number=PUR-XXXX`
+4. Use the toggle in the preview UI to switch between the HTML and plain-text parts of each.
+
 ## Option 2 — `bin/rails runner` (no browser needed)
 
 Useful for a quick sanity check of `to`/`subject`/body sizes without touching a browser:
