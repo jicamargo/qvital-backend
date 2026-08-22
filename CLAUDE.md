@@ -616,7 +616,12 @@ Previews live in `test/mailers/previews/order_mailer_preview.rb`. They render th
    * `http://localhost:3001/rails/mailers` — index of all mailer previews.
 3. Toggle between the HTML and plain-text parts from the preview UI.
 
-The preview uses the most recent `Purchase` that has items and a user (`Purchase.joins(:purchase_items).where.not(user_id: nil).last`). If your local/staging DB has no such purchase, the preview will raise — create a test order through the marketplace checkout first, or adjust the preview to build an in-memory `Purchase`/`PurchaseItem` instead of querying the DB.
+Without a query param, the preview uses the most recent `Purchase` that has items and a user (`Purchase.joins(:purchase_items).where.not(user_id: nil).last`). To view **both** emails for the exact same order (instead of whatever happens to be "last" at each page load), pin it with `?purchase_number=PUR-XXXX`:
+
+* `http://localhost:3001/rails/mailers/order_mailer/confirmation?purchase_number=PUR-XXXX`
+* `http://localhost:3001/rails/mailers/order_mailer/admin_notification?purchase_number=PUR-XXXX`
+
+If your local/staging DB has no matching purchase, the preview will raise — create a test order through the marketplace checkout first, or adjust the preview to build an in-memory `Purchase`/`PurchaseItem` instead of querying the DB.
 
 **Live reload**: editing `app/views/order_mailer/*.erb` or `order_mailer.rb` and refreshing the preview page shows the change immediately — no server restart needed.
 
