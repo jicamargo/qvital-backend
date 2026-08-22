@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_22_120030) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -125,6 +125,19 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "health_goals", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.string "icon", null: false
+    t.string "color", null: false
+    t.integer "position", default: 0, null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_health_goals_on_key", unique: true
+  end
+
   create_table "levels", force: :cascade do |t|
     t.string "name", null: false
     t.integer "priority", null: false
@@ -175,6 +188,16 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
     t.index ["purchase_id"], name: "index_payments_on_purchase_id"
   end
 
+  create_table "product_health_goals", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "health_goal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["health_goal_id"], name: "index_product_health_goals_on_health_goal_id"
+    t.index ["product_id", "health_goal_id"], name: "index_product_health_goals_on_product_and_goal", unique: true
+    t.index ["product_id"], name: "index_product_health_goals_on_product_id"
+  end
+
   create_table "product_prices", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "level_id", null: false
@@ -197,6 +220,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_path"
+    t.string "flavor"
+    t.text "disclaimer"
     t.index ["active"], name: "index_products_on_active"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["sku"], name: "index_products_on_sku", unique: true
@@ -245,6 +270,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
     t.string "recipient_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "medical_disclaimer_accepted_at"
     t.index ["company_id"], name: "index_purchases_on_company_id"
     t.index ["purchase_intent_id"], name: "index_purchases_on_purchase_intent_id"
     t.index ["purchase_number"], name: "index_purchases_on_purchase_number", unique: true
@@ -299,6 +325,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_03_195550) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "purchases"
   add_foreign_key "payments", "purchases"
+  add_foreign_key "product_health_goals", "health_goals"
+  add_foreign_key "product_health_goals", "products"
   add_foreign_key "product_prices", "levels"
   add_foreign_key "product_prices", "products"
   add_foreign_key "products", "categories"

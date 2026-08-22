@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   belongs_to :category, optional: true
   has_many :product_prices, dependent: :destroy
   has_many :levels, through: :product_prices
+  has_many :product_health_goals, dependent: :destroy
+  has_many :health_goals, through: :product_health_goals
 
   validates :name, presence: true
   validates :sku, uniqueness: true, allow_nil: true
@@ -11,6 +13,7 @@ class Product < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :by_category, ->(category_id) { where(category_id: category_id) }
+  scope :by_health_goal_key, ->(key) { joins(:health_goals).where(health_goals: { key: key }) }
 
   # Método para obtener el precio según el nivel del usuario
   # Optimizado para usar datos ya cargados en memoria (evita N+1)

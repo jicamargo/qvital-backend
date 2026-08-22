@@ -37,9 +37,9 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
 
 ### 2.1 Backend
 
-- [ ] Migración: agregar `flavor` (`string`, nullable) a `products`.
+- [X] Migración: agregar `flavor` (`string`, nullable) a `products`.
   - Justificación: pedido explícito del owner (idea #9). No se usa para variantes de precio (eso seguiría siendo `product_prices` por nivel); es un atributo informativo/filtrable, igual que `category`.
-- [ ] Crear tabla `health_goals`:
+- [X] Crear tabla `health_goals`:
   ```ruby
   create_table :health_goals do |t|
     t.string  :key,         null: false           # "bajar_peso", "subir_peso", "mantener_peso",
@@ -56,7 +56,7 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
   end
   add_index :health_goals, :key, unique: true
   ```
-- [ ] Crear tabla puente `product_health_goals` (muchos a muchos, un producto puede servir a varios objetivos):
+- [X] Crear tabla puente `product_health_goals` (muchos a muchos, un producto puede servir a varios objetivos):
   ```ruby
   create_table :product_health_goals do |t|
     t.references :product, null: false, foreign_key: true
@@ -65,24 +65,24 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
   end
   add_index :product_health_goals, [:product_id, :health_goal_id], unique: true
   ```
-- [ ] Modelo `HealthGoal`:
+- [X] Modelo `HealthGoal`:
   - `has_many :product_health_goals, dependent: :destroy`
   - `has_many :products, through: :product_health_goals`
   - `scope :active, -> { where(active: true) }`
   - `scope :ordered, -> { order(:position, :name) }`
-- [ ] Modelo `Product`: agregar `has_many :product_health_goals, dependent: :destroy` y `has_many :health_goals, through: :product_health_goals`.
-- [ ] Seed inicial de `health_goals` (7 objetivos + "comprar por mi cuenta") en `db/seeds.rb`, con icono/color por defecto editables luego desde admin.
-- [ ] **Nota de escalabilidad (combos)**: para "agrupar por combos" (idea #7) el MVP resuelve la agrupación por `health_goal` (filtrar catálogo por objetivo). Un `ProductBundle` real (precio de combo, empaquetado como unidad de compra) es una entidad nueva con impacto en carrito/checkout — **se deja fuera de esta fase y se propone como Fase 4**, para no acoplar el checkout actual. A confirmar con el owner si se necesita antes.
+- [X] Modelo `Product`: agregar `has_many :product_health_goals, dependent: :destroy` y `has_many :health_goals, through: :product_health_goals`.
+- [X] Seed inicial de `health_goals` (7 objetivos + "comprar por mi cuenta") en `db/seeds.rb`, con icono/color por defecto editables luego desde admin.
+- [X] **Nota de escalabilidad (combos)**: para "agrupar por combos" (idea #7) el MVP resuelve la agrupación por `health_goal` (filtrar catálogo por objetivo). Un `ProductBundle` real (precio de combo, empaquetado como unidad de compra) es una entidad nueva con impacto en carrito/checkout — **se deja fuera de esta fase y se propone como Fase 4**, para no acoplar el checkout actual. A confirmar con el owner si se necesita antes.
 
 ### 2.2 Blueprints
 
-- [ ] `HealthGoalBlueprint`: `id, key, name, description, icon, color, position`.
-- [ ] `ProductBlueprint`: agregar `flavor` y `health_goals` (array de `HealthGoalBlueprint` resumido: `id, key, name, icon, color`).
+- [X] `HealthGoalBlueprint`: `id, key, name, description, icon, color, position`.
+- [X] `ProductBlueprint`: agregar `flavor` y `health_goals` (array de `HealthGoalBlueprint` resumido: `id, key, name, icon, color`).
 
 ### 2.3 Endpoints (públicos/autenticados)
 
-- [ ] `GET /api/v1/health_goals` → lista de objetivos activos, ordenados por `position`. Reutilizable por el selector rápido del marketplace y por el formulario admin de productos (para elegir tags).
-- [ ] `GET /api/v1/products?health_goal_key=bajar_peso` → extender `Products::ListForUser` para aceptar filtro opcional por objetivo (join con `product_health_goals`).
+- [X] `GET /api/v1/health_goals` → lista de objetivos activos, ordenados por `position`. Reutilizable por el selector rápido del marketplace y por el formulario admin de productos (para elegir tags).
+- [X] `GET /api/v1/products?health_goal_key=bajar_peso` → extender `Products::ListForUser` para aceptar filtro opcional por objetivo (join con `product_health_goals`).
 
 ---
 

@@ -2,12 +2,13 @@ module Products
   class ListForUser
     attr_reader :products, :error
 
-    def self.call(user:)
-      new(user: user).call
+    def self.call(user:, health_goal_key: nil)
+      new(user: user, health_goal_key: health_goal_key).call
     end
 
-    def initialize(user:)
+    def initialize(user:, health_goal_key: nil)
       @user = user
+      @health_goal_key = health_goal_key
       @products = []
       @error = nil
     end
@@ -33,14 +34,18 @@ module Products
     def load_products_for_level
       level_id = @user.level_id
 
-      @products =
+      scope =
         Product
           .active
           .joins(:product_prices, :category)
           .where(product_prices: { level_id: level_id })
-          .includes(:category, :product_prices)
+          .includes(:category, :product_prices, :health_goals)
           .order('categories.position ASC, products.name ASC')
           .distinct
+
+      scope = scope.by_health_goal_key(@health_goal_key) if @health_goal_key.present?
+
+      @products = scope
     rescue StandardError => e
       failure("Error querying products: #{e.message}")
     end
