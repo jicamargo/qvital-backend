@@ -40,5 +40,15 @@ module QvitalBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Transactional email (order confirmation) via Resend — see app/mailers/order_mailer.rb.
+    # Configured here (not per-environment) because this app already resolves its DB and
+    # other integrations from ENV regardless of RAILS_ENV (see DATABASE_URL usage). Without
+    # RESEND_API_KEY, ActionMailer falls back to :test (no real email sent, safe default
+    # for local/dev work without the key configured).
+    if ENV["RESEND_API_KEY"].present?
+      Resend.api_key = ENV["RESEND_API_KEY"]
+      config.action_mailer.delivery_method = :resend
+    end
   end
 end

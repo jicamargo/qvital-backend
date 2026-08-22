@@ -89,7 +89,7 @@ Este documento describe “qué debe hacer el sistema” sin código, para que l
 
 - **Listado de productos**:
   - Página de búsqueda/categorías con:
-    - Búsqueda por texto.
+    - Búsqueda por texto (spec técnica: `docs/requirements/busqueda-full-text.md` — `pg_search` + `pg_trgm` + `unaccent`, tolerante a tildes y errores de tipeo).
     - Filtros por categoría, marca, disponibilidad.
     - Paginación o carga incremental.
   - Cada tarjeta de producto muestra: nombre, imagen, precio, breve descripción, botón “Agregar al carrito”.

@@ -1,0 +1,9 @@
+Nuevo pedido recibido: <%= @purchase.purchase_number %>
+
+Cliente: <%= @purchase.user.name.presence || @purchase.user.email %>
+Email: <%= @purchase.user.email %>
+<% if @purchase.recipient_name.present? -%>
+Recibe: <%= @purchase.recipient_name %> — <%= @purchase.recipient_phone %>
+<% end -%>
+
+<%= render partial: "order_mailer/summary", locals: { purchase: @purchase, order: @order, items: @items } %>

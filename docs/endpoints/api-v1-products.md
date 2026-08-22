@@ -38,10 +38,11 @@ GET /api/v1/products
 
 ### Query params
 
-Por ahora **no** hay filtros obligatorios. Más adelante se pueden agregar:
+Todos opcionales:
 
-- `category_id` (opcional)
-- `search` (opcional)
+- `health_goal_key` (opcional) — filtra el catálogo por objetivo de salud (ver `GET /api/v1/health_goals`), ej. `bajar_peso`. Si se omite, devuelve todo el catálogo (equivalente a seleccionar "Comprar por mi cuenta" en el CTA rápido del marketplace).
+- `category_id` (pendiente, no implementado aún)
+- `search` (pendiente — ver `docs/requirements/busqueda-full-text.md`, sub-fase 3.8)
 
 ---
 
@@ -59,10 +60,15 @@ Por ahora **no** hay filtros obligatorios. Más adelante se pueden agregar:
       "image_url": "https://...",
       "pv": 230.85,
       "sku": "HBL-123",
+      "flavor": "Vainilla",
+      "disclaimer": null,
       "category": {
         "id": 2,
         "name": "Proteínas"
       },
+      "health_goals": [
+        { "id": 1, "key": "bajar_peso", "name": "Bajar de peso", "description": "...", "icon": "TrendingDown", "color": "#3d7ea3", "position": 1 }
+      ],
       "price": 850.0,
       "currency": "COP",
       "level_id": 3
@@ -70,6 +76,8 @@ Por ahora **no** hay filtros obligatorios. Más adelante se pueden agregar:
   ]
 }
 ```
+
+`flavor` puede ser `null` (no todos los productos tienen sabor). `disclaimer` puede ser `null` (si es así, el frontend debe mostrar el texto genérico de `MedicalDisclaimer`, no ocultar el aviso). `health_goals` puede ser un array vacío si el producto no ha sido taggeado todavía (la asignación desde el panel admin llega en la sub-fase 3.2).
 
 ### 401 Unauthorized
 
@@ -107,13 +115,14 @@ o
     - `ProductBlueprint.render(result.products, level_id: current_user.level_id)`
 
 - Interactor: `Products::ListForUser`
-  - Recibe `user`
+  - Recibe `user:` y `health_goal_key:` (opcional)
   - Valida que el usuario tenga `level_id`
-  - Carga productos activos con precio para ese nivel
+  - Carga productos activos con precio para ese nivel, filtrando por objetivo si se pasa `health_goal_key` (`Product.by_health_goal_key`)
 
 - Blueprints:
-  - `ProductBlueprint`
+  - `ProductBlueprint` (incluye `flavor` y `health_goals`)
   - `CategoryBlueprint`
+  - `HealthGoalBlueprint`
 
 ---
 

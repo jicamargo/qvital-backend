@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :level, optional: true
+  has_many :coach_consultations, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :role, presence: true, inclusion: { in: %w[admin cliente] }
@@ -20,6 +21,12 @@ class User < ApplicationRecord
 
   def cliente?
     role == 'cliente'
+  end
+
+  # Placeholder mínimo mientras no exista el sistema real de membresías/suscripciones
+  # (ver docs/requirements/coach-cuerpo-emocion-sdd.md §9.1 en qvital-frontend).
+  def premium?
+    premium_active? && (premium_expires_at.nil? || premium_expires_at.future?)
   end
 
   private

@@ -1,0 +1,12 @@
+<div style="font-family: Arial, Helvetica, sans-serif; color: #171717; max-width: 480px; margin: 0 auto;">
+  <h1 style="font-size: 20px;">¡Gracias por tu compra, <%= @purchase.recipient_name.presence || @purchase.user.name %>!</h1>
+  <p>Confirmamos tu pedido <strong><%= @purchase.purchase_number %></strong>.</p>
+
+  <%= render partial: "order_mailer/summary", locals: { purchase: @purchase, order: @order, items: @items } %>
+
+  <p style="margin-top: 24px; font-size: 12px; color: #6b7280;">
+    Este producto no reemplaza el consejo, diagnóstico o tratamiento médico profesional.
+    Consulta a tu médico antes de consumir cualquier producto, especialmente si tienes una
+    condición preexistente, estás en embarazo o lactancia.
+  </p>
+</div>

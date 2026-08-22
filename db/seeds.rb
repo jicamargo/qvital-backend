@@ -63,7 +63,9 @@ def create_product_with_prices(product_data)
   product.assign_attributes(
     name: product_data[:name],
     description: product_data[:description],
-    image_url: product_data[:image_url],
+    # Este seed no trae imágenes (vienen del Excel de precios, no de Storage).
+    # Nunca pisar una image_url ya subida vía el panel admin con nil.
+    image_url: product_data[:image_url].presence || product.image_url,
     pv: product_data[:pv],
     category: category,
     active: true
@@ -855,3 +857,122 @@ puts "✅ Total de productos en BD: #{Product.count}"
 puts "✅ Total de precios en BD: #{ProductPrice.count}"
 
 # ✅ Todos los productos y precios han sido integrados desde lista-precios-distribuidor.xlsx
+
+# Seed del módulo Coach Virtual — Conexión Cuerpo-Emoción
+# Ver docs/requirements/coach-cuerpo-emocion-sdd.md (repo qvital-frontend) §4, §10 (Anexo A)
+coach_profile = VirtualCoachProfile.find_or_initialize_by(display_name: "Dra. Camila")
+coach_profile.gender = :femenino
+coach_profile.specialty_description = "Conexión Cuerpo-Emoción"
+coach_profile.tone_profile = {
+  "rasgos" => %w[cercana calmada sin_juicio nunca_alarmista]
+}
+coach_profile.active = true
+coach_profile.save!
+
+puts "✅ Coach Virtual creada: #{coach_profile.display_name}"
+
+body_regions_data = [
+  { name: "Garganta", body_system: :cabeza_cuello, display_order: 1 },
+  { name: "Estómago / sistema digestivo", body_system: :digestivo, display_order: 1 }
+]
+
+body_regions_data.each do |attrs|
+  region = BodyRegion.find_or_initialize_by(name: attrs[:name])
+  region.body_system = attrs[:body_system]
+  region.display_order = attrs[:display_order]
+  region.active = true
+  region.save!
+end
+
+puts "✅ Zonas del cuerpo creadas: #{BodyRegion.count}"
+
+# Fichas iniciales (Anexo A del SDD) — redactadas por QVITAL, no copiadas de
+# ninguna fuente externa. Publicadas para poder probar el flujo end-to-end en
+# desarrollo; en producción deben quedar en `borrador` hasta revisión editorial.
+insights_data = [
+  {
+    body_region_name: "Garganta",
+    symptom_pattern: "Molestia, opresión, carraspera o nudo frecuente en la garganta, sin causa clínica identificada.",
+    emotional_theme: "Dificultad para expresar lo que se piensa o se siente",
+    narrative_explanation: "La garganta funciona como el canal entre el pensamiento y la acción: por ahí pasa lo " \
+      "que decidimos decir (o callar). Cuando algo importante se queda sin expresar — una palabra que no se dijo, " \
+      "un límite que no se puso, una emoción que se \"tragó\" para evitar un conflicto — el cuerpo puede traducir " \
+      "esa tensión acumulada en una sensación física en esa zona. No se trata de que \"algo está mal\" en la " \
+      "garganta, sino de una posible señal de que hay algo pendiente por decir.",
+    reflective_questions: [
+      "¿Hay algo que llevas tiempo queriendo decir y no te has permitido expresar?",
+      "¿En qué situación reciente sentiste que te 'tragaste' tus palabras?",
+      "¿A quién le temes decirle lo que realmente piensas, y qué es exactamente lo que temes que pase?"
+    ],
+    integration_guidance: "Escribir (sin enviar) la conversación que no has tenido, como ejercicio de descarga. " \
+      "Practicar decir una frase pequeña y honesta en voz alta antes de una conversación difícil. Si la molestia " \
+      "física persiste más de unos días, consultar con un profesional de salud.",
+    severity_flag: :informativo,
+    tags: %w[garganta expresion comunicacion],
+    status: :publicado,
+    content_curation_notes: "Redactado por el equipo QVITAL a partir del marco general de biodescodificación " \
+      "revisado en Top Doctors Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente."
+  },
+  {
+    body_region_name: "Estómago / sistema digestivo",
+    symptom_pattern: "Molestias digestivas recurrentes (pesadez, acidez, dificultad para digerir) sin causa " \
+      "clínica clara.",
+    emotional_theme: "Dificultad para 'asimilar' o aceptar una situación, cambio o experiencia reciente",
+    narrative_explanation: "Así como el estómago procesa lo que comemos, solemos usar ese mismo lenguaje para " \
+      "hablar de experiencias difíciles de aceptar: \"no lo puedo digerir\", \"me cayó pesado\". Cuando hay un " \
+      "cambio, una noticia o una situación que cuesta aceptar o procesar emocionalmente, el cuerpo a veces refleja " \
+      "esa dificultad de \"asimilación\" en el sistema digestivo. Es una invitación a mirar qué se está intentando " \
+      "procesar a nivel emocional, no una explicación única ni definitiva del síntoma.",
+    reflective_questions: [
+      "¿Qué situación reciente te ha costado aceptar o 'digerir'?",
+      "¿Hay un cambio en tu vida que sientes que no has procesado del todo?",
+      "¿En qué momento del día notas más la molestia, y qué estabas pensando justo antes?"
+    ],
+    integration_guidance: "Journaling breve al final del día nombrando una cosa que \"cuesta digerir\". Pausa " \
+      "consciente antes de comer (respirar, bajar el ritmo) como práctica de \"recibir\" en vez de \"tragar " \
+      "rápido\". Si la molestia física persiste, consultar con un profesional de salud.",
+    severity_flag: :informativo,
+    tags: %w[digestivo estomago asimilacion cambio],
+    status: :publicado,
+    content_curation_notes: "Redactado por el equipo QVITAL a partir del marco general de biodescodificación " \
+      "revisado en Top Doctors Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente."
+  }
+]
+
+insights_data.each do |attrs|
+  region = BodyRegion.find_by!(name: attrs[:body_region_name])
+  insight = BodyEmotionInsight.find_or_initialize_by(body_region: region, symptom_pattern: attrs[:symptom_pattern])
+  insight.assign_attributes(attrs.except(:body_region_name, :symptom_pattern))
+  insight.save!
+end
+
+puts "✅ Fichas Cuerpo-Emoción creadas: #{BodyEmotionInsight.count}"
+
+# Seed de objetivos de salud (Fase 3 — ver docs/requirements/fase3-personalizacion-objetivos-salud.md §2.1)
+# Iconos: nombres de lucide-react, usados directamente por el frontend.
+health_goals_data = [
+  { key: "bajar_peso", name: "Bajar de peso", icon: "TrendingDown", color: "#3d7ea3", position: 1,
+    description: "Productos y recetas pensados para perder peso de forma saludable." },
+  { key: "subir_peso", name: "Subir de peso", icon: "TrendingUp", color: "#6da8cb", position: 2,
+    description: "Productos y recetas para ganar peso de forma saludable." },
+  { key: "mantener_peso", name: "Mantener mi peso", icon: "Scale", color: "#43a047", position: 3,
+    description: "Productos y recetas para mantener tu peso actual." },
+  { key: "nutrirse_bien", name: "Nutrirme bien", icon: "Apple", color: "#cc8079", position: 4,
+    description: "Nutrición balanceada para el día a día." },
+  { key: "mas_energia", name: "Aumentar mi energía", icon: "Zap", color: "#f59e0b", position: 5,
+    description: "Productos pensados para más energía y menos cansancio." },
+  { key: "salud_cardiovascular", name: "Cuidar mi corazón", icon: "Heart", color: "#dc2626", position: 6,
+    description: "Productos orientados a la salud cardiovascular." },
+  { key: "mejorar_digestion", name: "Mejorar mi digestión", icon: "Activity", color: "#9e4c45", position: 7,
+    description: "Productos y recetas para una mejor digestión." },
+  { key: "comprar_por_mi_cuenta", name: "Comprar por mi cuenta", icon: "ShoppingBag", color: "#475569", position: 8,
+    description: "Omite el filtro por objetivo y muestra todo el catálogo." }
+]
+
+health_goals_data.each do |attrs|
+  goal = HealthGoal.find_or_initialize_by(key: attrs[:key])
+  goal.assign_attributes(attrs.except(:key))
+  goal.save!
+end
+
+puts "✅ Objetivos de salud creados: #{HealthGoal.count}"

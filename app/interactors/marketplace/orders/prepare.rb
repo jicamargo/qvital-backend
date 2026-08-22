@@ -11,7 +11,7 @@ module Marketplace
 
       MINIMUM_AMOUNT = BigDecimal("0")
 
-      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false)
+      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false, medical_disclaimer_accepted: false)
         new(
           user:,
           cart_items:,
@@ -21,11 +21,12 @@ module Marketplace
           shipping_cost:,
           payment_method:,
           purchase_intent_id:,
-          update_user_profile:
+          update_user_profile:,
+          medical_disclaimer_accepted:
         ).call
       end
 
-      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:)
+      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:, medical_disclaimer_accepted: false)
         @user = user
         @cart_items = cart_items || []
         @shipping_address = shipping_address || {}
@@ -35,6 +36,12 @@ module Marketplace
         @payment_method = payment_method
         @purchase_intent_id = purchase_intent_id
         @update_user_profile = ActiveModel::Type::Boolean.new.cast(update_user_profile)
+        # NOTA: no se rechaza (422) todavía si viene en false/ausente — el frontend aún no
+        # envía el checkbox de descargo médico (llega en la sub-fase 3.4 frontend). Se
+        # persiste la aceptación cuando llega, pero no se hace obligatoria aún para no
+        # romper el checkout ya en producción. Endurecer a obligatorio una vez el frontend
+        # lo envíe siempre — ver docs/requirements/fase3-personalizacion-objetivos-salud.md §5.1.
+        @medical_disclaimer_accepted = ActiveModel::Type::Boolean.new.cast(medical_disclaimer_accepted)
       end
 
       def call
@@ -118,8 +125,9 @@ module Marketplace
         purchase.status ||= :pending
         purchase.purchase_number ||= generate_purchase_number
         purchase.shipping_address = @shipping_address
-        purchase.recipient_name = @recipient_info[:name]
+        purchase.recipient_name = recipient_full_name
         purchase.recipient_phone = @recipient_info[:phone]
+        purchase.medical_disclaimer_accepted_at ||= Time.current if @medical_disclaimer_accepted
 
         purchase.save!
         purchase
@@ -205,20 +213,25 @@ module Marketplace
         raise "Order items subtotal mismatch for purchase #{purchase.id}"
       end
 
+      def recipient_full_name
+        [@recipient_info[:name], @recipient_info[:last_name]]
+          .map { |part| part.to_s.strip }
+          .reject(&:blank?)
+          .join(" ")
+      end
+
       def update_user_profile_from_checkout!
         user_updates = {}
         shipping = @shipping_address.respond_to?(:to_h) ? @shipping_address.to_h : {}
         recipient_name = @recipient_info[:name].to_s.strip
+        recipient_last_name = @recipient_info[:last_name].to_s.strip
         shipping_phone = shipping["phone"].presence || shipping[:phone].presence
+        address_only = shipping.except("phone", :phone)
 
-        user_updates[:phone] = shipping_phone if @user.has_attribute?(:phone) && shipping_phone.present?
-        user_updates[:address] = shipping if @user.has_attribute?(:address) && shipping.present?
-
-        if @user.has_attribute?(:name) && @user.name.to_s.strip.blank? && recipient_name.present?
-          user_updates[:name] = recipient_name
-        elsif @user.has_attribute?(:nombre) && @user.nombre.to_s.strip.blank? && recipient_name.present?
-          user_updates[:nombre] = recipient_name
-        end
+        user_updates[:phone] = shipping_phone if shipping_phone.present?
+        user_updates[:address] = address_only if address_only.present?
+        user_updates[:name] = recipient_name if recipient_name.present?
+        user_updates[:last_name] = recipient_last_name if recipient_last_name.present?
 
         return if user_updates.empty?
 
@@ -232,4 +245,3 @@ module Marketplace
     end
   end
 end
-

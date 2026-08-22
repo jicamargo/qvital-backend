@@ -10,8 +10,23 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "auth/sync", to: "auth#sync"
       post "auth/update_metadata", to: "auth#update_metadata" # Endpoint de debug para forzar actualización
+      patch "users/me", to: "users#update_me"
       resources :products, only: [:index]
       resources :categories, only: [:index]
+      resources :health_goals, only: [:index]
+
+      namespace :coach_virtual do
+        get "profile", to: "profile#show"
+        get "body_regions", to: "body_regions#index"
+
+        resources :consultations, only: [:index, :show, :create] do
+          member do
+            post :close
+            post :zone_selections
+            post :reflection_answers
+          end
+        end
+      end
 
       namespace :marketplace do
         resource :cart, only: [:show], controller: "carts" do
@@ -31,8 +46,21 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        namespace :coach_virtual do
+          get "profile", to: "profile#show"
+          patch "profile", to: "profile#update"
+          resources :body_regions
+          resources :insights
+        end
+
+        resources :users, only: [:index]
         resources :products
-        resources :orders, only: %i[index show update]
+        resources :orders, only: %i[index show update] do
+          member do
+            post :check_wompi_status
+            post :reconcile_wompi_payment
+          end
+        end
       end
     end
   end

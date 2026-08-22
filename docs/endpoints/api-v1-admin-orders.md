@@ -251,6 +251,59 @@ Falta la clave `order` en el JSON:
 
 ---
 
+## 4. POST /api/v1/admin/orders/:id/check_wompi_status
+
+Consulta en Wompi (por `reference`, usando `GET /v1/transactions?reference=...`) el estado real de la transacción asociada a la `purchase_intent.external_reference` de la orden, y lo compara contra el pago local. No modifica nada — solo informa.
+
+### Response 200 OK
+
+```json
+{
+  "external_reference": "1ad5b213-6dde-4188-b7c1-0b28e09436c8",
+  "local_status": "pending",
+  "wompi_transaction": {
+    "id": "12045125-1785004870-29542",
+    "status": "APPROVED",
+    "amount_in_cents": 25056400,
+    "currency": "COP",
+    "created_at": "2026-07-25T18:41:11.289Z"
+  },
+  "mismatch": true
+}
+```
+
+- `local_status`: estado de la `purchase` en la app (`pending`, `confirmed`, `cancelled`).
+- `wompi_transaction`: la transacción aprobada si existe alguna con esa referencia; si no, la más reciente. `null` si Wompi no tiene ninguna transacción con esa referencia.
+- `mismatch`: `true` cuando Wompi tiene una transacción `APPROVED` pero localmente no hay un pago aprobado.
+
+### Response 422 Unprocessable Entity
+
+```json
+{ "error": "Order not found" }
+```
+
+```json
+{ "error": "Purchase has no external_reference" }
+```
+
+---
+
+## 5. POST /api/v1/admin/orders/:id/reconcile_wompi_payment
+
+Cuando `check_wompi_status` reporta `mismatch: true`, este endpoint aplica la corrección: busca la transacción `APPROVED` en Wompi para la misma referencia y reproduce localmente el mismo efecto que produce el webhook (upsert de `Payment` como aprobado + confirmar `purchase`/`order` + marcar el carrito abierto del usuario como `completed`). Es la misma lógica que usa el polling de `GET /marketplace/checkout/status`, disponible aquí para reconciliación manual desde admin.
+
+### Response 200 OK
+
+Devuelve el mismo shape que `GET /api/v1/admin/orders/:id` (detalle recargado, ya con `purchase.status = "confirmed"` y el pago en `approved`).
+
+### Response 422 Unprocessable Entity
+
+```json
+{ "error": "No approved transaction found in Wompi for this reference" }
+```
+
+---
+
 ## Implementación (backend)
 
 | Ruta | Controller | Interactor |
@@ -258,7 +311,10 @@ Falta la clave `order` en el JSON:
 | `GET /api/v1/admin/orders` | `Api::V1::Admin::OrdersController#index` | `Admin::Orders::List` |
 | `GET /api/v1/admin/orders/:id` | `Api::V1::Admin::OrdersController#show` | `Admin::Orders::Show` |
 | `PATCH/PUT …/:id` | `Api::V1::Admin::OrdersController#update` | `Admin::Orders::Update` |
+| `POST …/:id/check_wompi_status` | `Api::V1::Admin::OrdersController#check_wompi_status` | `Admin::Orders::CheckWompiStatus` |
+| `POST …/:id/reconcile_wompi_payment` | `Api::V1::Admin::OrdersController#reconcile_wompi_payment` | `Admin::Orders::ReconcileWompiPayment` |
 
 - Listado: precarga `order_items` → `product` → `category`, y `purchase` con `user`, `purchase_intent` y `payments` para evitar N+1.
 - Búsqueda `search`: unión de IDs por tres consultas (email, número de compra, referencia externa).
 - Actualización: no modifica montos ni ítems; solo campos operativos de `orders`.
+- `check_wompi_status` / `reconcile_wompi_payment`: la reconciliación real (upsert de `Payment` + completar orden/carrito) vive en `Marketplace::Checkout::ReconcileTransaction`, compartida con el webhook (`Marketplace::Checkout::Webhook`) y con el polling de status (`Marketplace::Checkout::Status`) para no depender solo de que el webhook de Wompi llegue.
