@@ -90,20 +90,20 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
 
 ### 3.1 Backend
 
-- [X] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
-- [X] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
+- [ ] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
+- [ ] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
   - `Destroy` es soft-delete (`active = false`), igual que productos — evita romper productos ya taggeados.
-- [X] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
-- [X] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
+- [ ] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
+- [ ] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
 
 ### 3.2 Frontend
 
-- [ ] Página `/admin/health-goals`: tabla + formulario crear/editar con:
-  - selector de icono (lista curada de iconos lucide-react relevantes: `Flame`, `TrendingUp`, `Scale`, `Apple`, `Zap`, `Heart`, `Activity`, `ShoppingBag`).
-  - selector de color (paleta de swatches, no color picker libre, para mantener consistencia visual con `docs/design/color-tokens.md`).
-  - campo `position` (orden de aparición en el CTA rápido).
-- [ ] En `/admin/products/new` y `/admin/products/[id]/edit`: agregar selector múltiple de objetivos de salud (checkboxes o multi-select) y campo `flavor` (texto libre o select con sabores comunes).
-- [ ] Nuevo componente reutilizable en `components/ui`: `IconPicker` o, más simple para MVP, un `<select>` estilizado con preview del icono + color (evitar sobre-ingeniería).
+- [X] Página `/admin/health-goals`: tabla + formulario crear/editar con:
+  - [X] selector de icono (lista curada de iconos lucide-react: `TrendingDown`, `TrendingUp`, `Scale`, `Apple`, `Zap`, `Heart`, `Activity`, `ShoppingBag`, `Flame`, `Sparkles` — `lib/constants/healthGoalOptions.ts`).
+  - [X] selector de color (paleta de 8 swatches derivados de `docs/design/color-tokens.md`, no color picker libre).
+  - [X] campo `position` (orden de aparición en el CTA rápido).
+- [X] En `/admin/products/new` y `/admin/products/[id]/edit`: selector múltiple de objetivos de salud (`components/admin/HealthGoalCheckboxGroup.tsx`, pills clicables con icono+color, solo objetivos activos) y campo `flavor` (texto libre).
+- [X] Componentes reutilizables: `lib/constants/healthGoalOptions.ts` (iconos/colores curados) + `HealthGoalCheckboxGroup` — se optó por botones/pills en vez de un `<select>` estilizado, para poder mostrar icono y color de cada objetivo directamente en el selector.
 
 ---
 
@@ -148,13 +148,12 @@ Resuelve las ideas #1 y #6 directamente: minimizar clics entre "entro a la app" 
 ### 5.2 Email de confirmación de pedido (idea #10)
 
 **Backend**
-- [X] Crear `OrderMailer < ApplicationMailer` con **dos** métodos (no uno con `bcc`):
-  - `confirmation(purchase)` → al cliente (`purchase.user.email`). Cuerpo: número de compra, items, subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega, descargo médico.
-  - `admin_notification(purchase)` → a `ENV["ADMIN_NOTIFICATION_EMAIL"]` (default `admin@qvital.com` si no está seteada, para que siempre renderice en dev). Contenido propio orientado a operación (nombre/email/teléfono del cliente al frente, mismo resumen de items, sin saludo ni descargo médico).
-  - **Ajuste sobre la spec original**: se descartó el `bcc` — dos emails con contenido y propósito distintos son más útiles que una copia idéntica del correo del cliente, y permiten previsualizarlos/prooarlos por separado (ver `CLAUDE.md` § "Testing Mailers Locally").
-  - Ambos comparten un parcial `app/views/order_mailer/_summary.html.erb` / `.text.erb` (tabla de items + totales + dirección) para no duplicar esa lógica.
-- [X] Vistas `confirmation.html/text.erb` y `admin_notification.html/text.erb`.
-- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encolan ambos correos por separado (`deliver_later`, vía `solid_queue`), cada uno con su propio guard + rescue independiente — si falla el del admin no afecta el del cliente y viceversa.
+- [X] Crear `OrderMailer < ApplicationMailer` con método `confirmation(order)`:
+  - Destinatario: `order.purchase.user.email`.
+  - `bcc`: `ENV["ADMIN_NOTIFICATION_EMAIL"]` (copia al admin, sin exponerlo al cliente).
+  - Cuerpo: número de compra, fecha, items comprados (nombre, cantidad, precio), subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega.
+- [X] Vista `app/views/order_mailer/confirmation.html.erb` (+ `.text.erb` como fallback).
+- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encola `OrderMailer.confirmation(purchase).deliver_later` (usa `solid_queue`, ya instalado — alineado con "Background Jobs" del `CLAUDE.md`).
   - **Ajuste sobre la spec original**: se dispara después del `commit`, no dentro de la transacción — evita acoplar un side-effect externo (aunque sea solo encolar) a una transacción de DB que podría hacer rollback por otra razón.
 - [X] **Decisión pendiente a confirmar con el owner**: proveedor SMTP/API de envío (ej. Resend, Postmark, SMTP de Supabase/otro). Se requiere `ENV` nuevo: `SMTP_*` o `RESEND_API_KEY`, y `ADMIN_NOTIFICATION_EMAIL`. No se debe improvisar un proveedor sin confirmarlo, por la regla de `general-rules.md` de justificar y confirmar decisiones fuera del stack ya definido.
 - [X] Manejar fallos de envío sin romper el flujo de compra (el pedido se confirma igual aunque el email falle; loggear el error).
