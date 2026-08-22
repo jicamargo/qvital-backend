@@ -76,7 +76,10 @@ module Api
             :pv,
             :category_id,
             :active,
-            prices: {}
+            :flavor,
+            :disclaimer,
+            prices: {},
+            health_goal_ids: []
           )
         end
       end

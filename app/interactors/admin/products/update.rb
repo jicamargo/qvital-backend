@@ -29,6 +29,7 @@ module Admin
           end
 
           assign_prices! if @params.key?(:prices)
+          assign_health_goals! if @params.key?(:health_goal_ids)
         end
 
         self
@@ -44,7 +45,12 @@ module Admin
       private
 
       def product_attributes
-        @params.slice(:name, :description, :image_url, :image_path, :sku, :pv, :category_id, :active)
+        @params.slice(:name, :description, :image_url, :image_path, :sku, :pv, :category_id, :active, :flavor, :disclaimer)
+      end
+
+      def assign_health_goals!
+        ids = Array(@params[:health_goal_ids]).reject(&:blank?)
+        @product.health_goal_ids = ids
       end
 
       def assign_prices!

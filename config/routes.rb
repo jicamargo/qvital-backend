@@ -55,6 +55,7 @@ Rails.application.routes.draw do
 
         resources :users, only: [:index]
         resources :products
+        resources :health_goals
         resources :orders, only: %i[index show update] do
           member do
             post :check_wompi_status

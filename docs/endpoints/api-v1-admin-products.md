@@ -170,6 +170,9 @@ Content-Type: application/json
     "active": true,
     "image_url": "https://<project>.supabase.co/storage/v1/object/public/products/abc123.webp",
     "image_path": "products/abc123.webp",
+    "flavor": "Vainilla",
+    "disclaimer": null,
+    "health_goal_ids": [1, 4],
     "prices": {
       "Cliente": 137468,
       "Cliente VIP": 132939,
@@ -183,6 +186,7 @@ Content-Type: application/json
 ```
 
 > `prices` puede usar **nombre de nivel** (`"Cliente"`) o **id de nivel** (`"1"`).
+> `flavor` y `disclaimer` son opcionales (Fase 3, sub-fase 3.1/3.2). `health_goal_ids` es opcional — array de ids de `HealthGoal` (ver `docs/endpoints/api-v1-admin-health-goals.md`); reemplaza la asignación completa (no es un merge incremental).
 
 ### Response 201 Created
 
@@ -231,6 +235,7 @@ Content-Type: application/json
   - Transacción:
     - Crea `Product`
     - Crea `ProductPrice` por cada entrada en `prices`
+    - Si viene `health_goal_ids`, asigna vía `product.health_goal_ids = ids` (sincroniza `product_health_goals`)
 
 ---
 
@@ -252,6 +257,8 @@ Content-Type: application/json
     "pv": 26.00,
     "category_id": 2,
     "active": true,
+    "flavor": "Chocolate",
+    "health_goal_ids": [2],
     "prices": {
       "Cliente": 140000,
       "Distribuidor": 130000,
@@ -262,6 +269,7 @@ Content-Type: application/json
 ```
 
 - Si `prices` incluye un nivel con `null` o `""`, se puede interpretar como eliminación del precio para ese nivel (según la lógica de `Update`).
+- Si se omite `health_goal_ids` del payload, los objetivos actuales del producto **no se tocan**. Si se envía (incluso `[]`), reemplaza la asignación completa — enviar `[]` quita todos los objetivos.
 
 ### Response 200 OK
 

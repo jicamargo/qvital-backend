@@ -90,11 +90,11 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
 
 ### 3.1 Backend
 
-- [ ] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
-- [ ] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
+- [X] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
+- [X] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
   - `Destroy` es soft-delete (`active = false`), igual que productos — evita romper productos ya taggeados.
-- [ ] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
-- [ ] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
+- [X] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
+- [X] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
 
 ### 3.2 Frontend
 
