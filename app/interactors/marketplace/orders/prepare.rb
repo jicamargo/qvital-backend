@@ -11,7 +11,7 @@ module Marketplace
 
       MINIMUM_AMOUNT = BigDecimal("0")
 
-      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false)
+      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false, medical_disclaimer_accepted: false)
         new(
           user:,
           cart_items:,
@@ -21,11 +21,12 @@ module Marketplace
           shipping_cost:,
           payment_method:,
           purchase_intent_id:,
-          update_user_profile:
+          update_user_profile:,
+          medical_disclaimer_accepted:
         ).call
       end
 
-      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:)
+      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:, medical_disclaimer_accepted: false)
         @user = user
         @cart_items = cart_items || []
         @shipping_address = shipping_address || {}
@@ -35,6 +36,12 @@ module Marketplace
         @payment_method = payment_method
         @purchase_intent_id = purchase_intent_id
         @update_user_profile = ActiveModel::Type::Boolean.new.cast(update_user_profile)
+        # NOTA: no se rechaza (422) todavía si viene en false/ausente — el frontend aún no
+        # envía el checkbox de descargo médico (llega en la sub-fase 3.4 frontend). Se
+        # persiste la aceptación cuando llega, pero no se hace obligatoria aún para no
+        # romper el checkout ya en producción. Endurecer a obligatorio una vez el frontend
+        # lo envíe siempre — ver docs/requirements/fase3-personalizacion-objetivos-salud.md §5.1.
+        @medical_disclaimer_accepted = ActiveModel::Type::Boolean.new.cast(medical_disclaimer_accepted)
       end
 
       def call
@@ -120,6 +127,7 @@ module Marketplace
         purchase.shipping_address = @shipping_address
         purchase.recipient_name = recipient_full_name
         purchase.recipient_phone = @recipient_info[:phone]
+        purchase.medical_disclaimer_accepted_at ||= Time.current if @medical_disclaimer_accepted
 
         purchase.save!
         purchase
@@ -237,4 +245,3 @@ module Marketplace
     end
   end
 end
-

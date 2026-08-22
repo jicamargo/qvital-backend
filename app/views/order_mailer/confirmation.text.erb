@@ -1,0 +1,23 @@
+¡Gracias por tu compra, <%= @purchase.recipient_name.presence || @purchase.user.name %>!
+
+Confirmamos tu pedido <%= @purchase.purchase_number %>.
+
+Productos:
+<% @items.each do |item| -%>
+- <%= item.product.name %> x<%= item.quantity %> — $<%= number_with_delimiter(item.line_subtotal.to_i) %>
+<% end -%>
+
+Subtotal: $<%= number_with_delimiter(@purchase.subtotal_amount.to_i) %>
+Impuestos: $<%= number_with_delimiter(@purchase.tax_amount.to_i) %>
+Envío: $<%= number_with_delimiter(@purchase.shipping_cost.to_i) %>
+Total: $<%= number_with_delimiter(@purchase.total_amount.to_i) %> COP
+
+Dirección de envío:
+<%= @purchase.shipping_address.values.compact.join(", ") %>
+<% if @order&.shipping_date_estimated -%>
+Fecha estimada de entrega: <%= @order.shipping_date_estimated.strftime("%d/%m/%Y") %>
+<% end -%>
+
+Este producto no reemplaza el consejo, diagnóstico o tratamiento médico profesional.
+Consulta a tu médico antes de consumir cualquier producto, especialmente si tienes una
+condición preexistente, estás en embarazo o lactancia.

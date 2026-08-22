@@ -132,28 +132,31 @@ Resuelve las ideas #1 y #6 directamente: minimizar clics entre "entro a la app" 
 ### 5.1 Descargos de responsabilidad (idea #5)
 
 **Backend**
-- [ ] Migración: agregar `disclaimer` (`text`, nullable) a `products` — advertencia específica por producto (opcional, si vacío se usa el genérico).
-- [ ] Migración: agregar `medical_disclaimer_accepted_at` (`datetime`, nullable) a `purchases` — evidencia de que el usuario confirmó el aviso antes de pagar.
-- [ ] `Marketplace::Orders::Prepare` debe exigir y persistir la aceptación (rechazar con 422 si no viene el flag `medical_disclaimer_accepted: true` en el payload).
+- [X] Migración: agregar `disclaimer` (`text`, nullable) a `products` — advertencia específica por producto (opcional, si vacío se usa el genérico).
+- [X] Migración: agregar `medical_disclaimer_accepted_at` (`datetime`, nullable) a `purchases` — evidencia de que el usuario confirmó el aviso antes de pagar.
+- [X] `Marketplace::Orders::Prepare` persiste la aceptación (`purchases.medical_disclaimer_accepted_at`) cuando llega `medical_disclaimer_accepted: true`.
+  - **Desviación deliberada**: NO se rechaza con 422 todavía si falta — el endpoint ya está en producción con checkout funcionando; endurecerlo antes de que el frontend enviara el campo habría roto el checkout en vivo. Se hará obligatorio en un PR de seguimiento una vez confirmado que el frontend ya lo envía siempre.
+  - **Nota de UX**: a pedido del owner, el checkbox en frontend viene marcado por defecto (`checked`) para no exigir un clic extra — reduce el valor de "consentimiento explícito" pero mantiene el aviso visible y el registro de aceptación.
 
 **Frontend**
-- [ ] Componente `MedicalDisclaimer` reutilizable (texto estándar: *"Este producto no reemplaza el consejo, diagnóstico o tratamiento médico profesional. Consulta a tu médico antes de consumir cualquier producto, especialmente si tienes una condición preexistente, estás en embarazo o lactancia."*), mostrado en:
-  - Pie de página global (footer).
-  - Detalle de producto (`/marketplace/[id]`), usando `product.disclaimer` si existe o el texto genérico.
-  - Detalle de receta (`/recetas/[id]`, ver sub-fase 3.5).
-  - Checkout: **checkbox obligatorio** "He leído el aviso y entiendo que debo consultar a mi médico" antes de habilitar el botón de pago.
+- [X] Componente `MedicalDisclaimer` reutilizable (`components/ui/medical-disclaimer/`) con el texto estándar, mostrado en:
+  - [ ] Pie de página global (footer) — **pendiente**: el proyecto todavía no tiene un componente `Footer`/layout de pie de página; agregarlo es un cambio más grande que el alcance de este sprint. Queda para cuando se construya el footer.
+  - [X] Detalle de producto (`/marketplace/[id]`), usando `product.disclaimer` si existe o el texto genérico.
+  - [ ] Detalle de receta (`/recetas/[id]`) — llega con el módulo de recetas en sub-fase 3.5 (aún no implementado).
+  - [X] Checkout: checkbox junto al botón de pago (marcado por defecto, ver nota de UX arriba).
 
 ### 5.2 Email de confirmación de pedido (idea #10)
 
 **Backend**
-- [ ] Crear `OrderMailer < ApplicationMailer` con método `confirmation(order)`:
+- [X] Crear `OrderMailer < ApplicationMailer` con método `confirmation(order)`:
   - Destinatario: `order.purchase.user.email`.
   - `bcc`: `ENV["ADMIN_NOTIFICATION_EMAIL"]` (copia al admin, sin exponerlo al cliente).
   - Cuerpo: número de compra, fecha, items comprados (nombre, cantidad, precio), subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega.
-- [ ] Vista `app/views/order_mailer/confirmation.html.erb` (+ `.text.erb` como fallback).
-- [ ] Disparo: al final de `Marketplace::Orders::Complete`, dentro de la misma transacción de éxito, encolar `OrderMailer.confirmation(order).deliver_later` (usa `solid_queue`, ya instalado — alineado con "Background Jobs" del `CLAUDE.md`).
-- [ ] **Decisión pendiente a confirmar con el owner**: proveedor SMTP/API de envío (ej. Resend, Postmark, SMTP de Supabase/otro). Se requiere `ENV` nuevo: `SMTP_*` o `RESEND_API_KEY`, y `ADMIN_NOTIFICATION_EMAIL`. No se debe improvisar un proveedor sin confirmarlo, por la regla de `general-rules.md` de justificar y confirmar decisiones fuera del stack ya definido.
-- [ ] Manejar fallos de envío sin romper el flujo de compra (el pedido se confirma igual aunque el email falle; loggear el error).
+- [X] Vista `app/views/order_mailer/confirmation.html.erb` (+ `.text.erb` como fallback).
+- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encola `OrderMailer.confirmation(purchase).deliver_later` (usa `solid_queue`, ya instalado — alineado con "Background Jobs" del `CLAUDE.md`).
+  - **Ajuste sobre la spec original**: se dispara después del `commit`, no dentro de la transacción — evita acoplar un side-effect externo (aunque sea solo encolar) a una transacción de DB que podría hacer rollback por otra razón.
+- [X] **Decisión pendiente a confirmar con el owner**: proveedor SMTP/API de envío (ej. Resend, Postmark, SMTP de Supabase/otro). Se requiere `ENV` nuevo: `SMTP_*` o `RESEND_API_KEY`, y `ADMIN_NOTIFICATION_EMAIL`. No se debe improvisar un proveedor sin confirmarlo, por la regla de `general-rules.md` de justificar y confirmar decisiones fuera del stack ya definido.
+- [X] Manejar fallos de envío sin romper el flujo de compra (el pedido se confirma igual aunque el email falle; loggear el error).
 
 ---
 

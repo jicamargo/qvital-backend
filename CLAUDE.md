@@ -496,7 +496,14 @@ WOMPI_REDIRECT_URL
 
 # Dev/Staging helpers
 MARKETPLACE_MOCK_AUTO_APPROVE  # "true" to skip real payment check
+
+# Transactional email (OrderMailer — order confirmation)
+RESEND_API_KEY                 # Resend API key. Without it, ActionMailer falls back to :test (no real email sent)
+ADMIN_NOTIFICATION_EMAIL       # bcc'd on every order confirmation email
+MAILER_FROM_EMAIL              # optional, defaults to pedidos@qvital.com — must be a domain verified in Resend
 ```
+
+**Note:** these three must be set wherever the app actually runs in production (Render dashboard — see "Deployment target" above), not just in the local `.env`. `dotenv-rails` is a `development, test` only gem (see Gemfile), so `.env` is never read when `RAILS_ENV=production`.
 
 ---
 

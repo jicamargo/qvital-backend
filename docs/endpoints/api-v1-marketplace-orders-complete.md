@@ -102,6 +102,7 @@ o
       - `purchase.status = confirmed`.
       - `orders.status = confirmed`.
       - `cart.status = completed` (si se pasó `cart_id`).
+    - Encola `OrderMailer.confirmation(purchase).deliver_later` (email al cliente, copia oculta a `ENV["ADMIN_NOTIFICATION_EMAIL"]`). Un fallo de envío se loggea pero **nunca** revierte ni reporta error en la respuesta — ver `docs/requirements/fase3-personalizacion-objetivos-salud.md` §5.2.
 
 ---
 
