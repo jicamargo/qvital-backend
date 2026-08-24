@@ -45,7 +45,7 @@ module Admin
       private
 
       def product_attributes
-        @params.slice(:name, :description, :image_url, :image_path, :sku, :pv, :category_id, :active, :flavor, :disclaimer)
+        @params.slice(:name, :description, :image_url, :image_path, :sku, :pv, :category_id, :active, :flavor, :disclaimer, :long_description)
       end
 
       def assign_health_goals!

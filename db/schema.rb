@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_24_130020) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_24_140000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -222,6 +222,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_24_130020) do
     t.string "image_path"
     t.string "flavor"
     t.text "disclaimer"
+    t.text "long_description"
     t.index ["active"], name: "index_products_on_active"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["sku"], name: "index_products_on_sku", unique: true

@@ -229,12 +229,13 @@ Resuelve las ideas #3 y #4.
 
 Resuelve la idea #2, complementa la #1 (rapidez para quien no quiere leer).
 
-- [ ] Nuevo componente `components/ui/Collapsible` (o `Accordion`) — no existe aún en el design system (confirmado en `CLAUDE.md` frontend, sección "Not yet implemented").
-- [ ] Regla de UX transversal: toda pantalla educativa/de producto muestra por defecto **solo lo esencial** (nombre, descripción corta, precio/CTA) y oculta detalle extendido detrás de un toggle "Ver información completa" / "Aprende más":
-  - Detalle de producto: agregar `products.long_description` (`text`, nullable) separado del `description` corto ya usado en las cards. El corto sigue siendo obligatorio y visible siempre; el largo es opcional y va dentro del collapsible.
-  - Detalle de receta: instrucciones completas colapsadas por defecto en vista rápida (móvil), expandidas en desktop si hay espacio.
-  - `/habitos` (blog educativo, hoy stub): cada artículo muestra resumen + CTA "Leer artículo completo".
-- [ ] No aplicar este patrón al flujo de compra en sí (carrito, checkout) — ahí la prioridad es velocidad, no lectura.
+- [X] Nuevo componente `components/ui/Collapsible` (o `Accordion`) — no existe aún en el design system (confirmado en `CLAUDE.md` frontend, sección "Not yet implemented").
+  - `openOnDesktop` (opcional): se abre solo automáticamente en desktop (`matchMedia`, ≥1024px) al montar — usado por las instrucciones de receta, no por defecto en el resto de usos.
+- [X] Regla de UX transversal: toda pantalla educativa/de producto muestra por defecto **solo lo esencial** (nombre, descripción corta, precio/CTA) y oculta detalle extendido detrás de un toggle "Ver información completa" / "Aprende más":
+  - [X] Detalle de producto: agregado `products.long_description` (`text`, nullable) separado del `description` corto ya usado en las cards. El corto sigue siendo obligatorio y visible siempre; el largo es opcional y va dentro del collapsible en `/marketplace/[id]`. Campo agregado también al formulario admin de productos (textarea).
+  - [X] Detalle de receta: instrucciones completas colapsadas por defecto en vista rápida (móvil), expandidas en desktop si hay espacio (`Collapsible openOnDesktop`).
+  - [X] `/habitos` (blog educativo, hoy stub): cada artículo muestra resumen + CTA "Leer artículo completo" que expande el cuerpo completo — sigue siendo un stub con datos hardcodeados (no hay modelo de artículos en esta fase), pero ya demuestra el patrón de contenido progresivo.
+- [X] No aplicar este patrón al flujo de compra en sí (carrito, checkout) — no se tocó ningún componente de esos flujos.
 
 ---
 

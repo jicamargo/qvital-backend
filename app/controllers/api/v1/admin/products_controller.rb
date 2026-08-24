@@ -78,6 +78,7 @@ module Api
             :active,
             :flavor,
             :disclaimer,
+            :long_description,
             prices: {},
             health_goal_ids: []
           )
