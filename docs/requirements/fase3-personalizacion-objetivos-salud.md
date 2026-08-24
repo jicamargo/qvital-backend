@@ -90,11 +90,12 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
 
 ### 3.1 Backend
 
-- [ ] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
-- [ ] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
+- [X] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
+- [X] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
   - `Destroy` es soft-delete (`active = false`), igual que productos — evita romper productos ya taggeados.
-- [ ] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
-- [ ] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
+  - `List` acepta `?active=` (igual que `Admin::Products::List`).
+- [X] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
+- [X] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
 
 ### 3.2 Frontend
 
@@ -290,7 +291,7 @@ Cada sprint cierra con: migraciones aplicadas, endpoints documentados en `docs/e
 
 ## 10. Decisiones a confirmar con el owner antes de implementar
 
-- [ ] Proveedor de envío de email transaccional (Resend / Postmark / SMTP genérico) — impacta `ENV` y gemas nuevas.
+- [X] Proveedor de envío de email transaccional — resuelto: Resend (gem `resend` + `RESEND_API_KEY`, ver `config/application.rb`).
 - [ ] Si "combos por objetivo" (idea #7) necesita precio de paquete real (`ProductBundle`) en esta fase o si el filtro por `health_goal` es suficiente por ahora (recomendación: dejarlo para Fase 4).
-- [ ] Lista definitiva de objetivos de salud (los 7 propuestos + "comprar por mi cuenta") y sus textos/iconos/colores finales — se sugiere una sesión corta de definición antes del Sprint 3.
+- [X] Lista definitiva de objetivos de salud — resuelto: 9 seedeados en `db/seeds.rb` (7 propuestos + "Snacks sanos" + "Comprar por mi cuenta"), con icono/color reales.
 - [ ] Confirmar que Supabase permite crear la `TEXT SEARCH CONFIGURATION spanish_unaccent` y las extensiones `pg_trgm`/`unaccent` en el schema `extensions` con el rol que usa Rails en producción (ver `busqueda-full-text.md` sección 3) — validar en un entorno de staging antes del Sprint 8.
