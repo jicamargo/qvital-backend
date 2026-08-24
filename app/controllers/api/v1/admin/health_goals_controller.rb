@@ -6,7 +6,7 @@ module Api
 
         # GET /api/v1/admin/health_goals
         def index
-          result = ::Admin::HealthGoals::List.call
+          result = ::Admin::HealthGoals::List.call(params: index_params)
 
           if result.success?
             render json: HealthGoalBlueprint.render(result.health_goals, view: :admin), status: :ok
@@ -69,6 +69,10 @@ module Api
 
         def health_goal_params
           params.require(:health_goal).permit(:key, :name, :description, :icon, :color, :position, :active)
+        end
+
+        def index_params
+          params.permit(:active)
         end
       end
     end
