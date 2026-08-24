@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_22_120030) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_24_130020) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -277,6 +277,45 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_22_120030) do
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
+  create_table "recipe_health_goals", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "health_goal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["health_goal_id"], name: "index_recipe_health_goals_on_health_goal_id"
+    t.index ["recipe_id", "health_goal_id"], name: "index_recipe_health_goals_on_recipe_and_goal", unique: true
+    t.index ["recipe_id"], name: "index_recipe_health_goals_on_recipe_id"
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "product_id"
+    t.string "generic_name"
+    t.string "quantity", null: false
+    t.boolean "is_optional", default: false, null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_recipe_ingredients_on_product_id"
+    t.index ["recipe_id", "position"], name: "index_recipe_ingredients_on_recipe_id_and_position"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.text "description"
+    t.integer "servings", default: 1, null: false
+    t.integer "prep_time_minutes"
+    t.integer "difficulty", default: 0, null: false
+    t.jsonb "instructions", default: [], null: false
+    t.string "image_url"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_recipes_on_slug", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password"
@@ -335,5 +374,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_22_120030) do
   add_foreign_key "purchase_items", "purchases"
   add_foreign_key "purchases", "purchase_intents"
   add_foreign_key "purchases", "users"
+  add_foreign_key "recipe_health_goals", "health_goals"
+  add_foreign_key "recipe_health_goals", "recipes"
+  add_foreign_key "recipe_ingredients", "products"
+  add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "users", "levels"
 end

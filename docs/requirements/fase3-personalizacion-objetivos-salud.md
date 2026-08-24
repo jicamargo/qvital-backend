@@ -167,7 +167,7 @@ Resuelve las ideas #3 y #4.
 
 ### 6.1 Modelo de datos
 
-- [ ] Tabla `recipes`:
+- [X] Tabla `recipes`:
   ```ruby
   create_table :recipes do |t|
     t.string  :title,          null: false
@@ -183,8 +183,8 @@ Resuelve las ideas #3 y #4.
   end
   add_index :recipes, :slug, unique: true
   ```
-- [ ] Tabla puente `recipe_health_goals` (una receta puede servir a varios objetivos: "para bajar de peso" y "para más energía").
-- [ ] Tabla `recipe_ingredients` — **decisión de diseño**: en vez de columnas fijas tipo `water_amount`/`ice_amount`/`berries` en `recipes` (rígido, no escala a otros productos/ingredientes), se modela como líneas de ingrediente:
+- [X] Tabla puente `recipe_health_goals` (una receta puede servir a varios objetivos: "para bajar de peso" y "para más energía").
+- [X] Tabla `recipe_ingredients` — **decisión de diseño**: en vez de columnas fijas tipo `water_amount`/`ice_amount`/`berries` en `recipes` (rígido, no escala a otros productos/ingredientes), se modela como líneas de ingrediente:
   ```ruby
   create_table :recipe_ingredients do |t|
     t.references :recipe, null: false, foreign_key: true
@@ -197,26 +197,31 @@ Resuelve las ideas #3 y #4.
   end
   ```
   - Justificación: así "cuántas cucharadas de producto X", "cuánta agua", "cuánto hielo" y "frutos rojos (opcional)" son todas filas de la misma tabla, sin campos especiales por ingrediente. Cubre cualquier receta futura sin migraciones nuevas.
-- [ ] Modelo `Recipe`: `has_many :recipe_ingredients, dependent: :destroy`; `has_many :products, through: :recipe_ingredients`; `has_many :recipe_health_goals, dependent: :destroy`; `has_many :health_goals, through: :recipe_health_goals`; enum `difficulty`.
+- [X] Modelo `Recipe`: `has_many :recipe_ingredients, dependent: :destroy`; `has_many :products, through: :recipe_ingredients`; `has_many :recipe_health_goals, dependent: :destroy`; `has_many :health_goals, through: :recipe_health_goals`; enum `difficulty`.
 
 ### 6.2 Backend — Endpoints
 
-- [ ] `GET /api/v1/recipes` — catálogo público/autenticado, filtros: `health_goal_key`, `difficulty`, `max_prep_time`.
-- [ ] `GET /api/v1/recipes/:slug` — detalle con ingredientes ordenados y flag `is_optional`.
-- [ ] `GET /api/v1/recipes/for_me` (auth requerida) — interactor `Recipes::ListForUser`:
-  - Obtiene `product_id`s distintos de `order_items`/`purchase_items` confirmados del usuario.
+- [X] `GET /api/v1/recipes` — catálogo público/autenticado, filtros: `health_goal_key`, `difficulty`, `max_prep_time`.
+  - Extra sobre la spec: también acepta `product_id`, usado por "Recetas con este producto" (ver 6.3).
+- [X] `GET /api/v1/recipes/:slug` — detalle con ingredientes ordenados y flag `is_optional`.
+- [X] `GET /api/v1/recipes/for_me` (auth requerida) — interactor `Recipes::ListForUser`:
+  - Obtiene `product_id`s distintos de `purchase_items` confirmados del usuario (vía `Purchase.status: confirmed`).
   - Busca recetas cuyos `recipe_ingredients.product_id` estén en ese set, ordenadas por cantidad de ingredientes que el usuario ya tiene comprados (más coincidencias primero).
   - Si el usuario no tiene compras aún, devuelve fallback: recetas destacadas/genéricas (mismo criterio que el catálogo público, sin fallar).
-- [ ] Admin CRUD `Api::V1::Admin::RecipesController` + interactors `Admin::Recipes::*` (incluye gestión anidada de `recipe_ingredients`).
-- [ ] Blueprints: `RecipeBlueprint` (vista `:default` resumida para listado, vista `:detail` con ingredientes completos e instrucciones), `RecipeIngredientBlueprint`.
+- [X] Admin CRUD `Api::V1::Admin::RecipesController` + interactors `Admin::Recipes::*` (incluye gestión anidada de `recipe_ingredients`; `update` reemplaza la lista completa en vez de diffear por id).
+- [X] Blueprints: `RecipeBlueprint` (vista `:default` resumida para listado, vista `:detail` con ingredientes completos e instrucciones, vista `:admin` que además agrega `active`/timestamps), `RecipeIngredientBlueprint`.
+- Documentado en [`api-v1-recipes.md`](../endpoints/api-v1-recipes.md) y [`api-v1-admin-recipes.md`](../endpoints/api-v1-admin-recipes.md).
 
 ### 6.3 Frontend
 
-- [ ] Reemplazar el stub estático de `/recetas` (actualmente datos hardcodeados) por datos reales vía `lib/services/recipes.ts`.
-- [ ] Sección **"Recetas para ti"** al tope de `/recetas` cuando el usuario está autenticado y `for_me` devuelve resultados — refuerza directamente la idea #4.
-- [ ] Filtros existentes en la UI (tiempo, económicas, alta proteína...) se mapean a `health_goal_key`/`difficulty`/tiempo reales en vez de badges decorativos.
-- [ ] Página `/recetas/[slug]`: instrucciones paso a paso, lista de ingredientes marcando claramente los opcionales ("Frutos rojos — opcional"), y `MedicalDisclaimer` (ver 3.4) cuando la receta usa productos de suplementación.
-- [ ] Desde `/marketplace/[id]` (detalle de producto), sección "Recetas con este producto" (recetas donde aparece ese `product_id` en `recipe_ingredients`) — cierra el círculo compra→preparación.
+- [X] Reemplazar el stub estático de `/recetas` (actualmente datos hardcodeados) por datos reales vía `lib/services/recipes.ts`.
+- [X] Sección **"Recetas para ti"** al tope de `/recetas` cuando el usuario está autenticado y `for_me` devuelve resultados — refuerza directamente la idea #4.
+- [X] Filtros existentes en la UI (tiempo, económicas, alta proteína...) se mapean a `health_goal_key`/`difficulty`/tiempo reales en vez de badges decorativos.
+  - Los filtros decorativos originales ("Alta proteína", "Antiinflamatorias") no correspondían a ningún objetivo de salud real seedeado, así que se reemplazaron por chips de objetivo de salud real + dificultad + tiempo máximo (15/30 min), en vez de intentar mapear etiquetas inventadas a datos que no existen.
+- [X] Página `/recetas/[slug]`: instrucciones paso a paso, lista de ingredientes marcando claramente los opcionales ("Frutos rojos — opcional"), y `MedicalDisclaimer` (ver 3.4) cuando la receta usa productos de suplementación.
+  - El colapsado de instrucciones en móvil (visto rápido vs. completo) llega con la sub-fase 3.6 (`Collapsible`) — por ahora se muestran completas.
+- [X] Desde `/marketplace/[id]` (detalle de producto), sección "Recetas con este producto" (recetas donde aparece ese `product_id` en `recipe_ingredients`) — cierra el círculo compra→preparación.
+- **Extra sobre la spec**: admin CRUD de recetas en `/admin/recipes` (list + new + edit) — el backend ya expone el CRUD pero la spec no listaba una UI para usarlo; sin ella no había forma de crear recetas fuera de la consola de Rails (mismo criterio que se siguió con `/admin/health-goals` en la sub-fase 3.2).
 
 ---
 

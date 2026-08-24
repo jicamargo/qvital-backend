@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :levels, through: :product_prices
   has_many :product_health_goals, dependent: :destroy
   has_many :health_goals, through: :product_health_goals
+  has_many :recipe_ingredients
+  has_many :recipes, through: :recipe_ingredients
 
   validates :name, presence: true
   validates :sku, uniqueness: true, allow_nil: true
