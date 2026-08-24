@@ -1,15 +1,15 @@
-# Previews disponibles en http://localhost:3001/rails/mailers (con el
+# Previews disponibles en http://localhost:3011/rails/mailers (con el
 # servidor corriendo en development). No envían nada — solo renderizan.
 # Ver también CLAUDE.md § "Testing Mailers Locally".
 class OrderMailerPreview < ActionMailer::Preview
-  # http://localhost:3001/rails/mailers/order_mailer/confirmation
-  # http://localhost:3001/rails/mailers/order_mailer/confirmation?purchase_number=PUR-XXXX
+  # http://localhost:3011/rails/mailers/order_mailer/confirmation
+  # http://localhost:3011/rails/mailers/order_mailer/confirmation?purchase_number=PUR-XXXX
   def confirmation
     OrderMailer.confirmation(sample_purchase)
   end
 
-  # http://localhost:3001/rails/mailers/order_mailer/admin_notification
-  # http://localhost:3001/rails/mailers/order_mailer/admin_notification?purchase_number=PUR-XXXX
+  # http://localhost:3011/rails/mailers/order_mailer/admin_notification
+  # http://localhost:3011/rails/mailers/order_mailer/admin_notification?purchase_number=PUR-XXXX
   def admin_notification
     OrderMailer.admin_notification(sample_purchase)
   end

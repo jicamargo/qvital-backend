@@ -10,8 +10,8 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     # Permitir requests desde frontend/local en desarrollo.
     if Rails.env.development?
       dev_origins = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000"
+        "http://localhost:3010",
+        "http://127.0.0.1:3010"
       ]
       dev_origins << ENV["FRONTEND_URL"] if ENV["FRONTEND_URL"].present?
       origins(*dev_origins.uniq)
