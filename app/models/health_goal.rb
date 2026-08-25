@@ -1,6 +1,8 @@
 class HealthGoal < ApplicationRecord
   has_many :product_health_goals, dependent: :destroy
   has_many :products, through: :product_health_goals
+  has_many :recipe_health_goals, dependent: :destroy
+  has_many :recipes, through: :recipe_health_goals
 
   validates :key, presence: true, uniqueness: true
   validates :name, presence: true

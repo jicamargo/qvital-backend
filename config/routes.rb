@@ -14,6 +14,11 @@ Rails.application.routes.draw do
       resources :products, only: [:index]
       resources :categories, only: [:index]
       resources :health_goals, only: [:index]
+      resources :recipes, only: [:index, :show], param: :slug do
+        collection do
+          get :for_me
+        end
+      end
 
       namespace :coach_virtual do
         get "profile", to: "profile#show"
@@ -55,6 +60,8 @@ Rails.application.routes.draw do
 
         resources :users, only: [:index]
         resources :products
+        resources :health_goals
+        resources :recipes
         resources :orders, only: %i[index show update] do
           member do
             post :check_wompi_status

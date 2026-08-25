@@ -90,20 +90,21 @@ Este documento incorpora un conjunto de ideas de producto recogidas por el owner
 
 ### 3.1 Backend
 
-- [ ] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
-- [ ] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
+- [X] Namespace `Api::V1::Admin::HealthGoalsController` (CRUD completo), con `authorize_admin!`.
+- [X] Interactors `Admin::HealthGoals::{List,Create,Update,Destroy}`.
   - `Destroy` es soft-delete (`active = false`), igual que productos — evita romper productos ya taggeados.
-- [ ] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
-- [ ] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
+  - `List` acepta `?active=` (igual que `Admin::Products::List`).
+- [X] Extender `Admin::Products::{Create,Update}` para aceptar `health_goal_ids: []` y sincronizar `product_health_goals`.
+- [X] Documentar en `docs/endpoints/api-v1-admin-health-goals.md` al implementar.
 
 ### 3.2 Frontend
 
-- [ ] Página `/admin/health-goals`: tabla + formulario crear/editar con:
-  - selector de icono (lista curada de iconos lucide-react relevantes: `Flame`, `TrendingUp`, `Scale`, `Apple`, `Zap`, `Heart`, `Activity`, `ShoppingBag`).
-  - selector de color (paleta de swatches, no color picker libre, para mantener consistencia visual con `docs/design/color-tokens.md`).
-  - campo `position` (orden de aparición en el CTA rápido).
-- [ ] En `/admin/products/new` y `/admin/products/[id]/edit`: agregar selector múltiple de objetivos de salud (checkboxes o multi-select) y campo `flavor` (texto libre o select con sabores comunes).
-- [ ] Nuevo componente reutilizable en `components/ui`: `IconPicker` o, más simple para MVP, un `<select>` estilizado con preview del icono + color (evitar sobre-ingeniería).
+- [X] Página `/admin/health-goals`: tabla + formulario crear/editar con:
+  - [X] selector de icono (lista curada de iconos lucide-react: `TrendingDown`, `TrendingUp`, `Scale`, `Apple`, `Zap`, `Heart`, `Activity`, `ShoppingBag`, `Flame`, `Sparkles` — `lib/constants/healthGoalOptions.ts`).
+  - [X] selector de color (paleta de 8 swatches derivados de `docs/design/color-tokens.md`, no color picker libre).
+  - [X] campo `position` (orden de aparición en el CTA rápido).
+- [X] En `/admin/products/new` y `/admin/products/[id]/edit`: selector múltiple de objetivos de salud (`components/admin/HealthGoalCheckboxGroup.tsx`, pills clicables con icono+color, solo objetivos activos) y campo `flavor` (texto libre).
+- [X] Componentes reutilizables: `lib/constants/healthGoalOptions.ts` (iconos/colores curados) + `HealthGoalCheckboxGroup` — se optó por botones/pills en vez de un `<select>` estilizado, para poder mostrar icono y color de cada objetivo directamente en el selector.
 
 ---
 
@@ -148,13 +149,12 @@ Resuelve las ideas #1 y #6 directamente: minimizar clics entre "entro a la app" 
 ### 5.2 Email de confirmación de pedido (idea #10)
 
 **Backend**
-- [X] Crear `OrderMailer < ApplicationMailer` con **dos** métodos (no uno con `bcc`):
-  - `confirmation(purchase)` → al cliente (`purchase.user.email`). Cuerpo: número de compra, items, subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega, descargo médico.
-  - `admin_notification(purchase)` → a `ENV["ADMIN_NOTIFICATION_EMAIL"]` (default `admin@qvital.com` si no está seteada, para que siempre renderice en dev). Contenido propio orientado a operación (nombre/email/teléfono del cliente al frente, mismo resumen de items, sin saludo ni descargo médico).
-  - **Ajuste sobre la spec original**: se descartó el `bcc` — dos emails con contenido y propósito distintos son más útiles que una copia idéntica del correo del cliente, y permiten previsualizarlos/prooarlos por separado (ver `CLAUDE.md` § "Testing Mailers Locally").
-  - Ambos comparten un parcial `app/views/order_mailer/_summary.html.erb` / `.text.erb` (tabla de items + totales + dirección) para no duplicar esa lógica.
-- [X] Vistas `confirmation.html/text.erb` y `admin_notification.html/text.erb`.
-- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encolan ambos correos por separado (`deliver_later`, vía `solid_queue`), cada uno con su propio guard + rescue independiente — si falla el del admin no afecta el del cliente y viceversa.
+- [X] Crear `OrderMailer < ApplicationMailer` con método `confirmation(order)`:
+  - Destinatario: `order.purchase.user.email`.
+  - `bcc`: `ENV["ADMIN_NOTIFICATION_EMAIL"]` (copia al admin, sin exponerlo al cliente).
+  - Cuerpo: número de compra, fecha, items comprados (nombre, cantidad, precio), subtotal/impuestos/envío/total, dirección de envío, fecha estimada de entrega.
+- [X] Vista `app/views/order_mailer/confirmation.html.erb` (+ `.text.erb` como fallback).
+- [X] Disparo: al final de `Marketplace::Orders::Complete`, **justo después** (no dentro) de la transacción de éxito, se encola `OrderMailer.confirmation(purchase).deliver_later` (usa `solid_queue`, ya instalado — alineado con "Background Jobs" del `CLAUDE.md`).
   - **Ajuste sobre la spec original**: se dispara después del `commit`, no dentro de la transacción — evita acoplar un side-effect externo (aunque sea solo encolar) a una transacción de DB que podría hacer rollback por otra razón.
 - [X] **Decisión pendiente a confirmar con el owner**: proveedor SMTP/API de envío (ej. Resend, Postmark, SMTP de Supabase/otro). Se requiere `ENV` nuevo: `SMTP_*` o `RESEND_API_KEY`, y `ADMIN_NOTIFICATION_EMAIL`. No se debe improvisar un proveedor sin confirmarlo, por la regla de `general-rules.md` de justificar y confirmar decisiones fuera del stack ya definido.
 - [X] Manejar fallos de envío sin romper el flujo de compra (el pedido se confirma igual aunque el email falle; loggear el error).
@@ -167,7 +167,7 @@ Resuelve las ideas #3 y #4.
 
 ### 6.1 Modelo de datos
 
-- [ ] Tabla `recipes`:
+- [X] Tabla `recipes`:
   ```ruby
   create_table :recipes do |t|
     t.string  :title,          null: false
@@ -183,8 +183,8 @@ Resuelve las ideas #3 y #4.
   end
   add_index :recipes, :slug, unique: true
   ```
-- [ ] Tabla puente `recipe_health_goals` (una receta puede servir a varios objetivos: "para bajar de peso" y "para más energía").
-- [ ] Tabla `recipe_ingredients` — **decisión de diseño**: en vez de columnas fijas tipo `water_amount`/`ice_amount`/`berries` en `recipes` (rígido, no escala a otros productos/ingredientes), se modela como líneas de ingrediente:
+- [X] Tabla puente `recipe_health_goals` (una receta puede servir a varios objetivos: "para bajar de peso" y "para más energía").
+- [X] Tabla `recipe_ingredients` — **decisión de diseño**: en vez de columnas fijas tipo `water_amount`/`ice_amount`/`berries` en `recipes` (rígido, no escala a otros productos/ingredientes), se modela como líneas de ingrediente:
   ```ruby
   create_table :recipe_ingredients do |t|
     t.references :recipe, null: false, foreign_key: true
@@ -197,26 +197,31 @@ Resuelve las ideas #3 y #4.
   end
   ```
   - Justificación: así "cuántas cucharadas de producto X", "cuánta agua", "cuánto hielo" y "frutos rojos (opcional)" son todas filas de la misma tabla, sin campos especiales por ingrediente. Cubre cualquier receta futura sin migraciones nuevas.
-- [ ] Modelo `Recipe`: `has_many :recipe_ingredients, dependent: :destroy`; `has_many :products, through: :recipe_ingredients`; `has_many :recipe_health_goals, dependent: :destroy`; `has_many :health_goals, through: :recipe_health_goals`; enum `difficulty`.
+- [X] Modelo `Recipe`: `has_many :recipe_ingredients, dependent: :destroy`; `has_many :products, through: :recipe_ingredients`; `has_many :recipe_health_goals, dependent: :destroy`; `has_many :health_goals, through: :recipe_health_goals`; enum `difficulty`.
 
 ### 6.2 Backend — Endpoints
 
-- [ ] `GET /api/v1/recipes` — catálogo público/autenticado, filtros: `health_goal_key`, `difficulty`, `max_prep_time`.
-- [ ] `GET /api/v1/recipes/:slug` — detalle con ingredientes ordenados y flag `is_optional`.
-- [ ] `GET /api/v1/recipes/for_me` (auth requerida) — interactor `Recipes::ListForUser`:
-  - Obtiene `product_id`s distintos de `order_items`/`purchase_items` confirmados del usuario.
+- [X] `GET /api/v1/recipes` — catálogo público/autenticado, filtros: `health_goal_key`, `difficulty`, `max_prep_time`.
+  - Extra sobre la spec: también acepta `product_id`, usado por "Recetas con este producto" (ver 6.3).
+- [X] `GET /api/v1/recipes/:slug` — detalle con ingredientes ordenados y flag `is_optional`.
+- [X] `GET /api/v1/recipes/for_me` (auth requerida) — interactor `Recipes::ListForUser`:
+  - Obtiene `product_id`s distintos de `purchase_items` confirmados del usuario (vía `Purchase.status: confirmed`).
   - Busca recetas cuyos `recipe_ingredients.product_id` estén en ese set, ordenadas por cantidad de ingredientes que el usuario ya tiene comprados (más coincidencias primero).
   - Si el usuario no tiene compras aún, devuelve fallback: recetas destacadas/genéricas (mismo criterio que el catálogo público, sin fallar).
-- [ ] Admin CRUD `Api::V1::Admin::RecipesController` + interactors `Admin::Recipes::*` (incluye gestión anidada de `recipe_ingredients`).
-- [ ] Blueprints: `RecipeBlueprint` (vista `:default` resumida para listado, vista `:detail` con ingredientes completos e instrucciones), `RecipeIngredientBlueprint`.
+- [X] Admin CRUD `Api::V1::Admin::RecipesController` + interactors `Admin::Recipes::*` (incluye gestión anidada de `recipe_ingredients`; `update` reemplaza la lista completa en vez de diffear por id).
+- [X] Blueprints: `RecipeBlueprint` (vista `:default` resumida para listado, vista `:detail` con ingredientes completos e instrucciones, vista `:admin` que además agrega `active`/timestamps), `RecipeIngredientBlueprint`.
+- Documentado en [`api-v1-recipes.md`](../endpoints/api-v1-recipes.md) y [`api-v1-admin-recipes.md`](../endpoints/api-v1-admin-recipes.md).
 
 ### 6.3 Frontend
 
-- [ ] Reemplazar el stub estático de `/recetas` (actualmente datos hardcodeados) por datos reales vía `lib/services/recipes.ts`.
-- [ ] Sección **"Recetas para ti"** al tope de `/recetas` cuando el usuario está autenticado y `for_me` devuelve resultados — refuerza directamente la idea #4.
-- [ ] Filtros existentes en la UI (tiempo, económicas, alta proteína...) se mapean a `health_goal_key`/`difficulty`/tiempo reales en vez de badges decorativos.
-- [ ] Página `/recetas/[slug]`: instrucciones paso a paso, lista de ingredientes marcando claramente los opcionales ("Frutos rojos — opcional"), y `MedicalDisclaimer` (ver 3.4) cuando la receta usa productos de suplementación.
-- [ ] Desde `/marketplace/[id]` (detalle de producto), sección "Recetas con este producto" (recetas donde aparece ese `product_id` en `recipe_ingredients`) — cierra el círculo compra→preparación.
+- [X] Reemplazar el stub estático de `/recetas` (actualmente datos hardcodeados) por datos reales vía `lib/services/recipes.ts`.
+- [X] Sección **"Recetas para ti"** al tope de `/recetas` cuando el usuario está autenticado y `for_me` devuelve resultados — refuerza directamente la idea #4.
+- [X] Filtros existentes en la UI (tiempo, económicas, alta proteína...) se mapean a `health_goal_key`/`difficulty`/tiempo reales en vez de badges decorativos.
+  - Los filtros decorativos originales ("Alta proteína", "Antiinflamatorias") no correspondían a ningún objetivo de salud real seedeado, así que se reemplazaron por chips de objetivo de salud real + dificultad + tiempo máximo (15/30 min), en vez de intentar mapear etiquetas inventadas a datos que no existen.
+- [X] Página `/recetas/[slug]`: instrucciones paso a paso, lista de ingredientes marcando claramente los opcionales ("Frutos rojos — opcional"), y `MedicalDisclaimer` (ver 3.4) cuando la receta usa productos de suplementación.
+  - El colapsado de instrucciones en móvil (visto rápido vs. completo) llega con la sub-fase 3.6 (`Collapsible`) — por ahora se muestran completas.
+- [X] Desde `/marketplace/[id]` (detalle de producto), sección "Recetas con este producto" (recetas donde aparece ese `product_id` en `recipe_ingredients`) — cierra el círculo compra→preparación.
+- **Extra sobre la spec**: admin CRUD de recetas en `/admin/recipes` (list + new + edit) — el backend ya expone el CRUD pero la spec no listaba una UI para usarlo; sin ella no había forma de crear recetas fuera de la consola de Rails (mismo criterio que se siguió con `/admin/health-goals` en la sub-fase 3.2).
 
 ---
 
@@ -224,12 +229,13 @@ Resuelve las ideas #3 y #4.
 
 Resuelve la idea #2, complementa la #1 (rapidez para quien no quiere leer).
 
-- [ ] Nuevo componente `components/ui/Collapsible` (o `Accordion`) — no existe aún en el design system (confirmado en `CLAUDE.md` frontend, sección "Not yet implemented").
-- [ ] Regla de UX transversal: toda pantalla educativa/de producto muestra por defecto **solo lo esencial** (nombre, descripción corta, precio/CTA) y oculta detalle extendido detrás de un toggle "Ver información completa" / "Aprende más":
-  - Detalle de producto: agregar `products.long_description` (`text`, nullable) separado del `description` corto ya usado en las cards. El corto sigue siendo obligatorio y visible siempre; el largo es opcional y va dentro del collapsible.
-  - Detalle de receta: instrucciones completas colapsadas por defecto en vista rápida (móvil), expandidas en desktop si hay espacio.
-  - `/habitos` (blog educativo, hoy stub): cada artículo muestra resumen + CTA "Leer artículo completo".
-- [ ] No aplicar este patrón al flujo de compra en sí (carrito, checkout) — ahí la prioridad es velocidad, no lectura.
+- [X] Nuevo componente `components/ui/Collapsible` (o `Accordion`) — no existe aún en el design system (confirmado en `CLAUDE.md` frontend, sección "Not yet implemented").
+  - `openOnDesktop` (opcional): se abre solo automáticamente en desktop (`matchMedia`, ≥1024px) al montar — usado por las instrucciones de receta, no por defecto en el resto de usos.
+- [X] Regla de UX transversal: toda pantalla educativa/de producto muestra por defecto **solo lo esencial** (nombre, descripción corta, precio/CTA) y oculta detalle extendido detrás de un toggle "Ver información completa" / "Aprende más":
+  - [X] Detalle de producto: agregado `products.long_description` (`text`, nullable) separado del `description` corto ya usado en las cards. El corto sigue siendo obligatorio y visible siempre; el largo es opcional y va dentro del collapsible en `/marketplace/[id]`. Campo agregado también al formulario admin de productos (textarea).
+  - [X] Detalle de receta: instrucciones completas colapsadas por defecto en vista rápida (móvil), expandidas en desktop si hay espacio (`Collapsible openOnDesktop`).
+  - [X] `/habitos` (blog educativo, hoy stub): cada artículo muestra resumen + CTA "Leer artículo completo" que expande el cuerpo completo — sigue siendo un stub con datos hardcodeados (no hay modelo de artículos en esta fase), pero ya demuestra el patrón de contenido progresivo.
+- [X] No aplicar este patrón al flujo de compra en sí (carrito, checkout) — no se tocó ningún componente de esos flujos.
 
 ---
 
@@ -291,7 +297,7 @@ Cada sprint cierra con: migraciones aplicadas, endpoints documentados en `docs/e
 
 ## 10. Decisiones a confirmar con el owner antes de implementar
 
-- [ ] Proveedor de envío de email transaccional (Resend / Postmark / SMTP genérico) — impacta `ENV` y gemas nuevas.
+- [X] Proveedor de envío de email transaccional — resuelto: Resend (gem `resend` + `RESEND_API_KEY`, ver `config/application.rb`).
 - [ ] Si "combos por objetivo" (idea #7) necesita precio de paquete real (`ProductBundle`) en esta fase o si el filtro por `health_goal` es suficiente por ahora (recomendación: dejarlo para Fase 4).
-- [ ] Lista definitiva de objetivos de salud (los 7 propuestos + "comprar por mi cuenta") y sus textos/iconos/colores finales — se sugiere una sesión corta de definición antes del Sprint 3.
+- [X] Lista definitiva de objetivos de salud — resuelto: 9 seedeados en `db/seeds.rb` (7 propuestos + "Snacks sanos" + "Comprar por mi cuenta"), con icono/color reales.
 - [ ] Confirmar que Supabase permite crear la `TEXT SEARCH CONFIGURATION spanish_unaccent` y las extensiones `pg_trgm`/`unaccent` en el schema `extensions` con el rol que usa Rails en producción (ver `busqueda-full-text.md` sección 3) — validar en un entorno de staging antes del Sprint 8.

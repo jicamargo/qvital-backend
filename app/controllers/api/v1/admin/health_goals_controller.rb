@@ -1,51 +1,56 @@
 module Api
   module V1
     module Admin
-      class ProductsController < BaseController
+      class HealthGoalsController < BaseController
         before_action :authorize_admin!
 
+        # GET /api/v1/admin/health_goals
         def index
-          result = ::Admin::Products::List.call(params: index_params)
+          result = ::Admin::HealthGoals::List.call(params: index_params)
 
           if result.success?
-            render json: ProductBlueprint.render(result.products, view: :admin), status: :ok
+            render json: HealthGoalBlueprint.render(result.health_goals, view: :admin), status: :ok
           else
             render json: { error: result.error }, status: :unprocessable_entity
           end
         end
 
+        # GET /api/v1/admin/health_goals/:id
         def show
-          result = ::Admin::Products::Show.call(id: params[:id])
+          result = ::Admin::HealthGoals::Show.call(id: params[:id])
 
           if result.success?
-            render json: ProductBlueprint.render(result.product, view: :admin), status: :ok
+            render json: HealthGoalBlueprint.render(result.health_goal, view: :admin), status: :ok
           else
             render json: { error: result.error }, status: :not_found
           end
         end
 
+        # POST /api/v1/admin/health_goals
         def create
-          result = ::Admin::Products::Create.call(params: product_params)
+          result = ::Admin::HealthGoals::Create.call(params: health_goal_params)
 
           if result.success?
-            render json: ProductBlueprint.render(result.product, view: :admin), status: :created
+            render json: HealthGoalBlueprint.render(result.health_goal, view: :admin), status: :created
           else
             render json: { error: result.error, details: result.errors }, status: :unprocessable_entity
           end
         end
 
+        # PATCH /api/v1/admin/health_goals/:id
         def update
-          result = ::Admin::Products::Update.call(id: params[:id], params: product_params)
+          result = ::Admin::HealthGoals::Update.call(id: params[:id], params: health_goal_params)
 
           if result.success?
-            render json: ProductBlueprint.render(result.product, view: :admin), status: :ok
+            render json: HealthGoalBlueprint.render(result.health_goal, view: :admin), status: :ok
           else
             render json: { error: result.error, details: result.errors }, status: :unprocessable_entity
           end
         end
 
+        # DELETE /api/v1/admin/health_goals/:id
         def destroy
-          result = ::Admin::Products::Destroy.call(id: params[:id])
+          result = ::Admin::HealthGoals::Destroy.call(id: params[:id])
 
           if result.success?
             head :no_content
@@ -62,29 +67,14 @@ module Api
           end
         end
 
-        def index_params
-          params.permit(:category_id, :search, :active)
+        def health_goal_params
+          params.require(:health_goal).permit(:key, :name, :description, :icon, :color, :position, :active)
         end
 
-        def product_params
-          params.require(:product).permit(
-            :name,
-            :description,
-            :image_url,
-            :image_path,
-            :sku,
-            :pv,
-            :category_id,
-            :active,
-            :flavor,
-            :disclaimer,
-            :long_description,
-            prices: {},
-            health_goal_ids: []
-          )
+        def index_params
+          params.permit(:active)
         end
       end
     end
   end
 end
-
