@@ -1,0 +1,1350 @@
+---
+- title: Batido de Manzana y Caramelo
+  slug: batido-de-manzana-y-caramelo
+  description: Batido de licuadora con Fórmula 1 sabor banana caramelo, proteína en polvo y Fibra Activa sabor manzana, licuado con manzana picada, agua y hielo hasta quedar frío y espeso.
+  servings: 1
+  recipe_type: batido
+  difficulty: facil
+  calories: 202
+  protein_g: 20.2
+  carbs_g: 27.5
+  fat_g: 1.2
+  fiber_g: 10.4
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 5
+  instructions:
+    - Tritura los cubos de hielo con el agua en la licuadora.
+    - Agrega el resto de los ingredientes y licúa hasta que estén bien mezclados.
+    - Servir.
+  ingredients:
+    - name: Fórmula 1 - Banana Caramelo
+      sku: "1522"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Fibra Activa - Manzana
+      sku: "2864"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 250 ml
+      is_optional: false
+    - name: Manzana picada
+      sku: null
+      quantity: ½
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 3 a 4 cubos
+      is_optional: false
+
+- title: Batido con Colágeno
+  slug: batido-con-colageno
+  description: Batido de licuadora con Fórmula 1 sabor vainilla, proteína en polvo y Collagen Drink, mezclado con agua y hielo hasta integrarse bien.
+  servings: 1
+  recipe_type: batido
+  difficulty: facil
+  calories: 231
+  protein_g: 29.5
+  carbs_g: 18
+  fat_g: 4.5
+  fiber_g: 4
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 6
+  instructions:
+    - En la licuadora, vierte todos los ingredientes y licúa hasta que estén bien mezclados.
+    - Añadir hielos al gusto.
+  ingredients:
+    - name: Fórmula 1 - Vainilla
+      sku: "0141"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Collagen Drink
+      sku: "3987"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 3 a 5 hielos
+      is_optional: false
+
+- title: Batido Chai
+  slug: batido-chai
+  description: Batido de licuadora que combina Fórmula 1 sabor café latte con Té Concentrado de Hierbas sabor chai y proteína en polvo, licuado con agua y hielo hasta quedar suave.
+  servings: 1
+  recipe_type: batido
+  difficulty: facil
+  calories: 141
+  protein_g: 19
+  carbs_g: 14
+  fat_g: 1
+  fiber_g: 3
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 7
+  instructions:
+    - Combina el Batido Nutricional Fórmula 1 sabor café latte, el Té Concentrado de Hierbas sabor chai, la Proteína Personalizada en Polvo y el agua.
+    - Licúa hasta que quede suave.
+  ingredients:
+    - name: Fórmula 1 - Café Latte
+      sku: "2774"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida Herbal - Chai 51 g.
+      sku: "1638"
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 3 a 5 cubos
+      is_optional: false
+
+- title: Batido Fresa Crunch
+  slug: batido-fresa-crunch
+  description: Batido de licuadora con Fórmula 1 sabor fresa, Collagen Drink y agua helada, servido con Crocante de Proteína espolvoreado por encima para dar textura crujiente.
+  servings: 1
+  recipe_type: batido
+  difficulty: facil
+  calories: 143
+  protein_g: 18.5
+  carbs_g: 15
+  fat_g: 1
+  fiber_g: 3
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 8
+  instructions:
+    - Vierte todos los ingredientes en la licuadora, excepto el Crocante de Proteína, y licúa hasta que el batido esté suave.
+    - Sirve y agrega el Crocante de Proteína.
+  ingredients:
+    - name: Fórmula 1 - Fresa
+      sku: "0143"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Collagen Drink
+      sku: "3987"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Crocante de Proteína
+      sku: 040K
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Agua helada
+      sku: null
+      quantity: 240 ml
+      is_optional: false
+
+- title: Batido Chocolate Chip
+  slug: batido-chocolate-chip
+  description: Batido de licuadora que mezcla Fórmula 1 sabor chocoavellana y sabor cookies & cream con proteína en polvo, agua y hielo al gusto.
+  servings: 1
+  recipe_type: batido
+  difficulty: facil
+  calories: 210
+  protein_g: 27.5
+  carbs_g: 16
+  fat_g: 4.5
+  fiber_g: 4.9
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 9
+  instructions:
+    - En la licuadora, poner todos los ingredientes.
+    - Licuar y agregar los hielos al gusto.
+  ingredients:
+    - name: Fórmula 1 - Chocoavellana
+      sku: "0884"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Fórmula 1 - Cookies & Cream
+      sku: "0146"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 3 a 5 hielos
+      is_optional: false
+
+- title: Yogur Proteico con Chía
+  slug: yogur-proteico-con-chia
+  description: Yogur natural bajo en grasa mezclado en un tazón con Beverage Mix y semillas de chía, listo para servir frío en el desayuno.
+  servings: 1
+  recipe_type: desayuno
+  difficulty: facil
+  calories: 277
+  protein_g: 29.6
+  carbs_g: 24.4
+  fat_g: 6.9
+  fiber_g: 3.4
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 11
+  instructions:
+    - En un recipiente, mezclar las cucharas medidoras de Beverage Mix y la taza de yogur.
+    - Agrega las semillas de chía.
+  ingredients:
+    - name: Beverage Mix
+      sku: 093K
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Yogur natural bajo en grasas
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Semillas de chía
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+
+- title: Mermelada de Frutos Rojos
+  slug: mermelada-de-frutos-rojos
+  description: Mermelada de fresas cocida a fuego lento con Collagen Drink, jugo y ralladura de limón, espesada con semillas de chía; ideal para untar en el desayuno.
+  servings: 25
+  recipe_type: desayuno
+  difficulty: facil
+  calories: 10
+  protein_g: 0.4
+  carbs_g: 1.6
+  fat_g: 0.3
+  fiber_g: 0.6
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 12
+  instructions:
+    - En una olla, disuelve el Collagen Beauty Drink en 200 ml de agua.
+    - Añade las fresas y el jugo de limón y revuelve a fuego lento durante 10 minutos aproximadamente, hasta que la mezcla se reduzca y espese.
+    - Apaga el fuego y agrega la chía y la ralladura de limón.
+  ingredients:
+    - name: Collagen Drink
+      sku: "3987"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 200 ml
+      is_optional: false
+    - name: Fresas congeladas
+      sku: null
+      quantity: 2 tazas
+      is_optional: false
+    - name: Semillas de chía
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Jugo de limón
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Ralladura de limón
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Panqueques de Banana Caramelo
+  slug: panqueques-de-banana-caramelo
+  description: Panqueques preparados con una mezcla de licuadora de Fórmula 1 sabor banana caramelo, proteína en polvo, huevo y avena, cocidos en sartén y servidos con rebanadas de plátano o arándanos.
+  servings: 2
+  recipe_type: desayuno
+  difficulty: media
+  calories: 186
+  protein_g: 17.8
+  carbs_g: 15.9
+  fat_g: 5.7
+  fiber_g: 2.7
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 13
+  instructions:
+    - Coloca en la licuadora el Batido Nutricional Fórmula 1 sabor banana caramelo, la Proteína Personalizada en Polvo y agua.
+    - Agrega los huevos, la avena y el polvo de hornear. Licúa hasta tener una mezcla uniforme.
+    - Vierte la mezcla en una sartén caliente y cocina.
+    - Disfrútalo con rebanadas de plátanos o arándanos.
+  ingredients:
+    - name: Fórmula 1 - Banana Caramelo
+      sku: "1522"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Huevo
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: ½ taza + 1 cucharada
+      is_optional: false
+    - name: Avena en copos
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Polvo de hornear
+      sku: null
+      quantity: ½ cucharadita
+      is_optional: false
+
+- title: Dip Proteico de Café
+  slug: dip-proteico-de-cafe
+  description: Dip cremoso y esponjoso de yogur descremado o griego con Fórmula 1 sabor café latte y esencia de vainilla, ideal como salsa para acompañar frutas frescas.
+  servings: 2
+  recipe_type: desayuno
+  difficulty: facil
+  calories: 126
+  protein_g: 11
+  carbs_g: 15.1
+  fat_g: 2.4
+  fiber_g: 1.5
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 14
+  instructions:
+    - En la licuadora, pon todos los ingredientes y licúa hasta que estén suaves, cremosos y esponjosos.
+    - Úsalo como salsa para frutas frescas.
+  ingredients:
+    - name: Fórmula 1 - Café Latte
+      sku: "2774"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Yogur descremado o griego
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Esencia de vainilla
+      sku: null
+      quantity: Gotas
+      is_optional: false
+
+- title: Muffin Red Velvet
+  slug: muffin-red-velvet
+  description: Muffin horneado a base de Fórmula 1 sabor vainilla, proteína en polvo, huevo y remolacha cocida que le da el color rojo característico, cubierto con un topping cremoso a base de Fórmula 1 y edulcorante cocido en sartén.
+  servings: 2
+  recipe_type: desayuno
+  difficulty: media
+  calories: 316
+  protein_g: 36.8
+  carbs_g: 22.4
+  fat_g: 8.8
+  fiber_g: 6.1
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 15
+  instructions:
+    - Mezcla todos los ingredientes de la masa en un bowl hasta obtener una consistencia homogénea.
+    - Vierte la mezcla en los moldes para muffins previamente rociados con aceite en spray.
+    - Hornea a 180º por 18 minutos o hasta que al introducir un cuchillo en la mezcla salga limpio.
+    - "Topping: en una sartén, mezcla todos los ingredientes del topping y revuelve bien a fuego medio. Al hervir, baja el fuego y sigue revolviendo hasta que se reduzca, espese y tome una consistencia de almíbar."
+  ingredients:
+    - name: Fórmula 1 - Vainilla (para la masa)
+      sku: "0141"
+      quantity: 4 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM (para la masa)
+      sku: "1122"
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Huevo (para la masa)
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: Agua (para la masa)
+      sku: null
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Beterraga (remolacha) cocida (para la masa)
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Levadura seca (para la masa)
+      sku: null
+      quantity: 2 cucharaditas
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM (para el topping)
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Fórmula 1 - Vainilla (para el topping)
+      sku: "0141"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Agua (para el topping)
+      sku: null
+      quantity: 250 ml
+      is_optional: false
+    - name: Edulcorante (para el topping)
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Aceite de coco (para el topping)
+      sku: null
+      quantity: 1 cucharadita
+      is_optional: false
+
+- title: Nutri Soup Omelet
+  slug: nutri-soup-omelet
+  description: Omelet horneado en molde individual, hecho con huevo, NutriSoup y proteína en polvo, relleno de mozzarella, tomate cherry y albahaca fresca.
+  servings: 4
+  recipe_type: comida
+  difficulty: media
+  calories: 135
+  protein_g: 11.5
+  carbs_g: 4.4
+  fat_g: 8
+  fiber_g: 1.5
+  tips: Espolvorea con chía, linaza o ajonjolí antes de meterlas al horno para que se doren, así le añades textura y fibra a la receta.
+  source: Mi Nutrición Favorita, Tomo 3, pág. 17
+  instructions:
+    - En un bowl, bate los huevos y agrega la Proteína Personalizada en Polvo, la Fórmula 1 Nutri Soup, el ajo en polvo y las especias; mezcla bien hasta tener una mezcla homogénea.
+    - Engrasa el molde con aceite y agrega un poco de mozzarella picada al fondo.
+    - Llena los moldes con la mezcla de huevo, agrega tomate picado y albahaca por encima.
+    - Hornea a 180° hasta que esté dorado.
+  ingredients:
+    - name: NutriSoup
+      sku: 395K
+      quantity: 3 cucharadas soperas
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Huevo
+      sku: null
+      quantity: "4"
+      is_optional: false
+    - name: Ajo en polvo
+      sku: null
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Mozzarella de búfala (cantidad ambigua en el PDF fuente, ver Dudas)
+      sku: null
+      quantity: ¼ de taza (aprox.)
+      is_optional: false
+    - name: Albahaca fresca picada
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Tomates cherry picados
+      sku: null
+      quantity: 50 g
+      is_optional: false
+    - name: Especias
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+    - name: Aceite para engrasar
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Nutri Soup Cremoso con Brócoli
+  slug: nutri-soup-cremoso-con-brocoli
+  description: Sopa cremosa preparada disolviendo NutriSoup en leche descremada caliente, con brócoli hervido picado y perejil al gusto.
+  servings: 4
+  recipe_type: comida
+  difficulty: facil
+  calories: 216
+  protein_g: 19.4
+  carbs_g: 25.2
+  fat_g: 4.2
+  fiber_g: 5.6
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 18
+  instructions:
+    - En un plato hondo, coloca las 3 cucharas de Fórmula 1 Nutri Soup, añade leche descremada caliente y mezcla hasta obtener una consistencia homogénea.
+    - Añade brócoli y perejil al gusto.
+  ingredients:
+    - name: NutriSoup
+      sku: 395K
+      quantity: 3 cucharas medidoras
+      is_optional: false
+    - name: Leche descremada (solo si eres tolerante; puede sustituirse por leche de soya o agua con Bebida de Proteína en Polvo - PDM, SKU 1122)
+      sku: null
+      quantity: 250 ml
+      is_optional: true
+    - name: Brócoli hervido picado
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+    - name: Perejil
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Pollo Cítrico Glaseado
+  slug: pollo-citrico-glaseado
+  description: Filetes de pollo marinados en salsa de soya, vinagre de arroz, jengibre y ajo, sellados en sartén y glaseados con Herbal Aloe Concentrado sabor mandarina.
+  servings: 3
+  recipe_type: comida
+  difficulty: dificil
+  calories: 201
+  protein_g: 33.5
+  carbs_g: 4.7
+  fat_g: 5.4
+  fiber_g: 0.1
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 19
+  instructions:
+    - En una fuente grande y plana, mezcla la salsa de soya, el vinagre, la pimienta, el ajo en polvo y el jengibre.
+    - Agrega los filetes de pollo y marínalo por ambos lados. Cúbrelo con papel film y refrigera por varias horas o toda la noche.
+    - Vierte el aceite en una sartén grande y calienta a fuego medio-alto hasta que el aceite brille.
+    - Retira el pollo de la marinada y resérvala. Agrega los filetes de pollo en una sola capa y cocina 2-3 minutos hasta que esté bien dorado en la parte inferior.
+    - Dale vuelta a las piezas y continúa cocinando otros 2-3 minutos hasta que estén bien cocidas. Transfiere el pollo a un plato y reserva.
+    - Vierte la marinada en una sartén y cocina, revolviendo hasta que espese un poco y se reduzca a un glaseado, aproximadamente 1-2 minutos.
+    - Agrega el Herbal Aloe Concentrado sabor mandarina y mezcla. Regresa los trozos de pollo a la sartén y gíralos para cubrirlos con el glaseado.
+  ingredients:
+    - name: Herbal Aloe Concentrado - Mandarina
+      sku: "2631"
+      quantity: 2 tapitas
+      is_optional: false
+    - name: Filetes de pollo sin grasa
+      sku: null
+      quantity: 575 g (9 a 10 piezas)
+      is_optional: false
+    - name: Salsa de soya
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Vinagre de arroz
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Pimienta negra molida
+      sku: null
+      quantity: ¾ de cucharadita
+      is_optional: false
+    - name: Ajo en polvo
+      sku: null
+      quantity: ¼ de cucharadita
+      is_optional: false
+    - name: Jengibre en polvo
+      sku: null
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Aceite de canola
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+
+- title: Galletas Proteicas con Parmesano
+  slug: galletas-proteicas-con-parmesano
+  description: Galletas saladas horneadas a base de proteína en polvo, harinas y queso parmesano, cubiertas con semillas de amapola y sésamo antes de hornearlas por ambos lados hasta dorar.
+  servings: 40
+  recipe_type: snack
+  difficulty: dificil
+  calories: 24
+  protein_g: 0.6
+  carbs_g: 2.3
+  fat_g: 1.4
+  fiber_g: 0.3
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 20
+  instructions:
+    - Precalienta el horno a 425º. Engrasa ligeramente una bandeja para hornear.
+    - "Para la cobertura: mezcla las semillas de amapola y de sésamo en un tazón pequeño y reserva."
+    - "Para las galletas saladas: coloca las harinas, la Proteína Personalizada en Polvo, el parmesano, cebolla en polvo, ajo en polvo, sal, azúcar y pimienta en el tazón del procesador de alimentos y mezcla."
+    - Agrega aceite y sigue mezclando. Con la máquina en funcionamiento, agrega agua lentamente, hasta formar una bola.
+    - Envuelve la masa en film transparente y déjala reposar 15 minutos a temperatura ambiente.
+    - Trabajando con la mitad de la masa, enrolla sobre una tabla ligeramente enharinada hasta que quede muy fina. Córtala en cuadrados o círculos y ponla en una bandeja para hornear.
+    - Unta las galletas con agua y espolvorea con la mezcla de semillas, presionando suavemente para ayudar a que las semillas se adhieran. Espolvorea con sal, si lo deseas.
+    - Hornea durante unos 12-13 minutos hasta que un lado esté bien dorado; repite lo mismo para el otro lado.
+    - Deja enfriar completamente. Las galletas se pondrán más crujientes a medida que se enfríen.
+  ingredients:
+    - name: Semillas de amapola (para el topping)
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Semillas de sésamo (para el topping)
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Sal (para el topping)
+      sku: null
+      quantity: Al gusto
+      is_optional: true
+    - name: Bebida de Proteína en Polvo - PDM (para la galleta)
+      sku: "1122"
+      quantity: ½ taza
+      is_optional: false
+    - name: Harina de trigo integral blanca (para la galleta)
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+    - name: Harina para todo uso (para la galleta)
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+    - name: Queso parmesano finamente rallado (para la galleta)
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Cebolla en polvo (para la galleta)
+      sku: null
+      quantity: 1 cucharadita
+      is_optional: false
+    - name: Ajo en polvo (para la galleta)
+      sku: null
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Sal (para la galleta)
+      sku: null
+      quantity: 1 cucharadita
+      is_optional: false
+    - name: Azúcar (para la galleta)
+      sku: null
+      quantity: 1 cucharadita
+      is_optional: false
+    - name: Pimienta negra molida (para la galleta)
+      sku: null
+      quantity: ¾ de cucharadita
+      is_optional: false
+    - name: Aceite de oliva (para la galleta)
+      sku: null
+      quantity: 3 cucharadas
+      is_optional: false
+    - name: Agua (para la galleta)
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+
+- title: Aliño de Manzana y Mostaza
+  slug: alino-de-manzana-y-mostaza
+  description: Aliño para ensaladas a base de Fibra Activa sabor manzana, vinagre de manzana, aceite de oliva y especias, mezclado en un frasco con tapa hasta integrarse bien.
+  servings: 5
+  recipe_type: otro
+  difficulty: facil
+  calories: 27
+  protein_g: 5.4
+  carbs_g: 1.3
+  fat_g: 0
+  fiber_g: 1
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 21
+  instructions:
+    - En un frasco con tapa, vierte el vinagre, el agua y el aceite de oliva.
+    - Agrega los ingredientes restantes y agita hasta que estén bien combinados.
+  ingredients:
+    - name: Fibra Activa - Manzana
+      sku: "2864"
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Vinagre de manzana
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Aceite de oliva
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Mostaza en grano
+      sku: null
+      quantity: ¼ de cucharadita
+      is_optional: false
+    - name: Sal
+      sku: null
+      quantity: ¼ de cucharadita
+      is_optional: false
+    - name: Pimienta negra molida
+      sku: null
+      quantity: ¼ de cucharadita
+      is_optional: false
+    - name: Estragón seco
+      sku: null
+      quantity: ¼ de cucharadita
+      is_optional: false
+
+- title: Bolitas Tropicales de Proteína
+  slug: bolitas-tropicales-de-proteina
+  description: Bolitas energéticas sin horno hechas con Fórmula 1 sabor banana caramelo, proteína en polvo, avena, pasas y mantequilla de maní, decoradas con coco en hojuelas y refrigeradas hasta por 5 días.
+  servings: 10
+  recipe_type: postre
+  difficulty: media
+  calories: 180
+  protein_g: 10.6
+  carbs_g: 20.1
+  fat_g: 6.3
+  fiber_g: 4.7
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 23
+  instructions:
+    - Combina las semillas de chía con agua y deja reposar.
+    - En un bowl, mezcla el Batido Nutricional Fórmula 1 sabor banana caramelo, la Proteína Personalizada en Polvo, la avena y las pasas.
+    - Agrega el puré de plátano, la mantequilla de maní y las semillas de chía remojadas. Combina muy bien (se recomienda usar las manos).
+    - Si luce muy pegajoso, agrega un poco más de avena; si luce muy seco, agrega una cucharadita de agua.
+    - Con las manos humedecidas, enrolla la mezcla en bolitas y decora. Se pueden guardar en un recipiente tapado en el refrigerador hasta por 5 días.
+  ingredients:
+    - name: Fórmula 1 - Banana Caramelo
+      sku: "1522"
+      quantity: 6 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 6 cucharadas
+      is_optional: false
+    - name: Semillas de chía
+      sku: null
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Avena molida
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+    - name: Pasas picadas
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Mantequilla de maní
+      sku: null
+      quantity: ¼ de taza
+      is_optional: false
+    - name: Plátano maduro machacado
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+    - name: Fórmula 1 - Banana Caramelo (para la decoración)
+      sku: "1522"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM (para la decoración)
+      sku: "1122"
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Coco en hojuelas sin azúcar (para la decoración)
+      sku: null
+      quantity: ¼ de taza
+      is_optional: false
+
+- title: Brownie con Crocante de Proteína
+  slug: brownie-con-crocante-de-proteina
+  description: Brownie de microondas hecho con avena, plátano, cacao, proteína en polvo y Crocante de Proteína, decorado con cacao espolvoreado y nueces o almendras picadas.
+  servings: 2
+  recipe_type: postre
+  difficulty: media
+  calories: 271
+  protein_g: 21.1
+  carbs_g: 30
+  fat_g: 7.5
+  fiber_g: 13.8
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 24
+  instructions:
+    - En un bowl, coloca la Proteína Personalizada en Polvo, el plátano, la avena y el cacao. Mezcla bien hasta obtener una mezcla homogénea.
+    - Agrega el Crocante de Proteína y la esencia de vainilla. Mezcla unos minutos más.
+    - Lleva el molde al microondas durante 2 a 3 minutos.
+    - Retira, deja enfriar y desmolda. Espolvorea cacao en polvo y nueces para decorar.
+  ingredients:
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Crocante de Proteína
+      sku: 040K
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Avena en hojuelas
+      sku: null
+      quantity: 2.5 tazas
+      is_optional: false
+    - name: Cacao en polvo
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Plátano picado
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Esencia de vainilla
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+    - name: Nueces o almendras picadas
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Gomitas Proteicas
+  slug: gomitas-proteicas
+  description: Gomitas caseras de gelatina sin sabor y gelatina sabor fresa con Beverage Mix, cocidas a fuego medio y refrigeradas en moldes hasta cuajar por completo.
+  servings: 43
+  recipe_type: postre
+  difficulty: facil
+  calories: 8
+  protein_g: 1.8
+  carbs_g: 0.1
+  fat_g: 0
+  fiber_g: 0
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 25
+  instructions:
+    - Agrega todos los ingredientes en una olla pequeña.
+    - Revuelve constantemente a fuego medio hasta que se disuelva y hierva.
+    - Viértelo en una fuente de vidrio para hornear o en moldes de silicona y deja enfriar completamente en el refrigerador.
+  ingredients:
+    - name: Beverage Mix
+      sku: 093K
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Gelatina sin sabor
+      sku: null
+      quantity: 3 paquetes de 22 g
+      is_optional: false
+    - name: Gelatina sin azúcar sabor fresa
+      sku: null
+      quantity: 1 paquete de 8.5 g
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 240 ml
+      is_optional: false
+
+- title: Paleta de Frutas Tropicales
+  slug: paleta-de-frutas-tropicales
+  description: Paletas heladas hechas en licuadora con Beverage Mix, Fibra Activa sabor manzana y plátano, congeladas en moldes individuales.
+  servings: 4
+  recipe_type: postre
+  difficulty: facil
+  calories: 46
+  protein_g: 4
+  carbs_g: 7.3
+  fat_g: 0.1
+  fiber_g: 1.9
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 26
+  instructions:
+    - Pon todos los ingredientes en la licuadora y licúa hasta que quede suave y consistente.
+    - Vierte la mezcla en 4 moldes de paletas y congela.
+  ingredients:
+    - name: Beverage Mix
+      sku: 093K
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Fibra Activa - Manzana
+      sku: "2864"
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Plátano
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 240 ml
+      is_optional: false
+
+- title: Postre con Crocante de Proteína
+  slug: postre-con-crocante-de-proteina
+  description: Postre en capas con gelatina disuelta y licuada junto a Protein Drink Mix y aceite de coco, Crocante de Proteína crujiente y una crema de Fórmula 1 sabor chocoavellana, ensamblado en capas en un recipiente.
+  servings: 2
+  recipe_type: postre
+  difficulty: media
+  calories: 307
+  protein_g: 29
+  carbs_g: 15.1
+  fat_g: 14.7
+  fiber_g: 4.5
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 27
+  instructions:
+    - Disuelve la gelatina en ½ taza de agua tibia.
+    - En la licuadora, licua el Protein Drink Mix, el aceite de coco, la gelatina disuelta y ½ taza de agua.
+    - Por separado, mezcla el Batido Nutricional Fórmula 1 sabor chocoavellana con ½ taza de agua hasta dar una consistencia cremosa.
+    - En un recipiente, ensambla en capas intercaladas primero la mezcla de la licuadora, luego 3 cucharadas de Crocante de Proteína, y por último la crema del batido de chocoavellana.
+  ingredients:
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Crocante de Proteína
+      sku: 040K
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Fórmula 1 - Chocoavellana
+      sku: "0884"
+      quantity: 4 cucharas medidoras
+      is_optional: false
+    - name: Aceite de coco
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Cacao en polvo
+      sku: null
+      quantity: 1 cucharada
+      is_optional: false
+    - name: Gelatina sin sabor
+      sku: null
+      quantity: 7 g
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+
+- title: Fondue de Chocolate Fit
+  slug: fondue-de-chocolate-fit
+  description: Fondue de chocolate al 70% derretido con aceite de coco, Fórmula 1 sabor chocoavellana, proteína en polvo y Crocante de Proteína, servido caliente para sumergir fruta fresca.
+  servings: 2
+  recipe_type: postre
+  difficulty: media
+  calories: 177
+  protein_g: 20.2
+  carbs_g: 10.9
+  fat_g: 5.8
+  fiber_g: 2.9
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 28
+  instructions:
+    - Derrite el chocolate por 30 segundos en el microondas, haciendo una pausa cada 15 segundos, o derretirlo en baño maría.
+    - Agrega el aceite de coco y mezcla bien.
+    - Agrega el Batido Nutricional Fórmula 1 sabor chocoavellana, la Proteína Personalizada en Polvo y el Crocante de Proteína y mezcla bien.
+    - Lleva la mezcla a fuego lento hasta que dé un hervor.
+    - Sumerge en el fondue tu fruta favorita.
+  ingredients:
+    - name: Fórmula 1 - Chocoavellana
+      sku: "0884"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Crocante de Proteína
+      sku: 040K
+      quantity: 2 cucharaditas
+      is_optional: false
+    - name: Chocolate al 70%
+      sku: null
+      quantity: 25 g
+      is_optional: false
+    - name: Aceite de coco
+      sku: null
+      quantity: 1 cucharadita
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 150 ml
+      is_optional: false
+    - name: Frutas a tu elección
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Paletas de Banana y Fresa
+  slug: paletas-de-banana-y-fresa
+  description: Paletas heladas de licuadora con Fórmula 1 sabor banana caramelo, leche, yogur griego o descremado y fresas, congeladas en moldes individuales hasta solidificar.
+  servings: 4
+  recipe_type: postre
+  difficulty: facil
+  calories: 276
+  protein_g: 29.7
+  carbs_g: 27.2
+  fat_g: 5.3
+  fiber_g: 4.2
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 29
+  instructions:
+    - Coloca todos los ingredientes en la licuadora y mezcla hasta que quede muy suave.
+    - Vierte la mezcla en cuatro moldes para paletas de 80 ml.
+    - Congela durante varias horas hasta que esté completamente sólido.
+  ingredients:
+    - name: Fórmula 1 - Banana Caramelo
+      sku: "1522"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Leche descremada o de soya (solo si eres tolerante; puede sustituirse por leche de soya o agua con Bebida de Proteína en Polvo - PDM, SKU 1122)
+      sku: null
+      quantity: ½ taza
+      is_optional: true
+    - name: Yogur griego o descremado
+      sku: null
+      quantity: 150 ml
+      is_optional: false
+    - name: Fresas en mitades
+      sku: null
+      quantity: ½ taza
+      is_optional: false
+
+- title: Muffin Proteico de Banana Caramelo
+  slug: muffin-proteico-de-banana-caramelo
+  description: Muffin horneado con Fórmula 1 sabor banana caramelo, huevo, avena instantánea y plátano, con arándanos al gusto, horneado en molde individual.
+  servings: 2
+  recipe_type: postre
+  difficulty: media
+  calories: 297
+  protein_g: 21.3
+  carbs_g: 37.9
+  fat_g: 6.7
+  fiber_g: 5.4
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 30
+  instructions:
+    - Precalienta el horno a 180º por 10 minutos.
+    - Aplasta el plátano, agrega los huevos y bate hasta que se mezcle bien.
+    - Agrega los demás ingredientes y continúa mezclando hasta formar una masa suave. Puedes agregar arándanos a tu gusto.
+    - Coloca la mezcla en un molde para muffin y hornea a 160º por 18 a 20 minutos.
+  ingredients:
+    - name: Fórmula 1 - Banana Caramelo
+      sku: "1522"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Leche descremada (solo si eres tolerante; puede sustituirse por leche de soya o agua con Bebida de Proteína en Polvo - PDM, SKU 1122)
+      sku: null
+      quantity: 80 ml
+      is_optional: true
+    - name: Huevo
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: Avena instantánea
+      sku: null
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Plátano
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Arándanos
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Arándanos Cubiertos de Yogur
+  slug: arandanos-cubiertos-de-yogur
+  description: Arándanos frescos bañados en una mezcla de yogur, Protein Drink Mix y jugo de naranja, colocados en bandeja y congelados hasta quedar firmes.
+  servings: 4
+  recipe_type: postre
+  difficulty: media
+  calories: 106
+  protein_g: 8.2
+  carbs_g: 13.8
+  fat_g: 2
+  fiber_g: 1.6
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 31
+  instructions:
+    - En un tazón, mezcla el Protein Drink Mix, el yogur y el jugo.
+    - Agrega los arándanos y revuelve hasta que estén cubiertos.
+    - Con ayuda de una cuchara, coloca los arándanos recubiertos en una bandeja procurando que no se toquen entre sí.
+    - Colócalos en el congelador por 1 hora.
+  ingredients:
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Yogur natural o griego
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Jugo de naranja
+      sku: null
+      quantity: 4 cucharadas
+      is_optional: false
+    - name: Arándanos frescos
+      sku: null
+      quantity: 1 ½ taza
+      is_optional: false
+
+- title: Pudín Proteico de Mango
+  slug: pudin-proteico-de-mango
+  description: Pudín cremoso de licuadora con Protein Drink Mix, Herbal Aloe Concentrado sabor mango, mango en trozos y semillas de chía, refrigerado varias horas antes de servir.
+  servings: 1
+  recipe_type: postre
+  difficulty: media
+  calories: 314
+  protein_g: 21.8
+  carbs_g: 19.1
+  fat_g: 16.7
+  fiber_g: 9.8
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 32
+  instructions:
+    - Combina todos los ingredientes en la licuadora, excepto las semillas de chía, y licúa hasta que quede suave.
+    - Vierte la mezcla en cuatro platos de pudín, agrega las semillas de chía, cúbrelo con una envoltura y refrigera al menos 4 horas antes de servir.
+  ingredients:
+    - name: Bebida de Proteína en Polvo - PDM
+      sku: "1122"
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Herbal Aloe Concentrado - Mango
+      sku: "1065"
+      quantity: 3 tapitas
+      is_optional: false
+    - name: Mango en trozos
+      sku: null
+      quantity: 1 ½ taza
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 1 taza
+      is_optional: false
+    - name: Jugo de limón
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Coco en hojuelas sin azúcar
+      sku: null
+      quantity: 2 cucharadas
+      is_optional: false
+    - name: Chía blanca
+      sku: null
+      quantity: 4 cucharadas
+      is_optional: false
+
+- title: Limonada Power
+  slug: limonada-power
+  description: Bebida refrescante preparada con N-R-G, Herbal Aloe Concentrado y CR7 Drive, mezclada con agua, hielo y esencia de limón, decorada con hierbabuena y una rebanada de manzana verde.
+  servings: 1
+  recipe_type: bebida
+  difficulty: facil
+  calories: 57
+  protein_g: 0.04
+  carbs_g: 14.1
+  fat_g: 0.02
+  fiber_g: 0.3
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 34
+  instructions:
+    - Sirve la mitad de agua en un vaso, agrega el N-R-G, el Herbal Aloe Concentrado y el CR7 Drive. Mezcla bien.
+    - Agrega los hielos y la esencia de limón.
+    - Añade el resto de agua y decora con hierbabuena molida y la rebanada de manzana verde.
+  ingredients:
+    - name: N-R-G (SKU asignado por coincidencia de nombre; podría tratarse de N-R-G Guaraná Tropical, SKU 075K — ver Dudas)
+      sku: "0102"
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Herbal Aloe Concentrado de tu sabor favorito (sabor no especificado en el libro)
+      sku: null
+      quantity: 5 ml
+      is_optional: false
+    - name: DRIVE CR7
+      sku: "1478"
+      quantity: 1 cuchara medidora
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 350 ml
+      is_optional: false
+    - name: Esencia de limón
+      sku: null
+      quantity: 5 ml
+      is_optional: false
+    - name: Manzana verde
+      sku: null
+      quantity: 1 rebanada
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 4 a 5 cubos
+      is_optional: false
+    - name: Hierbabuena fresca
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Bebida Tropical Refrescante
+  slug: bebida-tropical-refrescante
+  description: Bebida refrescante que combina Té Concentrado de Hierbas sabor original con agua de coco, manzana picada y fresas licuadas, servida con cubos de hielo.
+  servings: 1
+  recipe_type: bebida
+  difficulty: facil
+  calories: 75
+  protein_g: 1
+  carbs_g: 17.3
+  fat_g: 0.2
+  fiber_g: 1.7
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 35
+  instructions:
+    - Disuelve el Té Concentrado de Hierbas en el agua de coco.
+    - Vierte la mezcla en la licuadora y licúa junto a las frutas.
+    - Sirve y añade los cubos de hielo.
+  ingredients:
+    - name: Bebida Herbal - Original 102 g.
+      sku: "0106"
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Agua de coco
+      sku: null
+      quantity: 250 ml
+      is_optional: false
+    - name: Manzana picada
+      sku: null
+      quantity: ¼ de taza
+      is_optional: false
+    - name: Fresas
+      sku: null
+      quantity: "3"
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: 4 a 5 unidades
+      is_optional: false
+
+- title: Bebida Explosión de Frutas
+  slug: bebida-explosion-de-frutas
+  description: Bebida infusionada con pera, durazno y kiwi picados, jugo de limón y Herbal Aloe Concentrado sabor mango, refrigerada por dos horas y servida con agua con gas y hielo.
+  servings: 1
+  recipe_type: bebida
+  difficulty: media
+  calories: 108
+  protein_g: 1.2
+  carbs_g: 25
+  fat_g: 0.5
+  fiber_g: 3
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 36
+  instructions:
+    - Coloca la fruta picada, los 100 ml de agua tónica, el jugo de limón y el Herbal Aloe Concentrado sabor mango en un frasco y refrigera por dos horas para que los sabores se mezclen.
+    - Agrega hielos al gusto y el agua con gas.
+  ingredients:
+    - name: Herbal Aloe Concentrado - Mango
+      sku: "1065"
+      quantity: 15 ml
+      is_optional: false
+    - name: Pera picada
+      sku: null
+      quantity: ¼
+      is_optional: false
+    - name: Durazno picado
+      sku: null
+      quantity: ½
+      is_optional: false
+    - name: Kiwi
+      sku: null
+      quantity: ¼
+      is_optional: false
+    - name: Jugo de limón
+      sku: null
+      quantity: 1 limón
+      is_optional: false
+    - name: Agua con gas
+      sku: null
+      quantity: 185 ml
+      is_optional: false
+    - name: Agua tónica
+      sku: null
+      quantity: 100 ml
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Té Hidratante
+  slug: te-hidratante
+  description: Bebida fría preparada con Té Concentrado de Hierbas sabor frambuesa, Beverage Mix y Herbal Aloe Concentrado sabor sábila, mezclada con agua helada y hielo al gusto.
+  servings: 1
+  recipe_type: bebida
+  difficulty: facil
+  calories: 76
+  protein_g: 15
+  carbs_g: 4
+  fat_g: 0
+  fiber_g: 0
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 37
+  instructions:
+    - En un vaso, mezcla todos los ingredientes y remueve hasta que estén integrados.
+    - Agrega hielos al gusto.
+  ingredients:
+    - name: Bebida Herbal - Frambuesa 102 g.
+      sku: "0189"
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Beverage Mix
+      sku: 093K
+      quantity: 2 cucharas medidoras
+      is_optional: false
+    - name: Herbal Aloe Concentrado - Sábila (mapeado a partir de "sabor original" en el libro; ver Dudas)
+      sku: "0006"
+      quantity: 15 ml
+      is_optional: false
+    - name: Agua helada
+      sku: null
+      quantity: 250 ml
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: Al gusto
+      is_optional: false
+
+- title: Té Cítrico de Mango
+  slug: te-citrico-de-mango
+  description: Bebida verde licuada con Té Concentrado de Hierbas sabor original, Herbal Aloe Concentrado sabor mango, espinaca, manzana, piña y limón.
+  servings: 1
+  recipe_type: bebida
+  difficulty: facil
+  calories: 197
+  protein_g: 1.6
+  carbs_g: 46.9
+  fat_g: 0.4
+  fiber_g: 2.8
+  tips: null
+  source: Mi Nutrición Favorita, Tomo 3, pág. 38
+  instructions:
+    - Poner todos los ingredientes en la licuadora y licuar.
+    - Sirve y decora.
+  ingredients:
+    - name: Bebida Herbal - Original 102 g.
+      sku: "0106"
+      quantity: ½ cucharadita
+      is_optional: false
+    - name: Herbal Aloe Concentrado - Mango
+      sku: "1065"
+      quantity: 15 ml
+      is_optional: false
+    - name: Agua
+      sku: null
+      quantity: 250 ml
+      is_optional: false
+    - name: Espinaca
+      sku: null
+      quantity: 90 g
+      is_optional: false
+    - name: Manzana
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: Piña
+      sku: null
+      quantity: 2 rodajas
+      is_optional: false
+    - name: Limón
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: Hielo
+      sku: null
+      quantity: Al gusto
+      is_optional: false
