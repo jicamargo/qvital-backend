@@ -1,0 +1,1407 @@
+---
+- title: "Batido Zen de Proteínas con Bayas"
+  slug: "batido-zen-de-proteinas-con-bayas"
+  description: "Batido cremoso de proteína con bayas frescas y un toque de Aloe, listo en minutos con la licuadora."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 150
+  protein_g: 15.0
+  carbs_g: 22.0
+  fat_g: 1.4
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 5"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Fresa"
+      sku: "0143"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Herbal Aloe Concentrado - Sábila"
+      sku: "0006"
+      quantity: "3 tapas"
+      is_optional: false
+    - name: "Agua fría"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Bayas frescas o congeladas"
+      sku: null
+      quantity: "¾ taza"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido de Pudín y Leche de Almendras"
+  slug: "batido-de-pudin-y-leche-de-almendras"
+  description: "Batido espeso con sabor a pudín de vainilla, leche de almendras, pasas y un toque de canela."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 195
+  protein_g: 15.5
+  carbs_g: 27.5
+  fat_g: 3.5
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 6"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Leche de almendras"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Pasas"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Canela"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido de Pie de Manzana con Fibra"
+  slug: "batido-de-pie-de-manzana-con-fibra"
+  description: "Batido inspirado en el pie de manzana, con fibra activa, manzana fresca y especias como canela, nuez moscada y clavo de olor."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 270
+  protein_g: 18.0
+  carbs_g: 42.0
+  fat_g: 3.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 7"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Leche sin grasa o descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Manzana en rebanadas, fresca o congelada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Canela"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Nuez moscada"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Clavo de olor molido"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido Durazno Energizante"
+  slug: "batido-durazno-energizante"
+  description: "Batido refrescante de durazno con un toque energizante de Té Concentrado de Hierbas sabor durazno."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 260
+  protein_g: 19.0
+  carbs_g: 40.0
+  fat_g: 3.5
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 8"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida Herbal - Durazno 102 g."
+      sku: "0190"
+      quantity: "½ cucharadita"
+      is_optional: false
+    - name: "Leche sin grasa o descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Durazno fresco o congelado en rebanadas"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido de Yogur y Chocolate"
+  slug: "batido-de-yogur-y-chocolate"
+  description: "Batido de chocolate con yogur natural, avena y un toque cítrico de cáscara de naranja."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 190
+  protein_g: 14.0
+  carbs_g: 30.0
+  fat_g: 2.5
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 9"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Chocoavellana"
+      sku: "0884"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Yogur natural bajo en grasa"
+      sku: null
+      quantity: "3 cucharadas"
+      is_optional: false
+    - name: "Avena en hojuelas"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Pasas"
+      sku: null
+      quantity: "8"
+      is_optional: false
+    - name: "Cáscara de naranja"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido Energía Verde"
+  slug: "batido-energia-verde"
+  description: "Batido verde con hojas de baby kale, naranja y banana, ideal para un impulso de energía."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 275
+  protein_g: 19.0
+  carbs_g: 44.0
+  fat_g: 3.7
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 10"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Hojas de baby kale (col rizada)"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Naranja mediana pelada y picada"
+      sku: null
+      quantity: "½"
+      is_optional: false
+    - name: "Banana pequeña"
+      sku: null
+      quantity: "½"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido Anaranjado con Jengibre"
+  slug: "batido-anaranjado-con-jengibre"
+  description: "Batido de zanahoria y naranja con un toque picante de jengibre fresco."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 280
+  protein_g: 19.0
+  carbs_g: 45.5
+  fat_g: 3.5
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 11"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Zanahoria mediana cortada en rodajas"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Naranja mediana pelada y picada"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Jengibre recién rallado (o molido)"
+      sku: null
+      quantity: "1 cucharadita (o ¼ cucharadita si es molido)"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido Rollo de Canela"
+  slug: "batido-rollo-de-canela"
+  description: "Batido inspirado en el rollo de canela, con banana, pasas y canela molida."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 290
+  protein_g: 18.3
+  carbs_g: 50.0
+  fat_g: 3.3
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 12"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Banana mediana"
+      sku: null
+      quantity: "½"
+      is_optional: false
+    - name: "Pasas"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Canela molida"
+      sku: null
+      quantity: "¼ de cucharada"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "3-5 cubos"
+      is_optional: false
+
+- title: "Batido Rebuild y Frutos del Bosque"
+  slug: "batido-rebuild-y-frutos-del-bosque"
+  description: "Batido de recuperación muscular con Rebuild Strength, frutos del bosque y un toque especiado de canela, cayena y cúrcuma."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 360
+  protein_g: 35.0
+  carbs_g: 47.0
+  fat_g: 4.6
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 13"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "H24 Rebuild Strength - Chocolate"
+      sku: "1417"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Frambuesas y/o arándanos"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Canela"
+      sku: null
+      quantity: "½ cucharada"
+      is_optional: false
+    - name: "Pimienta cayena"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Cúrcuma"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+
+- title: "Batido caliente de Calabaza Moscada"
+  slug: "batido-caliente-de-calabaza-moscada"
+  description: "Batido cremoso de calabaza con un toque de nuez moscada, para disfrutar tibio."
+  servings: 1
+  recipe_type: "batido"
+  difficulty: "facil"
+  calories: 200
+  protein_g: 18.0
+  carbs_g: 27.0
+  fat_g: 3.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 14"
+  instructions:
+    - "Colocar todos los ingredientes en la licuadora."
+    - "Licuar hasta que estén bien mezclados y servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Calabaza cocida"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+    - name: "Nuez moscada"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+
+- title: "Choco-Pastel en Taza"
+  slug: "choco-pastel-en-taza"
+  description: "Pastel de chocolate individual preparado en taza y cocido en microondas en solo 3 minutos."
+  servings: 1
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 220
+  protein_g: 23.0
+  carbs_g: 17.0
+  fat_g: 7.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o leche de almendras."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 16"
+  instructions:
+    - "Colocar en una taza grande el huevo, la leche descremada y el agua. Mezclar bien."
+    - "Añadir el Batido Nutricional Fórmula 1 sabor chocolate y la Proteína en Polvo. Mezclar hasta integrar bien los ingredientes."
+    - "Llevar la taza al microondas y cocinar por 3 minutos a potencia alta."
+    - "Decorar con tu fruta favorita antes de servir."
+  ingredients:
+    - name: "Fórmula 1 - Chocoavellana"
+      sku: "0884"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "6 cucharadas"
+      is_optional: false
+    - name: "Huevo"
+      sku: null
+      quantity: "1"
+      is_optional: false
+
+- title: "Panqueques de Cookies & Cream"
+  slug: "panqueques-de-cookies-cream"
+  description: "Panqueques proteicos sabor cookies & cream, cocidos en sartén y listos para servir con fruta de estación."
+  servings: 4
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 85
+  protein_g: 9.0
+  carbs_g: 8.0
+  fat_g: 2.0
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 17"
+  instructions:
+    - "Colocar en la licuadora el Batido Nutricional Fórmula 1 sabor cookies & cream, la Proteína en Polvo y agua."
+    - "Agregar el huevo entero, más las claras y la avena. Licuar hasta tener una mezcla uniforme."
+    - "Verter la mezcla en una sartén caliente y cocinar."
+    - "Servir con tu fruta de estación favorita."
+  ingredients:
+    - name: "Fórmula 1 - Cookies & Cream"
+      sku: "0146"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Huevo"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Claras de huevo"
+      sku: null
+      quantity: "3"
+      is_optional: false
+    - name: "Avena en hojuelas"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+
+- title: "Delicia de Avena Frutada"
+  slug: "delicia-de-avena-frutada"
+  description: "Avena overnight con pera, canela y fibra activa, para preparar la noche anterior y disfrutar fría al día siguiente."
+  servings: 1
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 300
+  protein_g: 16.0
+  carbs_g: 57.0
+  fat_g: 3.5
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 18"
+  instructions:
+    - "Mezclar en un recipiente la pera en trozos, el agua, la Fibra Activa y la canela."
+    - "En otro bowl, mezclar la avena con el Batido Nutricional Fórmula 1 sabor vainilla, y agua hasta cubrir."
+    - "Servir la mezcla de avena en un vaso y agregar la mezcla de pera. Refrigerar por un día."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "1 cuchara medidora"
+      is_optional: false
+    - name: "Avena en hojuelas"
+      sku: null
+      quantity: "⅓ taza"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Pera en trozos"
+      sku: null
+      quantity: "½"
+      is_optional: false
+    - name: "Canela"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+
+- title: "Waffles Rebuild"
+  slug: "waffles-rebuild"
+  description: "Waffles proteicos con Rebuild Strength, horneados en waflera y listos para decorar con tus frutas favoritas."
+  servings: 2
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 280
+  protein_g: 19.0
+  carbs_g: 26.5
+  fat_g: 11.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 19"
+  instructions:
+    - "Rociar la waflera con aerosol para bandejas y precalentar."
+    - "Mezclar en un recipiente el Rebuild Strength, la harina, el polvo de hornear y la sal con un batidor de mano."
+    - "Agregar el huevo, el aceite y la leche. Mezclar bien."
+    - "Verter sobre la waflera y dejar cocinar. Decorar con tus frutas favoritas, si se desea, antes de servir."
+  ingredients:
+    - name: "H24 Rebuild Strength - Chocolate"
+      sku: "1417"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Harina"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Polvo de hornear"
+      sku: null
+      quantity: "¼ de cucharada"
+      is_optional: false
+    - name: "Sal"
+      sku: null
+      quantity: "Pizca"
+      is_optional: false
+    - name: "Huevo"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Aceite de canola"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "5 cucharadas"
+      is_optional: false
+
+- title: "Camote Tostado con Yogur de Manzana"
+  slug: "camote-tostado-con-yogur-de-manzana"
+  description: "Rebanadas de camote tostado cubiertas con yogur de vainilla mezclado con fibra activa y rodajas de manzana."
+  servings: 4
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 102
+  protein_g: 2.0
+  carbs_g: 15.0
+  fat_g: 4.0
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 20"
+  instructions:
+    - "Cortar el camote en rebanadas del grosor parecido a una tostada. Cubrir con una capa fina de aceite de oliva."
+    - "Colocar las rebanadas en la tostadora o sartén a temperatura alta. Cocinar durante 15 minutos aproximadamente hasta que quede dorado."
+    - "Mezclar el yogur de vainilla con la Fibra Activa; y untar en los camotes tostados."
+    - "Finalmente agregar las rodajas de manzana."
+  ingredients:
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "1 cuchara medidora"
+      is_optional: false
+    - name: "Camote"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Aceite de oliva"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Yogur de vainilla descremado"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Rodajas de manzana"
+      sku: null
+      quantity: "2"
+      is_optional: false
+
+- title: "Tazón de Quinoa con Bayas"
+  slug: "tazon-de-quinoa-con-bayas"
+  description: "Tazón de quinoa cocida con leche de soya, bananas, bayas y nueces, endulzado con un toque de miel de maple."
+  servings: 2
+  recipe_type: "desayuno"
+  difficulty: "media"
+  calories: 594
+  protein_g: 21.0
+  carbs_g: 88.0
+  fat_g: 20.0
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 21"
+  instructions:
+    - "Colocar en una sartén grande la quinoa cocida, la leche de soya, el jugo de limón."
+    - "Agregar las bananas en pedacitos, las bayas y una pizca de sal para cocinar a fuego lento por 5 minutos."
+    - "Incorporar las nueces, la vainilla, la miel de maple y la Proteína en Polvo. Cocinar a fuego lento por 5 minutos más."
+    - "Decorar con tus frutas favoritas antes de servir."
+  ingredients:
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "4 cucharadas"
+      is_optional: false
+    - name: "Quinoa cocida"
+      sku: null
+      quantity: "2 tazas"
+      is_optional: false
+    - name: "Leche de soya"
+      sku: null
+      quantity: "1 ¾ tazas"
+      is_optional: false
+    - name: "Jugo de limón"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+    - name: "Bananas en pedacitos"
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: "Arándanos y/o zarzamoras y/o frambuesas"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Sal"
+      sku: null
+      quantity: "1 pizca"
+      is_optional: false
+    - name: "Nueces picadas"
+      sku: null
+      quantity: "⅓ taza"
+      is_optional: false
+    - name: "Esencia de vainilla"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Miel de maple"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+
+- title: "Tortillas de Proteína y Pimiento Rojo"
+  slug: "tortillas-de-proteina-y-pimiento-rojo"
+  description: "Tortillas proteicas de pimiento rojo, licuadas y cocidas en sartén, listas para rellenar a tu gusto."
+  servings: 6
+  recipe_type: "comida"
+  difficulty: "media"
+  calories: 100
+  protein_g: 9.0
+  carbs_g: 10.0
+  fat_g: 5.0
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 23"
+  instructions:
+    - "En un envase, colocar las semillas de chía con el agua, revolver hasta obtener una mezcla espesa."
+    - "Echar la Proteína en Polvo, la sal, la harina, los huevos y los pimientos rojos junto con la primera mezcla en la licuadora. Licuar hasta que todo quede bien mezclado."
+    - "Colocar la mezcla en una sartén caliente con aceite."
+    - "Servir con tu relleno favorito."
+  ingredients:
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "4 cucharadas"
+      is_optional: false
+    - name: "Harina"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Sal"
+      sku: null
+      quantity: "¼ de cucharadita"
+      is_optional: false
+    - name: "Huevos"
+      sku: null
+      quantity: "2"
+      is_optional: false
+    - name: "Pimientos rojos picados"
+      sku: null
+      quantity: "2 tazas"
+      is_optional: false
+    - name: "Semillas de chía"
+      sku: null
+      quantity: "4 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "⅓ de taza"
+      is_optional: false
+
+- title: "Aliño de Mango"
+  slug: "alino-de-mango"
+  description: "Aderezo cremoso de mango con Aloe Concentrado, semillas de chía, aceite de oliva y mostaza, listo para guardar en el refrigerador hasta una semana."
+  servings: 16
+  recipe_type: "otro"
+  difficulty: "media"
+  calories: 50
+  protein_g: 0.5
+  carbs_g: 1.5
+  fat_g: 5.0
+  fiber_g: null
+  tips: "Se conserva en un frasco en el refrigerador hasta por una semana."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 24"
+  instructions:
+    - "Colocar en un bowl las semillas de chía, la Fibra Activa y el agua; mezclar hasta que los ingredientes estén bien incorporados. Dejar reposar durante 3 minutos o hasta que la mezcla espese."
+    - "Agregar el Aloe Concentrado sabor a mango, el jugo de limón, el aceite de oliva y la mostaza."
+    - "Agregar la sal, pimienta y orégano seco. Combinar hasta que quede una mezcla homogénea."
+    - "Guardar en un frasco en el refrigerador. Puede durar hasta una semana."
+  ingredients:
+    - name: "Herbal Aloe Concentrado - Mango"
+      sku: "1065"
+      quantity: "2 tapas"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Semillas de chía"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "⅓ taza"
+      is_optional: false
+    - name: "Jugo de limón"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+    - name: "Aceite de oliva"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+    - name: "Mostaza de dijón"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Sal"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Pimienta"
+      sku: null
+      quantity: "½ cucharadita"
+      is_optional: false
+    - name: "Orégano seco"
+      sku: null
+      quantity: "½ cucharadita"
+      is_optional: false
+
+- title: "Wraps Proteicos de Espinaca"
+  slug: "wraps-proteicos-de-espinaca"
+  description: "Wraps proteicos de espinaca hechos en procesador y cocidos en sartén, listos para rellenar con tus complementos favoritos."
+  servings: 10
+  recipe_type: "comida"
+  difficulty: "media"
+  calories: 39
+  protein_g: 5.0
+  carbs_g: 2.0
+  fat_g: 1.1
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 25"
+  instructions:
+    - "Introducir al procesador el yogur griego, las claras de huevo y el agua."
+    - "Incorporar a la mezcla la harina, la Proteína en Polvo, las espinacas, las semillas de chía y la sal. Procesar hasta que todo quede bien mezclado."
+    - "Colocar aceite en la sartén y calentar. Agregar la mezcla cuando esté caliente."
+    - "Rellenar con tus complementos favoritos."
+  ingredients:
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "¼ de taza (9 medidas)"
+      is_optional: false
+    - name: "Yogur griego descremado"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Claras de huevo"
+      sku: null
+      quantity: "4"
+      is_optional: false
+    - name: "Semillas de chía"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Espinaca fresca"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+    - name: "Sal"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Harina"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+
+- title: "Crema de Calabaza"
+  slug: "crema-de-calabaza"
+  description: "Crema suave de calabaza con proteína en polvo y un toque de queso untable bajo en grasa."
+  servings: 1
+  recipe_type: "comida"
+  difficulty: "facil"
+  calories: 140
+  protein_g: 9.7
+  carbs_g: 16.5
+  fat_g: 5.5
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 26"
+  instructions:
+    - "Colocar la calabaza en una olla con una taza de caldo de verduras. Cocinar a fuego lento hasta que esté tierna."
+    - "Llevar la calabaza hervida a la licuadora. Agregar la Proteína en Polvo, el queso untable, la sal y pimienta."
+    - "Licuar y finalmente servir."
+  ingredients:
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Calabaza pelada en cubos"
+      sku: null
+      quantity: "250 g"
+      is_optional: false
+    - name: "Caldo de verduras bajo en grasas"
+      sku: null
+      quantity: "1 taza"
+      is_optional: false
+    - name: "Queso untable bajo en grasas"
+      sku: null
+      quantity: "2 cucharadas soperas"
+      is_optional: false
+    - name: "Sal y pimienta"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+
+- title: "Postre Helado Proteico"
+  slug: "postre-helado-proteico"
+  description: "Postre helado en dos capas —chocolate y cookies & cream— congelado en moldes individuales y decorado con fruta."
+  servings: 4
+  recipe_type: "postre"
+  difficulty: "media"
+  calories: 100
+  protein_g: 13.0
+  carbs_g: 12.0
+  fat_g: 1.0
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 28"
+  instructions:
+    - "Primera capa: licuar a velocidad alta por 45–60 segundos el Batido Nutricional Fórmula 1 sabor chocolate, con 3 cucharadas de Proteína en Polvo y 125 ml de agua. Colocar la mezcla en 4 moldes planos para pudines. Congelar por 30 minutos."
+    - "Segunda capa: repetir los pasos de la primera mezcla usando el Batido Nutricional Fórmula 1 sabor cookies & cream, con 3 cucharadas de Proteína en Polvo y 125 ml de agua. Colocar la mezcla sobre la primera capa."
+    - "Llevar al congelador por una hora. Cubrir con papel plástico para envolver y llevar al refrigerador por lo menos una hora más."
+    - "Decorar con tu fruta favorita antes de servir."
+  ingredients:
+    - name: "Fórmula 1 - Chocoavellana"
+      sku: "0884"
+      quantity: "4 cucharas medidoras"
+      is_optional: false
+    - name: "Fórmula 1 - Cookies & Cream"
+      sku: "0146"
+      quantity: "4 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "6 cucharadas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "250 ml"
+      is_optional: false
+    - name: "Fruta al gusto"
+      sku: null
+      quantity: "Rebanadas"
+      is_optional: false
+
+- title: "Enrolladito de Fresa"
+  slug: "enrolladito-de-fresa"
+  description: "Bizcocho horneado de vainilla y cacao, relleno de una crema de ricotta con fresas y enrollado tipo brazo de reina."
+  servings: 6
+  recipe_type: "postre"
+  difficulty: "media"
+  calories: 170
+  protein_g: 14.0
+  carbs_g: 13.5
+  fat_g: 6.4
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 29"
+  instructions:
+    - "Para la masa: batir las 4 claras de huevos en un bowl hasta formar una mezcla espumosa. Cernir la Fibra Activa, el Batido Nutricional Fórmula 1 sabor vainilla y el cacao."
+    - "Añadir a esta mezcla la leche, las claras batidas más las yemas, y mezclar con batidor. Verter la masa en pergamino con altura de 1 cm."
+    - "Llevar al horno previamente calentado a 180°. Hornear por 20 min."
+    - "Para la crema: combinar la ricotta con las fresas hasta formar una mezcla uniforme."
+    - "Enfriar el bizcocho, ponerlo boca arriba encima del film. Untar la crema, agregar frutas si deseas y envolver en forma de rollo."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "6 cucharas medidoras"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Huevos"
+      sku: null
+      quantity: "4"
+      is_optional: false
+    - name: "Cacao"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Leche"
+      sku: null
+      quantity: "200 ml"
+      is_optional: false
+    - name: "Ricotta"
+      sku: null
+      quantity: "200 g"
+      is_optional: false
+    - name: "Fresas"
+      sku: null
+      quantity: "100 g"
+      is_optional: false
+
+- title: "Muffin de Fruta y Fibra"
+  slug: "muffin-de-fruta-y-fibra"
+  description: "Muffins horneados con ricotta, melocotón, nueces y pasas, enriquecidos con fibra activa y proteína."
+  servings: 8
+  recipe_type: "postre"
+  difficulty: "media"
+  calories: 85
+  protein_g: 5.0
+  carbs_g: 7.0
+  fat_g: 4.3
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o leche de almendras."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 30"
+  instructions:
+    - "Mezclar todos los ingredientes secos (Batido Nutricional Fórmula 1 sabor vainilla, Proteína en Polvo y Fibra Activa), agregar la ricotta, melocotón, nueces y pasas cortadas."
+    - "Agregar leche, mezclar bien hasta formar una masa espesa."
+    - "Poner en moldes y llevar al horno por 25 minutos a 180°C. Servir."
+  ingredients:
+    - name: "Fórmula 1 - Vainilla"
+      sku: "0141"
+      quantity: "3 cucharas medidoras"
+      is_optional: false
+    - name: "Bebida de Proteína en Polvo - PDM"
+      sku: "1122"
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "1 cuchara medidora"
+      is_optional: false
+    - name: "Huevo"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "50 ml"
+      is_optional: false
+    - name: "Ricotta"
+      sku: null
+      quantity: "100 g"
+      is_optional: false
+    - name: "Melocotón cortado en cuadraditos"
+      sku: null
+      quantity: "100 g"
+      is_optional: false
+    - name: "Ralladura de limón"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+    - name: "Pasas"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+    - name: "Nueces"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+    - name: "Polvo de hornear"
+      sku: null
+      quantity: "3 cucharaditas"
+      is_optional: false
+
+- title: "Paletas Heladas de Frutos Rojos"
+  slug: "paletas-heladas-de-frutos-rojos"
+  description: "Paletas heladas de fresa y yogur griego con trocitos de frutos rojos, congeladas en moldes individuales."
+  servings: 4
+  recipe_type: "postre"
+  difficulty: "media"
+  calories: 50
+  protein_g: 7.0
+  carbs_g: 7.6
+  fat_g: 1.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 31"
+  instructions:
+    - "Licuar el Batido Nutricional Fórmula 1 sabor fresa, la leche descremada y el yogur."
+    - "Servir ⅓ de la taza en 4 moldes de paletas (80 ml). Agregar los frutos rojos y congelar por dos horas."
+  ingredients:
+    - name: "Fórmula 1 - Fresa"
+      sku: "0143"
+      quantity: "2 cucharas medidoras"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Yogur descremado estilo griego"
+      sku: null
+      quantity: "150 g"
+      is_optional: false
+    - name: "Frutos rojos congelados"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+
+- title: "Torta Cookies & Cream"
+  slug: "torta-cookies-cream"
+  description: "Torta fría en capas, con base de muesli y capas de ricotta con yogur y chocolate, cuajadas con gelatina en el refrigerador."
+  servings: 8
+  recipe_type: "postre"
+  difficulty: "dificil"
+  calories: 270
+  protein_g: 19.0
+  carbs_g: 34.0
+  fat_g: 7.0
+  fiber_g: null
+  tips: "Si no toleras la leche descremada, puede sustituirse por leche de soya o agua con Proteína en Polvo Herbalife Nutrition."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 32"
+  instructions:
+    - "Para la masa de base: mezclar el cereal muesli con el agua y el Batido Nutricional Fórmula 1 sabor cookies & cream. Llevar la masa al molde y poner al congelador."
+    - "Primera capa: disolver 12,5 g de gelatina en 150 ml de agua por 20-30 minutos. Escurrirla y agregar la leche previamente calentada a 50-60°C hasta que desaparezca la gelatina. Agregar ricotta y yogur y combinar hasta obtener una mezcla homogénea. Verter a la masa de muesli congelada. Poner a refrigerar."
+    - "Segunda capa: disolver 25 g de gelatina en 150 ml de agua por 20-30 min. Calentar hasta que la gelatina se disuelva. Agregar 200 ml de agua, el cacao y el Batido Nutricional Fórmula 1 sabor chocolate. Mezclar hasta formar una masa homogénea y agregar esta a la primera capa de leche refrigerada."
+    - "Colocar a refrigerar 1 hora más. Decorar con frutas antes de servir."
+  ingredients:
+    - name: "Fórmula 1 - Cookies & Cream"
+      sku: "0146"
+      quantity: "5 cucharas medidoras"
+      is_optional: false
+    - name: "Fórmula 1 - Chocoavellana"
+      sku: "0884"
+      quantity: "9 medidas"
+      is_optional: false
+    - name: "Cereal muesli"
+      sku: null
+      quantity: "240 g"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "450 ml"
+      is_optional: false
+    - name: "Ricotta"
+      sku: null
+      quantity: "250 g"
+      is_optional: false
+    - name: "Gelatina sin sabor"
+      sku: null
+      quantity: "25 g"
+      is_optional: false
+    - name: "Leche descremada"
+      sku: null
+      quantity: "100 ml"
+      is_optional: false
+    - name: "Yogur bajo en grasa"
+      sku: null
+      quantity: "125 ml"
+      is_optional: false
+    - name: "Cacao"
+      sku: null
+      quantity: "15 g"
+      is_optional: false
+    - name: "Frutas al gusto"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+
+- title: "Trufas de Chocolate con Proteínas"
+  slug: "trufas-de-chocolate-con-proteinas"
+  description: "Trufas de chocolate sin horno hechas con Rebuild Strength, ciruelas, pasas y mantequilla de almendras, rebozadas en cocoa."
+  servings: 30
+  recipe_type: "postre"
+  difficulty: "media"
+  calories: 50
+  protein_g: 4.0
+  carbs_g: 9.5
+  fat_g: 2.2
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 33"
+  instructions:
+    - "Mezclar las semillas de chía con la leche de almendras y dejarlo reposar."
+    - "Combinar las pasas, ciruelas, y la avena. Añadir a esta mezcla la vainilla, la miel, la mantequilla de almendras y las chispas de chocolate."
+    - "Agregar la mezcla de semillas de chía con leche de almendras, y combinar hasta que quede una masa uniforme. Formar bolitas compactas y dejar reposar."
+    - "Mezclar una cucharada de Rebuild Strength con cocoa en polvo, en un pequeño bowl y rodar las bolitas por la mezcla."
+  ingredients:
+    - name: "H24 Rebuild Strength - Chocolate"
+      sku: "1417"
+      quantity: "6 cucharas medidoras"
+      is_optional: false
+    - name: "H24 Rebuild Strength - Chocolate (para decorar)"
+      sku: "1417"
+      quantity: "1 cuchara medidora"
+      is_optional: false
+    - name: "Semillas de chía"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Leche de almendras sin azúcar"
+      sku: null
+      quantity: "⅓ de taza"
+      is_optional: false
+    - name: "Ciruelas (alrededor de 14)"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Pasas"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Chispas de chocolate amargo"
+      sku: null
+      quantity: "⅓ de taza"
+      is_optional: false
+    - name: "Mantequilla de almendras"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+    - name: "Avena en hojuelas"
+      sku: null
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Extracto de vainilla"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Miel"
+      sku: null
+      quantity: "2 cucharadas"
+      is_optional: false
+    - name: "Cocoa en polvo sin azúcar"
+      sku: null
+      quantity: "1 cucharada"
+      is_optional: false
+
+- title: "Bebida Cítrica Hidratante"
+  slug: "bebida-citrica-hidratante"
+  description: "Bebida hidratante y cítrica con Aloe Concentrado sabor mandarina, agua con gas y jugo de limón."
+  servings: 1
+  recipe_type: "bebida"
+  difficulty: "facil"
+  calories: 25
+  protein_g: 0.2
+  carbs_g: 4.3
+  fat_g: 0.15
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 35"
+  instructions:
+    - "Echar los 250 ml de agua en un vaso."
+    - "Agregar el Herbal Aloe Concentrado más el jugo de limón. Mezclar bien."
+  ingredients:
+    - name: "Herbal Aloe Concentrado - Mandarina"
+      sku: "2631"
+      quantity: "½ taza"
+      is_optional: false
+    - name: "Agua con gas"
+      sku: null
+      quantity: "250 ml"
+      is_optional: false
+    - name: "Jugo de limón"
+      sku: null
+      quantity: "¼ de taza"
+      is_optional: false
+
+- title: "Bebida de Poder Espumosa"
+  slug: "bebida-de-poder-espumosa"
+  description: "Bebida espumosa y energizante con Té Concentrado de Hierbas sabor limón y N-R-G, endulzada al gusto."
+  servings: 1
+  recipe_type: "bebida"
+  difficulty: "facil"
+  calories: 25
+  protein_g: 0.4
+  carbs_g: 6.2
+  fat_g: 0.1
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 36"
+  instructions:
+    - "Disolver 1 cucharada de Té Concentrado de Hierbas más 1 cucharadita de N-R-G en 250 ml de agua con gas."
+    - "Agregar el jugo de limón y mezclar. Añadir edulcorante al gusto y servir."
+  ingredients:
+    - name: "Té Concentrado de Hierbas sabor limón"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "NRG"
+      sku: "0102"
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Agua con gas"
+      sku: null
+      quantity: "250 ml"
+      is_optional: false
+    - name: "Jugo de limón"
+      sku: null
+      quantity: "Jugo de 1 limón"
+      is_optional: false
+    - name: "Edulcorante"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: true
+
+- title: "Limonada con Pepino y Menta"
+  slug: "limonada-con-pepino-y-menta"
+  description: "Limonada refrescante con Aloe Concentrado, pepino y hojas de menta, servida bien fría."
+  servings: 6
+  recipe_type: "bebida"
+  difficulty: "facil"
+  calories: 3.5
+  protein_g: 0.1
+  carbs_g: 1.0
+  fat_g: 0.03
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 37"
+  instructions:
+    - "Verter el hielo, las hojas de menta junto al pepino y limón cortados en delgadas rodajas."
+    - "Añadir el Herbal Aloe Concentrado y el agua en una jarra. Mezclar bien y servir."
+  ingredients:
+    - name: "Herbal Aloe Concentrado - Sábila"
+      sku: "0006"
+      quantity: "9 tapas"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "1,5 l"
+      is_optional: false
+    - name: "Hojas de menta"
+      sku: null
+      quantity: "6"
+      is_optional: false
+    - name: "Pepino"
+      sku: null
+      quantity: "50 g"
+      is_optional: false
+    - name: "Limón"
+      sku: null
+      quantity: "40 g"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+
+- title: "Ponche de Frutas con Té"
+  slug: "ponche-de-frutas-con-te"
+  description: "Ponche de frutas frescas —piña, manzana, uvas y kiwi— con Té Concentrado de Hierbas y jugo de uva."
+  servings: 1
+  recipe_type: "bebida"
+  difficulty: "facil"
+  calories: 75
+  protein_g: 0.7
+  carbs_g: 15.0
+  fat_g: 0.25
+  fiber_g: null
+  tips: null
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 38"
+  instructions:
+    - "Disolver ½ cucharadita de Té Concentrado de Hierbas en 250 ml de agua con gas."
+    - "Agregar el jugo de uva y las frutas cortadas en pequeños daditos."
+    - "Añadir hielo al gusto y servir."
+  ingredients:
+    - name: "Bebida Herbal - Original 102 g."
+      sku: "0106"
+      quantity: "½ cucharadita"
+      is_optional: false
+    - name: "Agua con gas"
+      sku: null
+      quantity: "250 ml"
+      is_optional: false
+    - name: "Jugo de uva"
+      sku: null
+      quantity: "100 ml"
+      is_optional: false
+    - name: "Piña cortada en cubos"
+      sku: null
+      quantity: "1 lonja"
+      is_optional: false
+    - name: "Manzana pequeña cortada en cubos"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Uvas negras"
+      sku: null
+      quantity: "10"
+      is_optional: false
+    - name: "Kiwi pequeño"
+      sku: null
+      quantity: "1"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false
+
+- title: "Té Energizante"
+  slug: "te-energizante"
+  description: "Té energizante con fibra activa, endulzado con miel y servido con hielo."
+  servings: 1
+  recipe_type: "bebida"
+  difficulty: "facil"
+  calories: 100
+  protein_g: 0.25
+  carbs_g: 26.0
+  fat_g: 0.06
+  fiber_g: null
+  tips: "El libro indica 200 ml de agua en la lista de ingredientes, pero 250 ml en el texto de preparación; ambos valores se transcriben tal como aparecen en el libro."
+  source: "Mi Nutrición Favorita, Tomo 1, pág. 39"
+  instructions:
+    - "Disolver 2 cucharaditas de Té Concentrado de Hierbas y 1 cucharada de Fibra Activa en 250 ml de agua (el texto de ingredientes indica 200 ml; ver nota en Dudas)."
+    - "Añadir miel para endulzar y echar hielo al gusto."
+  ingredients:
+    - name: "Té Concentrado de Hierbas (sabor a elección)"
+      sku: null
+      quantity: "2 cucharaditas"
+      is_optional: false
+    - name: "Fibra Activa - Manzana"
+      sku: "2864"
+      quantity: "1 cucharada"
+      is_optional: false
+    - name: "Agua"
+      sku: null
+      quantity: "200 ml"
+      is_optional: false
+    - name: "Miel"
+      sku: null
+      quantity: "1 cucharadita"
+      is_optional: false
+    - name: "Hielo"
+      sku: null
+      quantity: "Al gusto"
+      is_optional: false

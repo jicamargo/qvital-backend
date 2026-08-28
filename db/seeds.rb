@@ -978,3 +978,71 @@ health_goals_data.each do |attrs|
 end
 
 puts "✅ Objetivos de salud creados: #{HealthGoal.count}"
+
+# Seed de recetas (Fase 3.5 — fuente de verdad: docs/knowledge/recetas-mi-nutricion-favorita-tomo-*.md)
+#
+# Los YAML en db/seed_data/recipes/*.yml son una extracción mecánica de esos
+# markdown (mismo texto, mismos SKUs, misma información nutricional). Si el
+# markdown cambia, hay que regenerar a mano el YAML correspondiente — no son
+# una fuente independiente.
+recipe_seed_files = Dir[Rails.root.join("db/seed_data/recipes/*.yml")].sort
+recipes_data = recipe_seed_files.flat_map { |file| YAML.load_file(file).map(&:deep_symbolize_keys) }
+
+duplicate_recipe_slugs = recipes_data.group_by { |r| r[:slug] }.select { |_, v| v.size > 1 }.keys
+raise "Slugs duplicados en seed_data de recetas: #{duplicate_recipe_slugs.join(', ')}" if duplicate_recipe_slugs.any?
+
+recipes_created = 0
+recipes_updated = 0
+recipe_ingredient_warnings = []
+
+recipes_data.each do |data|
+  recipe = Recipe.find_or_initialize_by(slug: data[:slug])
+  is_new_recipe = recipe.new_record?
+
+  recipe.assign_attributes(
+    title: data[:title],
+    description: data[:description],
+    servings: data[:servings],
+    difficulty: data[:difficulty],
+    recipe_type: data[:recipe_type],
+    calories: data[:calories],
+    protein_g: data[:protein_g],
+    carbs_g: data[:carbs_g],
+    fat_g: data[:fat_g],
+    fiber_g: data[:fiber_g],
+    tips: data[:tips],
+    source: data[:source],
+    instructions: data[:instructions],
+    active: true
+  )
+  recipe.save!
+
+  # Reemplaza todos los ingredientes en vez de diffear por id — mismo
+  # criterio que Admin::Recipes::Update, y hace el seed naturalmente
+  # idempotente ante cambios en el YAML de origen.
+  recipe.recipe_ingredients.destroy_all
+  Array(data[:ingredients]).each_with_index do |ingredient, index|
+    product = ingredient[:sku].present? ? Product.find_by(sku: ingredient[:sku]) : nil
+    if ingredient[:sku].present? && product.nil?
+      recipe_ingredient_warnings << "#{data[:slug]}: SKU #{ingredient[:sku]} (#{ingredient[:name]}) no encontrado en products — se usó nombre genérico"
+    end
+
+    recipe.recipe_ingredients.create!(
+      product_id: product&.id,
+      generic_name: product ? nil : ingredient[:name],
+      quantity: ingredient[:quantity],
+      is_optional: ingredient[:is_optional] || false,
+      position: index
+    )
+  end
+
+  is_new_recipe ? recipes_created += 1 : recipes_updated += 1
+rescue StandardError => e
+  raise "Error creando/actualizando la receta \"#{data[:title]}\" (#{data[:slug]}): #{e.class}: #{e.message}"
+end
+
+puts "✅ Recetas creadas: #{recipes_created}, actualizadas: #{recipes_updated} (total #{Recipe.count})"
+if recipe_ingredient_warnings.any?
+  puts "⚠️  Advertencias de ingredientes de recetas (SKU no encontrado):"
+  recipe_ingredient_warnings.each { |w| puts "   - #{w}" }
+end
