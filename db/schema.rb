@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_24_140000) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_28_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -314,6 +314,14 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_24_140000) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "calories"
+    t.decimal "protein_g", precision: 6, scale: 2
+    t.decimal "carbs_g", precision: 6, scale: 2
+    t.decimal "fat_g", precision: 6, scale: 2
+    t.decimal "fiber_g", precision: 6, scale: 2
+    t.integer "recipe_type"
+    t.text "tips"
+    t.string "source"
     t.index ["slug"], name: "index_recipes_on_slug", unique: true
   end
 

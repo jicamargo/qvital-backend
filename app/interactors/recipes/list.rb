@@ -17,6 +17,7 @@ module Recipes
       scope = scope.by_health_goal_key(@params[:health_goal_key]) if @params[:health_goal_key].present?
       scope = scope.by_product_id(@params[:product_id]) if @params[:product_id].present?
       scope = scope.where(difficulty: @params[:difficulty]) if @params[:difficulty].present?
+      scope = scope.where(recipe_type: @params[:recipe_type]) if @params[:recipe_type].present?
       scope = scope.where("prep_time_minutes <= ?", @params[:max_prep_time].to_i) if @params[:max_prep_time].present?
 
       @recipes = scope.order(:title)
