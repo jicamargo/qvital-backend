@@ -37,7 +37,7 @@ module Api
       private
 
       def index_params
-        params.permit(:health_goal_key, :difficulty, :max_prep_time, :product_id)
+        params.permit(:health_goal_key, :difficulty, :max_prep_time, :product_id, :recipe_type)
       end
     end
   end
