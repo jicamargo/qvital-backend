@@ -6,7 +6,10 @@ module Api
         result = ::Recipes::List.call(params: index_params)
 
         if result.success?
-          render json: RecipeBlueprint.render(result.recipes, view: :default), status: :ok
+          render json: {
+            recipes: RecipeBlueprint.render_as_hash(result.recipes, view: :default),
+            pagination: { page: result.page, per_page: result.per_page, total: result.total }
+          }, status: :ok
         else
           render json: { error: result.error }, status: :unprocessable_entity
         end
@@ -37,7 +40,8 @@ module Api
       private
 
       def index_params
-        params.permit(:health_goal_key, :difficulty, :max_prep_time, :product_id, :recipe_type)
+        params.permit(:health_goal_key, :difficulty, :max_prep_time, :product_id, :recipe_type,
+                      :max_calories, :search, :page, :per_page)
       end
     end
   end

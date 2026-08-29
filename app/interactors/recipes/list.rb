@@ -1,6 +1,9 @@
 module Recipes
   class List
-    attr_reader :recipes, :error
+    MAX_PER_PAGE = 50
+    DEFAULT_PER_PAGE = 12
+
+    attr_reader :recipes, :total, :page, :per_page, :error
 
     def self.call(params: {})
       new(params: params).call
@@ -9,6 +12,10 @@ module Recipes
     def initialize(params: {})
       @params = params || {}
       @recipes = Recipe.none
+      @page = [ @params[:page].to_i, 1 ].max
+      requested_per_page = @params[:per_page].present? ? @params[:per_page].to_i : DEFAULT_PER_PAGE
+      @per_page = [ [ requested_per_page, 1 ].max, MAX_PER_PAGE ].min
+      @total = 0
       @error = nil
     end
 
@@ -19,8 +26,11 @@ module Recipes
       scope = scope.where(difficulty: @params[:difficulty]) if @params[:difficulty].present?
       scope = scope.where(recipe_type: @params[:recipe_type]) if @params[:recipe_type].present?
       scope = scope.where("prep_time_minutes <= ?", @params[:max_prep_time].to_i) if @params[:max_prep_time].present?
+      scope = scope.where("calories <= ?", @params[:max_calories].to_i) if @params[:max_calories].present?
+      scope = apply_search(scope)
 
-      @recipes = scope.order(:title)
+      @total = scope.count
+      @recipes = scope.order(:title).offset((@page - 1) * @per_page).limit(@per_page)
       self
     rescue StandardError => e
       @error = "Error listing recipes: #{e.message}"
@@ -29,6 +39,15 @@ module Recipes
 
     def success?
       @error.nil?
+    end
+
+    private
+
+    def apply_search(scope)
+      return scope unless @params[:search].present?
+
+      term = "%#{@params[:search].to_s.strip}%"
+      scope.where("recipes.title ILIKE :term OR recipes.description ILIKE :term", term: term)
     end
   end
 end
