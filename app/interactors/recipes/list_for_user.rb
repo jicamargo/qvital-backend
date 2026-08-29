@@ -1,6 +1,8 @@
 module Recipes
   class ListForUser
-    FALLBACK_LIMIT = 6
+    # "Recetas para ti" es una vitrina corta, no un listado — aplica tanto
+    # al fallback (sin compras) como al match por productos comprados.
+    RECOMMENDATION_LIMIT = 6
 
     attr_reader :recipes, :error
 
@@ -42,13 +44,17 @@ module Recipes
     # Sin compras aún: recetas destacadas/genéricas, mismo criterio que el
     # catálogo público, sin fallar (ver sub-fase 3.5).
     def fallback_recipes
-      Recipe.active.includes(:health_goals, recipe_ingredients: :product).order(:title).limit(FALLBACK_LIMIT)
+      Recipe.active.includes(:health_goals, recipe_ingredients: :product).order(:title).limit(RECOMMENDATION_LIMIT)
     end
 
     # Recetas cuyos ingredientes coinciden con productos ya comprados,
-    # ordenadas por cantidad de coincidencias (más primero). Se calcula el
-    # orden con una query aparte (en vez de combinar GROUP BY con los
-    # `includes` de abajo) para no acoplar el conteo con el eager loading.
+    # ordenadas por cantidad de coincidencias (más primero) y recortadas a
+    # RECOMMENDATION_LIMIT — sin este límite, un usuario con compras en
+    # muchos productos distintos podía matchear la mayoría del catálogo
+    # (ver bug reportado 2026-08-28 tras cargar las 119 recetas nuevas).
+    # Se calcula el orden con una query aparte (en vez de combinar GROUP BY
+    # con los `includes` de abajo) para no acoplar el conteo con el eager
+    # loading.
     def recipes_matching(product_ids)
       ordered_ids = RecipeIngredient
         .joins(:recipe)
@@ -56,6 +62,7 @@ module Recipes
         .group(:recipe_id)
         .order(Arel.sql("COUNT(*) DESC"))
         .pluck(:recipe_id)
+        .first(RECOMMENDATION_LIMIT)
 
       recipes_by_id = Recipe.includes(:health_goals, recipe_ingredients: :product)
         .where(id: ordered_ids)
