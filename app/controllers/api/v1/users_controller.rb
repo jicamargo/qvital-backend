@@ -15,6 +15,20 @@ module Api
         render json: { error: "Internal server error" }, status: :internal_server_error
       end
 
+      # POST /api/v1/users/track_usage
+      def track_usage
+        result = ::Users::TrackFeatureUsage.call(user: current_user, feature_key: params[:feature_key])
+
+        if result.success?
+          head :no_content
+        else
+          render json: { error: result.error }, status: :unprocessable_entity
+        end
+      rescue StandardError => e
+        Rails.logger.error "Users track_usage error: #{e.class.name} - #{e.message}"
+        render json: { error: "Internal server error" }, status: :internal_server_error
+      end
+
       private
 
       def profile_params

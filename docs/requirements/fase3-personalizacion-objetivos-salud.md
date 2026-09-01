@@ -245,7 +245,7 @@ Resuelve la idea #11.
 
 ### 8.1 Backend
 
-- [ ] Tabla `user_feature_usages`:
+- [x] Tabla `user_feature_usages`:
   ```ruby
   create_table :user_feature_usages do |t|
     t.references :user, null: false, foreign_key: true
@@ -256,15 +256,15 @@ Resuelve la idea #11.
   end
   add_index :user_feature_usages, [:user_id, :feature_key], unique: true
   ```
-- [ ] Interactor `Users::TrackFeatureUsage.call(user:, feature_key:)` — upsert atómico (`find_or_create_by` + incrementos), sin bloquear la respuesta (debe ser una operación barata).
-- [ ] Endpoint `POST /api/v1/users/track_usage` con body `{ feature_key: "marketplace" }` — autenticado, sin lógica de negocio compleja, solo delega al interactor.
-- [ ] `GET /api/v1/users/me` — extender `UserBlueprint` para incluir `feature_usages: [{feature_key, last_used_at}]`, evitando una llamada extra en cada carga del dashboard.
+- [x] Interactor `Users::TrackFeatureUsage.call(user:, feature_key:)` — upsert atómico (`find_or_create_by` + incrementos), sin bloquear la respuesta (debe ser una operación barata). Implementado con `UserFeatureUsage.upsert` (`ON CONFLICT` a nivel de DB) en vez de `find_or_create_by`, para que el incremento de `use_count` sea realmente atómico bajo requests concurrentes.
+- [x] Endpoint `POST /api/v1/users/track_usage` con body `{ feature_key: "marketplace" }` — autenticado, sin lógica de negocio compleja, solo delega al interactor.
+- [x] `UserBlueprint` extendido con `feature_usages: [{feature_key, last_used_at}]`. No existía un `GET /api/v1/users/me` en el repo (solo `PATCH`) — el campo se agregó directamente al blueprint compartido, así que viaja tanto en `POST /api/v1/auth/sync` (login/carga de sesión) como en `PATCH /api/v1/users/me`, sin necesitar una llamada extra en cada carga del dashboard.
 
 ### 8.2 Frontend
 
-- [ ] En cada página relevante (`/marketplace`, `/mi-plan`, `/seguimiento`, `/coach-ia`, `/recetas`, `/habitos`, `/retos`), disparar en `useEffect` (fire-and-forget, sin bloquear render) una llamada a `track_usage` con su `feature_key`.
-- [ ] En `/dashboard`, la sección "Acceso Rápido" (hoy con orden fijo: Mi Plan, Marketplace, Seguimiento, Coach IA) debe ordenarse por `last_used_at` descendente usando los datos de `feature_usages` del usuario actual; features nunca usadas van al final en su orden actual (fallback estable, no aleatorio).
-- [ ] Persistir el orden calculado en memoria/estado de la página (no hace falta cachear en localStorage; la fuente de verdad es el backend).
+- [x] En cada página relevante (`/marketplace`, `/mi-plan`, `/seguimiento`, `/coach-ia`, `/recetas`, `/habitos`, `/retos`), se dispara en `useEffect` (fire-and-forget, sin bloquear render) una llamada a `track_usage` con su `feature_key`, vía el hook `useTrackFeatureUsage`.
+- [x] En `/dashboard`, la sección "Acceso Rápido" se ordena por `last_used_at` descendente usando `feature_usages` del usuario actual (de `AuthContext`); features nunca usadas van al final en su orden original (fallback estable).
+- [x] El orden se calcula en memoria (`useMemo` sobre `user.feature_usages`) en cada render de la página — no se cachea en localStorage; la fuente de verdad es el backend.
 
 ---
 

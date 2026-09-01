@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_28_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_01_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -325,6 +325,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_28_120000) do
     t.index ["slug"], name: "index_recipes_on_slug", unique: true
   end
 
+  create_table "user_feature_usages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "feature_key", null: false
+    t.datetime "last_used_at", null: false
+    t.integer "use_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "feature_key"], name: "index_user_feature_usages_on_user_id_and_feature_key", unique: true
+    t.index ["user_id"], name: "index_user_feature_usages_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password"
@@ -387,5 +398,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_28_120000) do
   add_foreign_key "recipe_health_goals", "recipes"
   add_foreign_key "recipe_ingredients", "products"
   add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "user_feature_usages", "users"
   add_foreign_key "users", "levels"
 end
