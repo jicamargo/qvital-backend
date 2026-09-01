@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post "auth/sync", to: "auth#sync"
       post "auth/update_metadata", to: "auth#update_metadata" # Endpoint de debug para forzar actualización
       patch "users/me", to: "users#update_me"
+      post "users/track_usage", to: "users#track_usage"
       resources :products, only: [:index]
       resources :categories, only: [:index]
       resources :health_goals, only: [:index]

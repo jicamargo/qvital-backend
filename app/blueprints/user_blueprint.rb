@@ -19,6 +19,11 @@ class UserBlueprint < Blueprinter::Base
     }
   end
 
+  # Usado para ordenar "Acceso Rápido" del dashboard por uso reciente (sub-fase 3.7)
+  field :feature_usages do |user|
+    user.user_feature_usages.map { |usage| { feature_key: usage.feature_key, last_used_at: usage.last_used_at } }
+  end
+
   view :admin do
     fields :premium_expires_at, :created_at, :updated_at
 
