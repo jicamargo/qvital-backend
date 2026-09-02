@@ -41,6 +41,9 @@ gem "jwt"
 # JSON serialization
 gem "blueprinter"
 
+# Full-text + trigram search on top of native Postgres (pg_trgm/unaccent)
+gem "pg_search"
+
 # Transactional email delivery (order confirmation mailer)
 gem "resend"
 

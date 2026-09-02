@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_01_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_02_195130) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_01_120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "extensions.pg_stat_statements"
+  enable_extension "extensions.pg_trgm"
   enable_extension "extensions.pgcrypto"
+  enable_extension "extensions.unaccent"
   enable_extension "extensions.uuid-ossp"
   enable_extension "pg_catalog.plpgsql"
   enable_extension "vault.supabase_vault"

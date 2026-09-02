@@ -17,10 +17,7 @@ module Admin
         scope = ::User.includes(:level).order(created_at: :desc)
         scope = scope.where(role: @params[:role]) if @params[:role].present?
 
-        if @params[:search].present?
-          term = "%#{@params[:search].strip}%"
-          scope = scope.where("email ILIKE :term OR name ILIKE :term OR last_name ILIKE :term", term: term)
-        end
+        scope = scope.search_by_text(@params[:search]) if @params[:search].present?
 
         @users = scope
         self

@@ -127,24 +127,24 @@ Este patrón es el que deben seguir también `Recipe` (Fase 3.5), y en el futuro
 
 ## 6. Cambios concretos por endpoint (backend)
 
-- [ ] **`GET /api/v1/products`** (`Products::ListForUser`) — **el gap más importante**: hoy el marketplace público no filtra en backend en absoluto. Agregar parámetro opcional `q`:
+- [x] **`GET /api/v1/products`** (`Products::ListForUser`) — **el gap más importante**: hoy el marketplace público no filtra en backend en absoluto. Agregar parámetro opcional `q`:
   ```ruby
   @products = @products.search_by_text(@query) if @query.present?
   ```
   Documentar el nuevo parámetro en `docs/endpoints/api-v1-products.md` al implementar.
-- [ ] **`Admin::Products::List`** — reemplazar el bloque `ILIKE` actual (no maneja tildes/typos) por `Product.search_by_text(params[:search])`.
-- [ ] **`Admin::Orders::List`** — agregar `search` sobre `purchase_number` y nombre del cliente vía el mismo patrón (`Purchase` incluye `Searchable`).
-- [ ] **Admin de usuarios** — si se agrega un endpoint de listado con filtros en backend (hoy `/admin/users` filtra 100% client-side), aplicar el mismo patrón sobre `email`, `name`, `last_name`.
-- [ ] **Recetas (Fase 3.5, `fase3-personalizacion-objetivos-salud.md`)** — implementar `Recipes::List` / `Recipes::ListForUser` ya con `searchable_by :title, :description` desde el primer día, para no repetir esta misma deuda técnica en un módulo nuevo.
+- [x] **`Admin::Products::List`** — reemplazar el bloque `ILIKE` actual (no maneja tildes/typos) por `Product.search_by_text(params[:search])`.
+- [x] **`Admin::Orders::List`** — agregar `search` sobre `purchase_number` y nombre del cliente vía el mismo patrón (`Purchase` incluye `Searchable`).
+- [x] **Admin de usuarios** — el endpoint `GET /api/v1/admin/users` ya existía (con `search` ILIKE) cuando se escribió este documento; se migró al mismo patrón (`User.search_by_text`, `email`/`name`/`last_name`).
+- [x] **Recetas (Fase 3.5, `fase3-personalizacion-objetivos-salud.md`)** — el módulo de recetas se implementó antes que este sprint con `search` ILIKE (ver `recipes-nutrition-fields-project`); se migró a `searchable_by :title, :description` en este sprint en vez de en el día uno.
 
 ---
 
 ## 7. Cambios en frontend
 
-- [ ] Reemplazar el filtrado client-side (`.includes()`) en `/marketplace`, `/admin/products` y `/admin/users` por llamadas reales al backend con el parámetro `q`/`search`.
-- [ ] Aplicar **debounce** (≈300ms) al input de búsqueda antes de disparar la petición, para no llamar al backend en cada tecla.
-- [ ] Loading state mientras se busca — regla ya vigente en `CLAUDE.md`: *"Every async action must support loading, error and empty states"*.
-- [ ] `/recetas`: conectar el input de búsqueda ya existente (hoy decorativo) al endpoint real cuando se implemente el módulo de recetas.
+- [x] Reemplazar el filtrado client-side (`.includes()`) en `/marketplace`, `/admin/products` y `/admin/users` por llamadas reales al backend con el parámetro `q`/`search`.
+- [x] Aplicar **debounce** (400ms, mismo valor que ya usaba `/recetas`) al input de búsqueda antes de disparar la petición, para no llamar al backend en cada tecla.
+- [x] Loading state mientras se busca — regla ya vigente en `CLAUDE.md`: *"Every async action must support loading, error and empty states"*.
+- [x] `/recetas`: el input de búsqueda ya estaba conectado a un endpoint real (ILIKE) desde que se implementó el módulo; ahora ese endpoint usa `pg_search` por debajo, sin cambios en el frontend.
 
 ---
 
@@ -159,20 +159,20 @@ Este patrón es el que deben seguir también `Recipe` (Fase 3.5), y en el futuro
 
 ### Backend
 
-- [ ] Agregar gem `pg_search` al `Gemfile`.
-- [ ] Migración: habilitar extensiones `extensions.pg_trgm` y `extensions.unaccent`.
-- [ ] Migración: crear `TEXT SEARCH CONFIGURATION spanish_unaccent`.
-- [ ] Crear `app/models/concerns/searchable.rb`.
-- [ ] Aplicar `searchable_by` en `Product` (incluye `flavor` de Fase 3).
-- [ ] Actualizar `Products::ListForUser` para aceptar `q` y usar `search_by_text`.
-- [ ] Actualizar `Admin::Products::List` para usar `search_by_text` en vez de `ILIKE`.
-- [ ] Actualizar `Admin::Orders::List` con búsqueda sobre `Purchase`.
-- [ ] Documentar el parámetro `q`/`search` en cada `docs/endpoints/*.md` afectado.
-- [ ] Copiar `db/schema.rb` actualizado a `qvital-frontend/docs/schema.rb` (regla de `CLAUDE.md`).
+- [x] Agregar gem `pg_search` al `Gemfile`.
+- [x] Migración: habilitar extensiones `extensions.pg_trgm` y `extensions.unaccent`.
+- [x] Migración: crear `TEXT SEARCH CONFIGURATION spanish_unaccent`.
+- [x] Crear `app/models/concerns/searchable.rb`.
+- [x] Aplicar `searchable_by` en `Product` (incluye `flavor` de Fase 3), y también en `Recipe`, `Purchase` y `User` (los 4 listados que ya tenían `search`/ILIKE en este repo).
+- [x] Actualizar `Products::ListForUser` para aceptar `q` y usar `search_by_text`.
+- [x] Actualizar `Admin::Products::List` para usar `search_by_text` en vez de `ILIKE`.
+- [x] Actualizar `Admin::Orders::List` con búsqueda sobre `Purchase`.
+- [x] Documentar el parámetro `q`/`search` en cada `docs/endpoints/*.md` afectado.
+- [x] Copiar `db/schema.rb` actualizado a `qvital-frontend/docs/schema.rb` (regla de `CLAUDE.md`).
 
 ### Frontend
 
-- [ ] `/marketplace`: reemplazar filtro client-side por llamada a `GET /api/v1/products?q=...` con debounce.
-- [ ] `/admin/products`: usar el `search` que `adminProducts.ts` ya soporta (dejar de filtrar client-side sobre la lista completa).
-- [ ] `/admin/users`: conectar a un endpoint real con `search` (hoy no existe backend para esto).
-- [ ] `/recetas`: dejar preparado para conectar cuando se implemente el módulo (Fase 3.5).
+- [x] `/marketplace`: reemplazar filtro client-side por llamada a `GET /api/v1/products?q=...` con debounce.
+- [x] `/admin/products`: usar el `search` que `adminProducts.ts` ya soporta (dejar de filtrar client-side sobre la lista completa).
+- [x] `/admin/users`: conectar a un endpoint real con `search` (el endpoint ya existía con ILIKE; ahora usa `pg_search`).
+- [x] `/recetas`: ya estaba conectado a un endpoint real desde que se implementó el módulo (sub-fase 3.5, posterior a este documento) — sin cambios de frontend en este sprint.

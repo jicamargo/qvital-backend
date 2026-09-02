@@ -27,7 +27,7 @@ module Recipes
       scope = scope.where(recipe_type: @params[:recipe_type]) if @params[:recipe_type].present?
       scope = scope.where("prep_time_minutes <= ?", @params[:max_prep_time].to_i) if @params[:max_prep_time].present?
       scope = scope.where("calories <= ?", @params[:max_calories].to_i) if @params[:max_calories].present?
-      scope = apply_search(scope)
+      scope = scope.search_by_text(@params[:search]) if @params[:search].present?
 
       @total = scope.count
       @recipes = scope.order(:title).offset((@page - 1) * @per_page).limit(@per_page)
@@ -39,15 +39,6 @@ module Recipes
 
     def success?
       @error.nil?
-    end
-
-    private
-
-    def apply_search(scope)
-      return scope unless @params[:search].present?
-
-      term = "%#{@params[:search].to_s.strip}%"
-      scope.where("recipes.title ILIKE :term OR recipes.description ILIKE :term", term: term)
     end
   end
 end

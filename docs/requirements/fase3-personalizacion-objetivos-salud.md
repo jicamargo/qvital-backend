@@ -268,9 +268,9 @@ Resuelve la idea #11.
 
 ---
 
-## 8bis. Sub-fase 3.8 — Búsqueda de texto (marketplace y otras páginas)
+## 8bis. Sub-fase 3.8 — Búsqueda de texto (marketplace y otras páginas) ✅ 2026-09-02
 
-Resuelve la idea #12. Spec técnica completa (decisión de gema, extensiones de Postgres, configuración de acentos/similitud, checklist backend/frontend) en el documento dedicado [`busqueda-full-text.md`](./busqueda-full-text.md) — no se repite aquí para evitar que las dos versiones se desincronicen.
+Resuelve la idea #12. Spec técnica completa (decisión de gema, extensiones de Postgres, configuración de acentos/similitud, checklist backend/frontend) en el documento dedicado [`busqueda-full-text.md`](./busqueda-full-text.md) — no se repite aquí para evitar que las dos versiones se desincronicen. Checklist completo (backend y frontend) marcado `[x]` en ese documento; implementado en `feature/fase3-sprint8-fulltext-search` en ambos repos.
 
 Resumen ejecutivo:
 
@@ -300,4 +300,4 @@ Cada sprint cierra con: migraciones aplicadas, endpoints documentados en `docs/e
 - [X] Proveedor de envío de email transaccional — resuelto: Resend (gem `resend` + `RESEND_API_KEY`, ver `config/application.rb`).
 - [ ] Si "combos por objetivo" (idea #7) necesita precio de paquete real (`ProductBundle`) en esta fase o si el filtro por `health_goal` es suficiente por ahora (recomendación: dejarlo para Fase 4).
 - [X] Lista definitiva de objetivos de salud — resuelto: 9 seedeados en `db/seeds.rb` (7 propuestos + "Snacks sanos" + "Comprar por mi cuenta"), con icono/color reales.
-- [ ] Confirmar que Supabase permite crear la `TEXT SEARCH CONFIGURATION spanish_unaccent` y las extensiones `pg_trgm`/`unaccent` en el schema `extensions` con el rol que usa Rails en producción (ver `busqueda-full-text.md` sección 3) — validar en un entorno de staging antes del Sprint 8.
+- [X] Confirmar que Supabase permite crear la `TEXT SEARCH CONFIGURATION spanish_unaccent` y las extensiones `pg_trgm`/`unaccent` en el schema `extensions` con el rol que usa Rails en producción (ver `busqueda-full-text.md` sección 3) — resuelto: sí, ambas migraciones corrieron sin problema. No había staging configurado (`.env` apunta directo a producción, mismo entorno que ya se usaba en los sprints anteriores), así que se validó directo ahí con confirmación explícita de Jorge antes de correr las migraciones (2026-09-02).
