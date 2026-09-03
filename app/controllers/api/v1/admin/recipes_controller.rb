@@ -79,6 +79,7 @@ module Api
             :prep_time_minutes,
             :difficulty,
             :image_url,
+            :image_path,
             :active,
             :recipe_type,
             :calories,
