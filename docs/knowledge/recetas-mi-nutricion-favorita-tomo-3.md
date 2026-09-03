@@ -13,6 +13,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Batido de Manzana y Caramelo (pág. 5)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor banana caramelo, proteína en polvo y Fibra Activa sabor manzana, licuado con manzana picada, agua y hielo hasta quedar frío y espeso.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido de Manzana y Caramelo.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -31,6 +32,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Batido con Colágeno (pág. 6)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor vainilla, proteína en polvo y Collagen Drink, mezclado con agua y hielo hasta integrarse bien.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido con Colágeno.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -47,6 +49,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Batido Chai (pág. 7)
 **Descripción:** Batido de licuadora que combina Fórmula 1 sabor café latte con Té Concentrado de Hierbas sabor chai y proteína en polvo, licuado con agua y hielo hasta quedar suave.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Chai.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor café latte — *Fórmula 1 - Café Latte* (SKU 2774)
@@ -63,6 +66,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Batido Fresa Crunch (pág. 8)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor fresa, Collagen Drink y agua helada, servido con Crocante de Proteína espolvoreado por encima para dar textura crujiente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Fresa Crunch.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -78,6 +82,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Batido Chocolate Chip (pág. 9)
 **Descripción:** Batido de licuadora que mezcla Fórmula 1 sabor chocoavellana y sabor cookies & cream con proteína en polvo, agua y hielo al gusto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Chocolate Chip.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -96,6 +101,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Yogur Proteico con Chía (pág. 11)
 **Descripción:** Yogur natural bajo en grasa mezclado en un tazón con Beverage Mix y semillas de chía, listo para servir frío en el desayuno.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Yogur Proteico con Chía.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Beverage Mix — *Beverage Mix* (SKU 093K)
@@ -110,6 +116,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Mermelada de Frutos Rojos (pág. 12)
 **Descripción:** Mermelada de fresas cocida a fuego lento con Collagen Drink, jugo y ralladura de limón, espesada con semillas de chía; ideal para untar en el desayuno.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Mermelada de Frutos Rojos.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Collagen Beauty Drink — *Collagen Drink* (SKU 3987)
@@ -128,6 +135,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Panqueques de Banana Caramelo (pág. 13)
 **Descripción:** Panqueques preparados con una mezcla de licuadora de Fórmula 1 sabor banana caramelo, proteína en polvo, huevo y avena, cocidos en sartén y servidos con rebanadas de plátano o arándanos.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Panqueques de Banana Caramelo.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -147,6 +155,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Dip Proteico de Café (pág. 14)
 **Descripción:** Dip cremoso y esponjoso de yogur descremado o griego con Fórmula 1 sabor café latte y esencia de vainilla, ideal como salsa para acompañar frutas frescas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Dip Proteico de Café.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor café latte — *Fórmula 1 - Café Latte* (SKU 2774)
@@ -161,6 +170,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Muffin Red Velvet (pág. 15)
 **Descripción:** Muffin horneado a base de Fórmula 1 sabor vainilla, proteína en polvo, huevo y remolacha cocida que le da el color rojo característico, cubierto con un topping cremoso a base de Fórmula 1 y edulcorante cocido en sartén.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Muffin Red Velvet.jpg
 
 **Ingredientes para la masa:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -189,6 +199,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Nutri Soup Omelet (pág. 17)
 **Descripción:** Omelet horneado en molde individual, hecho con huevo, NutriSoup y proteína en polvo, relleno de mozzarella, tomate cherry y albahaca fresca.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Nutri Soup Omelet.jpg
 
 **Ingredientes:**
 - 3 cucharadas soperas de Fórmula 1 Nutri Soup — *NutriSoup* (SKU 395K)
@@ -212,6 +223,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Nutri Soup Cremoso con Brócoli (pág. 18)
 **Descripción:** Sopa cremosa preparada disolviendo NutriSoup en leche descremada caliente, con brócoli hervido picado y perejil al gusto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Nutri Soup Cremoso con Brócoli.jpg
 
 **Ingredientes:**
 - 3 cucharas medidoras de Fórmula 1 Nutri Soup — *NutriSoup* (SKU 395K)
@@ -227,6 +239,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Pollo Cítrico Glaseado (pág. 19)
 **Descripción:** Filetes de pollo marinados en salsa de soya, vinagre de arroz, jengibre y ajo, sellados en sartén y glaseados con Herbal Aloe Concentrado sabor mandarina.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Pollo Cítrico Glaseado.jpg
 
 **Ingredientes:**
 - 2 tapitas de Herbal Aloe Concentrado sabor mandarina — *Herbal Aloe Concentrado - Mandarina* (SKU 2631)
@@ -251,6 +264,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Galletas Proteicas con Parmesano (pág. 20)
 **Descripción:** Galletas saladas horneadas a base de proteína en polvo, harinas y queso parmesano, cubiertas con semillas de amapola y sésamo antes de hornearlas por ambos lados hasta dorar.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Galletas Proteicas con Parmesano.jpg
 
 **Ingredientes para el topping:**
 - 1 cucharada de semillas de amapola
@@ -284,6 +298,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Aliño de Manzana y Mostaza (pág. 21)
 **Descripción:** Aliño para ensaladas a base de Fibra Activa sabor manzana, vinagre de manzana, aceite de oliva y especias, mezclado en un frasco con tapa hasta integrarse bien.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Aliño de Manzana y Mostaza.jpg
 
 **Ingredientes:**
 - 1 cucharada de Fibra Activa — *Fibra Activa - Manzana* (SKU 2864)
@@ -305,6 +320,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Bolitas Tropicales de Proteína (pág. 23)
 **Descripción:** Bolitas energéticas sin horno hechas con Fórmula 1 sabor banana caramelo, proteína en polvo, avena, pasas y mantequilla de maní, decoradas con coco en hojuelas y refrigeradas hasta por 5 días.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bolitas Tropicales de Proteína.jpg
 
 **Ingredientes:**
 - 6 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -332,6 +348,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Brownie con Crocante de Proteína (pág. 24)
 **Descripción:** Brownie de microondas hecho con avena, plátano, cacao, proteína en polvo y Crocante de Proteína, decorado con cacao espolvoreado y nueces o almendras picadas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Brownie con Crocante de Proteína.jpg
 
 **Ingredientes:**
 - 1 cucharada de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -352,6 +369,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Gomitas Proteicas (pág. 25)
 **Descripción:** Gomitas caseras de gelatina sin sabor y gelatina sabor fresa con Beverage Mix, cocidas a fuego medio y refrigeradas en moldes hasta cuajar por completo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Gomitas Proteicas.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Beverage Mix — *Beverage Mix* (SKU 093K)
@@ -368,6 +386,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Paleta de Frutas Tropicales (pág. 26)
 **Descripción:** Paletas heladas hechas en licuadora con Beverage Mix, Fibra Activa sabor manzana y plátano, congeladas en moldes individuales.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Paleta de Frutas Tropicales.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Beverage Mix — *Beverage Mix* (SKU 093K)
@@ -383,6 +402,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Postre con Crocante de Proteína (pág. 27)
 **Descripción:** Postre en capas con gelatina disuelta y licuada junto a Protein Drink Mix y aceite de coco, Crocante de Proteína crujiente y una crema de Fórmula 1 sabor chocoavellana, ensamblado en capas en un recipiente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Postre con Crocante de Proteína.jpg
 
 **Ingredientes:**
 - 2 cucharadas de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -403,6 +423,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Fondue de Chocolate Fit (pág. 28)
 **Descripción:** Fondue de chocolate al 70% derretido con aceite de coco, Fórmula 1 sabor chocoavellana, proteína en polvo y Crocante de Proteína, servido caliente para sumergir fruta fresca.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Fondue de Chocolate Fit.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -424,6 +445,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Paletas de Banana y Fresa (pág. 29)
 **Descripción:** Paletas heladas de licuadora con Fórmula 1 sabor banana caramelo, leche, yogur griego o descremado y fresas, congeladas en moldes individuales hasta solidificar.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Paletas de Banana y Fresa.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -440,6 +462,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Muffin Proteico de Banana Caramelo (pág. 30)
 **Descripción:** Muffin horneado con Fórmula 1 sabor banana caramelo, huevo, avena instantánea y plátano, con arándanos al gusto, horneado en molde individual.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Muffin Proteico de Banana Caramelo.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -460,6 +483,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Arándanos Cubiertos de Yogur (pág. 31)
 **Descripción:** Arándanos frescos bañados en una mezcla de yogur, Protein Drink Mix y jugo de naranja, colocados en bandeja y congelados hasta quedar firmes.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Arándanos Cubiertos de Yogur.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -477,6 +501,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Pudín Proteico de Mango (pág. 32)
 **Descripción:** Pudín cremoso de licuadora con Protein Drink Mix, Herbal Aloe Concentrado sabor mango, mango en trozos y semillas de chía, refrigerado varias horas antes de servir.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Pudín Proteico de Mango.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -497,6 +522,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Limonada Power (pág. 34)
 **Descripción:** Bebida refrescante preparada con N-R-G, Herbal Aloe Concentrado y CR7 Drive, mezclada con agua, hielo y esencia de limón, decorada con hierbabuena y una rebanada de manzana verde.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Limonada Power.jpg
 
 **Ingredientes:**
 - ½ cucharadita de N-R-G — *NRG* (SKU 0102) (ver Dudas: el libro solo dice "N-R-G", el catálogo también tiene "N-R-G Guaraná Tropical" SKU 075K)
@@ -517,6 +543,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Bebida Tropical Refrescante (pág. 35)
 **Descripción:** Bebida refrescante que combina Té Concentrado de Hierbas sabor original con agua de coco, manzana picada y fresas licuadas, servida con cubos de hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bebida Tropical Refrescante.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor original — *Bebida Herbal - Original 102 g.* (SKU 0106)
@@ -534,6 +561,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Bebida Explosión de Frutas (pág. 36)
 **Descripción:** Bebida infusionada con pera, durazno y kiwi picados, jugo de limón y Herbal Aloe Concentrado sabor mango, refrigerada por dos horas y servida con agua con gas y hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bebida Explosión de Frutas.jpg
 
 **Ingredientes:**
 - 15 ml de Herbal Aloe Concentrado sabor mango — *Herbal Aloe Concentrado - Mango* (SKU 1065)
@@ -553,6 +581,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Té Hidratante (pág. 37)
 **Descripción:** Bebida fría preparada con Té Concentrado de Hierbas sabor frambuesa, Beverage Mix y Herbal Aloe Concentrado sabor sábila, mezclada con agua helada y hielo al gusto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Té Hidratante.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor frambuesa — *Bebida Herbal - Frambuesa 102 g.* (SKU 0189)
@@ -569,6 +598,7 @@ Tomo 3 del libro de recetas oficial de Herbalife Nutrition ("Mi Nutrición Favor
 
 #### Té Cítrico de Mango (pág. 38)
 **Descripción:** Bebida verde licuada con Té Concentrado de Hierbas sabor original, Herbal Aloe Concentrado sabor mango, espinaca, manzana, piña y limón.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Té Cítrico de Mango.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor original — *Bebida Herbal - Original 102 g.* (SKU 0106)

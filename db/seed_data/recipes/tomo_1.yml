@@ -1,6 +1,7 @@
 ---
 - title: "Batido Zen de Proteínas con Bayas"
   slug: "batido-zen-de-proteinas-con-bayas"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Zen de Proteínas con Bayas.jpg"
   description: "Batido cremoso de proteína con bayas frescas y un toque de Aloe, listo en minutos con la licuadora."
   servings: 1
   recipe_type: "batido"
@@ -43,6 +44,7 @@
 
 - title: "Batido de Pudín y Leche de Almendras"
   slug: "batido-de-pudin-y-leche-de-almendras"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Pudín y Leche de Almendras.jpg"
   description: "Batido espeso con sabor a pudín de vainilla, leche de almendras, pasas y un toque de canela."
   servings: 1
   recipe_type: "batido"
@@ -85,6 +87,7 @@
 
 - title: "Batido de Pie de Manzana con Fibra"
   slug: "batido-de-pie-de-manzana-con-fibra"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Pie de Manzana con Fibra.jpg"
   description: "Batido inspirado en el pie de manzana, con fibra activa, manzana fresca y especias como canela, nuez moscada y clavo de olor."
   servings: 1
   recipe_type: "batido"
@@ -135,6 +138,7 @@
 
 - title: "Batido Durazno Energizante"
   slug: "batido-durazno-energizante"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Durazno Energizante.jpg"
   description: "Batido refrescante de durazno con un toque energizante de Té Concentrado de Hierbas sabor durazno."
   servings: 1
   recipe_type: "batido"
@@ -173,6 +177,7 @@
 
 - title: "Batido de Yogur y Chocolate"
   slug: "batido-de-yogur-y-chocolate"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Yogur y Chocolate.jpg"
   description: "Batido de chocolate con yogur natural, avena y un toque cítrico de cáscara de naranja."
   servings: 1
   recipe_type: "batido"
@@ -219,6 +224,7 @@
 
 - title: "Batido Energía Verde"
   slug: "batido-energia-verde"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Energía Verde.jpg"
   description: "Batido verde con hojas de baby kale, naranja y banana, ideal para un impulso de energía."
   servings: 1
   recipe_type: "batido"
@@ -261,6 +267,7 @@
 
 - title: "Batido Anaranjado con Jengibre"
   slug: "batido-anaranjado-con-jengibre"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Anaranjado con Jengibre.jpg"
   description: "Batido de zanahoria y naranja con un toque picante de jengibre fresco."
   servings: 1
   recipe_type: "batido"
@@ -303,6 +310,7 @@
 
 - title: "Batido Rollo de Canela"
   slug: "batido-rollo-de-canela"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Rollo de Canela.jpg"
   description: "Batido inspirado en el rollo de canela, con banana, pasas y canela molida."
   servings: 1
   recipe_type: "batido"
@@ -345,6 +353,7 @@
 
 - title: "Batido Rebuild y Frutos del Bosque"
   slug: "batido-rebuild-y-frutos-del-bosque"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Rebuild y Frutos del Bosque.jpg"
   description: "Batido de recuperación muscular con Rebuild Strength, frutos del bosque y un toque especiado de canela, cayena y cúrcuma."
   servings: 1
   recipe_type: "batido"
@@ -387,6 +396,7 @@
 
 - title: "Batido caliente de Calabaza Moscada"
   slug: "batido-caliente-de-calabaza-moscada"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido caliente de Calabaza Moscada.jpg"
   description: "Batido cremoso de calabaza con un toque de nuez moscada, para disfrutar tibio."
   servings: 1
   recipe_type: "batido"
@@ -421,6 +431,7 @@
 
 - title: "Choco-Pastel en Taza"
   slug: "choco-pastel-en-taza"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Choco-Pastel en Taza.jpg"
   description: "Pastel de chocolate individual preparado en taza y cocido en microondas en solo 3 minutos."
   servings: 1
   recipe_type: "desayuno"
@@ -461,6 +472,7 @@
 
 - title: "Panqueques de Cookies & Cream"
   slug: "panqueques-de-cookies-cream"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Panqueques de Cookies & Cream.jpg"
   description: "Panqueques proteicos sabor cookies & cream, cocidos en sartén y listos para servir con fruta de estación."
   servings: 4
   recipe_type: "desayuno"
@@ -505,6 +517,7 @@
 
 - title: "Delicia de Avena Frutada"
   slug: "delicia-de-avena-frutada"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Delicia de Avena Frutada.jpg"
   description: "Avena overnight con pera, canela y fibra activa, para preparar la noche anterior y disfrutar fría al día siguiente."
   servings: 1
   recipe_type: "desayuno"
@@ -548,6 +561,7 @@
 
 - title: "Waffles Rebuild"
   slug: "waffles-rebuild"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Waffles Rebuild.jpg"
   description: "Waffles proteicos con Rebuild Strength, horneados en waflera y listos para decorar con tus frutas favoritas."
   servings: 2
   recipe_type: "desayuno"
@@ -596,6 +610,7 @@
 
 - title: "Camote Tostado con Yogur de Manzana"
   slug: "camote-tostado-con-yogur-de-manzana"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Camote Tostado con Yogur de Manzana.jpg"
   description: "Rebanadas de camote tostado cubiertas con yogur de vainilla mezclado con fibra activa y rodajas de manzana."
   servings: 4
   recipe_type: "desayuno"
@@ -636,6 +651,7 @@
 
 - title: "Tazón de Quinoa con Bayas"
   slug: "tazon-de-quinoa-con-bayas"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Tazón de Quinoa con Bayas.jpg"
   description: "Tazón de quinoa cocida con leche de soya, bananas, bayas y nueces, endulzado con un toque de miel de maple."
   servings: 2
   recipe_type: "desayuno"
@@ -696,6 +712,7 @@
 
 - title: "Tortillas de Proteína y Pimiento Rojo"
   slug: "tortillas-de-proteina-y-pimiento-rojo"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Tortillas de Proteína y Pimiento Rojo.jpg"
   description: "Tortillas proteicas de pimiento rojo, licuadas y cocidas en sartén, listas para rellenar a tu gusto."
   servings: 6
   recipe_type: "comida"
@@ -744,6 +761,7 @@
 
 - title: "Aliño de Mango"
   slug: "alino-de-mango"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Aliño de Mango.jpg"
   description: "Aderezo cremoso de mango con Aloe Concentrado, semillas de chía, aceite de oliva y mostaza, listo para guardar en el refrigerador hasta una semana."
   servings: 16
   recipe_type: "otro"
@@ -804,6 +822,7 @@
 
 - title: "Wraps Proteicos de Espinaca"
   slug: "wraps-proteicos-de-espinaca"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Wraps Proteicos de Espinaca.jpg"
   description: "Wraps proteicos de espinaca hechos en procesador y cocidos en sartén, listos para rellenar con tus complementos favoritos."
   servings: 10
   recipe_type: "comida"
@@ -856,6 +875,7 @@
 
 - title: "Crema de Calabaza"
   slug: "crema-de-calabaza"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Crema de Calabaza.jpg"
   description: "Crema suave de calabaza con proteína en polvo y un toque de queso untable bajo en grasa."
   servings: 1
   recipe_type: "comida"
@@ -895,6 +915,7 @@
 
 - title: "Postre Helado Proteico"
   slug: "postre-helado-proteico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Postre Helado Proteico.jpg"
   description: "Postre helado en dos capas —chocolate y cookies & cream— congelado en moldes individuales y decorado con fruta."
   servings: 4
   recipe_type: "postre"
@@ -935,6 +956,7 @@
 
 - title: "Enrolladito de Fresa"
   slug: "enrolladito-de-fresa"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Enrolladito de Fresa.jpg"
   description: "Bizcocho horneado de vainilla y cacao, relleno de una crema de ricotta con fresas y enrollado tipo brazo de reina."
   servings: 6
   recipe_type: "postre"
@@ -984,6 +1006,7 @@
 
 - title: "Muffin de Fruta y Fibra"
   slug: "muffin-de-fruta-y-fibra"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Muffin de Fruta y Fibra.jpg"
   description: "Muffins horneados con ricotta, melocotón, nueces y pasas, enriquecidos con fibra activa y proteína."
   servings: 8
   recipe_type: "postre"
@@ -1047,6 +1070,7 @@
 
 - title: "Paletas Heladas de Frutos Rojos"
   slug: "paletas-heladas-de-frutos-rojos"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Paletas Heladas de Frutos Rojos.jpg"
   description: "Paletas heladas de fresa y yogur griego con trocitos de frutos rojos, congeladas en moldes individuales."
   servings: 4
   recipe_type: "postre"
@@ -1081,6 +1105,7 @@
 
 - title: "Torta Cookies & Cream"
   slug: "torta-cookies-cream"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Torta Cookies & Cream.jpg"
   description: "Torta fría en capas, con base de muesli y capas de ricotta con yogur y chocolate, cuajadas con gelatina en el refrigerador."
   servings: 8
   recipe_type: "postre"
@@ -1141,6 +1166,7 @@
 
 - title: "Trufas de Chocolate con Proteínas"
   slug: "trufas-de-chocolate-con-proteinas"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Trufas de Chocolate con Proteínas.jpg"
   description: "Trufas de chocolate sin horno hechas con Rebuild Strength, ciruelas, pasas y mantequilla de almendras, rebozadas en cocoa."
   servings: 30
   recipe_type: "postre"
@@ -1209,6 +1235,7 @@
 
 - title: "Bebida Cítrica Hidratante"
   slug: "bebida-citrica-hidratante"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Bebida Cítrica Hidratante.jpg"
   description: "Bebida hidratante y cítrica con Aloe Concentrado sabor mandarina, agua con gas y jugo de limón."
   servings: 1
   recipe_type: "bebida"
@@ -1239,6 +1266,7 @@
 
 - title: "Bebida de Poder Espumosa"
   slug: "bebida-de-poder-espumosa"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Bebida de Poder Espumosa.jpg"
   description: "Bebida espumosa y energizante con Té Concentrado de Hierbas sabor limón y N-R-G, endulzada al gusto."
   servings: 1
   recipe_type: "bebida"
@@ -1277,6 +1305,7 @@
 
 - title: "Limonada con Pepino y Menta"
   slug: "limonada-con-pepino-y-menta"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Limonada con Pepino y Menta.jpg"
   description: "Limonada refrescante con Aloe Concentrado, pepino y hojas de menta, servida bien fría."
   servings: 6
   recipe_type: "bebida"
@@ -1319,6 +1348,7 @@
 
 - title: "Ponche de Frutas con Té"
   slug: "ponche-de-frutas-con-te"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Ponche de Frutas con Té.jpg"
   description: "Ponche de frutas frescas —piña, manzana, uvas y kiwi— con Té Concentrado de Hierbas y jugo de uva."
   servings: 1
   recipe_type: "bebida"
@@ -1370,6 +1400,7 @@
 
 - title: "Té Energizante"
   slug: "te-energizante"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Té Energizante.jpg"
   description: "Té energizante con fibra activa, endulzado con miel y servido con hielo."
   servings: 1
   recipe_type: "bebida"

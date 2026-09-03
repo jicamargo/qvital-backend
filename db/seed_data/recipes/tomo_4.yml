@@ -1,6 +1,7 @@
 ---
 - title: "Batido de Banana Split"
   slug: "batido-de-banana-split"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Banana Split.jpg"
   description: "Batido cremoso de licuadora con Rebuild Strength, leche, yogur griego natural, fresas y banana, inspirado en el postre banana split clásico."
   servings: 1
   recipe_type: "batido"
@@ -39,6 +40,7 @@
 
 - title: "Veggie Burgers"
   slug: "veggie-burgers"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Veggie Burgers.jpg"
   description: "Hamburguesas vegetales a base de garbanzos, avena, cashews y verduras, mezcladas con Proteína Personalizada en Polvo, doradas en sartén con aceite de oliva y servidas con una salsa opcional de yogur griego y menta."
   servings: 6
   recipe_type: "comida"
@@ -103,6 +105,7 @@
 
 - title: "Panini Proteico"
   slug: "panini-proteico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Panini Proteico.jpg"
   description: "Panini elaborado en grill con una masa de Fórmula 1 sabor vainilla, Proteína Personalizada en Polvo y avena, relleno con queso mozzarella y jamón de pavo."
   servings: 1
   recipe_type: "snack"
@@ -153,6 +156,7 @@
 
 - title: "Avena con Manzana y Caramelo"
   slug: "avena-con-manzana-y-caramelo"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Avena con Manzana y Caramelo.jpg"
   description: "Avena remojada durante la noche con Fórmula 1 sabor banana caramelo, Protein Drink Mix, Proteína Personalizada en Polvo, Fibra Activa, pasas y leche de almendras, lista para disfrutar fría al día siguiente."
   servings: 1
   recipe_type: "desayuno"
@@ -200,6 +204,7 @@
 
 - title: "Langostinos con Cilantro"
   slug: "langostinos-con-cilantro"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Langostinos con Cilantro.jpg"
   description: "Plato salado de langostinos salteados con fideos de arroz, arveja china, cebollino, mango y cashews, acompañado de una salsa agridulce de pescado y soya que incorpora Protein Drink Mix y Proteína Personalizada en Polvo."
   servings: 4
   recipe_type: "comida"
@@ -293,6 +298,7 @@
 
 - title: "Bowl de Choco Coco"
   slug: "bowl-de-choco-coco"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bowl de Choco Coco.jpg"
   description: "Bowl licuado de Fórmula 1 sabor chocoavellana y Proteína Personalizada en Polvo con agua de coco, higo y leche, servido en tazón y decorado con toppings a elección como durazno, coco rallado y pasas."
   servings: 1
   recipe_type: "batido"
@@ -340,6 +346,7 @@
 
 - title: "Batido de Chocomaní"
   slug: "batido-de-chocomani"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Chocomaní.jpg"
   description: "Batido de licuadora con Fórmula 1 sabor chocoavellana, Protein Drink Mix y mantequilla de maní, servido bien frío en vaso."
   servings: 1
   recipe_type: "batido"
@@ -378,6 +385,7 @@
 
 - title: "Matcha Bowl"
   slug: "matcha-bowl"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Matcha Bowl.jpg"
   description: "Bowl licuado de Fórmula 1 sabor cookies & cream con matcha en polvo, arándanos congelados y Fibra Activa, servido en un tazón y decorado con toppings como almendras, plátano y frijol rojo."
   servings: 1
   recipe_type: "batido"
@@ -428,6 +436,7 @@
 
 - title: "Coctel Herbalífico"
   slug: "coctel-herbalifico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Coctel Herbalífico.jpg"
   description: "Bebida licuada que combina Fibra Activa, Collagen Beauty Drink, Beverage Mix, Té Concentrado de Hierbas y Herbal Aloe Concentrado del sabor de tu preferencia, servida con hielo."
   servings: 1
   recipe_type: "bebida"
@@ -470,6 +479,7 @@
 
 - title: "Té Burbuja Tropical"
   slug: "te-burbuja-tropical"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Té Burbuja Tropical.jpg"
   description: "Versión de té de burbujas (bubble tea) con tapioca negra cocida, un batido licuado de Fórmula 1 sabor vainilla, Té Concentrado de Hierbas sabor frambuesa, mango y leche, servido en vaso alto."
   servings: 2
   recipe_type: "bebida"
@@ -517,6 +527,7 @@
 
 - title: "Batido de Fresa con Matcha"
   slug: "batido-de-fresa-con-matcha"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Fresa con Matcha.jpg"
   description: "Batido en capas servido en vaso alto: puré de fresa en el fondo, una mezcla licuada de Fórmula 1 sabor vainilla, Protein Drink Mix, Fibra Activa y leche, coronado con una pasta de matcha disuelta en agua caliente."
   servings: 1
   recipe_type: "batido"
@@ -569,6 +580,7 @@
 
 - title: "Batido de Aloe con Frutos Rojos"
   slug: "batido-de-aloe-con-frutos-rojos"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Aloe con Frutos Rojos.jpg"
   description: "Batido de licuadora con Fórmula 1 sabor fresa, Proteína Personalizada en Polvo, Herbal Aloe Concentrado sabor original y arándanos frescos o congelados, servido frío."
   servings: 1
   recipe_type: "batido"
@@ -611,6 +623,7 @@
 
 - title: "Bebida Cítrica Immunity"
   slug: "bebida-citrica-immunity"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bebida Cítrica Immunity.jpg"
   description: "Bebida cítrica licuada con Immunity Essentials, jugo de naranja, cúrcuma, jengibre fresco rallado y jugo de limón, con un toque opcional de pimienta cayena."
   servings: 1
   recipe_type: "bebida"
@@ -656,6 +669,7 @@
 
 - title: "Batido Tropical"
   slug: "batido-tropical"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido Tropical.jpg"
   description: "Batido tropical licuado con Fórmula 1 sabor naranja crema, Fibra Activa, Proteína Personalizada en Polvo, Herbal Aloe Concentrado, mango, piña y pitahaya fresca."
   servings: 1
   recipe_type: "batido"
@@ -709,6 +723,7 @@
 
 - title: "Té Frutal Relajante"
   slug: "te-frutal-relajante"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Té Frutal Relajante.jpg"
   description: "Infusión fría preparada disolviendo Relaxation Tea con Herbal Aloe Concentrado en agua caliente, combinada luego con Beverage Mix disuelto en agua fría y servida con hielo."
   servings: 1
   recipe_type: "bebida"
@@ -753,6 +768,7 @@
 
 - title: "Bebida Lychee con Colágeno"
   slug: "bebida-lychee-con-colageno"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bebida Lychee con Colágeno.jpg"
   description: "Bebida refrescante con gas hecha con lychee triturado, Collagen Beauty Drink, Herbal Aloe Concentrado sabor original y rebanadas de limón, servida con hielo."
   servings: 1
   recipe_type: "bebida"
@@ -796,6 +812,7 @@
 
 - title: "Paleta de Crema de Naranja"
   slug: "paleta-de-crema-de-naranja"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Paleta de Crema de Naranja.jpg"
   description: "Paletas heladas hechas licuando Fórmula 1 sabor naranja crema con leche, yogur griego sabor vainilla y mandarinas, vertidas en moldes y congeladas al menos dos horas."
   servings: 4
   recipe_type: "postre"
@@ -831,6 +848,7 @@
 
 - title: "Batido de Banana Caramelo"
   slug: "batido-de-banana-caramelo"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Banana Caramelo.jpg"
   description: "Batido de licuadora con Fórmula 1 sabor banana caramelo, Protein Drink Mix, Fibra Activa, puré de manzana sin azúcar y una pizca de canela."
   servings: 1
   recipe_type: "batido"
@@ -873,6 +891,7 @@
 
 - title: "Pastel de Chocoavellana con Queso"
   slug: "pastel-de-chocoavellana-con-queso"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Pastel de Chocoavellana con Queso.jpg"
   description: "Mug cake (pastel individual de taza) con Fórmula 1 sabor chocoavellana, Protein Drink Mix, huevo y queso ricota sin grasa, cocido en microondas y espolvoreado con canela."
   servings: 1
   recipe_type: "postre"
@@ -917,6 +936,7 @@
 
 - title: "Galletas de Chocomaní y Manzana"
   slug: "galletas-de-chocomani-y-manzana"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Galletas de Chocomaní y Manzana.jpg"
   description: "Galletas horneadas con Fórmula 1 sabor cookies & cream, Fibra Activa y mantequilla de maní reducida en grasas, decoradas al gusto con chispas de chocolate o pasas."
   servings: 15
   recipe_type: "postre"
@@ -961,6 +981,7 @@
 
 - title: "Mousse de Cookies & Cream"
   slug: "mousse-de-cookies-cream"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Mousse de Cookies & Cream.jpg"
   description: "Mousse frío elaborado con Fórmula 1 sabor cookies & cream, gelatina sin sabor y esencia de vainilla, refrigerado en tazas de postre hasta cuajar y decorado con Crocante de Proteína."
   servings: 2
   recipe_type: "postre"
@@ -1002,6 +1023,7 @@
 
 - title: "Parfait Cremoso de Limón"
   slug: "parfait-cremoso-de-limon"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Parfait Cremoso de Limón.jpg"
   description: "Parfait en copa con capas de avena tostada y una mezcla cremosa de Fórmula 1 sabor vainilla, yogur griego y zumo de limón, decorado con ralladura de limón y refrigerado 15 minutos antes de servir."
   servings: 1
   recipe_type: "postre"
@@ -1040,6 +1062,7 @@
 
 - title: "Blondies de Mocca"
   slug: "blondies-de-mocca"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Blondies de Mocca.jpg"
   description: "Brownies tipo blondie horneados a base de frijol blanco licuado, huevos, avena y café instantáneo, enriquecidos con Rebuild Strength y Proteína Personalizada en Polvo, coronados con chispas de chocolate oscuro."
   servings: 12
   recipe_type: "postre"
@@ -1105,6 +1128,7 @@
 
 - title: "Pizza Proteica"
   slug: "pizza-proteica"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Pizza Proteica.jpg"
   description: "Pizza de masa proteica hecha con Fórmula 1 Nutri Soup, Proteína Personalizada en Polvo, harina de avena y harina integral, horneada con toppings al gusto y gratinada con queso chanco."
   servings: 4
   recipe_type: "comida"
@@ -1149,6 +1173,7 @@
 
 - title: "Torta de Chocofresa"
   slug: "torta-de-chocofresa"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Torta de Chocofresa.jpg"
   description: "Torta en capas horneada a base de harinas de soya, quinua y avena con Protein Drink Mix, rellena entre capas con dos cremas de yogur natural: una de Fórmula 1 sabor chocoavellana y café latte, y otra de Fórmula 1 sabor fresa y Beverage Mix."
   servings: 8
   recipe_type: "postre"
@@ -1228,6 +1253,7 @@
 
 - title: "Tiramisú Saludable"
   slug: "tiramisu-saludable"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Tiramisú Saludable.jpg"
   description: "Versión de tiramisú en vaso, armada en capas de panqueques pequeños de Protein Drink Mix y avena remojados en café, alternados con una crema de yogur griego, Fibra Activa y vainilla, y espolvoreada con cacao amargo."
   servings: 1
   recipe_type: "postre"
@@ -1284,6 +1310,7 @@
 
 - title: "Cheesecake"
   slug: "cheesecake"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Cheesecake.jpg"
   description: "Cheesecake horneado con base crocante de Crocante de Proteína y almendras, relleno cremoso de Protein Drink Mix, Collagen Beauty Drink, yogur griego, queso mozzarella y huevo, cubierto con una reducción casera de frutos rojos hecha con Fibra Activa y Collagen Beauty Drink."
   servings: 8
   recipe_type: "postre"
@@ -1379,6 +1406,7 @@
 
 - title: "Empanaditas de Queso"
   slug: "empanaditas-de-queso"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Empanaditas de Queso.jpg"
   description: "Empanaditas rellenas de queso, hechas con una masa batida de Protein Drink Mix, Fórmula 1 sabor naranja crema, huevos y avena, cocidas en sanguchera hasta dorar."
   servings: 1
   recipe_type: "snack"
