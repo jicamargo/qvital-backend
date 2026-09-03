@@ -23,7 +23,18 @@ solo se documentan las decisiones específicas de recetas.
 
 - [X] Bucket `recipes` creado vía Storage Admin API (`rails runner` + `SUPABASE_SERVICE_ROLE_KEY`, no hay precedente de esto en migraciones ni CLI para `products` tampoco — se creó igual, sin trazabilidad en código para ese bucket).
   - público, `file_size_limit` 5MB, `allowed_mime_types` jpeg/png/webp.
-- [ ] **Policy de `INSERT` solo-admin en `storage.objects` — pendiente, igual que en `products`.** Ninguno de los dos buckets tiene la RLS policy de `product-images-req.md` §4.2 realmente aplicada hoy; la restricción "solo admin sube" depende únicamente de que el panel admin no esté expuesto a no-admins, no de una policy de Supabase. Si se resuelve para `products`, replicar la misma policy (cambiando el nombre del bucket) para `recipes`.
+- [X] **RLS policies en `storage.objects` — migración `20260903170000_add_authenticated_upload_policies_to_recipes_bucket.rb`.**
+  Corrección 2026-09-03: la primera versión de este doc asumía que `products`
+  tampoco tenía policies reales (el checklist de `product-images-req.md` §4.2
+  seguía sin marcar) — resultó ser solo que el checklist no se había
+  actualizado. `products` **sí** tiene 3 policies en `storage.objects`
+  (`Allow authenticated uploads 1ifhysk_{0,1,2}`: SELECT/INSERT/UPDATE para
+  el rol `authenticated`, filtradas por `bucket_id`), creadas manualmente en
+  algún momento sin dejar rastro en migraciones. `recipes` no las tenía —
+  causaba `403 "new row violates row-level security policy"` al subir una
+  imagen desde el admin — y ahora tiene las 3 mismas policies, mismo criterio
+  (`authenticated`, no específicamente `role = 'admin'`), vía migración (no
+  ad-hoc). Las policies de `products` no se tocaron.
 
 ### 4. Estado
 
