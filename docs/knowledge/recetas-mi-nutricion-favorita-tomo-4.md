@@ -13,6 +13,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido de Banana Split (pág. 9)
 **Descripción:** Batido cremoso de licuadora con Rebuild Strength, leche, yogur griego natural, fresas y banana, inspirado en el postre banana split clásico.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Banana Split.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Rebuild Strength — *H24 Rebuild Strength - Chocolate* (SKU 1417; el libro no especifica sabor, ver Dudas)
@@ -29,6 +30,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Veggie Burgers (pág. 10)
 **Descripción:** Hamburguesas vegetales a base de garbanzos, avena, cashews y verduras, mezcladas con Proteína Personalizada en Polvo, doradas en sartén con aceite de oliva y servidas con una salsa opcional de yogur griego y menta.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Veggie Burgers.jpg
 
 **Ingredientes:**
 - 4 cucharadas medidoras de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -53,6 +55,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Panini Proteico (pág. 13)
 **Descripción:** Panini elaborado en grill con una masa de Fórmula 1 sabor vainilla, Proteína Personalizada en Polvo y avena, relleno con queso mozzarella y jamón de pavo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Panini Proteico.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -72,6 +75,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Avena con Manzana y Caramelo (pág. 15)
 **Descripción:** Avena remojada durante la noche con Fórmula 1 sabor banana caramelo, Protein Drink Mix, Proteína Personalizada en Polvo, Fibra Activa, pasas y leche de almendras, lista para disfrutar fría al día siguiente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Avena con Manzana y Caramelo.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -91,6 +95,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Langostinos con Cilantro (pág. 16)
 **Descripción:** Plato salado de langostinos salteados con fideos de arroz, arveja china, cebollino, mango y cashews, acompañado de una salsa agridulce de pescado y soya que incorpora Protein Drink Mix y Proteína Personalizada en Polvo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Langostinos con Cilantro.jpg
 
 **Ingredientes:**
 - 700 g de langostinos pelados, cocidos y desvenados
@@ -125,6 +130,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Bowl de Choco Coco (pág. 18)
 **Descripción:** Bowl licuado de Fórmula 1 sabor chocoavellana y Proteína Personalizada en Polvo con agua de coco, higo y leche, servido en tazón y decorado con toppings a elección como durazno, coco rallado y pasas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bowl de Choco Coco.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -146,6 +152,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido de Chocomaní (pág. 22)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor chocoavellana, Protein Drink Mix y mantequilla de maní, servido bien frío en vaso.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Chocomaní.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -162,6 +169,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Matcha Bowl (pág. 25)
 **Descripción:** Bowl licuado de Fórmula 1 sabor cookies & cream con matcha en polvo, arándanos congelados y Fibra Activa, servido en un tazón y decorado con toppings como almendras, plátano y frijol rojo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Matcha Bowl.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -181,6 +189,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Coctel Herbalífico (pág. 26)
 **Descripción:** Bebida licuada que combina Fibra Activa, Collagen Beauty Drink, Beverage Mix, Té Concentrado de Hierbas y Herbal Aloe Concentrado del sabor de tu preferencia, servida con hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Coctel Herbalífico.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Fibra Activa — *Fibra Activa - Manzana* (SKU 2864)
@@ -198,6 +207,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Té Burbuja Tropical (pág. 29)
 **Descripción:** Versión de té de burbujas (bubble tea) con tapioca negra cocida, un batido licuado de Fórmula 1 sabor vainilla, Té Concentrado de Hierbas sabor frambuesa, mango y leche, servido en vaso alto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Té Burbuja Tropical.jpg
 
 **Ingredientes:**
 - 2 cucharaditas de Té Concentrado de Hierbas sabor frambuesa — *Bebida Herbal - Frambuesa 102 g.* (SKU 0189; el libro no especifica gramaje, ver Dudas)
@@ -217,6 +227,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido de Fresa con Matcha (pág. 30)
 **Descripción:** Batido en capas servido en vaso alto: puré de fresa en el fondo, una mezcla licuada de Fórmula 1 sabor vainilla, Protein Drink Mix, Fibra Activa y leche, coronado con una pasta de matcha disuelta en agua caliente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Fresa con Matcha.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -242,6 +253,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido de Aloe con Frutos Rojos (pág. 34)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor fresa, Proteína Personalizada en Polvo, Herbal Aloe Concentrado sabor original y arándanos frescos o congelados, servido frío.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Aloe con Frutos Rojos.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -259,6 +271,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Bebida Cítrica Immunity (pág. 37)
 **Descripción:** Bebida cítrica licuada con Immunity Essentials, jugo de naranja, cúrcuma, jengibre fresco rallado y jugo de limón, con un toque opcional de pimienta cayena.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bebida Cítrica Immunity.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Immunity Essentials — no aparece en el catálogo de QVITAL (SKU pendiente)
@@ -276,6 +289,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido Tropical (pág. 38)
 **Descripción:** Batido tropical licuado con Fórmula 1 sabor naranja crema, Fibra Activa, Proteína Personalizada en Polvo, Herbal Aloe Concentrado, mango, piña y pitahaya fresca.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido Tropical.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor naranja crema — *Fórmula 1 - Naranja Crema* (SKU 1134)
@@ -295,6 +309,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Té Frutal Relajante (pág. 41)
 **Descripción:** Infusión fría preparada disolviendo Relaxation Tea con Herbal Aloe Concentrado en agua caliente, combinada luego con Beverage Mix disuelto en agua fría y servida con hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Té Frutal Relajante.jpg
 
 **Ingredientes:**
 - 1/4 de cucharadita de Relaxation Tea — *Herbal Relax Infusion - Menta 48 g.* (SKU 044K; equivalencia confirmada por Jorge)
@@ -314,6 +329,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Bebida Lychee con Colágeno (pág. 42)
 **Descripción:** Bebida refrescante con gas hecha con lychee triturado, Collagen Beauty Drink, Herbal Aloe Concentrado sabor original y rebanadas de limón, servida con hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Bebida Lychee con Colágeno.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Collagen Beauty Drink — *Collagen Drink* (SKU 3987; nombre del libro difiere levemente del catálogo, ver Dudas)
@@ -332,6 +348,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Paleta de Crema de Naranja (pág. 45)
 **Descripción:** Paletas heladas hechas licuando Fórmula 1 sabor naranja crema con leche, yogur griego sabor vainilla y mandarinas, vertidas en moldes y congeladas al menos dos horas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Paleta de Crema de Naranja.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor naranja crema — *Fórmula 1 - Naranja Crema* (SKU 1134)
@@ -350,6 +367,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Batido de Banana Caramelo (pág. 49)
 **Descripción:** Batido de licuadora con Fórmula 1 sabor banana caramelo, Protein Drink Mix, Fibra Activa, puré de manzana sin azúcar y una pizca de canela.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Batido de Banana Caramelo.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor banana caramelo — *Fórmula 1 - Banana Caramelo* (SKU 1522)
@@ -367,6 +385,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Pastel de Chocoavellana con Queso (pág. 50)
 **Descripción:** Mug cake (pastel individual de taza) con Fórmula 1 sabor chocoavellana, Protein Drink Mix, huevo y queso ricota sin grasa, cocido en microondas y espolvoreado con canela.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Pastel de Chocoavellana con Queso.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -386,6 +405,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Galletas de Chocomaní y Manzana (pág. 53)
 **Descripción:** Galletas horneadas con Fórmula 1 sabor cookies & cream, Fibra Activa y mantequilla de maní reducida en grasas, decoradas al gusto con chispas de chocolate o pasas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Galletas de Chocomaní y Manzana.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -405,6 +425,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Mousse de Cookies & Cream (pág. 54)
 **Descripción:** Mousse frío elaborado con Fórmula 1 sabor cookies & cream, gelatina sin sabor y esencia de vainilla, refrigerado en tazas de postre hasta cuajar y decorado con Crocante de Proteína.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Mousse de Cookies & Cream.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -424,6 +445,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Parfait Cremoso de Limón (pág. 57)
 **Descripción:** Parfait en copa con capas de avena tostada y una mezcla cremosa de Fórmula 1 sabor vainilla, yogur griego y zumo de limón, decorado con ralladura de limón y refrigerado 15 minutos antes de servir.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Parfait Cremoso de Limón.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -440,6 +462,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 
 #### Blondies de Mocca (pág. 58)
 **Descripción:** Brownies tipo blondie horneados a base de frijol blanco licuado, huevos, avena y café instantáneo, enriquecidos con Rebuild Strength y Proteína Personalizada en Polvo, coronados con chispas de chocolate oscuro.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Blondies de Mocca.jpg
 
 **Ingredientes:**
 - 3 cucharas medidoras de Rebuild Strength — *H24 Rebuild Strength - Chocolate* (SKU 1417; el libro no especifica sabor, ver Dudas)
@@ -471,6 +494,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 **Atribuida a:** Catalina Parra, Distribuidor Independiente, Chile.
 
 **Descripción:** Pizza de masa proteica hecha con Fórmula 1 Nutri Soup, Proteína Personalizada en Polvo, harina de avena y harina integral, horneada con toppings al gusto y gratinada con queso chanco.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Pizza Proteica.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Fórmula 1 Nutri Soup — *NutriSoup* (SKU 395K; equivalencia confirmada por Jorge)
@@ -492,6 +516,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 **Atribuida a:** Stephany Rengifo, Distribuidor Independiente, Perú.
 
 **Descripción:** Torta en capas horneada a base de harinas de soya, quinua y avena con Protein Drink Mix, rellena entre capas con dos cremas de yogur natural: una de Fórmula 1 sabor chocoavellana y café latte, y otra de Fórmula 1 sabor fresa y Beverage Mix.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Torta de Chocofresa.jpg
 
 **Ingredientes (base):**
 - 6 cucharas medidoras de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -526,6 +551,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 **Atribuida a:** Erika Espinosa, Distribuidor Independiente, Ecuador.
 
 **Descripción:** Versión de tiramisú en vaso, armada en capas de panqueques pequeños de Protein Drink Mix y avena remojados en café, alternados con una crema de yogur griego, Fibra Activa y vainilla, y espolvoreada con cacao amargo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Tiramisú Saludable.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -550,6 +576,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 **Atribuida a:** Alfonso Vásquez y Dary Cardona, Distribuidor Independiente, Colombia.
 
 **Descripción:** Cheesecake horneado con base crocante de Crocante de Proteína y almendras, relleno cremoso de Protein Drink Mix, Collagen Beauty Drink, yogur griego, queso mozzarella y huevo, cubierto con una reducción casera de frutos rojos hecha con Fibra Activa y Collagen Beauty Drink.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Cheesecake.jpg
 
 **Ingredientes (base):**
 - 6 cucharadas de Crocante de Proteína — *Crocante de Proteína* (SKU 040K)
@@ -587,6 +614,7 @@ Libro de recetas oficial de Herbalife Nutrition organizado en cinco secciones te
 **Atribuida a:** María Alarcón, Distribuidor Independiente, Bolivia.
 
 **Descripción:** Empanaditas rellenas de queso, hechas con una masa batida de Protein Drink Mix, Fórmula 1 sabor naranja crema, huevos y avena, cocidas en sanguchera hasta dorar.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo4-Empanaditas de Queso.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Protein Drink Mix — *Bebida de Proteína en Polvo - PDM* (SKU 1122)

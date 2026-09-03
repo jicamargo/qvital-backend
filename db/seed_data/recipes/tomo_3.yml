@@ -1,6 +1,7 @@
 ---
 - title: Batido de Manzana y Caramelo
   slug: batido-de-manzana-y-caramelo
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido de Manzana y Caramelo.jpg"
   description: Batido de licuadora con Fórmula 1 sabor banana caramelo, proteína en polvo y Fibra Activa sabor manzana, licuado con manzana picada, agua y hielo hasta quedar frío y espeso.
   servings: 1
   recipe_type: batido
@@ -44,6 +45,7 @@
 
 - title: Batido con Colágeno
   slug: batido-con-colageno
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido con Colágeno.jpg"
   description: Batido de licuadora con Fórmula 1 sabor vainilla, proteína en polvo y Collagen Drink, mezclado con agua y hielo hasta integrarse bien.
   servings: 1
   recipe_type: batido
@@ -82,6 +84,7 @@
 
 - title: Batido Chai
   slug: batido-chai
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Chai.jpg"
   description: Batido de licuadora que combina Fórmula 1 sabor café latte con Té Concentrado de Hierbas sabor chai y proteína en polvo, licuado con agua y hielo hasta quedar suave.
   servings: 1
   recipe_type: batido
@@ -120,6 +123,7 @@
 
 - title: Batido Fresa Crunch
   slug: batido-fresa-crunch
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Fresa Crunch.jpg"
   description: Batido de licuadora con Fórmula 1 sabor fresa, Collagen Drink y agua helada, servido con Crocante de Proteína espolvoreado por encima para dar textura crujiente.
   servings: 1
   recipe_type: batido
@@ -154,6 +158,7 @@
 
 - title: Batido Chocolate Chip
   slug: batido-chocolate-chip
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Batido Chocolate Chip.jpg"
   description: Batido de licuadora que mezcla Fórmula 1 sabor chocoavellana y sabor cookies & cream con proteína en polvo, agua y hielo al gusto.
   servings: 1
   recipe_type: batido
@@ -192,6 +197,7 @@
 
 - title: Yogur Proteico con Chía
   slug: yogur-proteico-con-chia
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Yogur Proteico con Chía.jpg"
   description: Yogur natural bajo en grasa mezclado en un tazón con Beverage Mix y semillas de chía, listo para servir frío en el desayuno.
   servings: 1
   recipe_type: desayuno
@@ -222,6 +228,7 @@
 
 - title: Mermelada de Frutos Rojos
   slug: mermelada-de-frutos-rojos
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Mermelada de Frutos Rojos.jpg"
   description: Mermelada de fresas cocida a fuego lento con Collagen Drink, jugo y ralladura de limón, espesada con semillas de chía; ideal para untar en el desayuno.
   servings: 25
   recipe_type: desayuno
@@ -265,6 +272,7 @@
 
 - title: Panqueques de Banana Caramelo
   slug: panqueques-de-banana-caramelo
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Panqueques de Banana Caramelo.jpg"
   description: Panqueques preparados con una mezcla de licuadora de Fórmula 1 sabor banana caramelo, proteína en polvo, huevo y avena, cocidos en sartén y servidos con rebanadas de plátano o arándanos.
   servings: 2
   recipe_type: desayuno
@@ -309,6 +317,7 @@
 
 - title: Dip Proteico de Café
   slug: dip-proteico-de-cafe
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Dip Proteico de Café.jpg"
   description: Dip cremoso y esponjoso de yogur descremado o griego con Fórmula 1 sabor café latte y esencia de vainilla, ideal como salsa para acompañar frutas frescas.
   servings: 2
   recipe_type: desayuno
@@ -339,6 +348,7 @@
 
 - title: Muffin Red Velvet
   slug: muffin-red-velvet
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Muffin Red Velvet.jpg"
   description: Muffin horneado a base de Fórmula 1 sabor vainilla, proteína en polvo, huevo y remolacha cocida que le da el color rojo característico, cubierto con un topping cremoso a base de Fórmula 1 y edulcorante cocido en sartén.
   servings: 2
   recipe_type: desayuno
@@ -403,6 +413,7 @@
 
 - title: Nutri Soup Omelet
   slug: nutri-soup-omelet
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Nutri Soup Omelet.jpg"
   description: Omelet horneado en molde individual, hecho con huevo, NutriSoup y proteína en polvo, relleno de mozzarella, tomate cherry y albahaca fresca.
   servings: 4
   recipe_type: comida
@@ -459,6 +470,7 @@
 
 - title: Nutri Soup Cremoso con Brócoli
   slug: nutri-soup-cremoso-con-brocoli
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Nutri Soup Cremoso con Brócoli.jpg"
   description: Sopa cremosa preparada disolviendo NutriSoup en leche descremada caliente, con brócoli hervido picado y perejil al gusto.
   servings: 4
   recipe_type: comida
@@ -493,6 +505,7 @@
 
 - title: Pollo Cítrico Glaseado
   slug: pollo-citrico-glaseado
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Pollo Cítrico Glaseado.jpg"
   description: Filetes de pollo marinados en salsa de soya, vinagre de arroz, jengibre y ajo, sellados en sartén y glaseados con Herbal Aloe Concentrado sabor mandarina.
   servings: 3
   recipe_type: comida
@@ -548,6 +561,7 @@
 
 - title: Galletas Proteicas con Parmesano
   slug: galletas-proteicas-con-parmesano
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Galletas Proteicas con Parmesano.jpg"
   description: Galletas saladas horneadas a base de proteína en polvo, harinas y queso parmesano, cubiertas con semillas de amapola y sésamo antes de hornearlas por ambos lados hasta dorar.
   servings: 40
   recipe_type: snack
@@ -629,6 +643,7 @@
 
 - title: Aliño de Manzana y Mostaza
   slug: alino-de-manzana-y-mostaza
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Aliño de Manzana y Mostaza.jpg"
   description: Aliño para ensaladas a base de Fibra Activa sabor manzana, vinagre de manzana, aceite de oliva y especias, mezclado en un frasco con tapa hasta integrarse bien.
   servings: 5
   recipe_type: otro
@@ -679,6 +694,7 @@
 
 - title: Bolitas Tropicales de Proteína
   slug: bolitas-tropicales-de-proteina
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bolitas Tropicales de Proteína.jpg"
   description: Bolitas energéticas sin horno hechas con Fórmula 1 sabor banana caramelo, proteína en polvo, avena, pasas y mantequilla de maní, decoradas con coco en hojuelas y refrigeradas hasta por 5 días.
   servings: 10
   recipe_type: postre
@@ -744,6 +760,7 @@
 
 - title: Brownie con Crocante de Proteína
   slug: brownie-con-crocante-de-proteina
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Brownie con Crocante de Proteína.jpg"
   description: Brownie de microondas hecho con avena, plátano, cacao, proteína en polvo y Crocante de Proteína, decorado con cacao espolvoreado y nueces o almendras picadas.
   servings: 2
   recipe_type: postre
@@ -792,6 +809,7 @@
 
 - title: Gomitas Proteicas
   slug: gomitas-proteicas
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Gomitas Proteicas.jpg"
   description: Gomitas caseras de gelatina sin sabor y gelatina sabor fresa con Beverage Mix, cocidas a fuego medio y refrigeradas en moldes hasta cuajar por completo.
   servings: 43
   recipe_type: postre
@@ -827,6 +845,7 @@
 
 - title: Paleta de Frutas Tropicales
   slug: paleta-de-frutas-tropicales
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Paleta de Frutas Tropicales.jpg"
   description: Paletas heladas hechas en licuadora con Beverage Mix, Fibra Activa sabor manzana y plátano, congeladas en moldes individuales.
   servings: 4
   recipe_type: postre
@@ -861,6 +880,7 @@
 
 - title: Postre con Crocante de Proteína
   slug: postre-con-crocante-de-proteina
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Postre con Crocante de Proteína.jpg"
   description: Postre en capas con gelatina disuelta y licuada junto a Protein Drink Mix y aceite de coco, Crocante de Proteína crujiente y una crema de Fórmula 1 sabor chocoavellana, ensamblado en capas en un recipiente.
   servings: 2
   recipe_type: postre
@@ -909,6 +929,7 @@
 
 - title: Fondue de Chocolate Fit
   slug: fondue-de-chocolate-fit
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Fondue de Chocolate Fit.jpg"
   description: Fondue de chocolate al 70% derretido con aceite de coco, Fórmula 1 sabor chocoavellana, proteína en polvo y Crocante de Proteína, servido caliente para sumergir fruta fresca.
   servings: 2
   recipe_type: postre
@@ -958,6 +979,7 @@
 
 - title: Paletas de Banana y Fresa
   slug: paletas-de-banana-y-fresa
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Paletas de Banana y Fresa.jpg"
   description: Paletas heladas de licuadora con Fórmula 1 sabor banana caramelo, leche, yogur griego o descremado y fresas, congeladas en moldes individuales hasta solidificar.
   servings: 4
   recipe_type: postre
@@ -993,6 +1015,7 @@
 
 - title: Muffin Proteico de Banana Caramelo
   slug: muffin-proteico-de-banana-caramelo
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Muffin Proteico de Banana Caramelo.jpg"
   description: Muffin horneado con Fórmula 1 sabor banana caramelo, huevo, avena instantánea y plátano, con arándanos al gusto, horneado en molde individual.
   servings: 2
   recipe_type: postre
@@ -1041,6 +1064,7 @@
 
 - title: Arándanos Cubiertos de Yogur
   slug: arandanos-cubiertos-de-yogur
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Arándanos Cubiertos de Yogur.jpg"
   description: Arándanos frescos bañados en una mezcla de yogur, Protein Drink Mix y jugo de naranja, colocados en bandeja y congelados hasta quedar firmes.
   servings: 4
   recipe_type: postre
@@ -1077,6 +1101,7 @@
 
 - title: Pudín Proteico de Mango
   slug: pudin-proteico-de-mango
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Pudín Proteico de Mango.jpg"
   description: Pudín cremoso de licuadora con Protein Drink Mix, Herbal Aloe Concentrado sabor mango, mango en trozos y semillas de chía, refrigerado varias horas antes de servir.
   servings: 1
   recipe_type: postre
@@ -1123,6 +1148,7 @@
 
 - title: Limonada Power
   slug: limonada-power
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Limonada Power.jpg"
   description: Bebida refrescante preparada con N-R-G, Herbal Aloe Concentrado y CR7 Drive, mezclada con agua, hielo y esencia de limón, decorada con hierbabuena y una rebanada de manzana verde.
   servings: 1
   recipe_type: bebida
@@ -1174,6 +1200,7 @@
 
 - title: Bebida Tropical Refrescante
   slug: bebida-tropical-refrescante
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bebida Tropical Refrescante.jpg"
   description: Bebida refrescante que combina Té Concentrado de Hierbas sabor original con agua de coco, manzana picada y fresas licuadas, servida con cubos de hielo.
   servings: 1
   recipe_type: bebida
@@ -1213,6 +1240,7 @@
 
 - title: Bebida Explosión de Frutas
   slug: bebida-explosion-de-frutas
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Bebida Explosión de Frutas.jpg"
   description: Bebida infusionada con pera, durazno y kiwi picados, jugo de limón y Herbal Aloe Concentrado sabor mango, refrigerada por dos horas y servida con agua con gas y hielo.
   servings: 1
   recipe_type: bebida
@@ -1263,6 +1291,7 @@
 
 - title: Té Hidratante
   slug: te-hidratante
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Té Hidratante.jpg"
   description: Bebida fría preparada con Té Concentrado de Hierbas sabor frambuesa, Beverage Mix y Herbal Aloe Concentrado sabor sábila, mezclada con agua helada y hielo al gusto.
   servings: 1
   recipe_type: bebida
@@ -1301,6 +1330,7 @@
 
 - title: Té Cítrico de Mango
   slug: te-citrico-de-mango
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo3-Té Cítrico de Mango.jpg"
   description: Bebida verde licuada con Té Concentrado de Hierbas sabor original, Herbal Aloe Concentrado sabor mango, espinaca, manzana, piña y limón.
   servings: 1
   recipe_type: bebida

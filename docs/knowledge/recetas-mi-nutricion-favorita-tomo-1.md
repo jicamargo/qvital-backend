@@ -13,6 +13,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Zen de Proteínas con Bayas (pág. 5)
 **Descripción:** Batido cremoso de proteína con bayas frescas y un toque de Aloe, listo en minutos con la licuadora.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Zen de Proteínas con Bayas.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -30,6 +31,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido de Pudín y Leche de Almendras (pág. 6)
 **Descripción:** Batido espeso con sabor a pudín de vainilla, leche de almendras, pasas y un toque de canela.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Pudín y Leche de Almendras.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -47,6 +49,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido de Pie de Manzana con Fibra (pág. 7)
 **Descripción:** Batido inspirado en el pie de manzana, con fibra activa, manzana fresca y especias como canela, nuez moscada y clavo de olor.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Pie de Manzana con Fibra.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -68,6 +71,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Durazno Energizante (pág. 8)
 **Descripción:** Batido refrescante de durazno con un toque energizante de Té Concentrado de Hierbas sabor durazno.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Durazno Energizante.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -86,6 +90,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido de Yogur y Chocolate (pág. 9)
 **Descripción:** Batido de chocolate con yogur natural, avena y un toque cítrico de cáscara de naranja.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido de Yogur y Chocolate.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocolate — *Fórmula 1 - Chocoavellana* (SKU 0884; equivalencia confirmada por Jorge)
@@ -104,6 +109,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Energía Verde (pág. 10)
 **Descripción:** Batido verde con hojas de baby kale, naranja y banana, ideal para un impulso de energía.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Energía Verde.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -123,6 +129,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Anaranjado con Jengibre (pág. 11)
 **Descripción:** Batido de zanahoria y naranja con un toque picante de jengibre fresco.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Anaranjado con Jengibre.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -142,6 +149,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Rollo de Canela (pág. 12)
 **Descripción:** Batido inspirado en el rollo de canela, con banana, pasas y canela molida.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Rollo de Canela.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -161,6 +169,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido Rebuild y Frutos del Bosque (pág. 13)
 **Descripción:** Batido de recuperación muscular con Rebuild Strength, frutos del bosque y un toque especiado de canela, cayena y cúrcuma.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido Rebuild y Frutos del Bosque.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Rebuild Strength — *H24 Rebuild Strength - Chocolate* (SKU 1417)
@@ -180,6 +189,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Batido caliente de Calabaza Moscada (pág. 14)
 **Descripción:** Batido cremoso de calabaza con un toque de nuez moscada, para disfrutar tibio.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Batido caliente de Calabaza Moscada.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -199,6 +209,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Choco-Pastel en Taza (pág. 16)
 **Descripción:** Pastel de chocolate individual preparado en taza y cocido en microondas en solo 3 minutos.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Choco-Pastel en Taza.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocolate — *Fórmula 1 - Chocoavellana* (SKU 0884; equivalencia confirmada por Jorge)
@@ -219,6 +230,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Panqueques de Cookies & Cream (pág. 17)
 **Descripción:** Panqueques proteicos sabor cookies & cream, cocidos en sartén y listos para servir con fruta de estación.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Panqueques de Cookies & Cream.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -238,6 +250,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Delicia de Avena Frutada (pág. 18)
 **Descripción:** Avena overnight con pera, canela y fibra activa, para preparar la noche anterior y disfrutar fría al día siguiente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Delicia de Avena Frutada.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -256,6 +269,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Waffles Rebuild (pág. 19)
 **Descripción:** Waffles proteicos con Rebuild Strength, horneados en waflera y listos para decorar con tus frutas favoritas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Waffles Rebuild.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Rebuild Strength — *H24 Rebuild Strength - Chocolate* (SKU 1417)
@@ -278,6 +292,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Camote Tostado con Yogur de Manzana (pág. 20)
 **Descripción:** Rebanadas de camote tostado cubiertas con yogur de vainilla mezclado con fibra activa y rodajas de manzana.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Camote Tostado con Yogur de Manzana.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Fibra Activa — *Fibra Activa - Manzana* (SKU 2864)
@@ -296,6 +311,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Tazón de Quinoa con Bayas (pág. 21)
 **Descripción:** Tazón de quinoa cocida con leche de soya, bananas, bayas y nueces, endulzado con un toque de miel de maple.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Tazón de Quinoa con Bayas.jpg
 
 **Ingredientes:**
 - 4 cucharadas de Proteína en Polvo Herbalife Nutrition — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -321,6 +337,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Tortillas de Proteína y Pimiento Rojo (pág. 23)
 **Descripción:** Tortillas proteicas de pimiento rojo, licuadas y cocidas en sartén, listas para rellenar a tu gusto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Tortillas de Proteína y Pimiento Rojo.jpg
 
 **Ingredientes:**
 - 4 cucharadas de Proteína en Polvo Herbalife Nutrition — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -341,6 +358,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Aliño de Mango (pág. 24)
 **Descripción:** Aderezo cremoso de mango con Aloe Concentrado, semillas de chía, aceite de oliva y mostaza, listo para guardar en el refrigerador hasta una semana.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Aliño de Mango.jpg
 
 **Ingredientes:**
 - 2 tapas de Herbal Aloe Concentrado sabor mango — *Herbal Aloe Concentrado - Mango* (SKU 1065)
@@ -364,6 +382,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Wraps Proteicos de Espinaca (pág. 25)
 **Descripción:** Wraps proteicos de espinaca hechos en procesador y cocidos en sartén, listos para rellenar con tus complementos favoritos.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Wraps Proteicos de Espinaca.jpg
 
 **Ingredientes:**
 - ¼ de taza de Proteína en Polvo Herbalife Nutrition (9 medidas) — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -385,6 +404,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Crema de Calabaza (pág. 26)
 **Descripción:** Crema suave de calabaza con proteína en polvo y un toque de queso untable bajo en grasa.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Crema de Calabaza.jpg
 
 **Ingredientes:**
 - 2 cucharadas de Proteína en Polvo Herbalife Nutrition — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -404,6 +424,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Postre Helado Proteico (pág. 28)
 **Descripción:** Postre helado en dos capas —chocolate y cookies & cream— congelado en moldes individuales y decorado con fruta.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Postre Helado Proteico.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocolate — *Fórmula 1 - Chocoavellana* (SKU 0884; equivalencia confirmada por Jorge)
@@ -422,6 +443,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Enrolladito de Fresa (pág. 29)
 **Descripción:** Bizcocho horneado de vainilla y cacao, relleno de una crema de ricotta con fresas y enrollado tipo brazo de reina.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Enrolladito de Fresa.jpg
 
 **Ingredientes:**
 - 6 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -445,6 +467,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Muffin de Fruta y Fibra (pág. 30)
 **Descripción:** Muffins horneados con ricotta, melocotón, nueces y pasas, enriquecidos con fibra activa y proteína.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Muffin de Fruta y Fibra.jpg
 
 **Ingredientes:**
 - 3 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -470,6 +493,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Paletas Heladas de Frutos Rojos (pág. 31)
 **Descripción:** Paletas heladas de fresa y yogur griego con trocitos de frutos rojos, congeladas en moldes individuales.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Paletas Heladas de Frutos Rojos.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -487,6 +511,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Torta Cookies & Cream (pág. 32)
 **Descripción:** Torta fría en capas, con base de muesli y capas de ricotta con yogur y chocolate, cuajadas con gelatina en el refrigerador.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Torta Cookies & Cream.jpg
 
 **Ingredientes:**
 - 5 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -512,6 +537,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Trufas de Chocolate con Proteínas (pág. 33)
 **Descripción:** Trufas de chocolate sin horno hechas con Rebuild Strength, ciruelas, pasas y mantequilla de almendras, rebozadas en cocoa.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Trufas de Chocolate con Proteínas.jpg
 
 **Ingredientes:**
 - 6 cucharas medidoras de Rebuild Strength — *H24 Rebuild Strength - Chocolate* (SKU 1417)
@@ -539,6 +565,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Bebida Cítrica Hidratante (pág. 35)
 **Descripción:** Bebida hidratante y cítrica con Aloe Concentrado sabor mandarina, agua con gas y jugo de limón.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Bebida Cítrica Hidratante.jpg
 
 **Ingredientes:**
 - ½ taza de Herbal Aloe Concentrado sabor mandarina — *Herbal Aloe Concentrado - Mandarina* (SKU 2631)
@@ -553,6 +580,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Bebida de Poder Espumosa (pág. 36)
 **Descripción:** Bebida espumosa y energizante con Té Concentrado de Hierbas sabor limón y N-R-G, endulzada al gusto.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Bebida de Poder Espumosa.jpg
 
 **Ingredientes:**
 - 1 cucharadita de Té Concentrado de Hierbas sabor limón — el libro no especifica gramaje; hay dos versiones en catálogo (51 g y 102 g) (SKU pendiente, ver Dudas)
@@ -569,6 +597,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Limonada con Pepino y Menta (pág. 37)
 **Descripción:** Limonada refrescante con Aloe Concentrado, pepino y hojas de menta, servida bien fría.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Limonada con Pepino y Menta.jpg
 
 **Ingredientes:**
 - 9 tapas de Herbal Aloe Concentrado sabor original — *Herbal Aloe Concentrado - Sábila* (SKU 0006; equivalencia confirmada por Jorge)
@@ -586,6 +615,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Ponche de Frutas con Té (pág. 38)
 **Descripción:** Ponche de frutas frescas —piña, manzana, uvas y kiwi— con Té Concentrado de Hierbas y jugo de uva.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Ponche de Frutas con Té.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor original — *Bebida Herbal - Original 102 g.* (SKU 0106)
@@ -606,6 +636,7 @@ Libro de recetas oficial de Herbalife Nutrition (©2019) organizado en cinco sec
 
 #### Té Energizante (pág. 39)
 **Descripción:** Té energizante con fibra activa, endulzado con miel y servido con hielo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo1-Té Energizante.jpg
 
 **Ingredientes:**
 - 2 cucharaditas de Té Concentrado de Hierbas de tu preferencia — sabor no especificado (SKU pendiente)

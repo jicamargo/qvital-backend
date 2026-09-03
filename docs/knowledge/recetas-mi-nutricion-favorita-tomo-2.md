@@ -15,6 +15,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Batido Mocaccino (pág. 4)
 **Descripción:** Batido de proteína con sabor a café y chocolate, preparado en dos mezclas separadas que se sirven una sobre otra y se decoran con canela molida.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Mocaccino.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -35,6 +36,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Batido Pie de Limón (pág. 5)
 **Descripción:** Batido de proteína frío con jugo y ralladura de limón, inspirado en el postre pie de limón.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Pie de Limón.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -55,6 +57,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Batido Pastel Selva Negra (pág. 6)
 **Descripción:** Batido de proteína sabor chocolate con cerezas congeladas, cacao y chía, rematado con una capa de crema batida ligera de vainilla, inspirado en el pastel selva negra.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Pastel Selva Negra.jpg
 
 **Ingredientes:**
 
@@ -84,6 +87,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Batido Crocante de Manzana (pág. 7)
 **Descripción:** Batido de proteína con avena y miel, licuado con hielo hasta lograr una textura espesa, inspirado en el postre crocante de manzana.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Crocante de Manzana.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -103,6 +107,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Crema Proteica de Cookies & Cream (pág. 8)
 **Descripción:** Crema tibia de avena cocida en leche con Batido Nutricional F1 sabor cookies & cream, rematada con rodajas de plátano, arándanos rojos o frambuesas y canela; se sirve caliente.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Crema Proteica de Cookies & Cream.jpg
 
 **Ingredientes:**
 - 2 ½ cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -123,6 +128,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Quiche Proteico de Poro (pág. 10)
 **Descripción:** Quiche horneado con masa proteica de harina de trigo y avena y relleno cremoso de poro salteado, huevo, requesón y leche.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Quiche Proteico de Poro.jpg
 
 **Ingredientes:**
 
@@ -152,6 +158,7 @@ El libro incluye una sola vez el descargo legal genérico: *"Los productos Herba
 
 #### Sopa de Alverjas con Menta (pág. 11)
 **Descripción:** Sopa licuada de guisantes con poro, caldo de verduras y menta fresca, enriquecida con proteína en polvo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Sopa de Alverjas con Menta.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Batido Nutricional Fórmula 1 sabor vainilla — *Fórmula 1 - Vainilla* (SKU 0141)
@@ -171,6 +178,7 @@ Tip: para un sabor más delicioso, probar con cilantro en lugar de menta y ½ ch
 
 #### Pudín Proteico con Fresas (pág. 12)
 **Descripción:** Pudín de proteína sabor fresa cuajado con gelatina sin sabor y leche en polvo, servido frío en recipientes individuales.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Pudín Proteico con Fresas.jpg
 
 **Ingredientes:**
 - 5 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -187,6 +195,7 @@ Tip: para un sabor más delicioso, probar con cilantro en lugar de menta y ½ ch
 
 #### Galletas de Semillas de Ajonjolí y Almendras (pág. 13)
 **Descripción:** Galletas horneadas de tahini, almendras molidas y proteína en polvo, refrigeradas antes de hornear y cubiertas con semillas de sésamo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Galletas de Semillas de Ajonjolí y Almendras.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Protein Drink Mix (PDM) — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -207,6 +216,7 @@ Tip: para un sabor más delicioso, probar con cilantro en lugar de menta y ½ ch
 
 #### Gelatina Fit (pág. 14)
 **Descripción:** Gelatina fría preparada con té concentrado de hierbas, aloe concentrado y fibra activa, cuajada en el refrigerador y servida en recipientes individuales.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Gelatina Fit.jpg
 
 **Ingredientes:**
 - 2 cucharaditas de Té Concentrado de Hierbas de tu sabor favorito — sabor no especificado (SKU pendiente)
@@ -224,6 +234,7 @@ Tip: para un sabor más delicioso, probar con cilantro en lugar de menta y ½ ch
 
 #### Tostadas Francesas Fit (pág. 15)
 **Descripción:** Rebanadas de pan remojadas en una mezcla de plátano, proteína en polvo, linaza y leche, doradas en sartén con aceite de coco.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Tostadas Francesas Fit.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Protein Drink Mix (PDM) — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -245,6 +256,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Brownie Proteico de Cacao con Nueces (pág. 16)
 **Descripción:** Brownie horneado con chocolate amargo, harina de avena, nueces picadas y proteína en polvo, cortado en cuadrados una vez frío.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Brownie Proteico de Cacao con Nueces.jpg
 
 **Ingredientes:**
 - 2 cucharadas de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -267,6 +279,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Bebida Cítrica con Piña (pág. 18)
 **Descripción:** Bebida fría refrescante de té concentrado de hierbas sabor limón con piña, limón y menta machacados.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Bebida Cítrica con Piña.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor limón — *Bebida Herbal - Limón 102 g.* (SKU 0188; el libro no especifica gramaje, se usó la versión de 102 g por defecto — ver Dudas)
@@ -285,6 +298,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Choco-Pastel de Proteína y Especias (pág. 19)
 **Descripción:** Pastel horneado de chocolate y proteína con canela, anís estrella y jengibre, esponjado con claras batidas a punto de nieve y presentado en mini porciones con frutos rojos.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Choco-Pastel de Proteína y Especias.jpg
 
 **Ingredientes:**
 - 4 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocolate — *Fórmula 1 - Chocoavellana* (SKU 0884; equivalencia confirmada por Jorge)
@@ -312,6 +326,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Batido Cremoso de Cookies & Cream y Coco (pág. 20)
 **Descripción:** Batido cremoso de cookies & cream con yogur natural helado y coco rallado, decorado con granola.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Cremoso de Cookies & Cream y Coco.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -331,6 +346,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Mousse de Fresas y Proteína (pág. 21)
 **Descripción:** Mousse fría de gelatina light de fresa, yogur natural y fresas frescas enriquecida con proteína en polvo, cuajada en copas individuales.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Mousse de Fresas y Proteína.jpg
 
 **Ingredientes:**
 - 3 cucharadas de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -349,6 +365,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Té Súper Festivo (pág. 22)
 **Descripción:** Infusión caliente de té concentrado de hierbas con clavo de olor, jengibre, cáscara de naranja y canela entera, servida en tazas con una rodaja de naranja.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Súper Festivo.jpg
 
 **Ingredientes:**
 - 1 cucharadita de Té Concentrado de Hierbas sabor original — *Bebida Herbal - Original 102 g.* (SKU 0106)
@@ -368,6 +385,7 @@ Tip: también puedes usar tu horno. Agregar el pan empapado a un plato antiadher
 
 #### Paté Proteico (pág. 23)
 **Descripción:** Paté untable de beterraga (remolacha) cocida con ajo y proteína en polvo, procesado hasta obtener consistencia de puré y refrigerado antes de servir.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Paté Proteico.jpg
 
 **Ingredientes:**
 - 6 cucharadas de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -386,6 +404,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Guacamole Proteico (pág. 24)
 **Descripción:** Guacamole clásico de aguacate, tomate, cebolla y cilantro enriquecido con proteína en polvo, servido con triángulos de pan integral horneados.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Guacamole Proteico.jpg
 
 **Ingredientes:**
 - 1 cucharada de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -406,6 +425,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Hummus Clásico Alto en Proteínas (pág. 25)
 **Descripción:** Hummus tradicional de garbanzos remojados, tahini, ajo y aceite de oliva, potenciado con proteína en polvo.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Hummus Clásico Alto en Proteínas.jpg
 
 **Ingredientes:**
 - 2 cucharadas de Proteína Personalizada en Polvo — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -427,6 +447,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Chocoavellana Muffins (pág. 26)
 **Descripción:** Muffins horneados con Batido Nutricional F1 sabor chocoavellana, avena y canela, listos en molde para muffins.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Chocoavellana Muffins.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor chocoavellana — *Fórmula 1 - Chocoavellana* (SKU 0884)
@@ -450,6 +471,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Crepa Proteica (pág. 28)
 **Descripción:** Crepa proteica salada rellena de queso mozzarella y pechuga de pavo, doblada en triángulo y servida con vinagre balsámico.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Crepa Proteica.jpg
 
 **Ingredientes:**
 
@@ -483,6 +505,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Sirope Proteico de Chocolate (pág. 29)
 **Descripción:** Sirope cremoso de chocolate hecho con Protein Drink Mix, yogur natural y cacao en polvo sin azúcar, listo para acompañar otras preparaciones.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Sirope Proteico de Chocolate.jpg
 
 **Ingredientes:**
 - 3 cucharas medidoras de Protein Drink Mix (PDM) — *Bebida de Proteína en Polvo - PDM* (SKU 1122)
@@ -496,6 +519,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Batido Tartaleta de Fresa (pág. 30)
 **Descripción:** Batido de proteína sabor fresa con un toque de miel, licuado con hielo hasta espesar.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Tartaleta de Fresa.jpg
 
 **Ingredientes:**
 - 2 cucharas medidoras de Batido Nutricional Fórmula 1 sabor fresa — *Fórmula 1 - Fresa* (SKU 0143)
@@ -513,6 +537,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Batido Choco Explosión (pág. 31)
 **Descripción:** Batido de proteína que combina los sabores cookies & cream y chocoavellana, licuado con hielo y coronado con chispas de chocolate sin azúcar.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Choco Explosión.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -531,6 +556,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Té Berrylicious (pág. 32)
 **Descripción:** Bebida fría a base de N-R-G, aloe concentrado, té concentrado de hierbas y bebida de colágeno, con esencia de cereza o fresa, fresa fresca y hierbabuena.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Berrylicious.jpg
 
 **Ingredientes:**
 - 1 cucharadita de N-R-G — *NRG* (SKU 0102; regla confirmada por Jorge: "N-R-G" sin calificativo = versión Original/NRG, solo se usa N-R-G Guaraná Tropical si el libro lo especifica)
@@ -552,6 +578,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Waffles (pág. 33)
 **Descripción:** Waffles horneados en wafflera con masa proteica de avena y canela, servidos con un sirope casero de Batido F1 y almendras tostadas.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Waffles.jpg
 
 **Ingredientes:**
 
@@ -581,6 +608,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Té Mega Citrus (pág. 34)
 **Descripción:** Bebida fría cítrica de té concentrado de hierbas, N-R-G, bebida de colágeno y CR7 Drive, decorada con fresa, manzana y naranja.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Mega Citrus.jpg
 
 **Ingredientes:**
 - ½ cucharadita de Té Concentrado de Hierbas sabor original — *Bebida Herbal - Original 102 g.* (SKU 0106)
@@ -603,6 +631,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Choco Sundae Proteico (pág. 35)
 **Descripción:** Batido de proteína en capas — una base de cookies & cream y vainilla espesada con hielo, y una mezcla de chocoavellana disuelta en agua caliente — que imita un sundae.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Choco Sundae Proteico.jpg
 
 **Ingredientes:**
 - 1 cuchara medidora de Batido Nutricional Fórmula 1 sabor cookies & cream — *Fórmula 1 - Cookies & Cream* (SKU 0146)
@@ -623,6 +652,7 @@ Tip: acompañar con tus chips favoritos, tostadas, pan pita, crepes, panqueques 
 
 #### Pizzeta con Vegetales (pág. 36)
 **Descripción:** Pizzeta cocinada en crepera con masa proteica de avena, cubierta con salsa de tomate, queso mozzarella, champiñones, pimiento, tomate deshidratado, albahaca y aceitunas negras.
+**Imagen local:** /mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Pizzeta con Vegetales.jpg
 
 **Ingredientes:**
 

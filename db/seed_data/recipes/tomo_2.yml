@@ -1,6 +1,7 @@
 ---
 - title: "Batido Mocaccino"
   slug: "batido-mocaccino"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Mocaccino.jpg"
   description: "Batido de proteína con sabor a café y chocolate, preparado en dos mezclas separadas que se sirven una sobre otra y se decoran con canela molida."
   servings: 2
   recipe_type: "batido"
@@ -52,6 +53,7 @@
 
 - title: "Batido Pie de Limón"
   slug: "batido-pie-de-limon"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Pie de Limón.jpg"
   description: "Batido de proteína frío con jugo y ralladura de limón, inspirado en el postre pie de limón."
   servings: 1
   recipe_type: "batido"
@@ -95,6 +97,7 @@
 
 - title: "Batido Pastel Selva Negra"
   slug: "batido-pastel-selva-negra"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Pastel Selva Negra.jpg"
   description: "Batido de proteína sabor chocolate con cerezas congeladas, cacao y chía, rematado con una capa de crema batida ligera de vainilla, inspirado en el pastel selva negra."
   servings: 2
   recipe_type: "batido"
@@ -158,6 +161,7 @@
 
 - title: "Batido Crocante de Manzana"
   slug: "batido-crocante-de-manzana"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Crocante de Manzana.jpg"
   description: "Batido de proteína con avena y miel, licuado con hielo hasta lograr una textura espesa, inspirado en el postre crocante de manzana."
   servings: 2
   recipe_type: "batido"
@@ -205,6 +209,7 @@
 
 - title: "Crema Proteica de Cookies & Cream"
   slug: "crema-proteica-de-cookies-cream"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Crema Proteica de Cookies & Cream.jpg"
   description: "Crema tibia de avena cocida en leche con Batido Nutricional F1 sabor cookies & cream, rematada con rodajas de plátano, arándanos rojos o frambuesas y canela; se sirve caliente."
   servings: 2
   recipe_type: "desayuno"
@@ -248,6 +253,7 @@
 
 - title: "Quiche Proteico de Poro"
   slug: "quiche-proteico-de-poro"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Quiche Proteico de Poro.jpg"
   description: "Quiche horneado con masa proteica de harina de trigo y avena y relleno cremoso de poro salteado, huevo, requesón y leche."
   servings: 8
   recipe_type: "comida"
@@ -316,6 +322,7 @@
 
 - title: "Sopa de Alverjas con Menta"
   slug: "sopa-de-alverjas-con-menta"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Sopa de Alverjas con Menta.jpg"
   description: "Sopa licuada de guisantes con poro, caldo de verduras y menta fresca, enriquecida con proteína en polvo."
   servings: 4
   recipe_type: "comida"
@@ -358,6 +365,7 @@
 
 - title: "Pudín Proteico con Fresas"
   slug: "pudin-proteico-con-fresas"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Pudín Proteico con Fresas.jpg"
   description: "Pudín de proteína sabor fresa cuajado con gelatina sin sabor y leche en polvo, servido frío en recipientes individuales."
   servings: 5
   recipe_type: "postre"
@@ -396,6 +404,7 @@
 
 - title: "Galletas de Semillas de Ajonjolí y Almendras"
   slug: "galletas-de-semillas-de-ajonjoli-y-almendras"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Galletas de Semillas de Ajonjolí y Almendras.jpg"
   description: "Galletas horneadas de tahini, almendras molidas y proteína en polvo, refrigeradas antes de hornear y cubiertas con semillas de sésamo."
   servings: 26
   recipe_type: "snack"
@@ -444,6 +453,7 @@
 
 - title: "Gelatina Fit"
   slug: "gelatina-fit"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Gelatina Fit.jpg"
   description: "Gelatina fría preparada con té concentrado de hierbas, aloe concentrado y fibra activa, cuajada en el refrigerador y servida en recipientes individuales."
   servings: 4
   recipe_type: "postre"
@@ -483,6 +493,7 @@
 
 - title: "Tostadas Francesas Fit"
   slug: "tostadas-francesas-fit"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Tostadas Francesas Fit.jpg"
   description: "Rebanadas de pan remojadas en una mezcla de plátano, proteína en polvo, linaza y leche, doradas en sartén con aceite de coco."
   servings: 4
   recipe_type: "desayuno"
@@ -527,6 +538,7 @@
 
 - title: "Brownie Proteico de Cacao con Nueces"
   slug: "brownie-proteico-de-cacao-con-nueces"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Brownie Proteico de Cacao con Nueces.jpg"
   description: "Brownie horneado con chocolate amargo, harina de avena, nueces picadas y proteína en polvo, cortado en cuadrados una vez frío."
   servings: 9
   recipe_type: "postre"
@@ -575,6 +587,7 @@
 
 - title: "Bebida Cítrica con Piña"
   slug: "bebida-citrica-con-pina"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Bebida Cítrica con Piña.jpg"
   description: "Bebida fría refrescante de té concentrado de hierbas sabor limón con piña, limón y menta machacados."
   servings: 1
   recipe_type: "bebida"
@@ -618,6 +631,7 @@
 
 - title: "Choco-Pastel de Proteína y Especias"
   slug: "choco-pastel-de-proteina-y-especias"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Choco-Pastel de Proteína y Especias.jpg"
   description: "Pastel horneado de chocolate y proteína con canela, anís estrella y jengibre, esponjado con claras batidas a punto de nieve y presentado en mini porciones con frutos rojos."
   servings: 24
   recipe_type: "postre"
@@ -691,6 +705,7 @@
 
 - title: "Batido Cremoso de Cookies & Cream y Coco"
   slug: "batido-cremoso-de-cookies-cream-y-coco"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Cremoso de Cookies & Cream y Coco.jpg"
   description: "Batido cremoso de cookies & cream con yogur natural helado y coco rallado, decorado con granola."
   servings: 2
   recipe_type: "batido"
@@ -730,6 +745,7 @@
 
 - title: "Mousse de Fresas y Proteína"
   slug: "mousse-de-fresas-y-proteina"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Mousse de Fresas y Proteína.jpg"
   description: "Mousse fría de gelatina light de fresa, yogur natural y fresas frescas enriquecida con proteína en polvo, cuajada en copas individuales."
   servings: 8
   recipe_type: "postre"
@@ -773,6 +789,7 @@
 
 - title: "Té Súper Festivo"
   slug: "te-super-festivo"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Súper Festivo.jpg"
   description: "Infusión caliente de té concentrado de hierbas con clavo de olor, jengibre, cáscara de naranja y canela entera, servida en tazas con una rodaja de naranja."
   servings: 1
   recipe_type: "bebida"
@@ -820,6 +837,7 @@
 
 - title: "Paté Proteico"
   slug: "pate-proteico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Paté Proteico.jpg"
   description: "Paté untable de beterraga (remolacha) cocida con ajo y proteína en polvo, procesado hasta obtener consistencia de puré y refrigerado antes de servir."
   servings: 50
   recipe_type: "snack"
@@ -855,6 +873,7 @@
 
 - title: "Guacamole Proteico"
   slug: "guacamole-proteico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Guacamole Proteico.jpg"
   description: "Guacamole clásico de aguacate, tomate, cebolla y cilantro enriquecido con proteína en polvo, servido con triángulos de pan integral horneados."
   servings: 4
   recipe_type: "snack"
@@ -906,6 +925,7 @@
 
 - title: "Hummus Clásico Alto en Proteínas"
   slug: "hummus-clasico-alto-en-proteinas"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Hummus Clásico Alto en Proteínas.jpg"
   description: "Hummus tradicional de garbanzos remojados, tahini, ajo y aceite de oliva, potenciado con proteína en polvo."
   servings: 30
   recipe_type: "snack"
@@ -961,6 +981,7 @@
 
 - title: "Chocoavellana Muffins"
   slug: "chocoavellana-muffins"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Chocoavellana Muffins.jpg"
   description: "Muffins horneados con Batido Nutricional F1 sabor chocoavellana, avena y canela, listos en molde para muffins."
   servings: 4
   recipe_type: "postre"
@@ -1013,6 +1034,7 @@
 
 - title: "Crepa Proteica"
   slug: "crepa-proteica"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Crepa Proteica.jpg"
   description: "Crepa proteica salada rellena de queso mozzarella y pechuga de pavo, doblada en triángulo y servida con vinagre balsámico."
   servings: 2
   recipe_type: "comida"
@@ -1069,6 +1091,7 @@
 
 - title: "Sirope Proteico de Chocolate"
   slug: "sirope-proteico-de-chocolate"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Sirope Proteico de Chocolate.jpg"
   description: "Sirope cremoso de chocolate hecho con Protein Drink Mix, yogur natural y cacao en polvo sin azúcar, listo para acompañar otras preparaciones."
   servings: 28
   recipe_type: "otro"
@@ -1098,6 +1121,7 @@
 
 - title: "Batido Tartaleta de Fresa"
   slug: "batido-tartaleta-de-fresa"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Tartaleta de Fresa.jpg"
   description: "Batido de proteína sabor fresa con un toque de miel, licuado con hielo hasta espesar."
   servings: 1
   recipe_type: "batido"
@@ -1137,6 +1161,7 @@
 
 - title: "Batido Choco Explosión"
   slug: "batido-choco-explosion"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Batido Choco Explosión.jpg"
   description: "Batido de proteína que combina los sabores cookies & cream y chocoavellana, licuado con hielo y coronado con chispas de chocolate sin azúcar."
   servings: 1
   recipe_type: "batido"
@@ -1180,6 +1205,7 @@
 
 - title: "Té Berrylicious"
   slug: "te-berrylicious"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Berrylicious.jpg"
   description: "Bebida fría a base de N-R-G, aloe concentrado, té concentrado de hierbas y bebida de colágeno, con esencia de cereza o fresa, fresa fresca y hierbabuena."
   servings: 1
   recipe_type: "bebida"
@@ -1235,6 +1261,7 @@
 
 - title: "Waffles"
   slug: "waffles"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Waffles.jpg"
   description: "Waffles horneados en wafflera con masa proteica de avena y canela, servidos con un sirope casero de Batido F1 y almendras tostadas."
   servings: 1
   recipe_type: "desayuno"
@@ -1303,6 +1330,7 @@
 
 - title: "Té Mega Citrus"
   slug: "te-mega-citrus"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Té Mega Citrus.jpg"
   description: "Bebida fría cítrica de té concentrado de hierbas, N-R-G, bebida de colágeno y CR7 Drive, decorada con fresa, manzana y naranja."
   servings: 2
   recipe_type: "bebida"
@@ -1362,6 +1390,7 @@
 
 - title: "Choco Sundae Proteico"
   slug: "choco-sundae-proteico"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Choco Sundae Proteico.jpg"
   description: "Batido de proteína en capas — una base de cookies & cream y vainilla espesada con hielo, y una mezcla de chocoavellana disuelta en agua caliente — que imita un sundae."
   servings: 2
   recipe_type: "batido"
@@ -1410,6 +1439,7 @@
 
 - title: "Pizzeta con Vegetales"
   slug: "pizzeta-con-vegetales"
+  image_local_path: "/mnt/d/USUARIO/OneDrive/Documentos/hlf/Libros Mi nutricion Favorita/imagenes/Tomo2-Pizzeta con Vegetales.jpg"
   description: "Pizzeta cocinada en crepera con masa proteica de avena, cubierta con salsa de tomate, queso mozzarella, champiñones, pimiento, tomate deshidratado, albahaca y aceitunas negras."
   servings: 2
   recipe_type: "comida"

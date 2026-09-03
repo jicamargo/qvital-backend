@@ -985,6 +985,53 @@ puts "✅ Objetivos de salud creados: #{HealthGoal.count}"
 # markdown (mismo texto, mismos SKUs, misma información nutricional). Si el
 # markdown cambia, hay que regenerar a mano el YAML correspondiente — no son
 # una fuente independiente.
+require "net/http"
+
+# Sube la imagen local de una receta (extraída de los PDFs "Mi Nutrición
+# Favorita" — ver docs/requirements/recipe-images-req.md) al bucket `recipes`
+# de Supabase Storage y devuelve [image_url, image_path]. Mismo mecanismo que
+# el upload del panel admin (lib/services/recipeImages.ts en el frontend),
+# pero corrido server-side con el service role key porque acá el origen es un
+# archivo local, no un <input type="file"> de un navegador.
+#
+# No rompe el seed si no hay credenciales de Supabase configuradas o si el
+# archivo local no existe — solo lo reporta y sigue.
+def upload_recipe_image(slug:, local_path:)
+  return [nil, nil] if local_path.blank?
+
+  if ENV["SUPABASE_URL"].blank? || ENV["SUPABASE_SERVICE_ROLE_KEY"].blank?
+    puts "⚠️  SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY no configurados — se omite la subida de imagen de #{slug}"
+    return [nil, nil]
+  end
+
+  unless File.exist?(local_path)
+    puts "⚠️  Imagen local no encontrada para #{slug}: #{local_path}"
+    return [nil, nil]
+  end
+
+  ext = File.extname(local_path).delete_prefix(".").presence || "jpg"
+  content_type = { "jpg" => "image/jpeg", "jpeg" => "image/jpeg", "png" => "image/png", "webp" => "image/webp" }
+                 .fetch(ext, "application/octet-stream")
+  object_path = "#{slug}.#{ext}"
+
+  uri = URI.join(ENV["SUPABASE_URL"], "/storage/v1/object/recipes/#{object_path}")
+  request = Net::HTTP::Post.new(uri)
+  request["Authorization"] = "Bearer #{ENV['SUPABASE_SERVICE_ROLE_KEY']}"
+  request["apikey"] = ENV["SUPABASE_SERVICE_ROLE_KEY"]
+  request["Content-Type"] = content_type
+  request["x-upsert"] = "true"
+  request.body = File.binread(local_path)
+
+  response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(request) }
+  unless response.is_a?(Net::HTTPSuccess)
+    puts "⚠️  Error subiendo imagen de #{slug} a Supabase Storage: #{response.code} #{response.body}"
+    return [nil, nil]
+  end
+
+  image_url = URI.join(ENV["SUPABASE_URL"], "/storage/v1/object/public/recipes/#{object_path}").to_s
+  [image_url, object_path]
+end
+
 recipe_seed_files = Dir[Rails.root.join("db/seed_data/recipes/*.yml")].sort
 recipes_data = recipe_seed_files.flat_map { |file| YAML.load_file(file).map(&:deep_symbolize_keys) }
 
@@ -1016,6 +1063,21 @@ recipes_data.each do |data|
     active: true
   )
   recipe.save!
+
+  # Sube la imagen local (si el YAML trae `image_local_path` y hay
+  # credenciales de Supabase) y la asigna a la receta. Solo pisa image_url/
+  # image_path si están vacíos o si ya apuntan a un archivo subido por este
+  # mismo seed (nombre "<slug>.<ext>") — nunca sobreescribe una imagen subida
+  # a mano desde el panel admin, que usa un nombre aleatorio (uuid).
+  if data[:image_local_path].present?
+    expected_ext = File.extname(data[:image_local_path]).delete_prefix(".").presence || "jpg"
+    expected_image_path = "#{data[:slug]}.#{expected_ext}"
+
+    if recipe.image_path.blank? || recipe.image_path == expected_image_path
+      image_url, image_path = upload_recipe_image(slug: data[:slug], local_path: data[:image_local_path])
+      recipe.update!(image_url: image_url, image_path: image_path) if image_url
+    end
+  end
 
   # Reemplaza todos los ingredientes en vez de diffear por id — mismo
   # criterio que Admin::Recipes::Update, y hace el seed naturalmente
