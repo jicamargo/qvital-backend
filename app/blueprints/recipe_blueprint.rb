@@ -13,6 +13,6 @@ class RecipeBlueprint < Blueprinter::Base
 
   view :admin do
     include_view :detail
-    fields :active, :created_at, :updated_at
+    fields :active, :image_path, :created_at, :updated_at
   end
 end

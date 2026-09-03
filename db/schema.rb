@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_02_195130) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_03_150000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -324,6 +324,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_02_195130) do
     t.integer "recipe_type"
     t.text "tips"
     t.string "source"
+    t.string "image_path"
     t.index ["slug"], name: "index_recipes_on_slug", unique: true
   end
 

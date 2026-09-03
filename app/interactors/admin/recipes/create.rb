@@ -39,8 +39,8 @@ module Admin
       private
 
       def recipe_attributes
-        @params.slice(:title, :slug, :description, :servings, :prep_time_minutes, :difficulty, :instructions, :image_url, :active,
-                      :recipe_type, :calories, :protein_g, :carbs_g, :fat_g, :fiber_g, :tips, :source)
+        @params.slice(:title, :slug, :description, :servings, :prep_time_minutes, :difficulty, :instructions, :image_url,
+                      :image_path, :active, :recipe_type, :calories, :protein_g, :carbs_g, :fat_g, :fiber_g, :tips, :source)
       end
 
       def assign_ingredients!
