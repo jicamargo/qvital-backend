@@ -36,8 +36,34 @@ solo se documentan las decisiones específicas de recetas.
   (`authenticated`, no específicamente `role = 'admin'`), vía migración (no
   ad-hoc). Las policies de `products` no se tocaron.
 
-### 4. Estado
+### 4. Carga masiva desde los PDFs "Mi Nutrición Favorita" (2026-09-03)
 
-Shippeado 2026-09-03 en `feature/recipe-images` (ambos repos). Ver memoria
+Además de la subida manual desde el admin (arriba), las 119 recetas de los
+4 tomos ahora cargan su imagen automáticamente en `db/seeds.rb`:
+
+- [X] Extracción: `docs/knowledge/recetas-mi-nutricion-favorita-tomo-*.md`
+  llevan una línea `**Imagen local:**` por receta con la ruta a la foto
+  (extraída con `pymupdf` de la página del PDF — imagen embebida más grande
+  que no sea un ícono pequeño ni un fondo/decoración repetido entre páginas
+  del mismo tomo; 3 recetas necesitaron mirar la página siguiente porque su
+  foto queda ahí). Sin recorte manual — se guarda la foto completa tal cual
+  viene del PDF.
+- [X] `db/seed_data/recipes/tomo_*.yml` — mismo path en `image_local_path`
+  (extracción mecánica del markdown, igual que el resto de los campos).
+- [X] `db/seeds.rb` — helper `upload_recipe_image` sube el archivo local al
+  bucket `recipes` vía la Storage API con `SUPABASE_SERVICE_ROLE_KEY`
+  (server-side, no pasa por el flujo browser→Supabase del admin), nombre de
+  objeto determinístico `<slug>.<ext>`, `x-upsert: true`. Solo pisa
+  `image_url`/`image_path` de una receta si están vacíos o si ya apuntan a
+  ese mismo nombre determinístico — nunca sobreescribe una imagen subida a
+  mano desde el admin (esas usan un nombre `uuid` aleatorio).
+- Resultado verificado: 119/120 recetas con `image_url` (la 120 es la
+  receta de prueba preexistente fuera de los 4 tomos, correctamente sin
+  imagen).
+
+### 5. Estado
+
+Shippeado 2026-09-03 en `feature/recipe-images` y
+`feature/recipe-images-from-pdfs` (ambos repos donde aplica). Ver memoria
 `recipes-nutrition-fields-project` para el contexto del resto del trabajo de
 recetas.
