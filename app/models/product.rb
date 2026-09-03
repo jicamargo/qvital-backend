@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  include Searchable
+
   belongs_to :category, optional: true
   has_many :product_prices, dependent: :destroy
   has_many :levels, through: :product_prices
@@ -16,6 +18,8 @@ class Product < ApplicationRecord
   scope :inactive, -> { where(active: false) }
   scope :by_category, ->(category_id) { where(category_id: category_id) }
   scope :by_health_goal_key, ->(key) { joins(:health_goals).where(health_goals: { key: key }) }
+
+  searchable_by :name, :description, :sku, :flavor, associated_against: { category: [ :name ] }
 
   # Método para obtener el precio según el nivel del usuario
   # Optimizado para usar datos ya cargados en memoria (evita N+1)

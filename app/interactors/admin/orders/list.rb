@@ -98,18 +98,7 @@ module Admin
       def apply_search_filter(scope)
         return scope if @search.blank?
 
-        term = "%#{ActiveRecord::Base.sanitize_sql_like(@search.to_s.strip)}%"
-        ids = []
-        ids.concat(Order.joins(purchase: :user).where("users.email ILIKE ?", term).pluck(:id))
-        ids.concat(Order.joins(:purchase).where("purchases.purchase_number ILIKE ?", term).pluck(:id))
-        ids.concat(
-          Order.joins(purchase: :purchase_intent).where(
-            "purchase_intents.external_reference ILIKE ?",
-            term
-          ).pluck(:id)
-        )
-
-        scope.where(id: ids.uniq)
+        scope.where(purchase_id: Purchase.search_by_text(@search).select(:id))
       end
 
       def failure(message)

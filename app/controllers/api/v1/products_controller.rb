@@ -3,7 +3,7 @@ module Api
     class ProductsController < BaseController
       # GET /api/v1/products
       def index
-        result = Products::ListForUser.call(user: current_user, health_goal_key: params[:health_goal_key])
+        result = Products::ListForUser.call(user: current_user, health_goal_key: params[:health_goal_key], q: params[:q])
 
         if result.success?
           products_json = JSON.parse(

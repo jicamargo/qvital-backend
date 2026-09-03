@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Searchable
+
   belongs_to :level, optional: true
   has_many :coach_consultations, dependent: :destroy
   has_many :user_feature_usages, dependent: :destroy
@@ -15,6 +17,8 @@ class User < ApplicationRecord
   scope :admins, -> { where(role: 'admin') }
   scope :clientes, -> { where(role: 'cliente') }
   scope :active, -> { where.not(supabase_uid: nil) }
+
+  searchable_by :email, :name, :last_name
 
   def admin?
     role == 'admin'

@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  include Searchable
+
   has_many :recipe_ingredients, -> { order(:position) }, dependent: :destroy, inverse_of: :recipe
   has_many :products, through: :recipe_ingredients
   has_many :recipe_health_goals, dependent: :destroy
@@ -17,4 +19,6 @@ class Recipe < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :by_health_goal_key, ->(key) { joins(:health_goals).where(health_goals: { key: key }) }
   scope :by_product_id, ->(id) { joins(:recipe_ingredients).where(recipe_ingredients: { product_id: id }).distinct }
+
+  searchable_by :title, :description
 end
