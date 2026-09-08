@@ -12,6 +12,10 @@ class UserBlueprint < Blueprinter::Base
     user.premium?
   end
 
+  # Un usuario sí puede ver cuándo expira SU PROPIO Premium (no es un dato
+  # admin-only) — la pantalla /premium lo usa para mostrar "activo hasta...".
+  field :premium_expires_at
+
   # Incluir app_metadata con el role de Rails (similar a estructura de Supabase)
   field :app_metadata do |user|
     {
@@ -25,7 +29,7 @@ class UserBlueprint < Blueprinter::Base
   end
 
   view :admin do
-    fields :premium_expires_at, :created_at, :updated_at
+    fields :created_at, :updated_at
 
     field :account_status do |user|
       user.supabase_uid.present? ? 'activo' : 'pendiente'

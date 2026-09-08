@@ -69,7 +69,8 @@ module Api
             transaction_id: result.transaction_id,
             external_reference: result.external_reference,
             amount: result.amount,
-            currency: result.currency
+            currency: result.currency,
+            premium: premium_payload(result.payment)
           }, status: :ok
         rescue StandardError => e
           Rails.logger.error "Marketplace checkout status error: #{e.class.name} - #{e.message}"
@@ -77,6 +78,20 @@ module Api
         end
 
         private
+
+        # null si aún no hay `payment`/`purchase` resuelto para esta transacción
+        # (p. ej. mientras el pago sigue pending). Ver Marketplace::Orders::Complete
+        # #grant_premium_if_qualifies! — esto solo refleja lo que ya se decidió ahí.
+        def premium_payload(payment)
+          purchase = payment&.purchase
+          return nil unless purchase
+
+          {
+            granted: purchase.premium_granted,
+            active: purchase.user&.premium? || false,
+            expires_at: purchase.user&.premium_expires_at
+          }
+        end
 
         def prepare_params
           source_params =

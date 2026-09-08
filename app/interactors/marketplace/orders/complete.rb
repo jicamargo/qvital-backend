@@ -38,6 +38,7 @@ module Marketplace
           @purchase.update!(status: :confirmed)
           @orders.each { |order| order.update!(status: :confirmed) }
 
+          grant_premium_if_qualifies!
           complete_cart! if @cart_id
         end
 
@@ -91,6 +92,21 @@ module Marketplace
         return unless cart
 
         cart.update!(status: :completed)
+      end
+
+      # Beneficio Premium (no es una suscripción): toda compra confirmada con
+      # total >= al umbral configurado (Admin > Configuración) le da al
+      # usuario acceso Premium por 30 días desde este momento — se reinicia
+      # la ventana en cada compra que califique, sin acumular.
+      def grant_premium_if_qualifies!
+        user = @purchase.user
+        return unless user
+
+        threshold = AppSetting.current.premium_purchase_threshold
+        return unless @purchase.total_amount >= threshold
+
+        @purchase.update!(premium_granted: true)
+        user.update!(premium_active: true, premium_expires_at: 30.days.from_now)
       end
 
       # El pedido ya quedó confirmado en la transacción anterior; un fallo de

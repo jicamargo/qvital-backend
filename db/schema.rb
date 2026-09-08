@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -27,7 +27,12 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
   enable_extension "extensions.unaccent"
   enable_extension "extensions.uuid-ossp"
   enable_extension "pg_catalog.plpgsql"
-  enable_extension "vault.supabase_vault"
+
+  create_table "app_settings", force: :cascade do |t|
+    t.decimal "premium_purchase_threshold", precision: 12, scale: 2, default: "200000.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "body_emotion_insights", force: :cascade do |t|
     t.bigint "body_region_id", null: false
@@ -119,6 +124,22 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
     t.index ["user_id", "status"], name: "index_coach_consultations_on_user_id_and_status"
     t.index ["user_id"], name: "index_coach_consultations_on_user_id"
     t.index ["virtual_coach_profile_id"], name: "index_coach_consultations_on_virtual_coach_profile_id"
+  end
+
+  create_table "evaluation_leads", force: :cascade do |t|
+    t.string "email", null: false
+    t.integer "age"
+    t.string "sex"
+    t.decimal "weight_kg", precision: 5, scale: 2
+    t.decimal "height_cm", precision: 5, scale: 2
+    t.decimal "waist_cm", precision: 5, scale: 2
+    t.string "activity_level"
+    t.string "goal"
+    t.string "emotional_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_evaluation_leads_on_created_at"
+    t.index ["email"], name: "index_evaluation_leads_on_email"
   end
 
   create_table "health_checks", force: :cascade do |t|
@@ -274,6 +295,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "medical_disclaimer_accepted_at"
+    t.boolean "premium_granted", default: false, null: false
     t.index ["company_id"], name: "index_purchases_on_company_id"
     t.index ["purchase_intent_id"], name: "index_purchases_on_purchase_intent_id"
     t.index ["purchase_number"], name: "index_purchases_on_purchase_number", unique: true
@@ -326,6 +348,21 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
     t.string "source"
     t.string "image_path"
     t.index ["slug"], name: "index_recipes_on_slug", unique: true
+  end
+
+  create_table "tracking_entries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.decimal "weight_kg", precision: 5, scale: 2, null: false
+    t.decimal "waist_cm", precision: 5, scale: 2
+    t.string "mood"
+    t.string "energy_level"
+    t.integer "habits_completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "recorded_on", null: false
+    t.index ["user_id", "created_at"], name: "index_tracking_entries_on_user_id_and_created_at"
+    t.index ["user_id", "recorded_on"], name: "index_tracking_entries_on_user_id_and_recorded_on", unique: true
+    t.index ["user_id"], name: "index_tracking_entries_on_user_id"
   end
 
   create_table "user_feature_usages", force: :cascade do |t|
@@ -401,6 +438,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_03_170000) do
   add_foreign_key "recipe_health_goals", "recipes"
   add_foreign_key "recipe_ingredients", "products"
   add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "tracking_entries", "users"
   add_foreign_key "user_feature_usages", "users"
   add_foreign_key "users", "levels"
 end

@@ -47,6 +47,10 @@ module Marketplace
       def call
         return Result.new(error: "User is required") unless @user
         return Result.new(error: "Cart items are required") if @cart_items.empty?
+
+        address_errors = ::Colombia::AddressValidator.call(@shipping_address)
+        return Result.new(error: address_errors.join(". ")) if address_errors.any?
+
         validate_cart_products!
 
         subtotal = calculate_subtotal

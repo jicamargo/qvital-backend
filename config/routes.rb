@@ -15,6 +15,13 @@ Rails.application.routes.draw do
       resources :products, only: [:index]
       resources :categories, only: [:index]
       resources :health_goals, only: [:index]
+      resource :settings, only: [:show]
+      resources :evaluation_leads, only: [:create]
+      resources :tracking, only: [:index, :create] do
+        collection do
+          get :prefill
+        end
+      end
       resources :recipes, only: [:index, :show], param: :slug do
         collection do
           get :for_me
@@ -59,7 +66,7 @@ Rails.application.routes.draw do
           resources :insights
         end
 
-        resources :users, only: [:index]
+        resources :users, only: %i[index show update destroy]
         resources :products
         resources :health_goals
         resources :recipes
@@ -69,6 +76,7 @@ Rails.application.routes.draw do
             post :reconcile_wompi_payment
           end
         end
+        resource :settings, only: %i[show update]
       end
     end
   end

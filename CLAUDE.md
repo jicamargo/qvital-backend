@@ -136,6 +136,9 @@ Base: /api/v1/
 POST   /auth/sync
 POST   /auth/update_metadata
 
+# Growth — Evaluation Leads (public, no auth — pre-signup lead capture)
+POST   /evaluation_leads
+
 # Catalog (requires auth)
 GET    /products
 GET    /categories
@@ -258,6 +261,9 @@ Products::
 Categories::
   List
 
+EvaluationLeads::
+  Create
+
 Marketplace::Carts::
   FetchOpen
   AddItem
@@ -303,6 +309,7 @@ Admin::Orders::
 | orders            | Fulfillment record (status, tracking)        |
 | order_items       | Items in an order                            |
 | payments          | Payment record linked to Wompi transaction   |
+| evaluation_leads  | Pre-signup /evaluacion form + email, for later outreach |
 | health_checks     | Rails health check ping table                |
 
 ## Timezones
@@ -691,6 +698,24 @@ Avoid:
 
 ---
 
+# Testing
+
+Stock Rails Minitest — no RSpec, no FactoryBot/factories, no fixtures files. Tests live under `test/` (e.g. `test/controllers/api/v1/...`), mirroring `app/`'s namespacing.
+
+**Hard rule: every new controller or interactor — or any other change that warrants one — must ship with a test.** Don't leave that for a later PR.
+
+Conventions to follow (see `test/test_helper.rb` and the existing tests under `test/controllers/api/v1/` for concrete examples):
+
+* Auth: controllers under `Authenticatable` call `Auth::SyncUser.call(token:)`, which hits Supabase's real JWKS over the network. Never mint real JWTs in a test — use `stub_authenticated_as(user) { ... }` / `stub_sync_user(result) { ... }` from `test/test_helper.rb` to stand in for it.
+* No fixtures/factories: create the minimal records a test needs directly (e.g. `Level.find_or_create_by!(name: "Cliente") { |l| l.priority = 1 }`, same idempotent pattern as `db/seeds.rb`, then throwaway `User`/`Product`/etc. records). Each test runs in a rolled-back transaction, so this never pollutes real data.
+* Minitest 6 (the version this app uses) removed `Object#stub`/`Minitest::Mock` — don't reach for `SomeClass.stub(:method, value) { }`, it doesn't exist here. Follow the hand-rolled `define_singleton_method` pattern already in `test/test_helper.rb` instead of adding a mocking gem.
+* Never combine `as: :json` with `params:` on a `get` — Rails silently rewrites that into a POST with an `X-Http-Method-Override` header, and this API-only app has no middleware to reverse it, so it 404s. Only use `as: :json` on `post`/`patch`/`put`/`delete`.
+* Local/test DB setup (real Supabase data restored into `qvital_test`, `/db-connect` to switch environments) is documented in `docs/database.md` — read it before debugging anything that looks like a DB/environment problem rather than a real test failure.
+
+Run the suite with `RAILS_ENV=test bin/rails test` (see `docs/database.md` for one-time local setup).
+
+---
+
 # Git Workflow
 
 Branches:
@@ -706,6 +731,7 @@ Feature branches: `feature/<feature-name>`
 
 When generating backend code:
 
+* **Every new controller or interactor — or any other change that warrants one — must ship with a test.** See the "Testing" section above. This is non-negotiable.
 * **After any endpoint change or creation: update `/mnt/d/QVITAL/qvital-frontend/docs/endpoints/<resource>.md` and copy `db/schema.rb` to `/mnt/d/QVITAL/qvital-frontend/docs/schema.rb`.** This is non-negotiable.
 * Follow existing architecture — thin controllers, interactors for logic.
 * Use `blueprinter` blueprints for serialization (not jbuilder or as_json).

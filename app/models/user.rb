@@ -4,6 +4,7 @@ class User < ApplicationRecord
   belongs_to :level, optional: true
   has_many :coach_consultations, dependent: :destroy
   has_many :user_feature_usages, dependent: :destroy
+  has_many :tracking_entries, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :role, presence: true, inclusion: { in: %w[admin cliente] }

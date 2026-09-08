@@ -32,7 +32,8 @@ module Api
       private
 
       def profile_params
-        params.permit(:name, :last_name, :phone, address: [:street, :city, :state, :zipCode]).to_h
+        params.permit(:name, :last_name, :phone,
+                      address: [ :street, :city, :state, :zipCode, :addressDetails, :locality ]).to_h
       end
     end
   end

@@ -50,4 +50,12 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # qvital_test isn't built from db/schema.rb — it's a pg_restore'd copy of Supabase's
+  # public schema (see docs/database.md). db/schema.rb also declares Supabase-only
+  # schemas/extensions (e.g. vault.supabase_vault) that don't exist on local Postgres,
+  # so Rails' automatic "reload from schema.rb if it looks stale" check would purge
+  # and fail to rebuild qvital_test on every `bin/rails test` run. Restore the dump
+  # again (see docs/database.md) any time you need fresh data instead.
+  config.active_record.maintain_test_schema = false
 end
