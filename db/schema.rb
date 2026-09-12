@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_12_120001) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_12_190000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -392,7 +392,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_12_120001) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "name"], name: "index_user_habits_on_user_id_and_name", unique: true
+    t.index ["user_id", "name"], name: "index_user_habits_on_user_id_and_name_when_active", unique: true, where: "active"
     t.index ["user_id"], name: "index_user_habits_on_user_id"
   end
 

@@ -61,6 +61,21 @@ module Api
         assert JSON.parse(response.body)["details"].key?("name")
       end
 
+      test "create allows reusing the name of a habit the user already archived" do
+        archived = UserHabit.create!(user: @user, name: "Tomar agua", position: 1, active: false)
+
+        stub_authenticated_as(@user) do
+          assert_difference "UserHabit.count", 1 do
+            post api_v1_habits_path, params: { name: "Tomar agua" }, headers: auth_headers, as: :json
+          end
+        end
+
+        assert_response :created
+        habit = JSON.parse(response.body)["habit"]
+        assert_equal "Tomar agua", habit["name"]
+        refute_equal archived.id, habit["id"]
+      end
+
       test "create rejects a 6th active habit" do
         5.times { |i| UserHabit.create!(user: @user, name: "Habito #{i}", position: i) }
 
