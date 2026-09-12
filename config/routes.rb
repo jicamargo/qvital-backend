@@ -22,6 +22,11 @@ Rails.application.routes.draw do
           get :prefill
         end
       end
+      resources :habits, only: [:index, :create, :destroy] do
+        member do
+          post :toggle_completion
+        end
+      end
       resources :recipes, only: [:index, :show], param: :slug do
         collection do
           get :for_me

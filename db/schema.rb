@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_12_120001) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -140,6 +140,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_evaluation_leads_on_created_at"
     t.index ["email"], name: "index_evaluation_leads_on_email"
+  end
+
+  create_table "habit_completions", force: :cascade do |t|
+    t.bigint "user_habit_id", null: false
+    t.date "completed_on", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_habit_id", "completed_on"], name: "index_habit_completions_on_habit_and_date", unique: true
+    t.index ["user_habit_id"], name: "index_habit_completions_on_user_habit_id"
   end
 
   create_table "health_checks", force: :cascade do |t|
@@ -376,6 +385,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
     t.index ["user_id"], name: "index_user_feature_usages_on_user_id"
   end
 
+  create_table "user_habits", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_user_habits_on_user_id_and_name", unique: true
+    t.index ["user_id"], name: "index_user_habits_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password"
@@ -420,6 +440,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
   add_foreign_key "coach_consultation_entries", "coach_consultations"
   add_foreign_key "coach_consultations", "users"
   add_foreign_key "coach_consultations", "virtual_coach_profiles"
+  add_foreign_key "habit_completions", "user_habits"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "purchases"
@@ -440,5 +461,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_07_180001) do
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "tracking_entries", "users"
   add_foreign_key "user_feature_usages", "users"
+  add_foreign_key "user_habits", "users"
   add_foreign_key "users", "levels"
 end
