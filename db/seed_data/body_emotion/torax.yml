@@ -1,0 +1,94 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: torax
+#
+# Ambas fichas llevan severity_flag: sugerir_acompanamiento_profesional
+# (obligatorio, ver docs/requirements/brujula-corporal-expansion-plan.md §4 en
+# qvital-frontend): dolor de pecho o dificultad para respirar pueden ser señales
+# de alarma médica.
+body_system: torax
+regions:
+  - name: Pecho / corazón
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Sensación de opresión, peso o "apretón" en el pecho en momentos emocionales, o palpitaciones asociadas a
+        nervios o tristeza, después de haber descartado una causa cardíaca con un profesional.
+      emotional_theme: Afecto, alegría y heridas del corazón (sentirse poco querido o querida, o cerrarse al amor)
+      narrative_explanation: >-
+        El pecho es donde muchas personas sienten físicamente las emociones más fuertes: "se me encogió el
+        corazón", "tengo el pecho apretado", "se me partió el corazón". En el campo cuerpo-emoción, la zona del
+        corazón se asocia con la capacidad de dar y recibir afecto y con la alegría de vivir. Una opresión
+        recurrente en el pecho puede leerse como la huella de una pérdida afectiva, de una decepción o de haber
+        cerrado el corazón para protegerse. Es importante decirlo con claridad: esta lectura solo tiene sentido
+        cuando un profesional ya descartó una causa cardíaca o pulmonar.
+      reflective_questions:
+        - "¿Hay alguna pérdida, ruptura o decepción que todavía sientes 'en el pecho'?"
+        - "¿Te estás permitiendo recibir cariño, o sientes que tienes que ganártelo?"
+        - "¿Qué te daba alegría antes y has dejado de hacer?"
+      integration_guidance: >-
+        IMPORTANTE: un dolor u opresión en el pecho, sobre todo si se extiende al brazo, la mandíbula o la espalda,
+        o viene con falta de aire, sudor frío o mareo, es una urgencia médica: busca atención de inmediato. Si ya
+        descartaste una causa física: poner una mano en el pecho y respirar lento durante un minuto, notando el
+        latido. Escribir una carta (sin enviar) a la persona o situación que te dolió. Hacer esta semana una cosa
+        pequeña que antes te daba alegría. Si la opresión se repite, vuelve a consultar con un profesional de
+        salud; si la tristeza es persistente, considera el acompañamiento de un psicólogo o psicóloga.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - pecho
+        - corazon
+        - opresion_en_el_pecho
+        - palpitaciones
+        - afecto
+        - amor
+        - alegria
+        - desamor
+        - perdida
+        - duelo
+        - tristeza
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción. Zona con posible señal de alarma médica:
+        la ficha prioriza la derivación a urgencias/profesional antes de la lectura emocional.
+
+  - name: Pulmones / respiración
+    display_order: 2
+    insight:
+      symptom_pattern: >-
+        Sensación de no poder respirar profundo, suspiros frecuentes o respiración corta en momentos de tristeza
+        o angustia, después de haber descartado una causa respiratoria con un profesional.
+      emotional_theme: Tristeza, duelo y dificultad para "tomar" la vida a pleno pulmón
+      narrative_explanation: >-
+        Respirar es lo primero que hacemos al nacer y lo que más cambia con nuestro estado emocional: se acelera
+        con el miedo, se corta con la angustia y se vuelve suspiro con la tristeza. En el campo cuerpo-emoción, los
+        pulmones se asocian con el duelo y con la capacidad de tomar la vida con plenitud; sentir que "no entra el
+        aire" puede leerse como una tristeza que no se ha llorado, o como la sensación de no tener espacio propio
+        para vivir. Esta lectura solo tiene sentido cuando un profesional ya descartó una causa física.
+      reflective_questions:
+        - "¿Hay alguna tristeza o duelo que no te has permitido llorar?"
+        - "¿En qué parte de tu vida sientes que 'te falta el aire' o el espacio?"
+        - "¿Qué necesitarías para sentir que puedes vivir con más plenitud?"
+      integration_guidance: >-
+        IMPORTANTE: la dificultad para respirar que aparece de repente, empeora, viene con dolor en el pecho,
+        labios morados o fiebre, es una urgencia médica: busca atención de inmediato. Si ya descartaste una causa
+        física: practicar respiración 4-6 (inhalar en 4 tiempos, exhalar en 6) durante tres minutos. Darte un
+        espacio para sentir la tristeza sin taparla: escribir, llorar o hablar con alguien de confianza. Salir a
+        caminar al aire libre. Si la sensación de falta de aire se repite, vuelve a consultar con un profesional
+        de salud; si la tristeza o la angustia son persistentes, considera el acompañamiento de un psicólogo o
+        psicóloga.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - pulmones
+        - respiracion
+        - falta_de_aire
+        - ahogo
+        - suspiros
+        - asma
+        - tristeza
+        - duelo
+        - angustia
+        - espacio_propio
+      content_curation_notes: *fuentes_web

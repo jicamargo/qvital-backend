@@ -1,0 +1,50 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: piel
+body_system: piel
+regions:
+  - name: Piel
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Brotes, picazón, enrojecimiento, resequedad o irritación en la piel que aparecen o empeoran en épocas de
+        estrés o de conflictos con otras personas, sin una causa clínica identificada.
+      emotional_theme: Contacto, límites y separación; cómo nos relacionamos con los demás
+      narrative_explanation: >-
+        La piel es la frontera entre nosotros y el mundo: es lo primero que toca y es tocado, y lo que nos protege.
+        Es conocido que el estrés influye en muchas condiciones de la piel. En el campo cuerpo-emoción, la piel se
+        asocia con el contacto y los límites: la necesidad de cercanía y afecto físico, la dificultad para poner
+        límites a otros ("me saca de quicio", "me tiene hasta la coronilla"), o una separación dolorosa de alguien
+        importante. También se lee en ella la preocupación por la imagen y por lo que los demás piensan. Es una
+        invitación a mirar cómo estás viviendo tus relaciones y tus fronteras personales.
+      reflective_questions:
+        - "¿Hay alguien que sientes que invade tu espacio o 'se te mete debajo de la piel'?"
+        - "¿Has vivido recientemente una separación o distancia de alguien importante?"
+        - "¿Cuánto te preocupa lo que los demás ven o piensan de ti?"
+      integration_guidance: >-
+        Cuidar la piel con gestos simples: agua suficiente, un hidratante suave y evitar rascarse. Tomarte unos
+        minutos para aplicar la crema con calma, como un acto de cuidado propio. Identificar un límite que
+        necesitas poner con alguien y ensayar una frase corta para decirlo. Si hay heridas, manchas que cambian de
+        forma o color, ampollas, fiebre o la irritación persiste, consultar con un dermatólogo o un profesional de
+        salud.
+      severity_flag: informativo
+      tags:
+        - piel
+        - dermatitis
+        - eccema
+        - acne
+        - picazon
+        - alergia
+        - psoriasis
+        - urticaria
+        - contacto
+        - limites
+        - separacion
+        - imagen
+        - relaciones
+      content_curation_notes: >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.

@@ -871,81 +871,43 @@ coach_profile.save!
 
 puts "✅ Coach Virtual creada: #{coach_profile.display_name}"
 
-body_regions_data = [
-  { name: "Garganta", body_system: :cabeza_cuello, display_order: 1 },
-  { name: "Estómago / sistema digestivo", body_system: :digestivo, display_order: 1 }
-]
+# Zonas del cuerpo + fichas Cuerpo-Emoción (una ficha por zona — FindForRegion
+# solo muestra la primera ficha publicada de cada zona).
+#
+# Los datos viven en db/seed_data/body_emotion/<body_system>.yml, redactados
+# por QVITAL con palabras propias (SDD §3.2) — ver
+# docs/requirements/brujula-corporal-expansion-plan.md (repo qvital-frontend).
+#
+# Status: las fichas nuevas se crean `publicado` en desarrollo (para probar el
+# flujo) y `borrador` en producción (requieren revisión editorial). A las fichas
+# que ya existen nunca se les cambia el status, para no despublicar ni publicar
+# lo que un editor ya decidió desde el panel admin.
+new_insight_status = Rails.env.production? ? :borrador : :publicado
 
-body_regions_data.each do |attrs|
-  region = BodyRegion.find_or_initialize_by(name: attrs[:name])
-  region.body_system = attrs[:body_system]
-  region.display_order = attrs[:display_order]
-  region.active = true
-  region.save!
+body_emotion_seed_files = Dir[Rails.root.join("db/seed_data/body_emotion/*.yml")].sort
+body_emotion_data = body_emotion_seed_files.map { |file| YAML.load_file(file, aliases: true).deep_symbolize_keys }
+
+duplicate_region_names = body_emotion_data.flat_map { |d| d[:regions].map { |r| r[:name] } }
+                                          .tally.select { |_, count| count > 1 }.keys
+raise "Zonas duplicadas en seed_data de body_emotion: #{duplicate_region_names.join(', ')}" if duplicate_region_names.any?
+
+body_emotion_data.each do |data|
+  data[:regions].each do |attrs|
+    region = BodyRegion.find_or_initialize_by(name: attrs[:name])
+    region.body_system = data[:body_system]
+    region.display_order = attrs[:display_order]
+    region.focus_areas = attrs[:focus_areas] || []
+    region.active = true
+    region.save!
+
+    insight = region.body_emotion_insights.order(:id).first_or_initialize
+    insight.status = new_insight_status if insight.new_record?
+    insight.assign_attributes(attrs[:insight].except(:status))
+    insight.save!
+  end
 end
 
 puts "✅ Zonas del cuerpo creadas: #{BodyRegion.count}"
-
-# Fichas iniciales (Anexo A del SDD) — redactadas por QVITAL, no copiadas de
-# ninguna fuente externa. Publicadas para poder probar el flujo end-to-end en
-# desarrollo; en producción deben quedar en `borrador` hasta revisión editorial.
-insights_data = [
-  {
-    body_region_name: "Garganta",
-    symptom_pattern: "Molestia, opresión, carraspera o nudo frecuente en la garganta, sin causa clínica identificada.",
-    emotional_theme: "Dificultad para expresar lo que se piensa o se siente",
-    narrative_explanation: "La garganta funciona como el canal entre el pensamiento y la acción: por ahí pasa lo " \
-      "que decidimos decir (o callar). Cuando algo importante se queda sin expresar — una palabra que no se dijo, " \
-      "un límite que no se puso, una emoción que se \"tragó\" para evitar un conflicto — el cuerpo puede traducir " \
-      "esa tensión acumulada en una sensación física en esa zona. No se trata de que \"algo está mal\" en la " \
-      "garganta, sino de una posible señal de que hay algo pendiente por decir.",
-    reflective_questions: [
-      "¿Hay algo que llevas tiempo queriendo decir y no te has permitido expresar?",
-      "¿En qué situación reciente sentiste que te 'tragaste' tus palabras?",
-      "¿A quién le temes decirle lo que realmente piensas, y qué es exactamente lo que temes que pase?"
-    ],
-    integration_guidance: "Escribir (sin enviar) la conversación que no has tenido, como ejercicio de descarga. " \
-      "Practicar decir una frase pequeña y honesta en voz alta antes de una conversación difícil. Si la molestia " \
-      "física persiste más de unos días, consultar con un profesional de salud.",
-    severity_flag: :informativo,
-    tags: %w[garganta expresion comunicacion],
-    status: :publicado,
-    content_curation_notes: "Redactado por el equipo QVITAL a partir del marco general de biodescodificación " \
-      "revisado en Top Doctors Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente."
-  },
-  {
-    body_region_name: "Estómago / sistema digestivo",
-    symptom_pattern: "Molestias digestivas recurrentes (pesadez, acidez, dificultad para digerir) sin causa " \
-      "clínica clara.",
-    emotional_theme: "Dificultad para 'asimilar' o aceptar una situación, cambio o experiencia reciente",
-    narrative_explanation: "Así como el estómago procesa lo que comemos, solemos usar ese mismo lenguaje para " \
-      "hablar de experiencias difíciles de aceptar: \"no lo puedo digerir\", \"me cayó pesado\". Cuando hay un " \
-      "cambio, una noticia o una situación que cuesta aceptar o procesar emocionalmente, el cuerpo a veces refleja " \
-      "esa dificultad de \"asimilación\" en el sistema digestivo. Es una invitación a mirar qué se está intentando " \
-      "procesar a nivel emocional, no una explicación única ni definitiva del síntoma.",
-    reflective_questions: [
-      "¿Qué situación reciente te ha costado aceptar o 'digerir'?",
-      "¿Hay un cambio en tu vida que sientes que no has procesado del todo?",
-      "¿En qué momento del día notas más la molestia, y qué estabas pensando justo antes?"
-    ],
-    integration_guidance: "Journaling breve al final del día nombrando una cosa que \"cuesta digerir\". Pausa " \
-      "consciente antes de comer (respirar, bajar el ritmo) como práctica de \"recibir\" en vez de \"tragar " \
-      "rápido\". Si la molestia física persiste, consultar con un profesional de salud.",
-    severity_flag: :informativo,
-    tags: %w[digestivo estomago asimilacion cambio],
-    status: :publicado,
-    content_curation_notes: "Redactado por el equipo QVITAL a partir del marco general de biodescodificación " \
-      "revisado en Top Doctors Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente."
-  }
-]
-
-insights_data.each do |attrs|
-  region = BodyRegion.find_by!(name: attrs[:body_region_name])
-  insight = BodyEmotionInsight.find_or_initialize_by(body_region: region, symptom_pattern: attrs[:symptom_pattern])
-  insight.assign_attributes(attrs.except(:body_region_name, :symptom_pattern))
-  insight.save!
-end
-
 puts "✅ Fichas Cuerpo-Emoción creadas: #{BodyEmotionInsight.count}"
 
 # Seed de objetivos de salud (Fase 3 — ver docs/requirements/fase3-personalizacion-objetivos-salud.md §2.1)

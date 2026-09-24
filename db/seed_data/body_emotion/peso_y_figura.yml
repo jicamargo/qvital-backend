@@ -1,0 +1,281 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: peso_y_figura
+# Enfoque "Peso y emociones" (focus_areas: control_peso). Ver
+# docs/requirements/brujula-corporal-peso-emocional-plan.md (repo qvital-frontend).
+#
+# Reglas extra de este enfoque (plan §3), además de SDD §3.2:
+# - Neutralidad corporal: sin juicios estéticos ni lenguaje que avergüence.
+# - narrative_explanation: primero lo que sí se sabe (estrés/cortisol, sueño,
+#   hambre emocional), después la lectura cuerpo-emoción como invitación.
+# - integration_guidance cierra SIEMPRE con la línea de derivación por posibles
+#   trastornos de la conducta alimentaria (lo valida el test de seed_data).
+# - Nunca prometer reducción localizada de grasa por vía emocional, ni
+#   atribuirla a abusos/traumas (afirmaciones excluidas, plan §2.3).
+body_system: peso_y_figura
+regions:
+  - name: Grasa abdominal
+    display_order: 1
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Tendencia a acumular grasa en el abdomen o la cintura, que aumenta en épocas de estrés, mal sueño o
+        mucha carga emocional, aunque la alimentación no haya cambiado mucho.
+      emotional_theme: Estrés sostenido y emociones guardadas en el centro del cuerpo; necesidad de protegerse
+      narrative_explanation: >-
+        Esta es una de las pocas relaciones cuerpo-emoción con respaldo científico claro: el estrés que se
+        mantiene en el tiempo eleva el cortisol, y la grasa del abdomen es especialmente sensible a esa hormona,
+        así que tiende a acumularse ahí más que en otras zonas. El cortisol también aumenta el apetito por
+        alimentos dulces y grasos. Por eso la grasa abdominal suele hablar más del ritmo de vida que de "falta de
+        voluntad". Desde la mirada cuerpo-emoción, el vientre es además el centro del cuerpo, donde muchas
+        personas sienten los nervios, la frustración o lo que no se dice; varios autores lo leen como una especie
+        de escudo que protege ese centro. No se trata de "atacar" la zona, sino de preguntarte qué te está
+        tensionando y cómo puedes cuidarte mejor.
+      reflective_questions:
+        - "¿Qué situación de tu vida te mantiene en tensión o 'en alerta' la mayor parte del tiempo?"
+        - "¿Qué emociones sientes en el estómago o el vientre y no sueles expresar?"
+        - "¿Cómo están tu sueño y tus momentos de descanso en esta etapa?"
+      integration_guidance: >-
+        Elegir una práctica diaria para bajar el estrés, aunque sean cinco minutos: respiración lenta con la mano
+        en el vientre, una caminata o estiramientos. Cuidar el sueño, porque dormir poco sube el cortisol y el
+        apetito. Antes de comer, hacer una pausa breve y preguntarte si tienes hambre física o necesitas calmar
+        algo. La grasa abdominal está asociada a un mayor riesgo cardiometabólico: vale la pena una valoración
+        con un profesional de salud (perímetro de cintura, glucosa, presión arterial) y apoyarte en tu plan de
+        nutrición. Si notas que comes a escondidas, que te das atracones, que restringes mucho o compensas lo que
+        comes, o si la comida te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - grasa_abdominal
+        - abdomen
+        - barriga
+        - vientre
+        - cintura
+        - sobrepeso
+        - bajar_de_peso
+        - estres
+        - cortisol
+        - proteccion
+        - hambre_emocional
+        - sueno
+      content_curation_notes: &fuentes_peso >-
+        Redactado por el equipo QVITAL (2026-09-24). Base científica: Björntorp, "Is visceral obesity a
+        physiological adaptation to stress?" (PubMed 14618117); revisión "Emotional Eating and Abdominal
+        Obesity" (PubMed 42280410); "Interrelation of Stress, Eating Behavior, and Body Adiposity in Women with
+        Obesity" (Nutrients 2024, PMC11643766); Daubenmier et al., mindfulness para comer por estrés (J Obesity
+        2011). Lectura cuerpo-emoción: asociaciones coincidentes entre Enric Corbera Institute, Instituto
+        Ángeles Wolder, biodescodifica.net, Escucha Biológica, Joman Romero, Psicosesión y Geosalud; se
+        excluyeron a propósito las afirmaciones sobre abusos, humillación en la infancia y el lenguaje que
+        avergüenza el cuerpo. Mensajes seguros sobre peso según NEDA (Weight Stigma). Texto propio, no es copia
+        ni traducción de ninguna fuente. Pendiente de revisión editorial (idealmente por nutrición y psicología)
+        antes de publicar en producción.
+
+  - name: Sobrepeso general
+    display_order: 2
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Sensación de que el cuerpo "no baja" o vuelve a subir de peso a pesar de los esfuerzos, o aumento de peso
+        que coincide con una etapa emocional difícil.
+      emotional_theme: El peso como abrigo o protección; sentirse expuesto, invadido o poco valorado
+      narrative_explanation: >-
+        El peso depende de muchos factores —genética, hormonas, medicamentos, sueño, actividad, alimentación— y
+        ninguno de ellos es un fallo personal. Lo que sí se sabe es que el estrés crónico y el mal descanso
+        alteran las hormonas del hambre y la saciedad, lo que hace más difícil sostener cualquier cambio. En el
+        campo cuerpo-emoción, la lectura más repetida entre autores es la del peso como una forma de protección:
+        un "abrigo" que el cuerpo construye cuando la persona se siente amenazada, expuesta, invadida en su
+        espacio o poco valorada, o una manera de "ocupar espacio" cuando se siente invisible. Es una invitación a
+        mirar qué necesitas proteger, sin culparte y sin reducir tu cuerpo a un número.
+      reflective_questions:
+        - "¿En qué etapa de tu vida empezó a cambiar tu peso, y qué estaba pasando en ese momento?"
+        - "¿De qué o de quién sientes que necesitas protegerte hoy?"
+        - "¿Cómo le hablas a tu cuerpo cuando te miras al espejo? ¿Le hablarías así a alguien que quieres?"
+      integration_guidance: >-
+        Cambiar la meta de "bajar ya" por pequeños hábitos sostenibles: dormir mejor, moverte algo cada día,
+        comer con horarios regulares; tu plan de QVITAL puede ayudarte con eso. Practicar un trato más amable con
+        tu cuerpo: nombrar cada día algo que tu cuerpo hace por ti. Escribir sobre la etapa en la que empezó el
+        cambio de peso y qué necesitabas en ese momento. Si el peso cambia sin explicación o de forma rápida,
+        consulta con un profesional de salud para descartar causas hormonales o de medicamentos. Si notas que
+        comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la comida
+        te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - sobrepeso
+        - obesidad
+        - peso
+        - bajar_de_peso
+        - no_bajo_de_peso
+        - rebote
+        - proteccion
+        - autoestima
+        - imagen_corporal
+        - estres
+      content_curation_notes: *fuentes_peso
+
+  - name: Hambre emocional / antojos
+    display_order: 3
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Ganas de comer que aparecen de repente, sobre todo dulce o comida rápida, en momentos de estrés,
+        aburrimiento, tristeza, soledad o al final de un día difícil, aunque no haya hambre física.
+      emotional_theme: Usar la comida para calmar, llenar un vacío o premiarse
+      narrative_explanation: >-
+        El hambre emocional está bien estudiada: el estrés eleva el cortisol, que aumenta el deseo de alimentos
+        dulces y grasos, y esos alimentos dan un alivio rápido porque activan los circuitos de recompensa del
+        cerebro. No es falta de voluntad: es una forma, muy humana, de regular una emoción. Una manera sencilla
+        de distinguirlo: el hambre física llega poco a poco y se calma con casi cualquier comida; el hambre
+        emocional llega de golpe, pide algo específico y a veces deja culpa. Desde la mirada cuerpo-emoción, el
+        antojo suele leerse como una necesidad de dulzura, compañía, descanso o recompensa que no se está
+        recibiendo por otro lado. La pregunta útil no es "¿cómo lo evito?", sino "¿qué necesito de verdad?".
+      reflective_questions:
+        - "Justo antes del último antojo, ¿qué estabas sintiendo?"
+        - "Si la comida no fuera una opción en ese momento, ¿qué otra cosa te calmaría o te haría sentir bien?"
+        - "¿Qué te falta en tu día que buscas en la comida (descanso, compañía, dulzura, un premio)?"
+      integration_guidance: >-
+        Cuando aparezca el antojo, hacer la pausa de los tres pasos: respirar hondo tres veces, nombrar la emoción
+        que sientes y preguntarte qué necesitas. Tener a mano dos o tres alternativas que te den lo mismo sin
+        comida: llamar a alguien, salir a caminar, un baño tibio, escribir. Si decides comer, hacerlo sentado o
+        sentada, despacio y sin culpa. Llevar un registro de antojos durante una semana (hora, emoción, qué
+        pasó) para encontrar patrones. Evitar pasar muchas horas sin comer, porque el hambre física acumulada
+        hace más fuertes los antojos. Si notas que comes a escondidas, que te das atracones, que restringes mucho
+        o compensas lo que comes, o si la comida te genera mucha culpa, busca apoyo de un profesional de salud
+        mental.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - hambre_emocional
+        - antojos
+        - ansiedad_por_comer
+        - comer_por_estres
+        - comer_por_ansiedad
+        - dulce
+        - atracones
+        - culpa
+        - recompensa
+        - vacio
+        - soledad
+        - aburrimiento
+        - sobrepeso
+      content_curation_notes: *fuentes_peso
+
+  - name: Grasa en la espalda
+    display_order: 4
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Tendencia a acumular grasa en la espalda alta, bajo los omóplatos o en los costados de la cintura, junto
+        con tensión o cansancio en la espalda.
+      emotional_theme: Cargar con todo; sentir que hay que ser fuerte para sostener a los demás
+      narrative_explanation: >-
+        La grasa en la espalda suele estar relacionada con el peso general, la edad, las hormonas y la falta de
+        movimiento de esa zona en la vida diaria, sobre todo cuando pasamos muchas horas sentados. Es una zona
+        que casi nunca vemos y que muchas veces se descuida. En el campo cuerpo-emoción, la espalda es el lugar
+        de las cargas: varios autores leen la acumulación en la espalda alta como un mensaje de "tengo que ser
+        más fuerte para sostener todo esto", y la de la espalda baja como una forma de protegerse de
+        experiencias difíciles del pasado o del miedo a lo que viene. Es una invitación a revisar cuánto estás
+        cargando y quién te respalda a ti.
+      reflective_questions:
+        - "¿Qué responsabilidades o personas sientes que cargas sobre tu espalda?"
+        - "¿Quién te sostiene a ti cuando lo necesitas?"
+        - "¿Hay algo del pasado que sigues llevando contigo y te gustaría soltar?"
+      integration_guidance: >-
+        Incluir en tu semana movimientos que trabajen la espalda y la postura: remo con banda elástica, nadar,
+        estiramientos o yoga. Hacer pausas activas si trabajas sentado o sentada. Pedir ayuda concreta con una
+        tarea que siempre cargas sola o solo. Recuerda que no es posible reducir grasa solo en una zona: los
+        cambios llegan con hábitos generales sostenidos, y tu plan de QVITAL puede acompañarte. Si notas que
+        comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la comida
+        te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      severity_flag: informativo
+      tags:
+        - grasa_en_la_espalda
+        - espalda
+        - llantitas
+        - costados
+        - postura
+        - cargas
+        - responsabilidades
+        - apoyo
+        - sobrepeso
+        - sedentarismo
+      content_curation_notes: *fuentes_peso
+
+  - name: Grasa en caderas y muslos
+    display_order: 5
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Tendencia a acumular grasa en las caderas, los glúteos o los muslos, que se mantiene aunque se baje de
+        peso en otras zonas.
+      emotional_theme: Necesidad de sostén, de una base propia y de espacio
+      narrative_explanation: >-
+        Acumular grasa en caderas y muslos es, en gran parte, una cuestión de hormonas y genética: en muchas
+        mujeres, los estrógenos favorecen esta distribución, y es una de las zonas que más tarda en cambiar. No
+        tiene una relación directa con el estrés como la grasa abdominal, así que la lectura emocional aquí es
+        solo simbólica. En el campo cuerpo-emoción, caderas y muslos se asocian con el sostén y la base: la
+        seguridad afectiva y económica, la independencia y la posibilidad de avanzar con apoyo propio. Algunos
+        autores lo leen como "me hago más grande para sostenerme" o para ganar un espacio que se siente
+        negado. Tómalo como una invitación a reflexionar sobre tu base, no como una explicación de tu cuerpo.
+      reflective_questions:
+        - "¿Qué te da sostén en la vida hoy, y qué sientes que te falta?"
+        - "¿Te sientes con la libertad de tomar tus propias decisiones y avanzar a tu ritmo?"
+        - "¿En qué espacios de tu vida sientes que tienes que 'hacerte grande' para que te tengan en cuenta?"
+      integration_guidance: >-
+        Priorizar el movimiento que fortalece piernas y caderas y te hace sentir bien: caminar, bailar,
+        sentadillas suaves, bicicleta. Practicar la neutralidad corporal: agradecer lo que tus piernas te permiten
+        hacer en vez de juzgar cómo se ven. Escribir qué te daría más seguridad y autonomía en este momento, y un
+        paso pequeño hacia eso. Recuerda que no es posible reducir grasa solo en una zona y que esta
+        distribución tiene mucho de genética; tu plan de QVITAL puede acompañarte con hábitos generales. Si notas
+        que comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la
+        comida te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      severity_flag: informativo
+      tags:
+        - caderas
+        - muslos
+        - gluteos
+        - piernas
+        - celulitis
+        - sosten
+        - apoyo
+        - independencia
+        - espacio_propio
+        - imagen_corporal
+        - sobrepeso
+      content_curation_notes: *fuentes_peso
+
+  - name: Grasa en los brazos
+    display_order: 6
+    focus_areas: [control_peso]
+    insight:
+      symptom_pattern: >-
+        Tendencia a acumular grasa en la parte de atrás de los brazos, a veces acompañada de sensación de
+        cansancio en brazos y hombros.
+      emotional_theme: Tener que poder con todo; sentir que lo que se hace nunca es suficiente
+      narrative_explanation: >-
+        La grasa en los brazos se relaciona sobre todo con la genética, los cambios hormonales (por ejemplo,
+        en la menopausia), la pérdida de masa muscular con la edad y el peso general. En el campo cuerpo-emoción,
+        los brazos son la herramienta con la que hacemos, abrazamos y luchamos. Varios autores leen la
+        acumulación en esta zona como la necesidad de "ser fuerte para luchar": sentir que hay que resolverlo
+        todo, cuidar a todos y que, aun así, lo que se hace nunca alcanza. Es una invitación a revisar desde
+        dónde estás haciendo las cosas: desde el deseo, o desde la obligación de demostrar.
+      reflective_questions:
+        - "¿Sientes que tienes que demostrar constantemente que puedes con todo?"
+        - "¿Qué pasaría si hicieras un poco menos y pidieras un poco más de ayuda?"
+        - "¿Cuándo fue la última vez que recibiste un abrazo sin tener que dar nada a cambio?"
+      integration_guidance: >-
+        Incluir ejercicios de fuerza para brazos y espalda dos o tres veces por semana (con bandas o pesas
+        ligeras): mantener la masa muscular es de lo más útil con los años. Hacer una lista de lo que haces por
+        obligación y marcar una cosa que podrías delegar o soltar. Darte permiso para recibir: aceptar ayuda o un
+        abrazo sin justificarlo. Recuerda que no es posible reducir grasa solo en una zona; tu plan de QVITAL
+        puede acompañarte con hábitos generales. Si notas que comes a escondidas, que te das atracones, que
+        restringes mucho o compensas lo que comes, o si la comida te genera mucha culpa, busca apoyo de un
+        profesional de salud mental.
+      severity_flag: informativo
+      tags:
+        - brazos
+        - grasa_en_los_brazos
+        - flacidez
+        - fuerza
+        - autoexigencia
+        - demostrar
+        - deber
+        - recibir
+        - menopausia
+        - sobrepeso
+      content_curation_notes: *fuentes_peso

@@ -4,9 +4,9 @@ module Api
       class BodyRegionsController < BaseController
         before_action :authorize_premium!
 
-        # GET /api/v1/coach_virtual/body_regions
+        # GET /api/v1/coach_virtual/body_regions(?focus_area=control_peso)
         def index
-          result = ::CoachVirtual::BodyRegions::List.call
+          result = ::CoachVirtual::BodyRegions::List.call(focus_area: params[:focus_area])
 
           if result.success?
             body_regions_json = JSON.parse(BodyRegionBlueprint.render(result.body_regions))
