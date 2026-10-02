@@ -99,6 +99,25 @@ module Api
           render json: { error: 'Internal server error' }, status: :internal_server_error
         end
 
+        # POST /api/v1/coach_virtual/consultations/:id/practice_choices
+        def practice_choices
+          result = ::CoachVirtual::Consultations::RegisterPracticeChoice.call(
+            user: current_user,
+            consultation_id: params[:id],
+            title: practice_choice_params[:title],
+            added_to_habits: practice_choice_params[:added_to_habits]
+          )
+
+          if result.success?
+            render_consultation(result.consultation)
+          else
+            render json: { error: result.error }, status: :unprocessable_entity
+          end
+        rescue StandardError => e
+          Rails.logger.error "Coach consultations practice_choices error: #{e.class.name} - #{e.message}"
+          render json: { error: 'Internal server error' }, status: :internal_server_error
+        end
+
         private
 
         # `result.consultation` no siempre trae los entries eager-loaded (ej.
@@ -122,6 +141,10 @@ module Api
 
         def reflection_answer_params
           params.require(:reflection_answer).permit(:question, :answer)
+        end
+
+        def practice_choice_params
+          params.require(:practice_choice).permit(:title, :added_to_habits)
         end
       end
     end
