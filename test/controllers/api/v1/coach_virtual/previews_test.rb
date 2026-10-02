@@ -21,6 +21,14 @@ module Api
               { "title" => "Práctica dos oculta", "description" => "Descripción dos." }
             ]
           )
+          # Con ficha publicada: el 404 de esta zona solo puede venir del filtro de zonas activas.
+          BodyEmotionInsight.create!(
+            body_region: @inactive_region, status: :publicado, symptom_pattern: "Rigidez",
+            emotional_theme: "Tema inactivo", narrative_explanation: "Explicación inactiva",
+            integration_guidance: "Guía inactiva",
+            reflective_questions: [ "Pregunta de zona inactiva?" ],
+            practices: [ { "title" => "Práctica inactiva", "description" => "Descripción inactiva." } ]
+          )
         end
 
         def get_preview(region_id)
