@@ -30,6 +30,13 @@ regions:
         hacer hoy de lo que no está en tus manos. Reducir pantallas la última hora antes de dormir. Si el dolor
         de cabeza es muy intenso o repentino, viene con fiebre, cambios en la visión o dificultad para hablar, o
         se vuelve cada vez más frecuente, consultar con un profesional de salud.
+      practices:
+        - title: Pausa de dos minutos
+          description: Cada pocas horas, suelta los hombros, afloja la mandíbula y respira lento sintiendo los pies en el piso.
+        - title: Lo que sí y lo que no
+          description: Escribe lo que te preocupa y separa lo que puedes hacer hoy de lo que no está en tus manos.
+        - title: Última hora sin pantallas
+          description: Apaga el celular y la televisión una hora antes de dormir.
       severity_flag: informativo
       tags:
         - cabeza
@@ -52,6 +59,7 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Ojos
     display_order: 2
@@ -77,6 +85,13 @@ regions:
         Cerrar los ojos y cubrirlos con las palmas tibias un minuto, respirando lento. Escribir la situación que
         te cuesta ver y, debajo, una forma distinta de mirarla. Si notas cambios en la visión, dolor fuerte,
         enrojecimiento que no cede o molestias que persisten, consultar con un profesional de salud visual.
+      practices:
+        - title: Mirar a lo lejos
+          description: Cada 20 minutos frente a la pantalla, mira algo lejano durante 20 segundos.
+        - title: Palmas tibias en los ojos
+          description: Frota tus manos, cubre con ellas los ojos cerrados un minuto y respira despacio.
+        - title: Mirarlo de otra manera
+          description: Escribe la situación que te cuesta ver y, debajo, otra forma de mirarla.
       severity_flag: informativo
       tags:
         - ojos
@@ -116,6 +131,13 @@ regions:
         circulares. Antes de dormir, escribir lo que te molestó en el día para "descargarlo" fuera de la cabeza.
         Si rechinas los dientes, sientes dolor al abrir la boca o la molestia persiste, consultar con un
         odontólogo o un profesional de salud.
+      practices:
+        - title: Dientes separados
+          description: "Varias veces al día revisa tu boca: labios cerrados y dientes separados, sin apretar."
+        - title: Masaje suave en la cara
+          description: Con las yemas de los dedos, haz círculos lentos a los lados de la cara durante un minuto.
+        - title: Descargar el día en papel
+          description: Antes de dormir, escribe lo que te molestó hoy para dejarlo fuera de tu cabeza.
       severity_flag: informativo
       tags:
         - mandibula
@@ -151,6 +173,11 @@ regions:
         Escribir (sin enviar) la conversación que no has tenido, como ejercicio de descarga. Practicar decir una
         frase pequeña y honesta en voz alta antes de una conversación difícil. Si la molestia física persiste más
         de unos días, consultar con un profesional de salud.
+      practices:
+        - title: Escribir lo que no he dicho
+          description: Escribe, sin enviarla, la conversación que tienes pendiente con alguien.
+        - title: Una frase en voz alta
+          description: Antes de una charla difícil, di en voz alta una frase corta y honesta.
       severity_flag: informativo
       tags:
         - garganta
@@ -163,6 +190,7 @@ regions:
       content_curation_notes: >-
         Redactado por el equipo QVITAL a partir del marco general de biodescodificación revisado en Top Doctors
         Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Cuello / cervicales
     display_order: 5
@@ -188,6 +216,13 @@ regions:
         altura de la pantalla para que quede a la altura de los ojos. Elegir una situación en la que has estado
         rígido o rígida y escribir cómo la vería la otra persona. Si el dolor se irradia hacia los brazos, viene
         con hormigueo o debilidad, o persiste, consultar con un profesional de salud.
+      practices:
+        - title: Giros lentos del cuello
+          description: Gira la cabeza despacio de lado a lado, respirando en cada movimiento y sin forzar.
+        - title: Pantalla a la altura de los ojos
+          description: Acomoda el celular o la pantalla para no tener que agachar la cabeza.
+        - title: Ver con otros ojos
+          description: Elige algo en lo que has estado firme y escribe cómo lo vería la otra persona.
       severity_flag: informativo
       tags:
         - cuello

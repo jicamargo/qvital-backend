@@ -26,6 +26,13 @@ regions:
         necesitas poner con alguien y ensayar una frase corta para decirlo. Si hay heridas, manchas que cambian de
         forma o color, ampollas, fiebre o la irritación persiste, consultar con un dermatólogo o un profesional de
         salud.
+      practices:
+        - title: Crema con calma
+          description: Aplica tu crema despacio, como un momento de cuidado para ti.
+        - title: Un vaso de agua más
+          description: Suma un vaso de agua al día y nota cómo se siente tu piel.
+        - title: Una frase para mi límite
+          description: Piensa en un límite que necesitas poner y ensaya una frase corta para decirlo.
       severity_flag: informativo
       tags:
         - piel
@@ -49,3 +56,4 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.

@@ -32,6 +32,13 @@ regions:
         latido. Escribir una carta (sin enviar) a la persona o situación que te dolió. Hacer esta semana una cosa
         pequeña que antes te daba alegría. Si la opresión se repite, vuelve a consultar con un profesional de
         salud; si la tristeza es persistente, considera el acompañamiento de un psicólogo o psicóloga.
+      practices:
+        - title: Mano en el pecho
+          description: Pon una mano en el pecho y respira lento durante un minuto, notando tu latido.
+        - title: Carta sin enviar
+          description: Escribe una carta, sin enviarla, a la persona o situación que te dolió.
+        - title: Algo que me daba alegría
+          description: Haz esta semana una cosa pequeña que antes te hacía feliz.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - pecho
@@ -54,6 +61,7 @@ regions:
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción. Zona con posible señal de alarma médica:
         la ficha prioriza la derivación a urgencias/profesional antes de la lectura emocional.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Pulmones / respiración
     display_order: 2
@@ -81,6 +89,13 @@ regions:
         caminar al aire libre. Si la sensación de falta de aire se repite, vuelve a consultar con un profesional
         de salud; si la tristeza o la angustia son persistentes, considera el acompañamiento de un psicólogo o
         psicóloga.
+      practices:
+        - title: Respiración 4-6
+          description: Inhala contando hasta 4 y exhala contando hasta 6, durante tres minutos.
+        - title: Espacio para la tristeza
+          description: "Date un rato para sentir la tristeza: escribe, llora o habla con alguien de confianza."
+        - title: Caminar al aire libre
+          description: Sal a caminar unos minutos al aire libre y respira con calma.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - pulmones

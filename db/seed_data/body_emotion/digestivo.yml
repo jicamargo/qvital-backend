@@ -23,6 +23,11 @@ regions:
         Journaling breve al final del día nombrando una cosa que "cuesta digerir". Pausa consciente antes de comer
         (respirar, bajar el ritmo) como práctica de "recibir" en vez de "tragar rápido". Si la molestia física
         persiste, consultar con un profesional de salud.
+      practices:
+        - title: Pausa antes de comer
+          description: Respira lento tres veces antes del primer bocado.
+        - title: Una línea al día
+          description: 'Antes de dormir, escribe una cosa que hoy te costó "digerir".'
       severity_flag: informativo
       tags:
         - digestivo
@@ -37,6 +42,7 @@ regions:
       content_curation_notes: >-
         Redactado por el equipo QVITAL a partir del marco general de biodescodificación revisado en Top Doctors
         Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Hígado / vesícula
     display_order: 2
@@ -63,6 +69,13 @@ regions:
         molesta y luego romper la hoja. Identificar un límite concreto que necesitas poner y ensayar cómo decirlo.
         Preferir comidas sencillas y menos grasosas en días de mucha tensión. Si el dolor es fuerte, notas la piel
         o los ojos amarillos, o la molestia persiste, consultar con un profesional de salud.
+      practices:
+        - title: Caminar el enojo
+          description: Cuando sientas rabia, sal a caminar rápido diez minutos y deja que el cuerpo la suelte.
+        - title: Escribir y romper la hoja
+          description: Escribe sin filtro todo lo que te molesta y luego rompe la hoja.
+        - title: Ensayar un límite
+          description: Piensa en un límite que necesitas poner y ensaya en voz alta cómo decirlo.
       severity_flag: informativo
       tags:
         - higado
@@ -83,6 +96,7 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Intestinos / colon
     display_order: 3
@@ -110,6 +124,13 @@ regions:
         elegir uno para soltar esta semana. Masajear suavemente el abdomen en el sentido de las agujas del reloj.
         Si hay sangre en las heces, pérdida de peso sin explicación, dolor fuerte o los cambios persisten,
         consultar con un profesional de salud.
+      practices:
+        - title: Agua durante el día
+          description: Ten un vaso o una botella de agua cerca y toma sorbos a lo largo del día.
+        - title: Caminar después de comer
+          description: Da una caminata corta y tranquila después del almuerzo o la cena.
+        - title: Soltar una carga
+          description: Haz una lista de compromisos que ya no quieres cargar y suelta uno esta semana.
       severity_flag: informativo
       tags:
         - intestinos

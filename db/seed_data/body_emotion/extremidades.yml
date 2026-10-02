@@ -24,6 +24,13 @@ regions:
         lista de tus responsabilidades actuales y marcar cuáles son tuyas y cuáles asumiste por otros. Practicar
         un "no" amable en una situación pequeña. Si el dolor limita el movimiento del brazo, viene con hormigueo o
         persiste, consultar con un profesional de salud.
+      practices:
+        - title: Subir y soltar los hombros
+          description: Inhala subiendo los hombros hacia las orejas y déjalos caer al exhalar, cinco veces.
+        - title: Lo mío y lo de otros
+          description: Escribe tus responsabilidades y marca cuáles son tuyas y cuáles asumiste por otros.
+        - title: 'Un "no" amable'
+          description: Practica decir que no, con cariño, en una situación pequeña.
       severity_flag: informativo
       tags:
         - hombros
@@ -43,6 +50,7 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Manos
     display_order: 2
@@ -67,6 +75,13 @@ regions:
         teclado o celular, hacer pausas cada hora. Esta semana, practicar recibir: aceptar una ayuda o un halago
         diciendo solo "gracias". Si hay adormecimiento persistente, pérdida de fuerza, inflamación en las
         articulaciones o dolor que no cede, consultar con un profesional de salud.
+      practices:
+        - title: Abrir y cerrar las manos
+          description: Abre y cierra las manos despacio diez veces y gira las muñecas en ambos sentidos.
+        - title: Pausa para las manos
+          description: Cada hora con el celular o el teclado, suelta y estira las manos un momento.
+        - title: Recibir con un gracias
+          description: 'Cuando te ofrezcan ayuda o un halago, recíbelo diciendo solo "gracias".'
       severity_flag: informativo
       tags:
         - manos
@@ -105,6 +120,13 @@ regions:
         las piernas con ejercicios suaves. Escribir un cambio que te cuesta aceptar y una sola cosa que sí puedes
         adaptar. Si la rodilla se inflama, se traba, se siente inestable o el dolor persiste, consultar con un
         profesional de salud.
+      practices:
+        - title: Caminata suave
+          description: Camina a tu ritmo unos minutos al día, sin saltos ni impacto.
+        - title: Estirar las piernas en una silla
+          description: En una silla, estira una pierna, sostenla cinco segundos y bájala; luego cambia de lado.
+        - title: Un cambio, una adaptación
+          description: Escribe un cambio que te cuesta aceptar y una sola cosa que sí puedes adaptar.
       severity_flag: informativo
       tags:
         - rodillas
@@ -143,6 +165,13 @@ regions:
         las plantas de los pies con una pelota pequeña. Usar calzado cómodo y adecuado. Escribir el paso que te
         da miedo y dividirlo en tres pasos más pequeños; dar el primero esta semana. Si hay heridas que no sanan,
         hinchazón, cambios de color, adormecimiento o dolor que persiste, consultar con un profesional de salud.
+      practices:
+        - title: Sentir el suelo
+          description: De pie y sin prisa, siente cómo tus pies se apoyan en el piso y respira tres veces.
+        - title: Masaje con una pelota
+          description: Al sentarte, rueda una pelota pequeña bajo la planta del pie un par de minutos.
+        - title: Un primer paso pequeño
+          description: Divide el paso que te da miedo en tres pasos pequeños y da el primero esta semana.
       severity_flag: informativo
       tags:
         - pies

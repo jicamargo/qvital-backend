@@ -82,6 +82,25 @@ class BodyEmotionSeedDataTest < ActiveSupport::TestCase
     end
   end
 
+  test "every insight has 2 to 3 short practices" do
+    all_regions.each do |region|
+      practices = region[:insight][:practices]
+      context = region[:name]
+
+      assert practices.is_a?(Array) && practices.size.between?(2, 3), "#{context}: se esperan de 2 a 3 prácticas"
+      practices.each do |practice|
+        assert practice[:title].to_s.length <= 50, "#{context}: título de más de 50 caracteres (#{practice[:title]})"
+        assert practice[:description].to_s.length <= 140, "#{context}: descripción de más de 140 caracteres (#{practice[:title]})"
+        refute_match(/profesional/i, "#{practice[:title]} #{practice[:description]}",
+                     "#{context}: el aviso profesional va como nota fija, no dentro de una práctica")
+      end
+
+      insight = BodyEmotionInsight.new(practices: practices)
+      insight.valid?
+      assert_empty insight.errors[:practices], "#{context}: #{insight.errors[:practices].to_sentence}"
+    end
+  end
+
   test "every region has a valid body map area" do
     all_regions.each do |region|
       assert_includes BodyRegion::BODY_MAP_AREAS, region[:illustration_ref], "#{region[:name]}: illustration_ref inválido"

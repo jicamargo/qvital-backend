@@ -30,6 +30,13 @@ regions:
         comidas regulares, agua y algo de movimiento o sol. Si el cansancio dura más de dos o tres semanas, viene
         con pérdida de peso, tristeza profunda o pérdida de interés en todo, consulta con un profesional de salud;
         si en algún momento aparecen pensamientos de hacerte daño, busca ayuda de inmediato.
+      practices:
+        - title: Mi registro de energía
+          description: Cada noche anota una cosa que hoy te dio energía y una que te la quitó.
+        - title: Un rato para disfrutar
+          description: Guarda cada día un rato para algo que te guste, sin tener que producir nada.
+        - title: Agua, sol y movimiento
+          description: Cada día toma agua, sal un rato al sol y muévete un poco.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - cansancio
@@ -50,6 +57,7 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Sueño / insomnio
     display_order: 2
@@ -77,6 +85,13 @@ regions:
         anotar lo pendiente y lo que te preocupa para dejarlo en el papel. Si no te duermes en unos 20 minutos,
         levantarte y hacer algo tranquilo con poca luz. Si el insomnio dura varias semanas o afecta tu vida
         diaria, consultar con un profesional de salud.
+      practices:
+        - title: Misma hora para dormir
+          description: Acuéstate y levántate a la misma hora, también el fin de semana.
+        - title: Dejarlo en el papel
+          description: Antes de acostarte, anota lo pendiente y lo que te preocupa para dejarlo ahí.
+        - title: Noches sin café ni pantallas
+          description: Evita el café, las pantallas y las comidas pesadas en las horas antes de dormir.
       severity_flag: informativo
       tags:
         - sueno

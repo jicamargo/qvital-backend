@@ -31,6 +31,13 @@ regions:
         suave en la zona baja del abdomen, moverte con suavidad (caminar, estiramientos, yoga) y llevar un
         registro del ciclo junto con cómo te sientes cada día. Darte un espacio para una actividad creativa que
         disfrutes. Si hay sangrado fuera del ciclo, dolor súbito o fiebre, busca atención de inmediato.
+      practices:
+        - title: Calor suave
+          description: Pon una bolsa de agua tibia en la parte baja del abdomen y descansa unos minutos.
+        - title: Diario de mi ciclo
+          description: Anota cada día en qué momento del ciclo estás y cómo te sientes.
+        - title: Un rato creativo
+          description: "Dedica un rato esta semana a algo creativo que disfrutes: pintar, cocinar, tejer."
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - pelvis
@@ -55,3 +62,4 @@ regions:
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción. Zona con posibles causas médicas que
         requieren diagnóstico: la ficha prioriza la derivación a un profesional.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
