@@ -1,0 +1,198 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: cabeza_cuello
+#
+# Formato (lo lee db/seeds.rb, bloque Cuerpo-Emoción): una zona por entrada, cada una con
+# exactamente una ficha (`insight`). Contenido redactado por QVITAL con
+# palabras propias (SDD §3.2) — no copiar ni traducir fuentes externas.
+body_system: cabeza_cuello
+regions:
+  - name: Cabeza
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Dolor o presión de cabeza frecuente (en la frente, las sienes o la nuca), sobre todo en días de mucha
+        exigencia, sin una causa clínica identificada.
+      emotional_theme: Exceso de control, autoexigencia o de "darle vueltas" a las cosas
+      narrative_explanation: >-
+        La cabeza es el lugar donde solemos poner el control: planear, anticipar, resolver, tener todo bajo la
+        mano. Cuando pasamos muchas horas intentando controlar lo que no depende de nosotros, exigiéndonos hacerlo
+        todo perfecto o repasando una y otra vez una misma preocupación, la tensión se acumula en el cuello, la
+        mandíbula y el cuero cabelludo, y el cuerpo puede expresarla como dolor de cabeza. Distintos autores del
+        campo cuerpo-emoción coinciden en leer este síntoma como una invitación a pasar un poco menos de tiempo en
+        la mente y un poco más en el cuerpo, y a soltar la idea de que todo depende de uno.
+      reflective_questions:
+        - "¿Qué situación estás intentando controlar ahora mismo que, en realidad, no depende solo de ti?"
+        - "¿Cuándo fue la última vez que te permitiste hacer algo 'suficientemente bien' en lugar de perfecto?"
+        - "¿Qué pensamiento se repite en tu cabeza justo antes de que empiece el dolor?"
+      integration_guidance: >-
+        Hacer una pausa de dos minutos cada pocas horas: soltar los hombros, aflojar la mandíbula y respirar
+        lento, sintiendo los pies en el piso. Escribir en una lista lo que te preocupa y separar lo que puedes
+        hacer hoy de lo que no está en tus manos. Reducir pantallas la última hora antes de dormir. Si el dolor
+        de cabeza es muy intenso o repentino, viene con fiebre, cambios en la visión o dificultad para hablar, o
+        se vuelve cada vez más frecuente, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - cabeza
+        - dolor_de_cabeza
+        - cefalea
+        - migrana
+        - jaqueca
+        - tension
+        - control
+        - autoexigencia
+        - perfeccionismo
+        - sobrepensar
+        - preocupacion
+        - estres
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.
+
+  - name: Ojos
+    display_order: 2
+    insight:
+      symptom_pattern: >-
+        Cansancio, ardor, resequedad o tensión frecuente en los ojos, o sensación de "no querer ver", sin una
+        causa clínica identificada.
+      emotional_theme: Dificultad para ver una situación tal como es, o para mirarla desde otro punto de vista
+      narrative_explanation: >-
+        Los ojos son nuestra forma de recibir el mundo, y en el lenguaje cotidiano los usamos también para hablar
+        de cómo entendemos lo que pasa: "no lo quiero ver", "ya me cansé de ver lo mismo", "no veo salida". En el
+        campo cuerpo-emoción, las molestias en los ojos suelen leerse como una posible resistencia a mirar algo de
+        frente — una relación, una decisión, una verdad incómoda — o como cansancio de ver siempre la misma
+        situación sin encontrarle otra perspectiva. No es una explicación de la causa física, sino una pregunta
+        sobre qué te está costando mirar.
+      reflective_questions:
+        - "¿Hay algo en tu vida que prefieres no mirar de frente por ahora?"
+        - "¿Qué situación sientes que ves siempre igual, sin encontrarle salida?"
+        - "Si miraras esa situación con los ojos de alguien que te quiere, ¿qué verías distinto?"
+      integration_guidance: >-
+        Aplicar la regla 20-20-20 frente a pantallas: cada 20 minutos, mirar algo lejano durante 20 segundos.
+        Cerrar los ojos y cubrirlos con las palmas tibias un minuto, respirando lento. Escribir la situación que
+        te cuesta ver y, debajo, una forma distinta de mirarla. Si notas cambios en la visión, dolor fuerte,
+        enrojecimiento que no cede o molestias que persisten, consultar con un profesional de salud visual.
+      severity_flag: informativo
+      tags:
+        - ojos
+        - vision
+        - vista
+        - ojos_cansados
+        - resequedad
+        - ardor
+        - perspectiva
+        - negacion
+        - no_querer_ver
+        - pantallas
+      content_curation_notes: *fuentes_web
+
+  - name: Mandíbula
+    display_order: 3
+    insight:
+      symptom_pattern: >-
+        Tensión o dolor en la mandíbula, apretar o rechinar los dientes (sobre todo al dormir), o molestias cerca
+        del oído al masticar, sin una causa clínica identificada.
+      emotional_theme: Enojo o frustración contenidos; "aguantar" en silencio
+      narrative_explanation: >-
+        Apretar la mandíbula es uno de los gestos más automáticos del cuerpo cuando algo nos molesta y decidimos
+        no decirlo: "apretar los dientes y seguir". Es conocido que el estrés sostenido aumenta la tensión en los
+        músculos de la cara y puede llevar a apretar los dientes durante la noche. En el campo cuerpo-emoción,
+        esta zona suele asociarse con rabia o frustración que se contienen para no generar conflicto, y con la
+        sensación de tener que aguantar una situación sin poder cambiarla. La mandíbula tensa puede ser una señal
+        de que hay algo que te molesta más de lo que te permites reconocer.
+      reflective_questions:
+        - "¿Qué situación te está haciendo 'apretar los dientes' para seguir adelante?"
+        - "¿Hay algún enojo que no te has permitido sentir o expresar?"
+        - "¿Qué pasaría si dijeras, con calma, lo que realmente te molesta?"
+      integration_guidance: >-
+        Durante el día, revisar si los dientes están juntos: la posición de descanso es labios cerrados y
+        dientes separados. Masajear suavemente con los dedos los músculos a los lados de la cara, con movimientos
+        circulares. Antes de dormir, escribir lo que te molestó en el día para "descargarlo" fuera de la cabeza.
+        Si rechinas los dientes, sientes dolor al abrir la boca o la molestia persiste, consultar con un
+        odontólogo o un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - mandibula
+        - bruxismo
+        - apretar_dientes
+        - rechinar_dientes
+        - atm
+        - enojo
+        - rabia
+        - frustracion
+        - contencion
+        - aguantar
+      content_curation_notes: *fuentes_web
+
+  # Ficha original del Anexo A del SDD — el texto se conserva tal cual.
+  - name: Garganta
+    display_order: 4
+    insight:
+      symptom_pattern: Molestia, opresión, carraspera o nudo frecuente en la garganta, sin causa clínica identificada.
+      emotional_theme: Dificultad para expresar lo que se piensa o se siente
+      narrative_explanation: >-
+        La garganta funciona como el canal entre el pensamiento y la acción: por ahí pasa lo que decidimos decir
+        (o callar). Cuando algo importante se queda sin expresar — una palabra que no se dijo, un límite que no se
+        puso, una emoción que se "tragó" para evitar un conflicto — el cuerpo puede traducir esa tensión acumulada
+        en una sensación física en esa zona. No se trata de que "algo está mal" en la garganta, sino de una posible
+        señal de que hay algo pendiente por decir.
+      reflective_questions:
+        - "¿Hay algo que llevas tiempo queriendo decir y no te has permitido expresar?"
+        - "¿En qué situación reciente sentiste que te 'tragaste' tus palabras?"
+        - "¿A quién le temes decirle lo que realmente piensas, y qué es exactamente lo que temes que pase?"
+      integration_guidance: >-
+        Escribir (sin enviar) la conversación que no has tenido, como ejercicio de descarga. Practicar decir una
+        frase pequeña y honesta en voz alta antes de una conversación difícil. Si la molestia física persiste más
+        de unos días, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - garganta
+        - expresion
+        - comunicacion
+        - nudo_en_la_garganta
+        - carraspera
+        - callar
+        - limites
+      content_curation_notes: >-
+        Redactado por el equipo QVITAL a partir del marco general de biodescodificación revisado en Top Doctors
+        Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente.
+
+  - name: Cuello / cervicales
+    display_order: 5
+    insight:
+      symptom_pattern: >-
+        Rigidez, dolor o "nudos" en el cuello y la zona cervical, dificultad para girar la cabeza, sin una causa
+        clínica identificada.
+      emotional_theme: Rigidez para ver otros puntos de vista; sostener todo con esfuerzo
+      narrative_explanation: >-
+        El cuello une la cabeza (lo que pensamos) con el resto del cuerpo (lo que sentimos y hacemos), y es lo que
+        nos permite girar para mirar hacia otro lado. En el campo cuerpo-emoción, un cuello rígido suele leerse
+        como la dificultad de "dar el brazo a torcer": mantenerse firme en una sola manera de ver una situación, o
+        en una persona con la que cuesta ceder. También se asocia con la sensación de sostener demasiadas cosas a
+        la vez. Además, pasar muchas horas con la cabeza inclinada hacia una pantalla carga esta zona; la lectura
+        emocional no reemplaza revisar también la postura.
+      reflective_questions:
+        - "¿Con qué situación o persona te está costando ceder o ver las cosas de otra manera?"
+        - "¿Hacia dónde evitas 'girar la cabeza' para no enfrentar algo?"
+        - "¿Qué te estás exigiendo sostener tú solo o sola en este momento?"
+      integration_guidance: >-
+        Hacer giros lentos del cuello, de lado a lado, respirando en cada movimiento, sin forzar. Revisar la
+        altura de la pantalla para que quede a la altura de los ojos. Elegir una situación en la que has estado
+        rígido o rígida y escribir cómo la vería la otra persona. Si el dolor se irradia hacia los brazos, viene
+        con hormigueo o debilidad, o persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - cuello
+        - cervicales
+        - nuca
+        - rigidez
+        - torticolis
+        - terquedad
+        - flexibilidad
+        - puntos_de_vista
+        - postura
+        - pantallas
+      content_curation_notes: *fuentes_web

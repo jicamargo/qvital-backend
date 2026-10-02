@@ -1,0 +1,84 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: columna_espalda
+body_system: columna_espalda
+regions:
+  - name: Espalda alta
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Tensión, dolor o contracturas entre los omóplatos y en la parte alta de la espalda, sobre todo en épocas
+        de mucha carga, sin una causa clínica identificada.
+      emotional_theme: Cargas afectivas; sentir que no hay suficiente apoyo emocional
+      narrative_explanation: >-
+        La espalda es nuestro soporte: nos mantiene de pie y es donde, simbólicamente, "cargamos" lo que llevamos.
+        En el campo cuerpo-emoción, la parte alta de la espalda suele asociarse con las cargas afectivas — la
+        responsabilidad de cuidar a otros, de que todos estén bien — y con la sensación de no recibir el mismo
+        apoyo a cambio. También aparece en la lectura de emociones "a la espalda": cosas que preferimos no mirar o
+        situaciones del pasado que seguimos cargando. Es una invitación a revisar qué estás sosteniendo y quién te
+        sostiene a ti.
+      reflective_questions:
+        - "¿A quién o qué estás cargando emocionalmente en este momento?"
+        - "¿Sientes que tienes a alguien que te apoye como tú apoyas a los demás?"
+        - "¿Qué situación del pasado sigues llevando 'a la espalda'?"
+      integration_guidance: >-
+        Estirar la espalda varias veces al día: entrelazar las manos al frente, redondear la espalda y respirar
+        hacia los omóplatos. Revisar la postura al trabajar sentado o sentada. Pedir ayuda concreta esta semana
+        con una tarea que sueles hacer tú solo o sola. Si el dolor se irradia al pecho o a los brazos, viene con
+        falta de aire, o persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - espalda
+        - espalda_alta
+        - dorsal
+        - omoplatos
+        - contractura
+        - cargas
+        - apoyo
+        - cuidar_a_otros
+        - pasado
+        - postura
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.
+
+  - name: Zona lumbar
+    display_order: 2
+    insight:
+      symptom_pattern: >-
+        Dolor o rigidez en la parte baja de la espalda (zona lumbar), que empeora en épocas de preocupación por
+        el dinero, el trabajo o la estabilidad, sin una causa clínica identificada.
+      emotional_theme: Falta de seguridad o de apoyo material; miedo por el sustento
+      narrative_explanation: >-
+        La zona lumbar sostiene casi todo el peso del cuerpo, y por eso en el campo cuerpo-emoción se la relaciona
+        con lo que nos da base: el dinero, el trabajo, la casa, la estabilidad. Una de las asociaciones más
+        repetidas entre autores es la de dolor lumbar y preocupación por el sustento — sentir que no hay
+        suficiente, que falta respaldo o que uno tiene que sostenerlo todo sin ayuda. La lectura no pretende
+        explicar la causa física, sino invitarte a mirar qué parte de tu seguridad sientes hoy en riesgo.
+      reflective_questions:
+        - "¿Qué te preocupa hoy de tu estabilidad económica, laboral o de tu hogar?"
+        - "¿Sientes que tienes que sostener todo sin que nadie te respalde?"
+        - "¿Qué te haría sentir un poco más seguro o segura esta semana?"
+      integration_guidance: >-
+        Moverte con suavidad durante el día: caminar, estirar llevando las rodillas al pecho acostado o acostada,
+        evitar pasar muchas horas sentado o sentada. Al levantar peso, doblar las rodillas en lugar de la
+        espalda. Escribir tu preocupación principal y un solo paso concreto para atenderla. Si el dolor baja por
+        la pierna, viene con hormigueo, pérdida de fuerza, fiebre o problemas para orinar, o persiste, consultar
+        con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - espalda
+        - espalda_baja
+        - zona_lumbar
+        - lumbago
+        - ciatica
+        - seguridad
+        - dinero
+        - trabajo
+        - estabilidad
+        - sustento
+        - miedo
+      content_curation_notes: *fuentes_web

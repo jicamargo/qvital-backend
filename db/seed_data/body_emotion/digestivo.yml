@@ -1,0 +1,123 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: digestivo
+body_system: digestivo
+regions:
+  # Ficha original del Anexo A del SDD — el texto se conserva tal cual.
+  - name: Estómago / sistema digestivo
+    display_order: 1
+    focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
+    insight:
+      symptom_pattern: Molestias digestivas recurrentes (pesadez, acidez, dificultad para digerir) sin causa clínica clara.
+      emotional_theme: Dificultad para 'asimilar' o aceptar una situación, cambio o experiencia reciente
+      narrative_explanation: >-
+        Así como el estómago procesa lo que comemos, solemos usar ese mismo lenguaje para hablar de experiencias
+        difíciles de aceptar: "no lo puedo digerir", "me cayó pesado". Cuando hay un cambio, una noticia o una
+        situación que cuesta aceptar o procesar emocionalmente, el cuerpo a veces refleja esa dificultad de
+        "asimilación" en el sistema digestivo. Es una invitación a mirar qué se está intentando procesar a nivel
+        emocional, no una explicación única ni definitiva del síntoma.
+      reflective_questions:
+        - "¿Qué situación reciente te ha costado aceptar o 'digerir'?"
+        - "¿Hay un cambio en tu vida que sientes que no has procesado del todo?"
+        - "¿En qué momento del día notas más la molestia, y qué estabas pensando justo antes?"
+      integration_guidance: >-
+        Journaling breve al final del día nombrando una cosa que "cuesta digerir". Pausa consciente antes de comer
+        (respirar, bajar el ritmo) como práctica de "recibir" en vez de "tragar rápido". Si la molestia física
+        persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - digestivo
+        - estomago
+        - asimilacion
+        - cambio
+        - acidez
+        - gastritis
+        - pesadez
+        - indigestion
+        - aceptacion
+      content_curation_notes: >-
+        Redactado por el equipo QVITAL a partir del marco general de biodescodificación revisado en Top Doctors
+        Colombia (ver SDD §1, fuente 2). No es copia ni traducción de ninguna fuente.
+
+  - name: Hígado / vesícula
+    display_order: 2
+    focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
+    insight:
+      symptom_pattern: >-
+        Pesadez del lado derecho bajo las costillas, digestión lenta de comidas grasas, mal sabor de boca o
+        sensación de "bilis" en épocas de mucho enojo, sin una causa clínica identificada.
+      emotional_theme: Ira, frustración o resentimiento acumulados
+      narrative_explanation: >-
+        En muchas tradiciones y en el lenguaje popular, el hígado y la bilis se relacionan con el enojo: "me hizo
+        hervir la sangre", "estoy que echo bilis", "me amargó el día". En el campo cuerpo-emoción, esta zona es
+        una de las asociaciones más consistentes entre autores: se la vincula con la rabia que no se expresa, con
+        la frustración por algo que se percibe como injusto y con el resentimiento que se guarda por mucho tiempo.
+        No se trata de que el enojo sea malo — es una emoción útil que avisa que algo no está bien —, sino de mirar
+        qué pasa cuando se queda guardado.
+      reflective_questions:
+        - "¿Qué situación o persona te genera enojo cada vez que la recuerdas?"
+        - "¿Hay algo que sientes injusto y que no has podido decir o cambiar?"
+        - "¿Qué necesitarías para soltar ese resentimiento, aunque sea un poco?"
+      integration_guidance: >-
+        Darle al enojo una salida segura: caminar rápido, hacer ejercicio o escribir sin filtro todo lo que te
+        molesta y luego romper la hoja. Identificar un límite concreto que necesitas poner y ensayar cómo decirlo.
+        Preferir comidas sencillas y menos grasosas en días de mucha tensión. Si el dolor es fuerte, notas la piel
+        o los ojos amarillos, o la molestia persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - higado
+        - vesicula
+        - bilis
+        - ira
+        - rabia
+        - enojo
+        - frustracion
+        - resentimiento
+        - injusticia
+        - amargura
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.
+
+  - name: Intestinos / colon
+    display_order: 3
+    focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
+    insight:
+      symptom_pattern: >-
+        Estreñimiento, diarrea, gases o inflamación abdominal recurrentes que empeoran con el estrés o los
+        nervios, sin una causa clínica identificada.
+      emotional_theme: Dificultad para soltar lo que ya no sirve, o miedo que se vive "en las tripas"
+      narrative_explanation: >-
+        Los intestinos terminan de separar lo que el cuerpo aprovecha de lo que debe dejar ir. Es conocido que el
+        intestino responde de forma muy directa al estrés — por algo hablamos de "mariposas en el estómago" o de
+        sentir algo "en las tripas". En el campo cuerpo-emoción, el estreñimiento suele leerse como la dificultad
+        de soltar: personas, hábitos, ideas o situaciones a las que nos aferramos por miedo a perder el control.
+        La diarrea, en cambio, se asocia con querer salir rápido de algo que nos asusta o nos sobrepasa. Ambas
+        lecturas invitan a mirar qué estás reteniendo o de qué estás huyendo.
+      reflective_questions:
+        - "¿A qué te estás aferrando que, siendo honesto u honesta, ya no te hace bien?"
+        - "¿Qué situación te genera tanto miedo o nervios que quisieras salir corriendo?"
+        - "¿Qué pasaría si te permitieras soltar un poco el control en este momento?"
+      integration_guidance: >-
+        Mantener horarios regulares para comer y para ir al baño, sin apurarte. Tomar agua a lo largo del día y
+        caminar después de las comidas. Hacer una lista de cosas, hábitos o compromisos que ya no quieres cargar y
+        elegir uno para soltar esta semana. Masajear suavemente el abdomen en el sentido de las agujas del reloj.
+        Si hay sangre en las heces, pérdida de peso sin explicación, dolor fuerte o los cambios persisten,
+        consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - intestinos
+        - colon
+        - colon_irritable
+        - estrenimiento
+        - diarrea
+        - gases
+        - inflamacion
+        - soltar
+        - control
+        - miedo
+        - nervios
+      content_curation_notes: *fuentes_web

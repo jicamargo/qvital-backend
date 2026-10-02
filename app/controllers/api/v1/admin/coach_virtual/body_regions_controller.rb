@@ -69,7 +69,8 @@ module Api
           end
 
           def body_region_params
-            params.require(:body_region).permit(:name, :parent_id, :body_system, :display_order, :illustration_ref, :active)
+            params.require(:body_region).permit(:name, :parent_id, :body_system, :display_order, :illustration_ref, :active,
+                                                focus_areas: [])
           end
         end
       end

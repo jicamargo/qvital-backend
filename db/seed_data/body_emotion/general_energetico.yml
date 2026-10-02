@@ -1,0 +1,91 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: general_energetico
+body_system: general_energetico
+regions:
+  # severity_flag: sugerir_acompanamiento_profesional — el cansancio persistente
+  # puede tener causas médicas (anemia, tiroides, depresión) que requieren
+  # valoración.
+  - name: Cansancio persistente
+    display_order: 1
+    focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
+    insight:
+      symptom_pattern: >-
+        Sensación de agotamiento que no mejora con el descanso, falta de energía o de ganas durante semanas, sin
+        una causa clínica identificada después de una valoración.
+      emotional_theme: Agotamiento emocional; dar más de lo que se recibe o vivir en "modo deber"
+      narrative_explanation: >-
+        Hay un cansancio que se quita durmiendo y otro que no: el que viene de sostener durante mucho tiempo una
+        vida que pesa. En el campo cuerpo-emoción, el agotamiento persistente se asocia con dar constantemente sin
+        recargarse, vivir en "modo deber" — haciendo lo que toca y no lo que da sentido —, o con resistirse por
+        mucho tiempo a una situación que no se puede o no se quiere cambiar. El cuerpo, en ese caso, puede estar
+        pidiendo una pausa que la mente no se permite. Es importante recordar que el cansancio que no cede también
+        puede tener causas médicas o ser una señal de depresión, y merece ser valorado.
+      reflective_questions:
+        - "¿Qué actividades o personas te quitan energía, y cuáles te la devuelven?"
+        - "¿Cuánto de lo que haces en un día es por deber y cuánto porque lo eliges?"
+        - "¿Qué pasaría si te permitieras descansar sin sentir culpa?"
+      integration_guidance: >-
+        Llevar durante una semana un registro sencillo de qué te da y qué te quita energía. Proteger al menos un
+        rato al día para algo que disfrutes, sin productividad de por medio. Revisar lo básico: horarios de sueño,
+        comidas regulares, agua y algo de movimiento o sol. Si el cansancio dura más de dos o tres semanas, viene
+        con pérdida de peso, tristeza profunda o pérdida de interés en todo, consulta con un profesional de salud;
+        si en algún momento aparecen pensamientos de hacerte daño, busca ayuda de inmediato.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - cansancio
+        - agotamiento
+        - fatiga
+        - falta_de_energia
+        - desanimo
+        - burnout
+        - deber
+        - sobrecarga
+        - descanso
+        - culpa
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.
+
+  - name: Sueño / insomnio
+    display_order: 2
+    focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
+    insight:
+      symptom_pattern: >-
+        Dificultad para conciliar el sueño, despertarse en la madrugada sin poder volver a dormir, o dormir sin
+        sentir descanso, sin una causa clínica identificada.
+      emotional_theme: Dificultad para "apagar" la mente y soltar el control del día
+      narrative_explanation: >-
+        Para dormir necesitamos soltar: dejar de vigilar, de planear y de resolver. Es conocido que la
+        preocupación y el estrés son de las causas más comunes de dificultad para dormir. En el campo
+        cuerpo-emoción, el insomnio se asocia con la dificultad de confiar y soltar el control — como si la mente
+        tuviera que seguir despierta para que nada se salga de su lugar — y con preocupaciones o emociones del
+        día que no encontraron otro momento para ser atendidas. Despertarse en la madrugada con la cabeza
+        "prendida" suele ser una señal de que algo pide atención durante el día.
+      reflective_questions:
+        - "¿Qué pensamientos aparecen cuando apagas la luz?"
+        - "¿Hay algo que sientes que tienes que vigilar o resolver incluso de noche?"
+        - "¿En qué momento del día te das un espacio para procesar lo que sientes?"
+      integration_guidance: >-
+        Mantener horarios regulares para acostarte y levantarte, incluso los fines de semana. Evitar pantallas,
+        café y comidas pesadas en las horas antes de dormir. Hacer una "descarga" escrita antes de acostarte:
+        anotar lo pendiente y lo que te preocupa para dejarlo en el papel. Si no te duermes en unos 20 minutos,
+        levantarte y hacer algo tranquilo con poca luz. Si el insomnio dura varias semanas o afecta tu vida
+        diaria, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - sueno
+        - insomnio
+        - dormir
+        - desvelo
+        - despertar_madrugada
+        - descanso
+        - preocupacion
+        - ansiedad
+        - control
+        - soltar
+        - mente_acelerada
+      content_curation_notes: *fuentes_web

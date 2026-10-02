@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_12_190000) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_24_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -60,7 +60,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_12_190000) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "focus_areas", default: [], null: false
     t.index ["body_system", "display_order"], name: "index_body_regions_on_body_system_and_display_order"
+    t.index ["focus_areas"], name: "index_body_regions_on_focus_areas", using: :gin
     t.index ["name"], name: "index_body_regions_on_name", unique: true
     t.index ["parent_id"], name: "index_body_regions_on_parent_id"
   end

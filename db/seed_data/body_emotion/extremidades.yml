@@ -1,0 +1,155 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: extremidades
+body_system: extremidades
+regions:
+  - name: Hombros
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Hombros tensos, subidos o adoloridos, o sensación de "peso" sobre los hombros al final del día, sin una
+        causa clínica identificada.
+      emotional_theme: Exceso de responsabilidades; cargar con lo que no nos corresponde
+      narrative_explanation: >-
+        "Llevar el mundo sobre los hombros" es una de las expresiones más claras de cómo el cuerpo refleja las
+        cargas. Los hombros son la base de los brazos, con los que actuamos y hacemos; en el campo cuerpo-emoción
+        se los asocia con las responsabilidades — las propias y, sobre todo, las ajenas que asumimos por culpa, por
+        costumbre o por no saber decir que no. Unos hombros tensos pueden ser una señal de que estás cargando más
+        de lo que te corresponde o de lo que puedes sostener hoy.
+      reflective_questions:
+        - "¿Qué responsabilidades estás cargando que en realidad le corresponden a otra persona?"
+        - "¿A qué le dijiste que sí recientemente cuando querías decir que no?"
+        - "Si pudieras soltar una sola carga esta semana, ¿cuál sería?"
+      integration_guidance: >-
+        Subir los hombros hacia las orejas al inhalar y dejarlos caer de golpe al exhalar, cinco veces. Hacer una
+        lista de tus responsabilidades actuales y marcar cuáles son tuyas y cuáles asumiste por otros. Practicar
+        un "no" amable en una situación pequeña. Si el dolor limita el movimiento del brazo, viene con hormigueo o
+        persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - hombros
+        - hombro
+        - tension
+        - contractura
+        - responsabilidades
+        - cargas
+        - decir_no
+        - culpa
+        - sobrecarga
+      content_curation_notes: &fuentes_web >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción.
+
+  - name: Manos
+    display_order: 2
+    insight:
+      symptom_pattern: >-
+        Tensión, rigidez, dolor u hormigueo frecuente en las manos o muñecas, o manos frías en momentos de
+        nervios, sin una causa clínica identificada.
+      emotional_theme: Dar y recibir; dificultad para "soltar" o para tomar lo que se desea
+      narrative_explanation: >-
+        Con las manos damos, recibimos, sostenemos, acariciamos y soltamos. En el campo cuerpo-emoción, las
+        molestias en las manos suelen leerse a partir de esas acciones: la dificultad de recibir (ayuda, cariño,
+        reconocimiento) sin sentir que se debe algo a cambio, la tendencia a dar de más, o el apego a algo que
+        cuesta soltar. También se asocian con la forma en que "manejamos" las situaciones: querer tener todo en
+        las manos. Es una invitación a mirar el equilibrio entre lo que das y lo que te permites recibir.
+      reflective_questions:
+        - "¿Te resulta más fácil dar que recibir? ¿Qué sientes cuando alguien te ayuda?"
+        - "¿A qué te estás aferrando con fuerza en este momento?"
+        - "¿Qué te gustaría tomar en tus manos (un proyecto, una decisión) y no te has atrevido?"
+      integration_guidance: >-
+        Abrir y cerrar las manos lentamente varias veces, y rotar las muñecas en ambos sentidos. Si trabajas con
+        teclado o celular, hacer pausas cada hora. Esta semana, practicar recibir: aceptar una ayuda o un halago
+        diciendo solo "gracias". Si hay adormecimiento persistente, pérdida de fuerza, inflamación en las
+        articulaciones o dolor que no cede, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - manos
+        - munecas
+        - dedos
+        - hormigueo
+        - tunel_carpiano
+        - dar
+        - recibir
+        - soltar
+        - apego
+        - control
+      content_curation_notes: *fuentes_web
+
+  - name: Rodillas
+    display_order: 3
+    insight:
+      symptom_pattern: >-
+        Dolor, rigidez o molestias en las rodillas, sobre todo al doblarlas, subir escaleras o arrodillarse, sin
+        una causa clínica identificada.
+      emotional_theme: Flexibilidad ante el cambio; dificultad para ceder o, al contrario, ceder demasiado
+      narrative_explanation: >-
+        Las rodillas son las articulaciones que nos permiten doblarnos, agacharnos y cambiar de dirección al
+        caminar. En el campo cuerpo-emoción se las asocia con la flexibilidad: la capacidad de adaptarnos a un
+        cambio, de ceder cuando hace falta y de aceptar que las cosas no siempre salen como uno quiere. Hay dos
+        lecturas que se repiten entre autores: la rigidez o el orgullo que impide "doblarse", y lo opuesto —
+        sentir que uno se somete o "se arrodilla" ante alguien o algo en contra de su voluntad. Ambas hablan de la
+        relación entre lo que uno quiere y lo que cede.
+      reflective_questions:
+        - "¿Ante qué cambio te estás resistiendo, aunque sepas que ya llegó?"
+        - "¿Con quién sientes que cedes siempre, aunque no quieras?"
+        - "¿Qué te está impidiendo cambiar de dirección en alguna decisión?"
+      integration_guidance: >-
+        Mantener las rodillas en movimiento sin impacto: caminar, bicicleta o nadar. Fortalecer los músculos de
+        las piernas con ejercicios suaves. Escribir un cambio que te cuesta aceptar y una sola cosa que sí puedes
+        adaptar. Si la rodilla se inflama, se traba, se siente inestable o el dolor persiste, consultar con un
+        profesional de salud.
+      severity_flag: informativo
+      tags:
+        - rodillas
+        - rodilla
+        - articulaciones
+        - flexibilidad
+        - cambio
+        - orgullo
+        - terquedad
+        - ceder
+        - sumision
+        - adaptacion
+      content_curation_notes: *fuentes_web
+
+  - name: Pies
+    display_order: 4
+    insight:
+      symptom_pattern: >-
+        Dolor en las plantas, los talones o los dedos de los pies, cansancio o pies fríos frecuentes, sin una
+        causa clínica identificada.
+      emotional_theme: Avanzar en la vida; miedo a dar el siguiente paso
+      narrative_explanation: >-
+        Los pies nos conectan con el suelo y son los que nos llevan hacia adelante. En el campo cuerpo-emoción, es
+        una de las asociaciones más repetidas: los pies hablan de nuestra forma de avanzar, de tomar decisiones y
+        de la dirección que le estamos dando a la vida. Las molestias en los pies suelen leerse como miedo a dar
+        el siguiente paso — empezar un proyecto, cambiar de trabajo, terminar una etapa —, o como la sensación de
+        estar avanzando en una dirección que no es la propia. También se asocian con la necesidad de sentirse
+        "con los pies en la tierra", con base y seguridad.
+      reflective_questions:
+        - "¿Qué paso importante estás postergando por miedo?"
+        - "¿Sientes que el camino que llevas es el tuyo, o el que otros esperan de ti?"
+        - "¿Qué te daría la seguridad para avanzar, aunque fuera un paso pequeño?"
+      integration_guidance: >-
+        Caminar descalzo o descalza unos minutos sobre el pasto o la arena, sintiendo el apoyo del suelo. Masajear
+        las plantas de los pies con una pelota pequeña. Usar calzado cómodo y adecuado. Escribir el paso que te
+        da miedo y dividirlo en tres pasos más pequeños; dar el primero esta semana. Si hay heridas que no sanan,
+        hinchazón, cambios de color, adormecimiento o dolor que persiste, consultar con un profesional de salud.
+      severity_flag: informativo
+      tags:
+        - pies
+        - pie
+        - talones
+        - plantas
+        - fascitis_plantar
+        - avanzar
+        - decisiones
+        - miedo
+        - direccion
+        - cambio
+        - arraigo
+      content_curation_notes: *fuentes_web

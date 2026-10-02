@@ -1,0 +1,56 @@
+# Zonas y fichas Cuerpo-Emoción — body_system: sistema_reproductivo
+#
+# severity_flag: sugerir_acompanamiento_profesional — el dolor pélvico o
+# menstrual intenso puede tener causas ginecológicas/urológicas que requieren
+# diagnóstico (p. ej. endometriosis); no debe normalizarse.
+body_system: sistema_reproductivo
+regions:
+  - name: Zona pélvica / ciclo menstrual
+    display_order: 1
+    insight:
+      symptom_pattern: >-
+        Molestias en la zona pélvica o baja del abdomen, cólicos menstruales o cambios en el ciclo que se
+        intensifican en épocas de estrés o de conflictos personales, después de una valoración con un
+        profesional.
+      emotional_theme: Relación con la propia feminidad o masculinidad, la sexualidad y la creatividad
+      narrative_explanation: >-
+        La zona pélvica es el centro del cuerpo: sostiene los órganos, participa en la sexualidad y, en el caso
+        de las mujeres, marca el ritmo del ciclo menstrual. Es conocido que el estrés puede alterar el ciclo y la
+        percepción del dolor. En el campo cuerpo-emoción, esta zona se asocia con la manera en que cada persona
+        vive su feminidad o masculinidad, su sexualidad, su pareja y su capacidad de crear — hijos, proyectos,
+        ideas. Las molestias en esta zona suelen leerse como posibles tensiones en esa relación: culpa, rechazo,
+        exigencias externas sobre cómo "se debe ser", o un proyecto propio que no se ha dejado nacer.
+      reflective_questions:
+        - "¿Cómo te sientes hoy con tu cuerpo y con tu forma de vivir tu identidad?"
+        - "¿Hay algo en tu vida de pareja o tu sexualidad que te genere tensión o culpa?"
+        - "¿Qué proyecto o idea propia llevas tiempo queriendo 'dar a luz'?"
+      integration_guidance: >-
+        IMPORTANTE: un dolor pélvico o menstrual intenso que te impide hacer tu vida normal no es algo que deba
+        aguantarse: consulta con un profesional de salud (ginecología o urología). Como complemento: aplicar calor
+        suave en la zona baja del abdomen, moverte con suavidad (caminar, estiramientos, yoga) y llevar un
+        registro del ciclo junto con cómo te sientes cada día. Darte un espacio para una actividad creativa que
+        disfrutes. Si hay sangrado fuera del ciclo, dolor súbito o fiebre, busca atención de inmediato.
+      severity_flag: sugerir_acompanamiento_profesional
+      tags:
+        - pelvis
+        - zona_pelvica
+        - ciclo_menstrual
+        - menstruacion
+        - colicos
+        - utero
+        - ovarios
+        - prostata
+        - sexualidad
+        - feminidad
+        - masculinidad
+        - creatividad
+        - pareja
+      content_curation_notes: >-
+        Redactado por el equipo QVITAL (2026-09-24) a partir de las asociaciones que coinciden entre varias
+        fuentes del campo cuerpo-emoción: Louise Hay, "Usted puede sanar su vida" (lista de causas probables);
+        Lise Bourbeau, "Tu cuerpo dice: ¡Ámate!"; Top Doctors Colombia, diccionario médico "Biodescodificación";
+        y diccionarios divulgativos de biodescodificación (Enric Corbera Institute, biodiccionario.com). Solo se
+        tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
+        ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
+        Pendiente de revisión editorial antes de publicar en producción. Zona con posibles causas médicas que
+        requieren diagnóstico: la ficha prioriza la derivación a un profesional.
