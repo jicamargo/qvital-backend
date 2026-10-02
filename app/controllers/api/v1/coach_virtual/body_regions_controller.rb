@@ -2,8 +2,6 @@ module Api
   module V1
     module CoachVirtual
       class BodyRegionsController < BaseController
-        before_action :authorize_premium!
-
         # GET /api/v1/coach_virtual/body_regions(?focus_area=control_peso)
         def index
           result = ::CoachVirtual::BodyRegions::List.call(focus_area: params[:focus_area])
@@ -17,14 +15,6 @@ module Api
         rescue StandardError => e
           Rails.logger.error "Coach virtual body regions index error: #{e.class.name} - #{e.message}"
           render json: { error: 'Internal server error' }, status: :internal_server_error
-        end
-
-        private
-
-        def authorize_premium!
-          unless current_user&.premium?
-            render json: { error: 'Se requiere membresía premium' }, status: :forbidden and return
-          end
         end
       end
     end

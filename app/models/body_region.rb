@@ -8,6 +8,7 @@ class BodyRegion < ApplicationRecord
   belongs_to :parent, class_name: "BodyRegion", optional: true
   has_many :children, class_name: "BodyRegion", foreign_key: :parent_id, dependent: :nullify
   has_many :body_emotion_insights, dependent: :restrict_with_error
+  has_many :coach_demo_views, dependent: :delete_all
 
   enum :body_system, {
     cabeza_cuello: 0,

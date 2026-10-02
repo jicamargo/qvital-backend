@@ -11,6 +11,19 @@ module Api
             @region = BodyRegion.create!(name: "Zona test #{SecureRandom.hex(3)}", body_system: :peso_y_figura)
           end
 
+          test "destroy removes a zone that has demo views, along with them" do
+            viewer = User.create!(email: "demo-viewer-#{SecureRandom.hex(4)}@example.com", role: "cliente", level: @level)
+            CoachDemoView.create!(user: viewer, body_region: @region)
+
+            assert_difference [ "BodyRegion.count", "CoachDemoView.count" ], -1 do
+              stub_authenticated_as(@admin) do
+                delete api_v1_admin_coach_virtual_body_region_path(@region), headers: auth_headers, as: :json
+              end
+            end
+
+            assert_response :success
+          end
+
           test "update sets and clears focus_areas" do
             stub_authenticated_as(@admin) do
               patch api_v1_admin_coach_virtual_body_region_path(@region),

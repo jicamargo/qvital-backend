@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       namespace :coach_virtual do
         get "profile", to: "profile#show"
         get "body_regions", to: "body_regions#index"
+        get "previews/:body_region_id", to: "previews#show", as: :preview
 
         resources :consultations, only: [:index, :show, :create] do
           member do

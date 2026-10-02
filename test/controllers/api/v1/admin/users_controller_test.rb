@@ -84,6 +84,19 @@ module Api
           assert_response :no_content
         end
 
+        test "destroy removes a user who tried the demo, along with her demo views" do
+          region = BodyRegion.create!(name: "Zona demo #{SecureRandom.hex(3)}", body_system: :digestivo)
+          CoachDemoView.create!(user: @cliente, body_region: region)
+
+          assert_difference [ "User.count", "CoachDemoView.count" ], -1 do
+            stub_authenticated_as(@admin) do
+              delete api_v1_admin_user_path(@cliente), headers: auth_headers, as: :json
+            end
+          end
+
+          assert_response :no_content
+        end
+
         test "destroy is forbidden for a non-admin user" do
           stub_authenticated_as(@cliente) do
             delete api_v1_admin_user_path(@admin), headers: auth_headers, as: :json
