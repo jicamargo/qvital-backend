@@ -50,6 +50,7 @@ Alcance: DB en Supabase (proyecto nuevo), backend Rails y frontend Next.js en pr
   - `bin/rails db:migrate` contra la DB nueva. Antes, probar que las migraciones corren limpias desde cero en una DB local vacía.
   - O `pg_dump --schema-only --schema=public` del proyecto actual + restaurar, junto con `schema_migrations`.
 - [ ] **Datos:** solo el catálogo, sin usuarios ni órdenes de prueba: las 119 recetas, las zonas de la Brújula, productos, etc., con `db:seed` o un dump selectivo de tablas.
+  - **Ojo con `db:seed` y la Brújula:** el seed sobrescribe `practices` (y el resto del texto de cada ficha, salvo `status`) e `illustration_ref`/`focus_areas` de las zonas, aunque se hayan editado en el admin. Y en un entorno cuyas fichas ya están `publicado`, las prácticas del seed (borrador, sin revisión editorial) quedan visibles de inmediato. Revisar las prácticas antes de correr el seed en prod (o correrlo antes de publicar las fichas).
 - [ ] **Storage:** crear los mismos buckets, copiar las imágenes y **reescribir los `image_url`** en la DB (hoy apuntan al host del proyecto viejo).
 - [ ] **Seguridad (importante):** la Data API de Supabase expone las tablas de `public` con la anon key, que es pública en el FE. Como Rails se conecta como `postgres` y se salta RLS, **activar RLS sin políticas en todas las tablas de `public`**, o quitar `public` de los "Exposed schemas". Verificar que el Security Advisor quede en verde.
 - [ ] **Auth:**
