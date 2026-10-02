@@ -27,7 +27,7 @@ regions:
       practices:
         - title: Subir y soltar los hombros
           description: Inhala subiendo los hombros hacia las orejas y déjalos caer al exhalar, cinco veces.
-        - title: Lo mío y lo de otros
+        - title: Separar mis tareas de las ajenas
           description: Escribe tus responsabilidades y marca cuáles son tuyas y cuáles asumiste por otros.
         - title: 'Un "no" amable'
           description: Practica decir que no, con cariño, en una situación pequeña.
@@ -125,7 +125,7 @@ regions:
           description: Camina a tu ritmo unos minutos al día, sin saltos ni impacto.
         - title: Estirar las piernas en una silla
           description: En una silla, estira una pierna, sostenla cinco segundos y bájala; luego cambia de lado.
-        - title: Un cambio, una adaptación
+        - title: Escribir un cambio que me cuesta
           description: Escribe un cambio que te cuesta aceptar y una sola cosa que sí puedes adaptar.
       severity_flag: informativo
       tags:
@@ -170,7 +170,7 @@ regions:
           description: De pie y sin prisa, siente cómo tus pies se apoyan en el piso y respira tres veces.
         - title: Masaje con una pelota
           description: Al sentarte, rueda una pelota pequeña bajo la planta del pie un par de minutos.
-        - title: Un primer paso pequeño
+        - title: Dar el primer paso de lo que temo
           description: Divide el paso que te da miedo en tres pasos pequeños y da el primero esta semana.
       severity_flag: informativo
       tags:

@@ -81,9 +81,9 @@ regions:
       practices:
         - title: Moverme cada hora
           description: Por cada hora en la silla, levántate y camina unos minutos con calma.
-        - title: Rodillas al pecho
-          description: Boca arriba, lleva suavemente las rodillas al pecho y respira lento durante un minuto.
-        - title: Un paso para mi tranquilidad
+        - title: Rodillas al pecho en la cama
+          description: En la cama, boca arriba, lleva suavemente las rodillas al pecho y respira lento durante un minuto.
+        - title: Un paso para lo que me preocupa
           description: Escribe tu preocupación principal y un solo paso concreto para atenderla esta semana.
       severity_flag: informativo
       tags:

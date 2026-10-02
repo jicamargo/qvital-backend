@@ -47,7 +47,7 @@ regions:
           description: Cinco minutos al día, respira lento con una mano en el vientre.
         - title: ¿Hambre o necesidad?
           description: Antes de comer, haz una pausa y pregúntate si tienes hambre o necesitas calmar algo.
-        - title: Cuidar mi sueño
+        - title: Acostarme un poco más temprano
           description: "Esta semana acuéstate un poco más temprano: dormir bien también te cuida."
       severity_flag: sugerir_acompanamiento_profesional
       tags:
@@ -108,9 +108,9 @@ regions:
       practices:
         - title: Algo que mi cuerpo hace por mí
           description: Cada día nombra una cosa que tu cuerpo hace por ti.
-        - title: Un hábito pequeño
-          description: "Elige un solo hábito para esta semana: dormir mejor, moverte un poco o comer a tus horas."
-        - title: Escribir sobre esa etapa
+        - title: Comer a mis horas
+          description: Esta semana, intenta comer a horas parecidas cada día, sin saltarte comidas.
+        - title: Escribir qué necesitaba cuando cambió mi cuerpo
           description: Escribe sobre la etapa en que empezó el cambio y qué necesitabas en ese momento.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
@@ -157,9 +157,9 @@ regions:
         o compensas lo que comes, o si la comida te genera mucha culpa, busca apoyo de un profesional de salud
         mental.
       practices:
-        - title: La pausa de los tres pasos
+        - title: Respirar tres veces ante un antojo
           description: Ante un antojo, respira hondo tres veces, nombra lo que sientes y pregúntate qué necesitas.
-        - title: Mis alternativas a la mano
+        - title: Mi lista de cosas que me calman
           description: "Anota dos o tres cosas que te calmen sin comida: llamar a alguien, caminar, un baño tibio."
         - title: Comer despacio y sin culpa
           description: Si decides comer, siéntate, come despacio y disfrútalo sin culpa.
@@ -213,8 +213,8 @@ regions:
           description: Por cada hora en la silla, levántate, estira los brazos y mueve los hombros.
         - title: Pedir ayuda concreta
           description: Pide ayuda con una tarea que siempre cargas por tu cuenta.
-        - title: Estirar la espalda
-          description: Entrelaza las manos al frente, redondea la espalda y respira lento.
+        - title: Juntar los omóplatos
+          description: En una silla o de pie, lleva los hombros atrás y junta los omóplatos cinco segundos. Repite cinco veces.
       severity_flag: informativo
       tags:
         - grasa_en_la_espalda
@@ -263,7 +263,7 @@ regions:
           description: Cada día agradece algo que tus piernas te permiten hacer, en vez de juzgar cómo se ven.
         - title: Bailar una canción
           description: Pon una canción que te guste y muévete o baila a tu ritmo.
-        - title: Un paso hacia mi autonomía
+        - title: Un paso pequeño por mi seguridad
           description: Escribe qué te daría más seguridad hoy y da un paso pequeño hacia eso.
       severity_flag: informativo
       tags:
@@ -311,8 +311,8 @@ regions:
       practices:
         - title: Fuerza suave en los brazos
           description: Con una botella de agua en cada mano, sube y baja los brazos despacio diez veces.
-        - title: Algo que puedo soltar
-          description: De lo que haces por obligación, elige una cosa que puedas delegar o soltar esta semana.
+        - title: Delegar una tarea esta semana
+          description: De lo que haces por obligación, elige una tarea y pídele a alguien que la haga esta semana.
         - title: Recibir un abrazo
           description: Date permiso de recibir ayuda o un abrazo sin tener que justificarlo.
       severity_flag: informativo

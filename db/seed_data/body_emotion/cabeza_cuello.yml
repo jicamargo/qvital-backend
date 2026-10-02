@@ -33,7 +33,7 @@ regions:
       practices:
         - title: Pausa de dos minutos
           description: Cada pocas horas, suelta los hombros, afloja la mandíbula y respira lento sintiendo los pies en el piso.
-        - title: Lo que sí y lo que no
+        - title: Separar lo que está en mis manos
           description: Escribe lo que te preocupa y separa lo que puedes hacer hoy de lo que no está en tus manos.
         - title: Última hora sin pantallas
           description: Apaga el celular y la televisión una hora antes de dormir.
@@ -90,7 +90,7 @@ regions:
           description: Cada 20 minutos frente a la pantalla, mira algo lejano durante 20 segundos.
         - title: Palmas tibias en los ojos
           description: Frota tus manos, cubre con ellas los ojos cerrados un minuto y respira despacio.
-        - title: Mirarlo de otra manera
+        - title: Escribir otra forma de verlo
           description: Escribe la situación que te cuesta ver y, debajo, otra forma de mirarla.
       severity_flag: informativo
       tags:
@@ -221,7 +221,7 @@ regions:
           description: Gira la cabeza despacio de lado a lado, respirando en cada movimiento y sin forzar.
         - title: Pantalla a la altura de los ojos
           description: Acomoda el celular o la pantalla para no tener que agachar la cabeza.
-        - title: Ver con otros ojos
+        - title: Escribir cómo lo ve la otra persona
           description: Elige algo en lo que has estado firme y escribe cómo lo vería la otra persona.
       severity_flag: informativo
       tags:

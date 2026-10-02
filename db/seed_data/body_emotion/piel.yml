@@ -31,7 +31,7 @@ regions:
           description: Aplica tu crema despacio, como un momento de cuidado para ti.
         - title: Un vaso de agua más
           description: Suma un vaso de agua al día y nota cómo se siente tu piel.
-        - title: Una frase para mi límite
+        - title: Ensayar cómo poner un límite
           description: Piensa en un límite que necesitas poner y ensaya una frase corta para decirlo.
       severity_flag: informativo
       tags:
