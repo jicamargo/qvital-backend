@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_24_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_10_02_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_24_120000) do
     t.text "content_curation_notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "practices", default: [], null: false
     t.index ["body_region_id", "status"], name: "index_body_emotion_insights_on_body_region_id_and_status"
     t.index ["body_region_id"], name: "index_body_emotion_insights_on_body_region_id"
   end

@@ -95,7 +95,8 @@ module CoachVirtual
           'narrative_explanation' => insight.narrative_explanation,
           'reflective_questions' => insight.reflective_questions,
           'integration_guidance' => insight.integration_guidance,
-          'severity_flag' => insight.severity_flag
+          'severity_flag' => insight.severity_flag,
+          'practices' => insight.practices
         }
       end
 
