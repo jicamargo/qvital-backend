@@ -17,16 +17,6 @@ module Api
                                                      focus_areas: [ "control_peso" ], active: false)
         end
 
-        test "index requires premium" do
-          @user.update!(premium_active: false)
-
-          stub_authenticated_as(@user) do
-            get api_v1_coach_virtual_body_regions_path, headers: auth_headers
-          end
-
-          assert_response :forbidden
-        end
-
         test "index returns all active regions with their focus_areas" do
           stub_authenticated_as(@user) do
             get api_v1_coach_virtual_body_regions_path, headers: auth_headers

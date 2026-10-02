@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_10_02_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -127,6 +127,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_120000) do
     t.index ["user_id", "status"], name: "index_coach_consultations_on_user_id_and_status"
     t.index ["user_id"], name: "index_coach_consultations_on_user_id"
     t.index ["virtual_coach_profile_id"], name: "index_coach_consultations_on_virtual_coach_profile_id"
+  end
+
+  create_table "coach_demo_views", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "body_region_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["body_region_id"], name: "index_coach_demo_views_on_body_region_id"
+    t.index ["user_id", "created_at"], name: "index_coach_demo_views_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_coach_demo_views_on_user_id"
   end
 
   create_table "evaluation_leads", force: :cascade do |t|
@@ -443,6 +452,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_120000) do
   add_foreign_key "coach_consultation_entries", "coach_consultations"
   add_foreign_key "coach_consultations", "users"
   add_foreign_key "coach_consultations", "virtual_coach_profiles"
+  add_foreign_key "coach_demo_views", "body_regions"
+  add_foreign_key "coach_demo_views", "users"
   add_foreign_key "habit_completions", "user_habits"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"

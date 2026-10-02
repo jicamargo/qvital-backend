@@ -1,6 +1,25 @@
 # Coach Virtual — Brújula Corporal (consultas)
 
-Todos los endpoints requieren JWT válido y membresía premium (`403 { "error": "Se requiere membresía premium" }` en otro caso).
+Todos los endpoints requieren JWT válido y membresía premium (`403 { "error": "Se requiere membresía premium" }` en otro caso), salvo `GET /body_regions` y `GET /previews/:body_region_id`, que están abiertos a cualquier usuaria autenticada.
+
+> `GET /api/v1/coach_virtual/body_regions` ya no exige premium: la usuaria no premium necesita ver las zonas para usar la demo. Las consultas (`/consultations`) siguen siendo solo premium.
+
+## GET /api/v1/coach_virtual/previews/:body_region_id
+
+Demo gratuita de la Brújula Corporal. Cualquier usuaria autenticada (premium o no). No crea una consulta. Registra una fila en `coach_demo_views` (si el registro falla, igual responde).
+
+Expone solo el tema emocional, la explicación y la primera pregunta reflexiva; nunca las demás preguntas, las prácticas, la guía de integración ni campos de curaduría.
+
+### Respuestas
+
+- `200`:
+  ```json
+  { "preview": { "body_region": { "id": 1, "name": "..." }, "emotional_theme": "...", "narrative_explanation": "...", "first_question": "..." , "has_more_questions": true, "severity_flag": "informativo" } }
+  ```
+  `first_question` puede ser `null` si la ficha no tiene preguntas.
+- `200` `{ "preview": null }`: la zona no tiene ficha publicada.
+- `404` `{ "error": "Zona no encontrada" }`: la zona no existe o está inactiva.
+- `401`: sin sesión.
 
 ## Ficha mostrada (`ficha_mostrada`)
 
