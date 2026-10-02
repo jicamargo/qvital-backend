@@ -6,6 +6,7 @@ regions:
   # valoración.
   - name: Cansancio persistente
     display_order: 1
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
     insight:
       symptom_pattern: >-
@@ -52,6 +53,7 @@ regions:
 
   - name: Sueño / insomnio
     display_order: 2
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
     insight:
       symptom_pattern: >-

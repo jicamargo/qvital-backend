@@ -81,4 +81,17 @@ class BodyEmotionSeedDataTest < ActiveSupport::TestCase
       assert insight.valid?, "#{attrs[:name]}: #{insight.errors.full_messages.to_sentence}"
     end
   end
+
+  test "every region has a valid body map area" do
+    all_regions.each do |region|
+      assert_includes BodyRegion::BODY_MAP_AREAS, region[:illustration_ref], "#{region[:name]}: illustration_ref inválido"
+    end
+  end
+
+  test "body map mapping matches the spec" do
+    areas = all_regions.to_h { |r| [ r[:name], r[:illustration_ref] ] }
+    assert_equal "abdomen", areas["Estómago / sistema digestivo"]
+    assert_equal "espalda_baja", areas["Zona lumbar"]
+    assert_equal "todo_cuerpo", areas["Hambre emocional / antojos"]
+  end
 end

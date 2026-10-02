@@ -14,6 +14,7 @@ body_system: peso_y_figura
 regions:
   - name: Grasa abdominal
     display_order: 1
+    illustration_ref: abdomen
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -69,6 +70,7 @@ regions:
 
   - name: Sobrepeso general
     display_order: 2
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -111,6 +113,7 @@ regions:
 
   - name: Hambre emocional / antojos
     display_order: 3
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -157,6 +160,7 @@ regions:
 
   - name: Grasa en la espalda
     display_order: 4
+    illustration_ref: espalda_alta
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -198,6 +202,7 @@ regions:
 
   - name: Grasa en caderas y muslos
     display_order: 5
+    illustration_ref: piernas_pies
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -241,6 +246,7 @@ regions:
 
   - name: Grasa en los brazos
     display_order: 6
+    illustration_ref: brazos_manos
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-

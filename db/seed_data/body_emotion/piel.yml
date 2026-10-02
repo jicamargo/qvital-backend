@@ -3,6 +3,7 @@ body_system: piel
 regions:
   - name: Piel
     display_order: 1
+    illustration_ref: todo_cuerpo
     insight:
       symptom_pattern: >-
         Brotes, picazón, enrojecimiento, resequedad o irritación en la piel que aparecen o empeoran en épocas de

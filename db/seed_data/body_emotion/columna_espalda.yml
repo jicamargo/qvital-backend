@@ -3,6 +3,7 @@ body_system: columna_espalda
 regions:
   - name: Espalda alta
     display_order: 1
+    illustration_ref: espalda_alta
     insight:
       symptom_pattern: >-
         Tensión, dolor o contracturas entre los omóplatos y en la parte alta de la espalda, sobre todo en épocas
@@ -47,6 +48,7 @@ regions:
 
   - name: Zona lumbar
     display_order: 2
+    illustration_ref: espalda_baja
     insight:
       symptom_pattern: >-
         Dolor o rigidez en la parte baja de la espalda (zona lumbar), que empeora en épocas de preocupación por

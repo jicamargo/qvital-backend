@@ -8,6 +8,7 @@ body_system: torax
 regions:
   - name: Pecho / corazón
     display_order: 1
+    illustration_ref: pecho
     insight:
       symptom_pattern: >-
         Sensación de opresión, peso o "apretón" en el pecho en momentos emocionales, o palpitaciones asociadas a
@@ -56,6 +57,7 @@ regions:
 
   - name: Pulmones / respiración
     display_order: 2
+    illustration_ref: pecho
     insight:
       symptom_pattern: >-
         Sensación de no poder respirar profundo, suspiros frecuentes o respiración corta en momentos de tristeza

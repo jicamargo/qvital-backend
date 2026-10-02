@@ -7,6 +7,7 @@ body_system: sistema_reproductivo
 regions:
   - name: Zona pélvica / ciclo menstrual
     display_order: 1
+    illustration_ref: zona_pelvica
     insight:
       symptom_pattern: >-
         Molestias en la zona pélvica o baja del abdomen, cólicos menstruales o cambios en el ciclo que se

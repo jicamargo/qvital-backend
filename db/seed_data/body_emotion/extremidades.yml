@@ -3,6 +3,7 @@ body_system: extremidades
 regions:
   - name: Hombros
     display_order: 1
+    illustration_ref: brazos_manos
     insight:
       symptom_pattern: >-
         Hombros tensos, subidos o adoloridos, o sensación de "peso" sobre los hombros al final del día, sin una
@@ -45,6 +46,7 @@ regions:
 
   - name: Manos
     display_order: 2
+    illustration_ref: brazos_manos
     insight:
       symptom_pattern: >-
         Tensión, rigidez, dolor u hormigueo frecuente en las manos o muñecas, o manos frías en momentos de
@@ -81,6 +83,7 @@ regions:
 
   - name: Rodillas
     display_order: 3
+    illustration_ref: piernas_pies
     insight:
       symptom_pattern: >-
         Dolor, rigidez o molestias en las rodillas, sobre todo al doblarlas, subir escaleras o arrodillarse, sin
@@ -118,6 +121,7 @@ regions:
 
   - name: Pies
     display_order: 4
+    illustration_ref: piernas_pies
     insight:
       symptom_pattern: >-
         Dolor en las plantas, los talones o los dedos de los pies, cansancio o pies fríos frecuentes, sin una

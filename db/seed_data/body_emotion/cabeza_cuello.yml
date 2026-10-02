@@ -7,6 +7,7 @@ body_system: cabeza_cuello
 regions:
   - name: Cabeza
     display_order: 1
+    illustration_ref: cabeza_cuello
     insight:
       symptom_pattern: >-
         Dolor o presión de cabeza frecuente (en la frente, las sienes o la nuca), sobre todo en días de mucha
@@ -54,6 +55,7 @@ regions:
 
   - name: Ojos
     display_order: 2
+    illustration_ref: cabeza_cuello
     insight:
       symptom_pattern: >-
         Cansancio, ardor, resequedad o tensión frecuente en los ojos, o sensación de "no querer ver", sin una
@@ -91,6 +93,7 @@ regions:
 
   - name: Mandíbula
     display_order: 3
+    illustration_ref: cabeza_cuello
     insight:
       symptom_pattern: >-
         Tensión o dolor en la mandíbula, apretar o rechinar los dientes (sobre todo al dormir), o molestias cerca
@@ -130,6 +133,7 @@ regions:
   # Ficha original del Anexo A del SDD — el texto se conserva tal cual.
   - name: Garganta
     display_order: 4
+    illustration_ref: cabeza_cuello
     insight:
       symptom_pattern: Molestia, opresión, carraspera o nudo frecuente en la garganta, sin causa clínica identificada.
       emotional_theme: Dificultad para expresar lo que se piensa o se siente
@@ -162,6 +166,7 @@ regions:
 
   - name: Cuello / cervicales
     display_order: 5
+    illustration_ref: cabeza_cuello
     insight:
       symptom_pattern: >-
         Rigidez, dolor o "nudos" en el cuello y la zona cervical, dificultad para girar la cabeza, sin una causa

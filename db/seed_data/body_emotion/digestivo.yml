@@ -4,6 +4,7 @@ regions:
   # Ficha original del Anexo A del SDD — el texto se conserva tal cual.
   - name: Estómago / sistema digestivo
     display_order: 1
+    illustration_ref: abdomen
     focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
     insight:
       symptom_pattern: Molestias digestivas recurrentes (pesadez, acidez, dificultad para digerir) sin causa clínica clara.
@@ -39,6 +40,7 @@ regions:
 
   - name: Hígado / vesícula
     display_order: 2
+    illustration_ref: abdomen
     focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
     insight:
       symptom_pattern: >-
@@ -84,6 +86,7 @@ regions:
 
   - name: Intestinos / colon
     display_order: 3
+    illustration_ref: abdomen
     focus_areas: [control_peso]  # también aparece en el filtro "Peso y emociones"
     insight:
       symptom_pattern: >-
