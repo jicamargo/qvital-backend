@@ -2,7 +2,7 @@ class BodyEmotionInsightBlueprint < Blueprinter::Base
   identifier :id
 
   fields :body_region_id, :symptom_pattern, :emotional_theme, :narrative_explanation,
-         :reflective_questions, :integration_guidance, :severity_flag
+         :reflective_questions, :integration_guidance, :severity_flag, :practices
 
   association :body_region, blueprint: BodyRegionBlueprint
 

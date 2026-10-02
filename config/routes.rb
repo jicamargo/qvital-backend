@@ -42,6 +42,7 @@ Rails.application.routes.draw do
             post :close
             post :zone_selections
             post :reflection_answers
+            post :practice_choices
           end
         end
       end

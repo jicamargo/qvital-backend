@@ -76,7 +76,7 @@ module Api
             params.require(:body_emotion_insight).permit(
               :body_region_id, :symptom_pattern, :emotional_theme, :narrative_explanation,
               :integration_guidance, :severity_flag, :status, :content_curation_notes,
-              reflective_questions: [], tags: []
+              reflective_questions: [], tags: [], practices: %i[title description]
             )
           end
         end

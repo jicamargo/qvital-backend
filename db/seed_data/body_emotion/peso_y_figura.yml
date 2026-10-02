@@ -14,6 +14,7 @@ body_system: peso_y_figura
 regions:
   - name: Grasa abdominal
     display_order: 1
+    illustration_ref: abdomen
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -41,6 +42,13 @@ regions:
         con un profesional de salud (perímetro de cintura, glucosa, presión arterial) y apoyarte en tu plan de
         nutrición. Si notas que comes a escondidas, que te das atracones, que restringes mucho o compensas lo que
         comes, o si la comida te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      practices:
+        - title: Mano en el vientre
+          description: Cinco minutos al día, respira lento con una mano en el vientre.
+        - title: ¿Hambre o necesidad?
+          description: Antes de comer, haz una pausa y pregúntate si tienes hambre o necesitas calmar algo.
+        - title: Acostarme un poco más temprano
+          description: "Esta semana acuéstate un poco más temprano: dormir bien también te cuida."
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - grasa_abdominal
@@ -66,9 +74,11 @@ regions:
         avergüenza el cuerpo. Mensajes seguros sobre peso según NEDA (Weight Stigma). Texto propio, no es copia
         ni traducción de ninguna fuente. Pendiente de revisión editorial (idealmente por nutrición y psicología)
         antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Sobrepeso general
     display_order: 2
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -95,6 +105,13 @@ regions:
         consulta con un profesional de salud para descartar causas hormonales o de medicamentos. Si notas que
         comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la comida
         te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      practices:
+        - title: Algo que mi cuerpo hace por mí
+          description: Cada día nombra una cosa que tu cuerpo hace por ti.
+        - title: Comer a mis horas
+          description: Esta semana, intenta comer a horas parecidas cada día, sin saltarte comidas.
+        - title: Escribir qué necesitaba cuando cambió mi cuerpo
+          description: Escribe sobre la etapa en que empezó el cambio y qué necesitabas en ese momento.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - sobrepeso
@@ -111,6 +128,7 @@ regions:
 
   - name: Hambre emocional / antojos
     display_order: 3
+    illustration_ref: todo_cuerpo
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -138,6 +156,13 @@ regions:
         hace más fuertes los antojos. Si notas que comes a escondidas, que te das atracones, que restringes mucho
         o compensas lo que comes, o si la comida te genera mucha culpa, busca apoyo de un profesional de salud
         mental.
+      practices:
+        - title: Respirar tres veces ante un antojo
+          description: Ante un antojo, respira hondo tres veces, nombra lo que sientes y pregúntate qué necesitas.
+        - title: Mi lista de cosas que me calman
+          description: "Anota dos o tres cosas que te calmen sin comida: llamar a alguien, caminar, un baño tibio."
+        - title: Comer despacio y sin culpa
+          description: Si decides comer, siéntate, come despacio y disfrútalo sin culpa.
       severity_flag: sugerir_acompanamiento_profesional
       tags:
         - hambre_emocional
@@ -157,6 +182,7 @@ regions:
 
   - name: Grasa en la espalda
     display_order: 4
+    illustration_ref: espalda_alta
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -182,6 +208,13 @@ regions:
         cambios llegan con hábitos generales sostenidos, y tu plan de QVITAL puede acompañarte. Si notas que
         comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la comida
         te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      practices:
+        - title: Pausa activa
+          description: Por cada hora en la silla, levántate, estira los brazos y mueve los hombros.
+        - title: Pedir ayuda concreta
+          description: Pide ayuda con una tarea que siempre cargas por tu cuenta.
+        - title: Juntar los omóplatos
+          description: En una silla o de pie, lleva los hombros atrás y junta los omóplatos cinco segundos. Repite cinco veces.
       severity_flag: informativo
       tags:
         - grasa_en_la_espalda
@@ -198,6 +231,7 @@ regions:
 
   - name: Grasa en caderas y muslos
     display_order: 5
+    illustration_ref: piernas_pies
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -224,6 +258,13 @@ regions:
         distribución tiene mucho de genética; tu plan de QVITAL puede acompañarte con hábitos generales. Si notas
         que comes a escondidas, que te das atracones, que restringes mucho o compensas lo que comes, o si la
         comida te genera mucha culpa, busca apoyo de un profesional de salud mental.
+      practices:
+        - title: Gracias, piernas
+          description: Cada día agradece algo que tus piernas te permiten hacer, en vez de juzgar cómo se ven.
+        - title: Bailar una canción
+          description: Pon una canción que te guste y muévete o baila a tu ritmo.
+        - title: Un paso pequeño por mi seguridad
+          description: Escribe qué te daría más seguridad hoy y da un paso pequeño hacia eso.
       severity_flag: informativo
       tags:
         - caderas
@@ -241,6 +282,7 @@ regions:
 
   - name: Grasa en los brazos
     display_order: 6
+    illustration_ref: brazos_manos
     focus_areas: [control_peso]
     insight:
       symptom_pattern: >-
@@ -266,6 +308,13 @@ regions:
         puede acompañarte con hábitos generales. Si notas que comes a escondidas, que te das atracones, que
         restringes mucho o compensas lo que comes, o si la comida te genera mucha culpa, busca apoyo de un
         profesional de salud mental.
+      practices:
+        - title: Fuerza suave en los brazos
+          description: Con una botella de agua en cada mano, sube y baja los brazos despacio diez veces.
+        - title: Delegar una tarea esta semana
+          description: De lo que haces por obligación, elige una tarea y pídele a alguien que la haga esta semana.
+        - title: Recibir un abrazo
+          description: Date permiso de recibir ayuda o un abrazo sin tener que justificarlo.
       severity_flag: informativo
       tags:
         - brazos

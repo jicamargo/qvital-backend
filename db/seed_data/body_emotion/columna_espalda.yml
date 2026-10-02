@@ -3,6 +3,7 @@ body_system: columna_espalda
 regions:
   - name: Espalda alta
     display_order: 1
+    illustration_ref: espalda_alta
     insight:
       symptom_pattern: >-
         Tensión, dolor o contracturas entre los omóplatos y en la parte alta de la espalda, sobre todo en épocas
@@ -24,6 +25,13 @@ regions:
         hacia los omóplatos. Revisar la postura al trabajar sentado o sentada. Pedir ayuda concreta esta semana
         con una tarea que sueles hacer tú solo o sola. Si el dolor se irradia al pecho o a los brazos, viene con
         falta de aire, o persiste, consultar con un profesional de salud.
+      practices:
+        - title: Estirar la espalda alta
+          description: Entrelaza las manos al frente, redondea la espalda y respira hacia los omóplatos.
+        - title: Pedir una mano
+          description: Esta semana, pide ayuda con una tarea que siempre haces por tu cuenta.
+        - title: Sentarme con apoyo
+          description: Al sentarte, apoya bien la espalda en la silla y deja los pies en el piso.
       severity_flag: informativo
       tags:
         - espalda
@@ -44,9 +52,11 @@ regions:
         tomaron las asociaciones en que las fuentes coinciden; el texto es propio y no es copia ni traducción de
         ninguna. No hay validación científica de la relación síntoma-emoción: es un marco de autoconocimiento.
         Pendiente de revisión editorial antes de publicar en producción.
+        Prácticas: borrador 2026-10, pendiente revisión editorial.
 
   - name: Zona lumbar
     display_order: 2
+    illustration_ref: espalda_baja
     insight:
       symptom_pattern: >-
         Dolor o rigidez en la parte baja de la espalda (zona lumbar), que empeora en épocas de preocupación por
@@ -68,6 +78,13 @@ regions:
         espalda. Escribir tu preocupación principal y un solo paso concreto para atenderla. Si el dolor baja por
         la pierna, viene con hormigueo, pérdida de fuerza, fiebre o problemas para orinar, o persiste, consultar
         con un profesional de salud.
+      practices:
+        - title: Moverme cada hora
+          description: Por cada hora en la silla, levántate y camina unos minutos con calma.
+        - title: Rodillas al pecho en la cama
+          description: En la cama, boca arriba, lleva suavemente las rodillas al pecho y respira lento durante un minuto.
+        - title: Un paso para lo que me preocupa
+          description: Escribe tu preocupación principal y un solo paso concreto para atenderla esta semana.
       severity_flag: informativo
       tags:
         - espalda

@@ -896,6 +896,7 @@ body_emotion_data.each do |data|
     region = BodyRegion.find_or_initialize_by(name: attrs[:name])
     region.body_system = data[:body_system]
     region.display_order = attrs[:display_order]
+    region.illustration_ref = attrs[:illustration_ref]
     region.focus_areas = attrs[:focus_areas] || []
     region.active = true
     region.save!

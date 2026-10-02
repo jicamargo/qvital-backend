@@ -22,4 +22,20 @@ class BodyRegionTest < ActiveSupport::TestCase
     assert_includes results, tagged
     refute_includes results, untagged
   end
+
+  test "illustration_ref accepts only body map areas or nil" do
+    region = BodyRegion.new(name: "Zona #{SecureRandom.hex(3)}", body_system: :digestivo)
+    assert region.valid?
+
+    region.illustration_ref = "abdomen"
+    assert region.valid?
+
+    region.illustration_ref = ""
+    assert region.valid?
+    assert_nil region.illustration_ref
+
+    region.illustration_ref = "panza"
+    refute region.valid?
+    assert region.errors[:illustration_ref].any?
+  end
 end

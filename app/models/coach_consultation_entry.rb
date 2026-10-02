@@ -8,7 +8,8 @@ class CoachConsultationEntry < ApplicationRecord
     sintoma_descrito_usuario: 1,
     ficha_mostrada: 2,
     respuesta_reflexion_usuario: 3,
-    mensaje_libre: 4
+    mensaje_libre: 4,
+    practica_elegida: 5
   }
 
   validates :sequence, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

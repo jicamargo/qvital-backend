@@ -2,6 +2,9 @@ class BodyRegion < ApplicationRecord
   # Enfoques temáticos que cruzan varios body_system (filtro de la Brújula).
   FOCUS_AREAS = %w[control_peso].freeze
 
+  # Áreas del mapa corporal (silueta) a las que pertenece cada zona; el frontend las dibuja.
+  BODY_MAP_AREAS = %w[cabeza_cuello pecho abdomen zona_pelvica brazos_manos piernas_pies espalda_alta espalda_baja todo_cuerpo].freeze
+
   belongs_to :parent, class_name: "BodyRegion", optional: true
   has_many :children, class_name: "BodyRegion", foreign_key: :parent_id, dependent: :nullify
   has_many :body_emotion_insights, dependent: :restrict_with_error
@@ -20,6 +23,8 @@ class BodyRegion < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :body_system, presence: true
+  validates :illustration_ref, inclusion: { in: BODY_MAP_AREAS }, allow_nil: true
+  before_validation { self.illustration_ref = illustration_ref.presence }
   validate :focus_areas_are_known
 
   scope :active, -> { where(active: true) }
