@@ -1,5 +1,7 @@
 module Marketplace
   module Checkout
+    # Estado de un pago para la pantalla de resultado del checkout. Solo
+    # responde por pagos del propio usuario.
     class Status
       Result = Struct.new(
         :status,
@@ -9,15 +11,17 @@ module Marketplace
         :amount,
         :currency,
         :payment,
+        :purchase_number,
         :error,
         keyword_init: true
       )
 
-      def self.call(transaction_id: nil, external_reference: nil)
-        new(transaction_id:, external_reference:).call
+      def self.call(user:, transaction_id: nil, external_reference: nil)
+        new(user:, transaction_id:, external_reference:).call
       end
 
-      def initialize(transaction_id:, external_reference:)
+      def initialize(user:, transaction_id:, external_reference:)
+        @user = user
         @transaction_id = transaction_id
         @external_reference = external_reference
       end
@@ -26,27 +30,17 @@ module Marketplace
         return Result.new(error: "transaction_id or external_reference is required") if @transaction_id.blank? && @external_reference.blank?
 
         payment = find_local_payment
-        if payment
-          return Result.new(
-            status: normalize_status(payment.status),
-            provider_status: payment.status,
-            transaction_id: payment.provider_payment_id,
-            external_reference: payment.external_reference,
-            amount: payment.amount,
-            currency: payment.currency,
-            payment:
-          )
-        end
+        # Mientras siga pendiente se vuelve a preguntar a Wompi: si el webhook
+        # tarda o nunca llega, el pago no se queda "en proceso" para siempre.
+        return local_result(payment) if payment && !(payment.pending? && @transaction_id.present?)
 
         return Result.new(error: "Payment not found") if @transaction_id.blank?
 
         tx = ::Wompi::Client.fetch_transaction(transaction_id: @transaction_id)
-        return Result.new(error: "Payment not found") unless tx
-
-        Rails.logger.info "Wompi transaction: #{tx.inspect}"
+        return Result.new(error: "Payment not found") unless tx && belongs_to_user?(tx)
 
         normalized_status = normalize_status(tx["status"])
-        reconciled_payment = reconcile_if_approved!(tx, normalized_status)
+        reconciled_payment = reconcile_if_final!(tx, normalized_status) || payment
 
         Result.new(
           status: normalized_status,
@@ -55,19 +49,38 @@ module Marketplace
           external_reference: tx["reference"],
           amount: BigDecimal(tx["amount_in_cents"].to_s) / 100,
           currency: tx["currency"],
-          payment: reconciled_payment
+          payment: reconciled_payment,
+          purchase_number: reconciled_payment&.purchase&.purchase_number
         )
       rescue StandardError => e
-        Result.new(error: "Unexpected error fetching payment status: #{e.message}")
+        Rails.logger.error "Error fetching payment status: #{e.class.name} - #{e.message}"
+        Result.new(error: "Unexpected error fetching payment status")
       end
 
       private
 
-      # El estado "approved" normalmente lo procesa el webhook de Wompi (upsert de Payment
+      def local_result(payment)
+        Result.new(
+          status: normalize_status(payment.status),
+          provider_status: payment.status,
+          transaction_id: payment.provider_payment_id,
+          external_reference: payment.external_reference,
+          amount: payment.amount,
+          currency: payment.currency,
+          payment:,
+          purchase_number: payment.purchase&.purchase_number
+        )
+      end
+
+      def belongs_to_user?(tx)
+        PurchaseIntent.exists?(external_reference: tx["reference"], user_id: @user.id)
+      end
+
+      # El estado final normalmente lo procesa el webhook de Wompi (upsert de Payment
       # + completar orden/carrito). Si el webhook aún no llegó (o nunca llega), este polling
-      # de status hace lo mismo al detectar APPROVED, para no depender solo del webhook.
-      def reconcile_if_approved!(tx, normalized_status)
-        return nil unless normalized_status == "approved"
+      # de status hace lo mismo al detectar un estado final, para no depender solo del webhook.
+      def reconcile_if_final!(tx, normalized_status)
+        return nil if normalized_status == "pending"
 
         result =
           ReconcileTransaction.call(
@@ -79,26 +92,27 @@ module Marketplace
           )
 
         unless result.success?
-          Rails.logger.warn "Failed to reconcile approved transaction #{tx['id']}: #{result.error}"
+          Rails.logger.warn "Failed to reconcile transaction #{tx['id']}: #{result.error}"
           return nil
         end
 
         result.payment
       rescue StandardError => e
-        Rails.logger.error "Error reconciling approved transaction from status poll: #{e.class.name} - #{e.message}"
+        Rails.logger.error "Error reconciling transaction from status poll: #{e.class.name} - #{e.message}"
         nil
       end
 
       def find_local_payment
+        scope = Payment.joins(:purchase).where(provider: "wompi", purchases: { user_id: @user.id })
+
         if @transaction_id.present?
-          payment =
-            Payment.where(provider: "wompi", provider_payment_id: @transaction_id).order(updated_at: :desc).first
+          payment = scope.where(provider_payment_id: @transaction_id).order(updated_at: :desc).first
           return payment if payment
         end
 
         return nil if @external_reference.blank?
 
-        Payment.where(provider: "wompi", external_reference: @external_reference).order(updated_at: :desc).first
+        scope.where(external_reference: @external_reference).order(updated_at: :desc).first
       end
 
       def normalize_status(raw_status)

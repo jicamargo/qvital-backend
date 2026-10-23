@@ -59,6 +59,83 @@ module Api
           premium = JSON.parse(response.body)["premium"]
           refute premium["granted"]
         end
+
+        def stub_wompi_transaction(transaction)
+          original = ::Wompi::Client.method(:fetch_transaction)
+          ::Wompi::Client.define_singleton_method(:fetch_transaction) { |**| transaction }
+          yield
+        ensure
+          ::Wompi::Client.define_singleton_method(:fetch_transaction, original)
+        end
+
+        test "status does not reveal another user's payment" do
+          payment = build_approved_purchase(total_amount: 150_000, premium_granted: true)
+          intruder = User.create!(email: "intruder-#{SecureRandom.hex(4)}@example.com", role: "cliente", level: @level)
+
+          stub_authenticated_as(intruder) do
+            get api_v1_marketplace_checkout_status_path, params: { transaction_id: payment.provider_payment_id },
+                                                          headers: auth_headers
+          end
+
+          assert_response :unprocessable_entity
+          assert_nil JSON.parse(response.body)["premium"]
+        end
+
+        test "status returns the purchase number" do
+          payment = build_approved_purchase(total_amount: 50_000, premium_granted: false)
+
+          stub_authenticated_as(@user) do
+            get api_v1_marketplace_checkout_status_path, params: { transaction_id: payment.provider_payment_id },
+                                                          headers: auth_headers
+          end
+
+          assert_equal payment.purchase.purchase_number, JSON.parse(response.body)["purchase_number"]
+        end
+
+        test "status asks Wompi again while the local payment is still pending" do
+          payment = build_approved_purchase(total_amount: 50_000, premium_granted: false)
+          payment.update!(status: :pending)
+          Order.create!(purchase: payment.purchase, total_amount: 50_000)
+          approved_tx = {
+            "id" => payment.provider_payment_id, "reference" => payment.external_reference,
+            "status" => "APPROVED", "amount_in_cents" => 5_000_000, "currency" => "COP"
+          }
+
+          stub_wompi_transaction(approved_tx) do
+            stub_authenticated_as(@user) do
+              get api_v1_marketplace_checkout_status_path, params: { transaction_id: payment.provider_payment_id },
+                                                            headers: auth_headers
+            end
+          end
+
+          assert_equal "approved", JSON.parse(response.body)["status"]
+          assert payment.reload.approved?
+        end
+
+        test "prepare rejects another user's purchase reference" do
+          payment = build_approved_purchase(total_amount: 50_000, premium_granted: false)
+          payment.update!(status: :pending)
+          intruder = User.create!(email: "intruder-#{SecureRandom.hex(4)}@example.com", role: "cliente", level: @level)
+
+          stub_authenticated_as(intruder) do
+            post api_v1_marketplace_checkout_prepare_path,
+                 params: { external_reference: payment.external_reference }, headers: auth_headers, as: :json
+          end
+
+          assert_response :unprocessable_entity
+        end
+
+        test "prepare refuses to restart the payment of a paid purchase" do
+          payment = build_approved_purchase(total_amount: 50_000, premium_granted: false)
+
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_checkout_prepare_path,
+                 params: { external_reference: payment.external_reference }, headers: auth_headers, as: :json
+          end
+
+          assert_response :unprocessable_entity
+          assert payment.reload.approved?
+        end
       end
     end
   end

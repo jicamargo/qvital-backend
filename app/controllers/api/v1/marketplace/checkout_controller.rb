@@ -10,6 +10,7 @@ module Api
 
           result =
             ::Marketplace::Checkout::Prepare.call(
+              user: current_user,
               external_reference: permitted_params[:external_reference],
               payer: permitted_params[:payer] || {},
               order_info: permitted_params[:order] || {},
@@ -54,6 +55,7 @@ module Api
         def status
           result =
             ::Marketplace::Checkout::Status.call(
+              user: current_user,
               transaction_id: status_params[:transaction_id],
               external_reference: status_params[:external_reference]
             )
@@ -70,6 +72,7 @@ module Api
             external_reference: result.external_reference,
             amount: result.amount,
             currency: result.currency,
+            purchase_number: result.purchase_number,
             premium: premium_payload(result.payment)
           }, status: :ok
         rescue StandardError => e
