@@ -1,5 +1,7 @@
 # Plan de lanzamiento: de develop a ventas reales con bajo presupuesto
 
+> **La lista de chequeo oficial está en [`ruta-a-produccion.md`](ruta-a-produccion.md).** Este documento queda como referencia.
+
 _Creado: 2026-10-19 · Estado: propuesto, pendiente de aprobación_
 
 Objetivo: salir rápido a producción con dominio propio, hacer publicidad, vender por la app y mejorarla con datos reales. El costo fijo tiene que ser bajo para que la app se pague sola desde las primeras ventas.

@@ -1,5 +1,7 @@
 # Plan de despliegue a producción
 
+> **La lista de chequeo oficial está en [`ruta-a-produccion.md`](ruta-a-produccion.md).** Este documento queda como referencia.
+
 _Creado: 2026-09-24 · Estado: pendiente (no iniciado)_
 
 Alcance: DB en Supabase (proyecto nuevo), backend Rails y frontend Next.js en proveedores por definir.
