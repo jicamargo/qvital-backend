@@ -106,6 +106,17 @@ module Marketplace
       ensure
         ENV.delete("MARKETPLACE_MOCK_AUTO_APPROVE")
       end
+
+      test "does not close the cart when a newer checkout of that cart is pending" do
+        purchase, order = build_approved_purchase(total_amount: 150_000)
+        cart = Cart.create!(user: @user)
+        purchase.purchase_intent.update!(cart:)
+        PurchaseIntent.create!(user: @user, cart:, external_reference: SecureRandom.uuid, total_amount: 1)
+
+        Complete.call(purchase_id: purchase.id, order_ids: [ order.id ], cart_id: nil, user: nil)
+
+        assert cart.reload.open?
+      end
     end
   end
 end

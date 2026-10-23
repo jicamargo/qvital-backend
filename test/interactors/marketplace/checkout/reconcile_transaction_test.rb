@@ -79,6 +79,17 @@ module Marketplace
       ensure
         ENV.delete("ADMIN_NOTIFICATION_EMAIL")
       end
+
+      test "a late event for another transaction of the same reference never touches the approved payment" do
+        reconcile(transaction_id: "tx-approved")
+
+        reconcile(transaction_id: "tx-declined", status: "DECLINED", amount_in_cents: 1)
+
+        approved = Payment.find_by!(provider_payment_id: "tx-approved")
+        assert approved.approved?
+        assert_equal BigDecimal("120000"), approved.amount
+        assert Payment.find_by!(provider_payment_id: "tx-declined").rejected?
+      end
     end
   end
 end

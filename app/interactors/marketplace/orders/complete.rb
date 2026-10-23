@@ -68,10 +68,15 @@ module Marketplace
 
       private
 
-      # Cierra el carrito que originó la compra (guardado al preparar la orden).
+      # Cierra el carrito que originó la compra (guardado al preparar la orden),
+      # salvo que la clienta ya haya iniciado un checkout más nuevo con ese
+      # carrito: entonces se pagó un intento viejo y el carrito sigue en uso.
       # `cart_id` queda solo para compras preparadas antes de ese vínculo.
       def complete_cart!
-        cart = @purchase.purchase_intent&.cart
+        intent = @purchase.purchase_intent
+        cart = intent&.cart
+        return if cart && PurchaseIntent.where(cart:).where("created_at > ?", intent.created_at).exists?
+
         cart ||= Cart.find_by(id: @cart_id, user_id: @purchase.user_id) if @cart_id
         return unless cart
 

@@ -40,7 +40,6 @@ module Api
               recipient_info: permitted_params[:recipient_info] || {},
               selected_date: permitted_params[:selected_date],
               payment_method: permitted_params[:payment_method],
-              purchase_intent_id: permitted_params[:purchase_intent_id],
               update_user_profile: permitted_params[:update_user_profile],
               medical_disclaimer_accepted: permitted_params[:medical_disclaimer_accepted]
             )
@@ -97,7 +96,6 @@ module Api
           params.permit(
             :selected_date,
             :payment_method,
-            :purchase_intent_id,
             :update_user_profile,
             :medical_disclaimer_accepted,
             order: {},

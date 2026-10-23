@@ -122,6 +122,22 @@ module Api
           assert_equal 100_000, purchase["total_amount"].to_d
           assert_equal 0, purchase["shipping_cost"].to_d
         end
+
+        test "prepare ignores a purchase_intent_id sent by the client" do
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_orders_prepare_path, params: prepare_params, headers: auth_headers, as: :json
+          end
+          paid = PurchaseIntent.find(JSON.parse(response.body)["purchase_intent"]["id"])
+          paid.purchase.update!(status: :confirmed)
+
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_orders_prepare_path,
+                 params: prepare_params.merge(purchase_intent_id: paid.id), headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          refute_equal paid.id, JSON.parse(response.body)["purchase_intent"]["id"]
+        end
       end
     end
   end

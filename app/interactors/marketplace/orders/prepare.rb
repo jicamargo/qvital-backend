@@ -15,26 +15,24 @@ module Marketplace
       # Herbalife envía sin costo directo a la clienta.
       SHIPPING_COST = BigDecimal("0")
 
-      def self.call(user:, shipping_address:, recipient_info:, selected_date:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false, medical_disclaimer_accepted: false)
+      def self.call(user:, shipping_address:, recipient_info:, selected_date:, payment_method: nil, update_user_profile: false, medical_disclaimer_accepted: false)
         new(
           user:,
           shipping_address:,
           recipient_info:,
           selected_date:,
           payment_method:,
-          purchase_intent_id:,
           update_user_profile:,
           medical_disclaimer_accepted:
         ).call
       end
 
-      def initialize(user:, shipping_address:, recipient_info:, selected_date:, payment_method:, purchase_intent_id:, update_user_profile:, medical_disclaimer_accepted: false)
+      def initialize(user:, shipping_address:, recipient_info:, selected_date:, payment_method:, update_user_profile:, medical_disclaimer_accepted: false)
         @user = user
         @shipping_address = shipping_address || {}
         @recipient_info = recipient_info || {}
         @selected_date = selected_date
         @payment_method = payment_method
-        @purchase_intent_id = purchase_intent_id
         @update_user_profile = ActiveModel::Type::Boolean.new.cast(update_user_profile)
         # NOTA: no se rechaza (422) todavía si viene en false/ausente — el frontend aún no
         # envía el checkbox de descargo médico (llega en la sub-fase 3.4 frontend). Se
@@ -56,9 +54,6 @@ module Marketplace
         line_error = build_lines
         return Result.new(error: line_error) if line_error
 
-        existing_intent = find_existing_purchase_intent
-        return Result.new(error: "Esta compra ya fue pagada.") if existing_intent && already_paid?(existing_intent)
-
         subtotal = @lines.sum { |line| line[:quantity] * line[:unit_price] }
         tax_amount = BigDecimal("0")
         total_amount = subtotal + SHIPPING_COST
@@ -66,8 +61,11 @@ module Marketplace
         result = nil
 
         ActiveRecord::Base.transaction do
-          purchase_intent = existing_intent || create_purchase_intent!(total_amount)
-          purchase_intent.update!(total_amount:, cart: @cart)
+          # Cada intento de pago es una compra nueva: nunca se reescribe una
+          # anterior (podría estar pagándose en ese momento). Los intentos
+          # pendientes previos del mismo carrito quedan cancelados.
+          PurchaseIntent.where(cart: @cart, status: :pending).update_all(status: PurchaseIntent.statuses[:cancelled])
+          purchase_intent = create_purchase_intent!(total_amount)
           purchase = find_or_initialize_purchase(purchase_intent, total_amount, subtotal, tax_amount)
 
           purchase_item_rows = rebuild_purchase_items!(purchase)
@@ -120,23 +118,14 @@ module Marketplace
         nil
       end
 
-      def find_existing_purchase_intent
-        return nil if @purchase_intent_id.blank?
-
-        PurchaseIntent.find_by(id: @purchase_intent_id, user_id: @user.id)
-      end
-
-      def already_paid?(purchase_intent)
-        purchase_intent.completed? || purchase_intent.purchase&.confirmed?
-      end
-
       def create_purchase_intent!(total_amount)
         PurchaseIntent.create!(
           user: @user,
           company_id: nil,
           external_reference: SecureRandom.uuid,
           status: :pending,
-          total_amount:
+          total_amount:,
+          cart: @cart
         )
       end
 

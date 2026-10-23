@@ -40,10 +40,15 @@ module Marketplace
           @payment =
             Payment.where(provider: "wompi", provider_payment_id: @provider_payment_id).first
 
+          # Una referencia puede tener varias transacciones (p. ej. una rechazada
+          # y luego otra aprobada): solo se reutiliza la fila creada al preparar
+          # el checkout, que aún no tiene transacción; si no, cada transacción
+          # tiene su propia fila.
           @payment ||=
-            Payment.where(external_reference: @external_reference, provider: "wompi")
+            Payment.where(external_reference: @external_reference, provider: "wompi", provider_payment_id: nil)
               .order(updated_at: :desc)
               .first_or_initialize
+          @payment.lock! if @payment.persisted?
 
           if @payment.new_record?
             return failure("Purchase not found for transaction reference") unless purchase
@@ -58,8 +63,10 @@ module Marketplace
           already_alerted = @payment.raw_payload.to_h.key?("charge_mismatch")
 
           @payment.provider_payment_id = @provider_payment_id
-          @payment.amount = BigDecimal(@amount_in_cents.to_s) / 100 if @amount_in_cents.present?
-          @payment.currency = @currency
+          unless @payment.approved?
+            @payment.amount = BigDecimal(@amount_in_cents.to_s) / 100 if @amount_in_cents.present?
+            @payment.currency = @currency
+          end
           # Un pago aprobado es definitivo: un evento tardío (PENDING/DECLINED)
           # no lo puede devolver atrás. Si lo cobrado no coincide con la compra,
           # no se aprueba y se avisa al admin para revisarlo a mano.

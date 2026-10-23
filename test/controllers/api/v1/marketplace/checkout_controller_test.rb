@@ -136,6 +136,25 @@ module Api
           assert_response :unprocessable_entity
           assert payment.reload.approved?
         end
+
+        test "status does not report success when the charged amount does not match" do
+          payment = build_approved_purchase(total_amount: 50_000, premium_granted: false)
+          payment.update!(status: :pending)
+          Order.create!(purchase: payment.purchase, total_amount: 50_000)
+          wrong_amount_tx = {
+            "id" => payment.provider_payment_id, "reference" => payment.external_reference,
+            "status" => "APPROVED", "amount_in_cents" => 100, "currency" => "COP"
+          }
+
+          stub_wompi_transaction(wrong_amount_tx) do
+            stub_authenticated_as(@user) do
+              get api_v1_marketplace_checkout_status_path, params: { transaction_id: payment.provider_payment_id },
+                                                            headers: auth_headers
+            end
+          end
+
+          assert_equal "pending", JSON.parse(response.body)["status"]
+        end
       end
     end
   end

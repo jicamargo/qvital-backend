@@ -40,7 +40,11 @@ module Marketplace
         return Result.new(error: "Payment not found") unless tx && belongs_to_user?(tx)
 
         normalized_status = normalize_status(tx["status"])
-        reconciled_payment = reconcile_if_final!(tx, normalized_status) || payment
+        reconciliation = reconcile_if_final(tx, normalized_status)
+        # Wompi lo aprobó, pero el cobro no coincide con la compra: queda en
+        # revisión del admin, así que la clienta lo ve "en proceso".
+        normalized_status = "pending" if reconciliation&.mismatch
+        reconciled_payment = reconciliation&.payment || payment
 
         Result.new(
           status: normalized_status,
@@ -79,7 +83,7 @@ module Marketplace
       # El estado final normalmente lo procesa el webhook de Wompi (upsert de Payment
       # + completar orden/carrito). Si el webhook aún no llegó (o nunca llega), este polling
       # de status hace lo mismo al detectar un estado final, para no depender solo del webhook.
-      def reconcile_if_final!(tx, normalized_status)
+      def reconcile_if_final(tx, normalized_status)
         return nil if normalized_status == "pending"
 
         result =
@@ -91,12 +95,8 @@ module Marketplace
             currency: tx["currency"] || "COP"
           )
 
-        unless result.success?
-          Rails.logger.warn "Failed to reconcile transaction #{tx['id']}: #{result.error}"
-          return nil
-        end
-
-        result.payment
+        Rails.logger.warn "Failed to reconcile transaction #{tx['id']}: #{result.error}" unless result.success?
+        result
       rescue StandardError => e
         Rails.logger.error "Error reconciling transaction from status poll: #{e.class.name} - #{e.message}"
         nil

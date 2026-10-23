@@ -75,15 +75,24 @@ module Marketplace
         assert_equal @cart, prepare.purchase_intent.cart
       end
 
-      test "refuses to modify a purchase that was already paid" do
+      test "a new checkout never rewrites a previous purchase" do
         @cart.cart_items.create!(product: @product, quantity: 1, price_snapshot: 100_000)
         first = prepare
-        first.purchase.update!(status: :confirmed)
+        @cart.cart_items.first.update!(quantity: 3)
 
-        result = prepare(purchase_intent_id: first.purchase_intent.id)
+        second = prepare
 
-        assert_match(/pagad/i, result.error)
+        refute_equal first.purchase_intent.id, second.purchase_intent.id
         assert_equal BigDecimal("100000"), first.purchase.reload.total_amount
+      end
+
+      test "cancels older pending purchase intents of the same cart" do
+        @cart.cart_items.create!(product: @product, quantity: 1, price_snapshot: 100_000)
+        first = prepare
+
+        prepare
+
+        assert first.purchase_intent.reload.cancelled?
       end
 
       test "generates distinct purchase numbers within the same second" do
