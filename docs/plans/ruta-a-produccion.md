@@ -47,25 +47,33 @@ Revisión completa de los dos repos y del flujo de dinero, hecha en paralelo. Re
 
 ## Etapa 1: Seguridad del dinero (backend) 🔴
 
-Todo con pruebas automáticas. Rama `feature/checkout-seguro`.
+Todo con pruebas automáticas. Rama `feature/checkout-seguro`. **✅ Completada 2026-10-23** y mergeada a `develop` (BE `cda303a`, FE `e8db5ad`). 156 pruebas en verde, más una revisión adversaria cuyos hallazgos ya se corrigieron.
 
-- [ ] (C) **El precio lo pone el servidor.** `orders/prepare` arma los ítems desde el carrito del servidor (o desde `product_id` + cantidad) y saca el precio de `product_prices` según el nivel de la usuaria. Ignora cualquier `price` del request. _(prepare.rb:95,155; orders_controller.rb:39,109)_
-- [ ] (C) **Envío = 0 fijo** en el servidor; se ignora `shipping_cost`. _(orders_controller.rb:43; prepare.rb:35,60)_
-- [ ] (C) **Validar los productos:** cantidad entre 1 y un máximo razonable, producto `active`, monto mínimo mayor que 0. _(prepare.rb:12,57,95,140-146)_
-- [ ] (C) **Una orden pagada no se modifica:** `orders/prepare` y `checkout/prepare` rechazan un intent o una compra ya confirmada. _(prepare.rb:101-116; checkout/prepare.rb:52-61)_
-- [ ] (C) **Pertenencia:** `checkout/prepare` y `checkout/status` solo actúan sobre intents y transacciones de la usuaria actual. _(checkout/prepare.rb:35; checkout_controller.rb:54-101; status.rb:191-201)_
-- [ ] (C) **`Complete` idempotente:** con lock y `return if confirmed?`, para que el webhook, el polling, los reintentos y la conciliación del admin no dupliquen correos ni Premium. Índice único en `payments(provider, provider_payment_id)` y en `orders.purchase_id`. _(complete.rb:20-45; reconcile_transaction.rb:63)_
-- [ ] (C) **El webhook verifica el monto y la moneda:** `amount_in_cents == total*100` y COP. Si no coinciden, no se aprueba y se alerta. _(reconcile_transaction.rb:56-57)_
-- [ ] (C) **Transiciones de estado:** un evento PENDING o DECLINED tardío no puede bajar un pago ya aprobado. _(reconcile_transaction.rb:104-112)_
-- [ ] (C) **El carrito correcto:** `Complete` cierra el carrito de esa compra, no "el último abierto". _(complete.rb:90-94)_
-- [ ] (C) **Pagos pendientes:** `Status` vuelve a consultar a Wompi si el pago lleva rato en pending. _(status.rb:28-39)_
-- [ ] (C) Quitar `MARKETPLACE_MOCK_AUTO_APPROVE` del camino de producción. _(complete.rb:60-88)_
-- [ ] (C) Wompi falla al arrancar si faltan variables en producción, en vez de caer en sandbox. _(wompi/config.rb:6,14)_
-- [ ] (C) Admin: no permitir marcar `confirmed` una orden sin pago aprobado. _(admin/orders/update.rb:22-29)_
-- [ ] (C) Número de compra sin colisiones (hoy se genera por segundo). _(prepare.rb:245-248)_
-- [ ] (C) Quitar los `puts` de depuración. _(add_item.rb:21-55)_
-- [ ] (C) Frontend: dejar de enviar precio y envío; quitar el texto "pago simulado (proveedor mock)" y el `console.log` del checkout. _(MarketplaceCheckoutContext.tsx:99,118,160-165; checkout/page.tsx:139)_
-- [ ] (C) Frontend: el resultado del checkout muestra el número de compra (hoy la API no lo devuelve). _(checkout_controller.rb:66-74)_
+Adicional por la revisión:
+- [x] (C) Cada checkout crea una compra nueva y cancela los intentos pendientes del mismo carrito; nunca se reescribe una compra que podría estar pagándose.
+- [x] (C) Cada transacción de Wompi tiene su propia fila de pago; un pago aprobado no se sobrescribe; la fila se bloquea al conciliar.
+- [x] (C) Un cobro que no coincide se muestra "en proceso" a la clienta (no "aprobado").
+
+Pendiente conocido (menor):
+- [ ] (C) Si se pagan dos intentos del mismo carrito (dos links de Wompi viejos), quedan dos órdenes: el admin reembolsa una a mano. Raro; revisar si pasa en la beta.
+
+- [x] (C) **El precio lo pone el servidor.** `orders/prepare` arma los ítems desde el carrito del servidor (o desde `product_id` + cantidad) y saca el precio de `product_prices` según el nivel de la usuaria. Ignora cualquier `price` del request. _(prepare.rb:95,155; orders_controller.rb:39,109)_
+- [x] (C) **Envío = 0 fijo** en el servidor; se ignora `shipping_cost`. _(orders_controller.rb:43; prepare.rb:35,60)_
+- [x] (C) **Validar los productos:** cantidad entre 1 y un máximo razonable, producto `active`, monto mínimo mayor que 0. _(prepare.rb:12,57,95,140-146)_
+- [x] (C) **Una orden pagada no se modifica:** `orders/prepare` y `checkout/prepare` rechazan un intent o una compra ya confirmada. _(prepare.rb:101-116; checkout/prepare.rb:52-61)_
+- [x] (C) **Pertenencia:** `checkout/prepare` y `checkout/status` solo actúan sobre intents y transacciones de la usuaria actual. _(checkout/prepare.rb:35; checkout_controller.rb:54-101; status.rb:191-201)_
+- [x] (C) **`Complete` idempotente:** con lock y `return if confirmed?`, para que el webhook, el polling, los reintentos y la conciliación del admin no dupliquen correos ni Premium. Índice único en `payments(provider, provider_payment_id)` y en `orders.purchase_id`. _(complete.rb:20-45; reconcile_transaction.rb:63)_
+- [x] (C) **El webhook verifica el monto y la moneda:** `amount_in_cents == total*100` y COP. Si no coinciden, no se aprueba y se alerta. _(reconcile_transaction.rb:56-57)_
+- [x] (C) **Transiciones de estado:** un evento PENDING o DECLINED tardío no puede bajar un pago ya aprobado. _(reconcile_transaction.rb:104-112)_
+- [x] (C) **El carrito correcto:** `Complete` cierra el carrito de esa compra, no "el último abierto". _(complete.rb:90-94)_
+- [x] (C) **Pagos pendientes:** `Status` vuelve a consultar a Wompi si el pago lleva rato en pending. _(status.rb:28-39)_
+- [x] (C) Quitar `MARKETPLACE_MOCK_AUTO_APPROVE` del camino de producción. _(complete.rb:60-88)_
+- [x] (C) Wompi falla al arrancar si faltan variables en producción, en vez de caer en sandbox. _(wompi/config.rb:6,14)_
+- [x] (C) Admin: no permitir marcar `confirmed` una orden sin pago aprobado. _(admin/orders/update.rb:22-29)_
+- [x] (C) Número de compra sin colisiones (hoy se genera por segundo). _(prepare.rb:245-248)_
+- [x] (C) Quitar los `puts` de depuración. _(add_item.rb:21-55)_
+- [x] (C) Frontend: dejar de enviar precio y envío; quitar el texto "pago simulado (proveedor mock)" y el `console.log` del checkout. _(MarketplaceCheckoutContext.tsx:99,118,160-165; checkout/page.tsx:139)_
+- [x] (C) Frontend: el resultado del checkout muestra el número de compra (hoy la API no lo devuelve). _(checkout_controller.rb:66-74)_
 
 ## Etapa 2: Modelo de negocio Premium 🔴
 
@@ -146,7 +154,7 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 
 ## Etapa 7: Ensayo general en internet (gratis) 🔴
 
-- [ ] (J+C) Proyecto Supabase de **producción**: us-east-1, extensiones `unaccent` y `pg_trgm`, schema con `db:migrate` (no `schema:load`), catálogo sin usuarios de prueba.
+- [ ] (J+C) Proyecto Supabase de **producción** (DB vacía, así los índices únicos nuevos no chocan con datos viejos): us-east-1, extensiones `unaccent` y `pg_trgm`, schema con `db:migrate` (no `schema:load`), catálogo sin usuarios de prueba.
 - [ ] (J+C) Storage: crear los buckets `products` y `recipes` con sus políticas (las de `products` no están en ninguna migración y se crean a mano), copiar las imágenes y reescribir los `image_url`.
 - [ ] (J+C) Seguridad de Supabase: RLS activado sin políticas en `public` (o quitar `public` de la Data API); el Security Advisor en verde.
 - [ ] (J+C) Auth de Supabase: URLs del sitio, plantillas en español, SMTP con Resend.
