@@ -4,7 +4,7 @@ module Marketplace
     # (upsert de Payment + completar la orden/carrito si quedó aprobado). Se usa tanto
     # desde el webhook como desde el polling de status, para no depender solo del webhook.
     class ReconcileTransaction
-      attr_reader :payment, :error
+      attr_reader :payment, :error, :mismatch
 
       def self.call(external_reference:, provider_payment_id:, status:, amount_in_cents: nil, currency: "COP", raw_event: nil)
         new(
@@ -29,6 +29,7 @@ module Marketplace
       end
 
       def call
+        already_alerted = false
         return failure("Missing transaction reference") if @external_reference.blank?
         return failure("Missing transaction id") if @provider_payment_id.blank?
 
@@ -52,17 +53,30 @@ module Marketplace
             @payment.provider = "wompi"
           end
 
+          new_status = map_status(@status)
+          @mismatch = charge_mismatch(@payment.purchase) if new_status == :approved
+          already_alerted = @payment.raw_payload.to_h.key?("charge_mismatch")
+
           @payment.provider_payment_id = @provider_payment_id
           @payment.amount = BigDecimal(@amount_in_cents.to_s) / 100 if @amount_in_cents.present?
           @payment.currency = @currency
-          @payment.status = map_status(@status)
+          # Un pago aprobado es definitivo: un evento tardío (PENDING/DECLINED)
+          # no lo puede devolver atrás. Si lo cobrado no coincide con la compra,
+          # no se aprueba y se avisa al admin para revisarlo a mano.
+          @payment.status = new_status unless @payment.approved? || @mismatch
           @payment.raw_payload = (@payment.raw_payload || {}).merge(@raw_event) if @raw_event.present?
+          @payment.raw_payload = @payment.raw_payload.merge("charge_mismatch" => @mismatch) if @mismatch
 
           @payment.save!
 
           if @payment.approved? && @payment.purchase&.order
-            complete_order_for_payment!(@payment, cart_id: find_open_cart_id_for_purchase(@payment.purchase))
+            complete_order_for_payment!(@payment)
           end
+        end
+
+        if @mismatch
+          alert_admin_of_mismatch unless already_alerted
+          return failure("Charged amount does not match the purchase")
         end
 
         self
@@ -77,7 +91,7 @@ module Marketplace
 
       private
 
-      def complete_order_for_payment!(payment, cart_id:)
+      def complete_order_for_payment!(payment)
         purchase = payment.purchase
         return unless purchase
 
@@ -87,18 +101,28 @@ module Marketplace
         Marketplace::Orders::Complete.call(
           purchase_id: purchase.id,
           order_ids: [order.id],
-          cart_id:,
           user: nil
         )
       end
 
-      def find_open_cart_id_for_purchase(purchase)
-        return nil unless purchase&.user_id
+      def charge_mismatch(purchase)
+        return nil unless purchase
 
-        Cart
-          .where(user_id: purchase.user_id, status: :open)
-          .order(created_at: :desc)
-          .pick(:id)
+        expected_cents = (purchase.total_amount * 100).to_i
+        charged_cents = @amount_in_cents.to_i
+        return nil if charged_cents == expected_cents && @currency.to_s.upcase == "COP"
+
+        "Wompi cobró #{charged_cents} centavos #{@currency}; la compra #{purchase.purchase_number} " \
+          "vale #{expected_cents} centavos COP."
+      end
+
+      def alert_admin_of_mismatch
+        Rails.logger.error "Wompi charge mismatch for payment #{@payment.id}: #{@mismatch}"
+        return unless ENV["ADMIN_NOTIFICATION_EMAIL"].present?
+
+        OrderMailer.payment_alert(@payment, @mismatch).deliver_later
+      rescue StandardError => e
+        Rails.logger.error "Failed to enqueue payment alert for payment #{@payment.id}: #{e.message}"
       end
 
       def map_status(provider_status)

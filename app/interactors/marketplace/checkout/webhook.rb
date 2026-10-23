@@ -39,7 +39,9 @@ module Marketplace
           )
 
         @payment = result.payment
-        return failure(result.error) unless result.success?
+        # Un cobro que no coincide ya quedó registrado y alertado: se responde
+        # 200 para que Wompi no lo reintente.
+        return failure(result.error) unless result.success? || result.mismatch
 
         self
       rescue StandardError => e
