@@ -3,6 +3,9 @@ module Admin
     class Update
       attr_reader :order, :error, :errors
 
+      # Estados que significan "esto se pagó y se está despachando".
+      ADVANCED_STATUSES = %w[confirmed shipped delivered].freeze
+
       def self.call(id:, params:)
         new(id:, params:).call
       end
@@ -23,6 +26,10 @@ module Admin
           normalized = @params[:status].to_s
           unless Order.statuses.key?(normalized)
             return failure("Invalid status")
+          end
+
+          if ADVANCED_STATUSES.include?(normalized) && !@order.purchase.payments.approved.exists?
+            return failure("La orden no tiene un pago aprobado. Verifica el pago en Wompi antes de avanzarla.")
           end
 
           @order.status = normalized

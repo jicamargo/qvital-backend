@@ -9,8 +9,9 @@ module Marketplace
         keyword_init: true
       )
 
-      def self.call(external_reference:, payer:, order_info:, shipping_address: {}, recipient_info: {}, expiration_time: nil)
+      def self.call(user:, external_reference:, payer:, order_info:, shipping_address: {}, recipient_info: {}, expiration_time: nil)
         new(
+          user:,
           external_reference:,
           payer:,
           order_info:,
@@ -20,7 +21,8 @@ module Marketplace
         ).call
       end
 
-      def initialize(external_reference:, payer:, order_info:, shipping_address:, recipient_info:, expiration_time:)
+      def initialize(user:, external_reference:, payer:, order_info:, shipping_address:, recipient_info:, expiration_time:)
+        @user = user
         @external_reference = external_reference
         @payer = payer || {}
         @order_info = order_info || {}
@@ -32,10 +34,11 @@ module Marketplace
       def call
         ActiveRecord::Base.transaction do
           purchase_intent =
-            PurchaseIntent.find_by!(external_reference: @external_reference)
+            PurchaseIntent.find_by!(external_reference: @external_reference, user_id: @user&.id)
 
           purchase = purchase_intent.purchase
           return Result.new(error: "Purchase not found for intent") unless purchase
+          return Result.new(error: "Esta compra ya fue pagada.") if already_paid?(purchase_intent, purchase)
 
           # Forzar provider interno para evitar duplicados si FE envía un valor incorrecto.
           provider = "wompi"
@@ -82,6 +85,12 @@ module Marketplace
       rescue StandardError => e
         Rails.logger.error "Error preparing checkout with provider: #{e.message}"
         Result.new(error: "Unexpected error preparing checkout with provider")
+      end
+
+      private
+
+      def already_paid?(purchase_intent, purchase)
+        purchase_intent.completed? || purchase.confirmed? || purchase.payments.approved.exists?
       end
     end
   end

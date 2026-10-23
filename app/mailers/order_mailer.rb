@@ -26,4 +26,17 @@ class OrderMailer < ApplicationMailer
       subject: "Nuevo pedido #{purchase.purchase_number} — QVITAL"
     )
   end
+
+  # Alerta interna: Wompi aprobó un cobro que no coincide con la compra
+  # (monto o moneda). El pago queda sin aprobar hasta revisarlo a mano.
+  def payment_alert(payment, reason)
+    @payment = payment
+    @purchase = payment.purchase
+    @reason = reason
+
+    mail(
+      to: ENV.fetch("ADMIN_NOTIFICATION_EMAIL", "admin@qvital.com"),
+      subject: "⚠️ Revisar pago #{payment.provider_payment_id} — QVITAL"
+    )
+  end
 end

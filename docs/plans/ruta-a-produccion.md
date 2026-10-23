@@ -38,7 +38,7 @@ Revisión completa de los dos repos y del flujo de dinero, hecha en paralelo. Re
 - [x] (J) Precio del "Plan Premium x 1 mes": COP 30.000. _2026-10-19_
 - [x] (J) Envío: siempre gratis, porque Herbalife lo envía directo. _2026-10-19_
 - [x] (J) Hosting: Render para el FE y el BE; Supabase Free al inicio. _2026-10-23_
-- [ ] (J) 🔴 **Iniciar el registro de comercio en Wompi** (RUT, cuenta bancaria). Es lo que más tarda.
+- [x] (J) Cuenta de comercio en Wompi registrada. _2026-10-23_ — las llaves de **producción** solo se ponen en Render (etapa 8). En local y en el ensayo general se sigue con sandbox, para no generar cobros reales por error.
 - [ ] (J) 🔴 Elegir y comprar el dominio en Cloudflare Registrar. Sugerido: `miqvital.com`.
 - [ ] (J) 🔴 Consultar al contador: régimen tributario, facturación electrónica DIAN y revisión de los textos legales.
 - [ ] (J) Confirmar el umbral de Premium (hoy COP 200.000) frente a la compra mensual típica.
@@ -172,6 +172,7 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 - [ ] (C) Actualizar Ruby (3.2 está fuera de soporte) y Rails 8.0 → 8.1 (sin parches de seguridad desde 2026-10-07).
 - [ ] (J) Contenido orgánico: recetas, tips y WhatsApp → `/evaluacion`.
 - [ ] (J) Prueba de Meta Ads: ~COP 20–30 mil diarios, mayores de 18, sin antes y después, sin productos ni precios.
+- [ ] (J) Rutina de stock: cuando un producto se agota en Herbalife, desactivarlo en `/admin/products` (y reactivarlo al volver). Máximo 10 unidades por producto por pedido.
 - [ ] (J) Revisión semanal de métricas: visitas → evaluación → registro → compra, recompra y Premium.
 
 ## Etapa 10: Después del lanzamiento 🟢

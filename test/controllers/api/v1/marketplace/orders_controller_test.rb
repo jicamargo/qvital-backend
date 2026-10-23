@@ -12,6 +12,7 @@ module Api
           @product = Product.create!(name: "Producto de prueba #{SecureRandom.hex(4)}", sku: "TEST-#{SecureRandom.hex(4)}",
                                       category: @category, active: true)
           @product.product_prices.create!(level: @level, price: 100_000)
+          Cart.create!(user: @user).cart_items.create!(product: @product, quantity: 1, price_snapshot: 100_000)
         end
 
         # Barranquilla no tiene localidades/comunas en el catálogo — sirve como
@@ -104,6 +105,38 @@ module Api
           end
 
           assert_response :success
+        end
+
+        test "prepare ignores prices, quantities and shipping sent by the client" do
+          tampered = prepare_params.merge(
+            cart_items: [ { product_id: @product.id, quantity: -1, price: "1" } ],
+            shipping_cost: "-5000"
+          )
+
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_orders_prepare_path, params: tampered, headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          purchase = JSON.parse(response.body)["purchase"]
+          assert_equal 100_000, purchase["total_amount"].to_d
+          assert_equal 0, purchase["shipping_cost"].to_d
+        end
+
+        test "prepare ignores a purchase_intent_id sent by the client" do
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_orders_prepare_path, params: prepare_params, headers: auth_headers, as: :json
+          end
+          paid = PurchaseIntent.find(JSON.parse(response.body)["purchase_intent"]["id"])
+          paid.purchase.update!(status: :confirmed)
+
+          stub_authenticated_as(@user) do
+            post api_v1_marketplace_orders_prepare_path,
+                 params: prepare_params.merge(purchase_intent_id: paid.id), headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          refute_equal paid.id, JSON.parse(response.body)["purchase_intent"]["id"]
         end
       end
     end

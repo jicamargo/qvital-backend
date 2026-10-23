@@ -1,0 +1,9 @@
+Wompi aprobó un cobro que no coincide con la compra. El pago NO se marcó como aprobado y el pedido sigue pendiente.
+
+Motivo: <%= @reason %>
+
+Compra: <%= @purchase&.purchase_number %>
+Transacción Wompi: <%= @payment.provider_payment_id %>
+Referencia: <%= @payment.external_reference %>
+
+Revisa la transacción en el panel de Wompi antes de hacer el pedido en Herbalife.
