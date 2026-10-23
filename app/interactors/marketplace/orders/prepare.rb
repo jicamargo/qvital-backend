@@ -1,5 +1,8 @@
 module Marketplace
   module Orders
+    # Arma la compra a partir del carrito abierto del usuario en el servidor.
+    # Precios, cantidades y envío los decide el backend: nada de eso se toma
+    # del request, para que nadie pueda pagar menos de lo que vale el pedido.
     class Prepare
       Result = Struct.new(
         :purchase_intent,
@@ -9,16 +12,15 @@ module Marketplace
         keyword_init: true
       )
 
-      MINIMUM_AMOUNT = BigDecimal("0")
+      # Herbalife envía sin costo directo a la clienta.
+      SHIPPING_COST = BigDecimal("0")
 
-      def self.call(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false, medical_disclaimer_accepted: false)
+      def self.call(user:, shipping_address:, recipient_info:, selected_date:, payment_method: nil, purchase_intent_id: nil, update_user_profile: false, medical_disclaimer_accepted: false)
         new(
           user:,
-          cart_items:,
           shipping_address:,
           recipient_info:,
           selected_date:,
-          shipping_cost:,
           payment_method:,
           purchase_intent_id:,
           update_user_profile:,
@@ -26,13 +28,11 @@ module Marketplace
         ).call
       end
 
-      def initialize(user:, cart_items:, shipping_address:, recipient_info:, selected_date:, shipping_cost:, payment_method:, purchase_intent_id:, update_user_profile:, medical_disclaimer_accepted: false)
+      def initialize(user:, shipping_address:, recipient_info:, selected_date:, payment_method:, purchase_intent_id:, update_user_profile:, medical_disclaimer_accepted: false)
         @user = user
-        @cart_items = cart_items || []
         @shipping_address = shipping_address || {}
         @recipient_info = recipient_info || {}
         @selected_date = selected_date
-        @shipping_cost = BigDecimal(shipping_cost.to_s)
         @payment_method = payment_method
         @purchase_intent_id = purchase_intent_id
         @update_user_profile = ActiveModel::Type::Boolean.new.cast(update_user_profile)
@@ -46,23 +46,28 @@ module Marketplace
 
       def call
         return Result.new(error: "User is required") unless @user
-        return Result.new(error: "Cart items are required") if @cart_items.empty?
 
         address_errors = ::Colombia::AddressValidator.call(@shipping_address)
         return Result.new(error: address_errors.join(". ")) if address_errors.any?
 
-        validate_cart_products!
+        @cart = find_open_cart
+        return Result.new(error: "Tu carrito está vacío.") if @cart.nil? || @cart.cart_items.empty?
 
-        subtotal = calculate_subtotal
-        return Result.new(error: "Total amount must be greater than minimum") if subtotal < MINIMUM_AMOUNT
+        line_error = build_lines
+        return Result.new(error: line_error) if line_error
 
+        existing_intent = find_existing_purchase_intent
+        return Result.new(error: "Esta compra ya fue pagada.") if existing_intent && already_paid?(existing_intent)
+
+        subtotal = @lines.sum { |line| line[:quantity] * line[:unit_price] }
         tax_amount = BigDecimal("0")
-        total_amount = subtotal + @shipping_cost
+        total_amount = subtotal + SHIPPING_COST
 
         result = nil
 
         ActiveRecord::Base.transaction do
-          purchase_intent = find_or_initialize_purchase_intent(total_amount)
+          purchase_intent = existing_intent || create_purchase_intent!(total_amount)
+          purchase_intent.update!(total_amount:, cart: @cart)
           purchase = find_or_initialize_purchase(purchase_intent, total_amount, subtotal, tax_amount)
 
           purchase_item_rows = rebuild_purchase_items!(purchase)
@@ -81,8 +86,6 @@ module Marketplace
         end
 
         result
-      rescue ActiveRecord::RecordNotFound => e
-        Result.new(error: e.message)
       rescue StandardError => e
         Rails.logger.error "Error preparing order: #{e.message}"
         Result.new(error: "Unexpected error preparing order")
@@ -90,32 +93,51 @@ module Marketplace
 
       private
 
-      def calculate_subtotal
-        @cart_items.sum do |item|
-          quantity = item[:quantity].to_i
-          price = BigDecimal(item[:price].to_s)
-          quantity * price
-        end
+      def find_open_cart
+        Cart.for_user(@user.id).open
+            .includes(cart_items: { product: :product_prices })
+            .order(created_at: :desc)
+            .first
       end
 
-      def find_or_initialize_purchase_intent(total_amount)
-        purchase_intent =
-          if @purchase_intent_id
-            PurchaseIntent.where(id: @purchase_intent_id, user_id: @user.id).first
+      # Devuelve un mensaje de error para la clienta, o nil si todo el carrito
+      # se puede cobrar. Deja en @lines cantidad y precio vigente de cada ítem.
+      def build_lines
+        @lines = []
+
+        @cart.cart_items.each do |item|
+          product = item.product
+          unit_price = product.price_for_level(@user.level_id) if product.active?
+          return "#{product.name} ya no está disponible. Quítalo del carrito para continuar." unless unit_price
+
+          unless item.quantity.between?(1, CartItem::MAX_QUANTITY)
+            return "Puedes pedir máximo #{CartItem::MAX_QUANTITY} unidades de #{product.name}."
           end
 
-        purchase_intent ||=
-          PurchaseIntent.create!(
-            user: @user,
-            company_id: nil,
-            external_reference: SecureRandom.uuid,
-            status: :pending,
-            total_amount:
-          )
+          @lines << { product_id: product.id, quantity: item.quantity, unit_price:, metadata: item.metadata || {} }
+        end
 
-        purchase_intent.update!(total_amount:) if purchase_intent.total_amount != total_amount
+        nil
+      end
 
-        purchase_intent
+      def find_existing_purchase_intent
+        return nil if @purchase_intent_id.blank?
+
+        PurchaseIntent.find_by(id: @purchase_intent_id, user_id: @user.id)
+      end
+
+      def already_paid?(purchase_intent)
+        purchase_intent.completed? || purchase_intent.purchase&.confirmed?
+      end
+
+      def create_purchase_intent!(total_amount)
+        PurchaseIntent.create!(
+          user: @user,
+          company_id: nil,
+          external_reference: SecureRandom.uuid,
+          status: :pending,
+          total_amount:
+        )
       end
 
       def find_or_initialize_purchase(purchase_intent, total_amount, subtotal, tax_amount)
@@ -125,7 +147,7 @@ module Marketplace
         purchase.total_amount = total_amount
         purchase.subtotal_amount = subtotal
         purchase.tax_amount = tax_amount
-        purchase.shipping_cost = @shipping_cost
+        purchase.shipping_cost = SHIPPING_COST
         purchase.status ||= :pending
         purchase.purchase_number ||= generate_purchase_number
         purchase.shipping_address = @shipping_address
@@ -137,22 +159,13 @@ module Marketplace
         purchase
       end
 
-      def validate_cart_products!
-        product_ids = @cart_items.map { |item| item[:product_id].to_i }.uniq
-        existing_ids = Product.where(id: product_ids).pluck(:id)
-        missing_ids = product_ids - existing_ids
-        return if missing_ids.empty?
-
-        raise ActiveRecord::RecordNotFound, "Products not found: #{missing_ids.join(', ')}"
-      end
-
       def rebuild_purchase_items!(purchase)
         purchase.purchase_items.delete_all
         timestamp = Time.current
 
-        rows = @cart_items.map do |item|
-          quantity = item[:quantity].to_i
-          price = BigDecimal(item[:price].to_s)
+        rows = @lines.map do |item|
+          quantity = item[:quantity]
+          price = item[:unit_price]
           line_subtotal = quantity * price
           line_tax = BigDecimal("0")
           line_total = line_subtotal + line_tax
@@ -244,7 +257,7 @@ module Marketplace
 
       def generate_purchase_number
         timestamp = Time.current.strftime("%Y%m%d%H%M%S")
-        "PUR-#{timestamp}-#{@user.id}"
+        "PUR-#{timestamp}-#{@user.id}-#{SecureRandom.hex(2).upcase}"
       end
     end
   end

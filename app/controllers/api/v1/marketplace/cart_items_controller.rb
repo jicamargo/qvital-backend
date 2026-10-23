@@ -8,8 +8,7 @@ module Api
             ::Marketplace::Carts::AddItem.call(
               user: current_user,
               product_id: cart_item_params[:product_id],
-              quantity: cart_item_params[:quantity],
-              price_snapshot: cart_item_params[:price_snapshot]
+              quantity: cart_item_params[:quantity]
             )
 
           if result.success?
@@ -86,7 +85,7 @@ module Api
         private
 
         def cart_item_params
-          params.require(:cart_item).permit(:product_id, :quantity, :price_snapshot)
+          params.require(:cart_item).permit(:product_id, :quantity)
         end
       end
     end

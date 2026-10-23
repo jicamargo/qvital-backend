@@ -18,6 +18,9 @@ module Marketplace
       def call
         return failure('User is required') unless @user
         return failure('Cart item is required') unless @cart_item_id
+        if @quantity > CartItem::MAX_QUANTITY
+          return failure("Puedes pedir máximo #{CartItem::MAX_QUANTITY} unidades de este producto.")
+        end
 
         ActiveRecord::Base.transaction do
           item = CartItem.joins(:cart).where(id: @cart_item_id, carts: { user_id: @user.id }).first

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
+ActiveRecord::Schema[8.0].define(version: 2026_10_23_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -212,7 +212,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
     t.jsonb "tracking_info", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["purchase_id"], name: "index_orders_on_purchase_id"
+    t.index ["purchase_id"], name: "index_orders_on_purchase_id", unique: true
   end
 
   create_table "payments", force: :cascade do |t|
@@ -228,6 +228,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["external_reference"], name: "index_payments_on_external_reference"
+    t.index ["provider", "provider_payment_id"], name: "index_payments_on_provider_and_provider_payment_id", unique: true, where: "(provider_payment_id IS NOT NULL)"
     t.index ["provider"], name: "index_payments_on_provider"
     t.index ["purchase_id"], name: "index_payments_on_purchase_id"
   end
@@ -280,6 +281,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
     t.decimal "total_amount", precision: 12, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cart_id"
+    t.index ["cart_id"], name: "index_purchase_intents_on_cart_id"
     t.index ["company_id"], name: "index_purchase_intents_on_company_id"
     t.index ["external_reference"], name: "index_purchase_intents_on_external_reference", unique: true
     t.index ["user_id"], name: "index_purchase_intents_on_user_id"
@@ -464,6 +467,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_02_130000) do
   add_foreign_key "product_prices", "levels"
   add_foreign_key "product_prices", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "purchase_intents", "carts"
   add_foreign_key "purchase_intents", "users"
   add_foreign_key "purchase_items", "products"
   add_foreign_key "purchase_items", "purchases"

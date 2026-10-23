@@ -36,11 +36,9 @@ module Api
           result =
             ::Marketplace::Orders::Prepare.call(
               user: current_user,
-              cart_items: permitted_params[:cart_items] || [],
               shipping_address: permitted_params[:shipping_address] || {},
               recipient_info: permitted_params[:recipient_info] || {},
               selected_date: permitted_params[:selected_date],
-              shipping_cost: permitted_params[:shipping_cost],
               payment_method: permitted_params[:payment_method],
               purchase_intent_id: permitted_params[:purchase_intent_id],
               update_user_profile: permitted_params[:update_user_profile],
@@ -98,15 +96,13 @@ module Api
         def prepare_params
           params.permit(
             :selected_date,
-            :shipping_cost,
             :payment_method,
             :purchase_intent_id,
             :update_user_profile,
             :medical_disclaimer_accepted,
             order: {},
             shipping_address: {},
-            recipient_info: {},
-            cart_items: %i[product_id quantity price] + [metadata: {}]
+            recipient_info: {}
           )
         end
 
