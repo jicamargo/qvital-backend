@@ -71,6 +71,7 @@ Rails.application.configure do
   # Permitir túneles de ngrok en desarrollo para webhooks y pruebas externas.
   config.hosts << /[a-z0-9-]+\.ngrok-free\.app/
   config.hosts << /[a-z0-9-]+\.ngrok\.io/
+  config.hosts << /[a-z0-9-]+\.trycloudflare\.com/
 
   # Si se define explícitamente, priorizar host puntual.
   config.hosts << ENV["NGROK_HOST"] if ENV["NGROK_HOST"].present?
