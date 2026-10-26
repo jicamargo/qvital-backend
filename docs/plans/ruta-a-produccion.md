@@ -126,6 +126,24 @@ Rama `feature/production-readiness`.
 
 ## Etapa 5: Experiencia mínima para el público 🟠
 
+> Prueba de usabilidad del 2026-10-26: [`qvital-frontend/docs/ux/2026-10-26-prueba-usabilidad/`](../../../qvital-frontend/docs/ux/2026-10-26-prueba-usabilidad/README.md). Los códigos (C1, A1…) remiten a ese informe.
+
+**De la prueba de usabilidad, bloqueantes 🔴 antes de cualquier usuaria real:**
+- [ ] (C) C1: registro exitoso con "Revisa tu correo para activar tu cuenta" y "Reenviar correo" (hoy muestra "No session created"). _(lib/services/auth.ts:178)_
+- [ ] (C) C2: traducir al español los errores de Supabase (correo inválido, ya registrado, etc.).
+- [ ] (C) A1–A2: "Entrar" visible en el inicio; formulario de registro primero en `/signup`.
+- [ ] (C) A3: limpiar el error de autenticación al cambiar de página.
+- [ ] (C) A4: "¿Olvidaste tu contraseña?" (recuperación con Supabase).
+- [ ] (J) Decidir si se desactiva la confirmación por correo en Supabase (menos pasos y menos abandono) o se mantiene.
+
+**De la prueba de usabilidad, antes de los anuncios 🟠:**
+- [ ] (C) A5–A7: etiquetas fijas en los campos del checkout; código postal opcional; teclado numérico para el teléfono.
+- [ ] (C) A9: contraste de los botones principales (Lighthouse 93 → 100).
+- [ ] (C) A10: resultado del pago con "qué sigue", resumen del pedido y WhatsApp.
+- [ ] (C) A11: aviso "Agregado ✓ Ver mi carrito"; el ícono del carrito con texto.
+- [ ] (C) M4–M9: textos en español ("Mi inicio", "Pagar"), pedir el nombre, bienvenida guiada, "Envío: Gratis" en el carrito, "Vaciar carrito" con confirmación, aviso médico arriba del botón de pagar.
+- [ ] (J) M1–M3: limpiar las categorías duplicadas y dar nombre o descripción en español a los productos con nombre en inglés (admin, sin código).
+
 - [ ] (C) Renombrar el acceso rápido del dashboard "Coach IA" a "Brújula Corporal". _(dashboard/page.tsx:43)_
 - [ ] (C) Páginas de error y 404 en español, con un botón grande para volver. Mensaje claro si el servidor no responde.
 - [ ] (C) **Menú móvil:** hoy Premium y Dashboard se ocultan en el celular. _(Navbar.tsx:114)_
@@ -159,6 +177,7 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 - [ ] (J+C) Seguridad de Supabase: RLS activado sin políticas en `public` (o quitar `public` de la Data API); el Security Advisor en verde.
 - [ ] (J+C) Auth de Supabase: URLs del sitio, plantillas en español, SMTP con Resend.
 - [ ] (J+C) Render con el **plan gratis**: BE y FE desde `main`, variables de entorno, Wompi **sandbox**.
+- [ ] (J+C) Verificar `WOMPI_REDIRECT_URL` = dominio real del FE, y probar "Volver al comercio" desde Wompi (hallazgo C3: en local apuntaba a un ngrok muerto).
 - [ ] (C) Respaldo diario `pg_dump` por GitHub Actions (Supabase Free no hace backups).
 - [ ] (J+C) Repetir los puntos clave de la etapa 6 contra el ensayo general.
 - [ ] (C) Merge `develop` → `main` en los dos repos (producción siempre sale de `main`).
