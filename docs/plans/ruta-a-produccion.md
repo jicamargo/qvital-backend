@@ -129,11 +129,11 @@ Rama `feature/production-readiness`.
 > Prueba de usabilidad del 2026-10-26: [`qvital-frontend/docs/ux/2026-10-26-prueba-usabilidad/`](../../../qvital-frontend/docs/ux/2026-10-26-prueba-usabilidad/README.md). Los códigos (C1, A1…) remiten a ese informe.
 
 **De la prueba de usabilidad, bloqueantes 🔴 antes de cualquier usuaria real:**
-- [ ] (C) C1: registro exitoso con "Revisa tu correo para activar tu cuenta" y "Reenviar correo" (hoy muestra "No session created"). _(lib/services/auth.ts:178)_
-- [ ] (C) C2: traducir al español los errores de Supabase (correo inválido, ya registrado, etc.).
-- [ ] (C) A1–A2: "Entrar" visible en el inicio; formulario de registro primero en `/signup`.
-- [ ] (C) A3: limpiar el error de autenticación al cambiar de página.
-- [ ] (C) A4: "¿Olvidaste tu contraseña?" (recuperación con Supabase).
+- [x] (C) C1: registro exitoso con "Revisa tu correo para activar tu cuenta" y "Reenviar correo" (hoy muestra "No session created"). _(lib/services/auth.ts:178)_ _2026-10-28_
+- [x] (C) C2: traducir al español los errores de Supabase (correo inválido, ya registrado, etc.). _2026-10-28_
+- [x] (C) A1–A2: "Entrar" visible en el inicio; formulario de registro primero en `/signup`. _2026-10-28_
+- [x] (C) A3: limpiar el error de autenticación al cambiar de página. _2026-10-28_
+- [x] (C) A4: "¿Olvidaste tu contraseña?" (recuperación con Supabase). _2026-10-28_
 - [ ] (J) Decidir si se desactiva la confirmación por correo en Supabase (menos pasos y menos abandono) o se mantiene.
 
 **De la prueba de usabilidad, antes de los anuncios 🟠:**
