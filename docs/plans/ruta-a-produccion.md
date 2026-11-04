@@ -79,13 +79,13 @@ Pendiente conocido (menor):
 
 Se diseña y se aprueba antes de programar.
 
-- [ ] (C) Premium **acumula días:** `max(ahora, vencimiento) + 30 días`. _(complete.rb:101-110)_
-- [ ] (C) El umbral de Premium se calcula sobre el subtotal de productos, no sobre el total con envío.
-- [ ] (C) Producto **"Plan Premium x 1 mes"** (COP 30.000): marca `premium_days`, siempre otorga Premium y el carrito solo digital no pide dirección.
-- [ ] (C) **Recordatorio de recompra** por correo ~5 días antes del vencimiento (Solid Queue recurrente + Resend).
-- [ ] (C) Botón **"Repetir mi último pedido"** (en el correo y en Mis pedidos).
-- [ ] (C) Correo al admin con lo necesario para pedir en Herbalife: SKU, sabor, cantidad, dirección ordenada, teléfono, cédula, ID de Wompi y enlace a `/admin/orders/:id`. _(order_mailer/_summary.text.erb:2,12)_
-- [ ] (C) Correo a la clienta cuando el pedido se marca "enviado", con la guía. El campo de guía en el admin pasa a ser un formulario simple en vez de JSON. _(admin/orders/[id]/page.tsx:409-416)_
+- [x] (C) Premium **acumula días:** `max(ahora, vencimiento) + 30 días`. _(complete.rb:101-110)_ _2026-11-04_
+- [x] (C) El umbral de Premium se calcula sobre el subtotal de productos, no sobre el total con envío. _2026-11-04_
+- [x] (C) Producto **"Plan Premium x 1 mes"** (COP 30.000): marca `premium_days`, siempre otorga Premium y el carrito solo digital no pide dirección. _2026-11-04_
+- [x] (C) **Recordatorio de recompra** por correo ~5 días antes del vencimiento (Solid Queue recurrente + Resend). _2026-11-04_
+- [x] (C) Botón **"Repetir mi último pedido"** (en el correo y en Mis pedidos). _2026-11-04_
+- [x] (C) Correo al admin con lo necesario para pedir en Herbalife: SKU, sabor, cantidad, dirección ordenada, teléfono, ID de Wompi y enlace a `/admin/orders/:id`. _(order_mailer/_summary.text.erb:2,12)_ _2026-11-04_
+- [x] (C) Correo a la clienta cuando el pedido se marca "enviado", con la guía. El campo de guía en el admin pasa a ser un formulario simple en vez de JSON. _(admin/orders/[id]/page.tsx:409-416)_ _2026-11-04_
 
 ## Etapa 3: Legal y privacidad (Ley 1581) 🔴
 
