@@ -58,6 +58,28 @@ module Api
           assert_equal params[:product][:name], body["name"]
         end
 
+        test "create saves premium_days for a digital product" do
+          params = { product: { name: "Plan digital #{SecureRandom.hex(4)}", premium_days: 30 } }
+
+          stub_authenticated_as(@admin) do
+            post api_v1_admin_products_path, params: params, headers: auth_headers, as: :json
+          end
+
+          assert_response :created
+          assert_equal 30, JSON.parse(response.body)["premium_days"]
+          assert_equal 30, Product.find(JSON.parse(response.body)["id"]).premium_days
+        end
+
+        test "update changes premium_days" do
+          stub_authenticated_as(@admin) do
+            patch api_v1_admin_product_path(@product), params: { product: { premium_days: 60 } },
+                  headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          assert_equal 60, @product.reload.premium_days
+        end
+
         test "create is forbidden for a non-admin user" do
           params = { product: { name: "No debería crearse" } }
 

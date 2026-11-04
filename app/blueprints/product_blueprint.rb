@@ -1,7 +1,7 @@
 class ProductBlueprint < Blueprinter::Base
   identifier :id
 
-  fields :name, :description, :long_description, :image_url, :pv, :sku, :flavor, :disclaimer
+  fields :name, :description, :long_description, :image_url, :pv, :sku, :flavor, :disclaimer, :premium_days
 
   field :price do |product, options|
     level_id = options[:level_id]

@@ -79,6 +79,7 @@ module Api
             :flavor,
             :disclaimer,
             :long_description,
+            :premium_days,
             prices: {},
             health_goal_ids: []
           )

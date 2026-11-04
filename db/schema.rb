@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_10_23_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_11_04_120000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -212,6 +212,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_23_120000) do
     t.jsonb "tracking_info", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "shipped_notified_at"
     t.index ["purchase_id"], name: "index_orders_on_purchase_id", unique: true
   end
 
@@ -268,6 +269,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_23_120000) do
     t.string "flavor"
     t.text "disclaimer"
     t.text "long_description"
+    t.integer "premium_days"
     t.index ["active"], name: "index_products_on_active"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["sku"], name: "index_products_on_sku", unique: true
@@ -426,6 +428,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_10_23_120000) do
     t.string "last_name"
     t.boolean "premium_active", default: false, null: false
     t.datetime "premium_expires_at"
+    t.datetime "premium_reminder_sent_for"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hlf_id"], name: "index_users_on_hlf_id", unique: true
     t.index ["level_id"], name: "index_users_on_level_id"
