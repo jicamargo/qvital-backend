@@ -1071,3 +1071,17 @@ if recipe_ingredient_warnings.any?
   puts "⚠️  Advertencias de ingredientes de recetas (SKU no encontrado):"
   recipe_ingredient_warnings.each { |w| puts "   - #{w}" }
 end
+
+# Plan Premium x 1 mes (producto digital: concede días de Premium al comprarse).
+# Crea el producto y un precio por nivel solo si faltan; no pisa precios editados por el admin.
+premium_plan = Product.find_or_create_by!(sku: Product::PREMIUM_PLAN_SKU) do |product|
+  product.name = "Plan Premium x 1 mes"
+  product.description = "30 días de QVITAL Premium: Brújula Corporal, tu plan personalizado y todas las recetas. " \
+                        "No es una suscripción: no hay cobros automáticos."
+  product.premium_days = 30
+  product.active = true
+end
+Level.find_each do |level|
+  ProductPrice.find_or_create_by!(product: premium_plan, level: level) { |pp| pp.price = 30_000 }
+end
+puts "✅ Plan Premium: #{premium_plan.name} (#{premium_plan.product_prices.count} precios)"
