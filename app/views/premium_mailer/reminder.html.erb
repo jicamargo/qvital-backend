@@ -1,0 +1,26 @@
+<div style="font-family: Arial, Helvetica, sans-serif; color: #171717; max-width: 480px; margin: 0 auto; font-size: 18px; line-height: 1.5;">
+  <h1 style="font-size: 22px;"><%= @first_name.present? ? "Hola, #{@first_name}:" : "Hola:" %></h1>
+  <p>Tu Premium vence pronto. Con Premium tienes:</p>
+  <ul>
+    <li>Brújula Corporal completa</li>
+    <li>Mi Plan</li>
+    <li>Todas las recetas</li>
+  </ul>
+
+  <% if @items.any? %>
+    <p>Tu último pedido fue:</p>
+    <ul>
+      <% @items.each do |item| %>
+        <li><%= item.product.name %> x<%= item.quantity %></li>
+      <% end %>
+    </ul>
+    <p style="margin: 28px 0;">
+      <a href="<%= @repeat_url %>" style="background: #15803d; color: #ffffff; padding: 16px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">Repetir mi último pedido</a>
+    </p>
+    <p><a href="<%= @plan_url %>">O compra solo el Plan Premium</a></p>
+  <% else %>
+    <p style="margin: 28px 0;">
+      <a href="<%= @plan_url %>" style="background: #15803d; color: #ffffff; padding: 16px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">Comprar el Plan Premium</a>
+    </p>
+  <% end %>
+</div>
