@@ -119,4 +119,21 @@ class OrderMailerTest < ActionMailer::TestCase
       assert_not_includes body, "Rastrear mi pedido"
     end
   end
+
+  test "shipped email with only a tracking url shows the button without carrier or number" do
+    purchase = build_purchase(products: [ Product.create!(name: "Té") ], shipping_address: {})
+    order = Order.create!(purchase: purchase, total_amount: 1, status: :shipped,
+                          tracking_info: { "tracking_url" => "https://x.co/solo" })
+
+    mail = OrderMailer.shipped(order)
+
+    assert_includes mail.html_part.body.to_s, "Rastrear mi pedido"
+    assert_includes mail.html_part.body.to_s, "https://x.co/solo"
+    assert_includes mail.text_part.body.to_s, "https://x.co/solo"
+    bodies(mail).each do |body|
+      assert_not_includes body, "pronto te compartimos"
+      assert_not_includes body, "Transportadora"
+      assert_not_includes body, "Número de guía"
+    end
+  end
 end

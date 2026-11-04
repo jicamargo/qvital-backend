@@ -51,7 +51,7 @@ class OrderMailer < ApplicationMailer
     @carrier = tracking["carrier"].presence
     @tracking_number = tracking["tracking_number"].presence
     @tracking_url = tracking["tracking_url"].presence
-    @has_tracking = @carrier || @tracking_number
+    @has_tracking = @carrier || @tracking_number || @tracking_url
     @order_url = "#{ENV.fetch("FRONTEND_URL", "http://localhost:3010")}/marketplace/orders/#{order.id}"
 
     mail(to: purchase.user.email, subject: "¡Tu pedido #{purchase.purchase_number} va en camino!")
