@@ -45,11 +45,11 @@ module Marketplace
       def call
         return Result.new(error: "User is required") unless @user
 
-        address_errors = ::Colombia::AddressValidator.call(@shipping_address)
-        return Result.new(error: address_errors.join(". ")) if address_errors.any?
-
         @cart = find_open_cart
         return Result.new(error: "Tu carrito está vacío.") if @cart.nil? || @cart.cart_items.empty?
+
+        contact_error = validate_contact_and_address
+        return Result.new(error: contact_error) if contact_error
 
         line_error = build_lines
         return Result.new(error: line_error) if line_error
@@ -96,6 +96,30 @@ module Marketplace
             .includes(cart_items: { product: :product_prices })
             .order(created_at: :desc)
             .first
+      end
+
+      def digital_only?
+        @cart.cart_items.all? { |item| item.product.digital? }
+      end
+
+      # Un carrito solo digital (plan Premium) no se envía: basta nombre y teléfono.
+      # Si hay algún producto físico se exige la dirección completa.
+      def validate_contact_and_address
+        unless digital_only?
+          address_errors = ::Colombia::AddressValidator.call(@shipping_address)
+          return address_errors.join(". ") if address_errors.any?
+          return nil
+        end
+
+        return "Ingresa tu nombre." if value_for(@recipient_info, :name).blank?
+        return "Ingresa un teléfono de contacto." if value_for(@shipping_address, :phone).blank?
+
+        nil
+      end
+
+      def value_for(hash, key)
+        hash = hash.to_h if hash.respond_to?(:to_h) && !hash.is_a?(Hash)
+        (hash[key.to_s] || hash[key.to_sym]).to_s.strip
       end
 
       # Devuelve un mensaje de error para la clienta, o nil si todo el carrito

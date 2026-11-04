@@ -25,6 +25,52 @@ module Marketplace
         )
       end
 
+      def digital_cart!
+        plan = Product.create!(name: "Plan #{SecureRandom.hex(4)}", sku: "PLAN-#{SecureRandom.hex(4)}", active: true, premium_days: 30)
+        plan.product_prices.create!(level: @level, price: 30_000)
+        @cart.cart_items.create!(product: plan, quantity: 1, price_snapshot: 30_000)
+        plan
+      end
+
+      test "digital-only cart needs no shipping address or date" do
+        digital_cart!
+
+        result = prepare(shipping_address: { phone: "3000000000" }, selected_date: nil)
+
+        assert_nil result.error
+        assert_equal BigDecimal("30000"), result.purchase.total_amount
+        assert_nil result.order.shipping_date_estimated
+      end
+
+      test "digital-only cart accepts string keys for the phone" do
+        digital_cart!
+
+        assert_nil prepare(shipping_address: { "phone" => "3000000000" }, selected_date: nil).error
+      end
+
+      test "digital-only cart requires a phone" do
+        digital_cart!
+
+        assert_equal "Ingresa un teléfono de contacto.", prepare(shipping_address: {}, selected_date: nil).error
+      end
+
+      test "digital-only cart requires a name" do
+        digital_cart!
+
+        result = prepare(shipping_address: { phone: "3000000000" }, recipient_info: { name: " " }, selected_date: nil)
+
+        assert_equal "Ingresa tu nombre.", result.error
+      end
+
+      test "mixed cart still validates the shipping address" do
+        digital_cart!
+        @cart.cart_items.create!(product: @product, quantity: 1, price_snapshot: 100_000)
+
+        result = prepare(shipping_address: {})
+
+        assert_match(/departamento/i, result.error)
+      end
+
       test "charges the database price for the user's level, not the cart snapshot" do
         @cart.cart_items.create!(product: @product, quantity: 2, price_snapshot: 1)
 
