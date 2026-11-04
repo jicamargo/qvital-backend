@@ -19,12 +19,24 @@ class OrderMailer < ApplicationMailer
   def admin_notification(purchase)
     @purchase = purchase
     @order = purchase.order
-    @items = purchase.purchase_items.includes(:product)
+    items = purchase.purchase_items.includes(:product).to_a
+    physical = items.reject { |item| item.product.digital? }
+    @digital_only = physical.empty?
+    @product_lines = physical.map { |item| herbalife_line(item) }
 
-    mail(
-      to: ENV.fetch("ADMIN_NOTIFICATION_EMAIL", "admin@qvital.com"),
-      subject: "Nuevo pedido #{purchase.purchase_number} — QVITAL"
-    )
+    address = purchase.shipping_address || {}
+    @recipient_phone = purchase.recipient_phone.presence || address["phone"]
+    @address_lines = address_lines(address)
+
+    payment = purchase.payments.approved.order(:updated_at).last
+    @payment_id = payment&.provider_payment_id.presence
+    @paid_at = payment&.updated_at&.in_time_zone("America/Bogota")&.strftime("%d/%m/%Y %H:%M")
+    @admin_url = "#{ENV.fetch("FRONTEND_URL", "http://localhost:3010")}/admin/orders/#{@order&.id}"
+
+    subject = "Nuevo pedido #{purchase.purchase_number} — QVITAL"
+    subject += " (Plan Premium, sin envío)" if @digital_only
+
+    mail(to: ENV.fetch("ADMIN_NOTIFICATION_EMAIL", "admin@qvital.com"), subject: subject)
   end
 
   # Alerta interna: Wompi aprobó un cobro que no coincide con la compra
@@ -38,5 +50,19 @@ class OrderMailer < ApplicationMailer
       to: ENV.fetch("ADMIN_NOTIFICATION_EMAIL", "admin@qvital.com"),
       subject: "⚠️ Revisar pago #{payment.provider_payment_id} — QVITAL"
     )
+  end
+
+  private
+
+  # "<sku> · <nombre> · <sabor> · x<cantidad>", omitiendo sku y sabor vacíos.
+  def herbalife_line(item)
+    product = item.product
+    [ product.sku.presence, product.name, product.flavor.presence, "x#{item.quantity}" ].compact.join(" · ")
+  end
+
+  def address_lines(address)
+    city_state = [ address["city"], address["state"] ].map(&:presence).compact.join(", ")
+    zip = address["zipCode"].presence && "Código postal: #{address["zipCode"]}"
+    [ address["street"], address["addressDetails"], address["locality"], city_state, zip ].map(&:presence).compact
   end
 end
