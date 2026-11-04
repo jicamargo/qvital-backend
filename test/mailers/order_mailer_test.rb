@@ -85,4 +85,38 @@ class OrderMailerTest < ActionMailer::TestCase
 
     assert_includes OrderMailer.admin_notification(purchase).text_part.body.to_s, "Teléfono: 3009998877"
   end
+
+  test "shipped email with tracking shows carrier, number, link and order url" do
+    shake = Product.create!(name: "Batido")
+    plan = Product.create!(name: "Plan Premium", sku: "PLAN-S-#{SecureRandom.hex(3)}", premium_days: 30)
+    purchase = build_purchase(products: [ shake, plan ], shipping_address: {})
+    order = Order.create!(
+      purchase: purchase, total_amount: 1, status: :shipped,
+      tracking_info: { "carrier" => "Servientrega", "tracking_number" => "123", "tracking_url" => "https://x.co/123" }
+    )
+
+    mail = OrderMailer.shipped(order)
+
+    assert_equal "¡Tu pedido #{purchase.purchase_number} va en camino!", mail.subject
+    assert_equal [ @user.email ], mail.to
+    bodies(mail).each do |body|
+      assert_includes body, "Servientrega"
+      assert_includes body, "123"
+      assert_includes body, "Batido x2"
+      assert_not_includes body, "Plan Premium"
+      assert_includes body, "/marketplace/orders/#{order.id}"
+    end
+    assert_includes mail.html_part.body.to_s, "Rastrear mi pedido"
+    assert_includes mail.html_part.body.to_s, "https://x.co/123"
+  end
+
+  test "shipped email without tracking promises the guide number soon" do
+    purchase = build_purchase(products: [ Product.create!(name: "Té") ], shipping_address: {})
+    order = Order.create!(purchase: purchase, total_amount: 1, status: :shipped)
+
+    bodies(OrderMailer.shipped(order)).each do |body|
+      assert_includes body, "pronto te compartimos el número de guía"
+      assert_not_includes body, "Rastrear mi pedido"
+    end
+  end
 end

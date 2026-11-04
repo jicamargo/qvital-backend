@@ -1,0 +1,26 @@
+<div style="font-family: Arial, Helvetica, sans-serif; color: #171717; max-width: 480px; margin: 0 auto;">
+  <h1 style="font-size: 20px;">¡Tu pedido va en camino, <%= @name %>!</h1>
+  <p>Tu pedido <strong><%= @purchase.purchase_number %></strong> ya salió.</p>
+
+  <% if @product_lines.any? %>
+    <ul>
+      <% @product_lines.each do |line| %>
+        <li><%= line %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if @has_tracking %>
+    <p>
+      <% if @carrier %>Transportadora: <strong><%= @carrier %></strong><br><% end %>
+      <% if @tracking_number %>Número de guía: <strong><%= @tracking_number %></strong><% end %>
+    </p>
+    <% if @tracking_url %>
+      <p><a href="<%= @tracking_url %>" style="display: inline-block; padding: 12px 20px; background: #16a34a; color: #ffffff; text-decoration: none; border-radius: 6px;">Rastrear mi pedido</a></p>
+    <% end %>
+  <% else %>
+    <p>Muy pronto te compartimos el número de guía.</p>
+  <% end %>
+
+  <p><a href="<%= @order_url %>">Ver mi pedido</a></p>
+</div>

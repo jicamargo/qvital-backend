@@ -39,6 +39,24 @@ class OrderMailer < ApplicationMailer
     mail(to: ENV.fetch("ADMIN_NOTIFICATION_EMAIL", "admin@qvital.com"), subject: subject)
   end
 
+  # Aviso al cliente de que su pedido ya salió. Solo lista productos físicos.
+  def shipped(order)
+    purchase = order.purchase
+    @order = order
+    @purchase = purchase
+    @name = purchase.recipient_name.presence || purchase.user.name
+    @product_lines = purchase.purchase_items.includes(:product).reject { |i| i.product.digital? }
+                             .map { |i| "#{i.product.name} x#{i.quantity}" }
+    tracking = order.tracking_info || {}
+    @carrier = tracking["carrier"].presence
+    @tracking_number = tracking["tracking_number"].presence
+    @tracking_url = tracking["tracking_url"].presence
+    @has_tracking = @carrier || @tracking_number
+    @order_url = "#{ENV.fetch("FRONTEND_URL", "http://localhost:3010")}/marketplace/orders/#{order.id}"
+
+    mail(to: purchase.user.email, subject: "¡Tu pedido #{purchase.purchase_number} va en camino!")
+  end
+
   # Alerta interna: Wompi aprobó un cobro que no coincide con la compra
   # (monto o moneda). El pago queda sin aprobar hasta revisarlo a mano.
   def payment_alert(payment, reason)

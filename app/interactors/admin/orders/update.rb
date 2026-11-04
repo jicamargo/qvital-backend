@@ -52,6 +52,8 @@ module Admin
           return failure("Validation failed")
         end
 
+        send_shipped_email
+
         self
       rescue StandardError => e
         Rails.logger.error "Error updating admin order: #{e.message}"
@@ -72,9 +74,11 @@ module Admin
         nil
       end
 
-      def normalize_tracking(value)
-        return {} if value.nil?
+      TRACKING_KEYS = %w[carrier tracking_number tracking_url].freeze
 
+      # Solo guarda transportadora, número y enlace (strings sin espacios
+      # sobrantes). El enlace se descarta si no es http/https.
+      def normalize_tracking(value)
         hash =
           if value.respond_to?(:to_unsafe_h)
             value.to_unsafe_h
@@ -84,7 +88,23 @@ module Admin
             {}
           end
 
-        hash.deep_stringify_keys
+        cleaned = hash.stringify_keys.slice(*TRACKING_KEYS).transform_values { |v| v.is_a?(String) ? v.strip : nil }
+        cleaned.delete("tracking_url") unless cleaned["tracking_url"].to_s.match?(%r{\Ahttps?://\S+\z}i)
+        cleaned.reject { |_, v| v.blank? }
+      end
+
+      # Avisa al cliente una sola vez cuando el pedido pasa a "shipped".
+      # Un fallo al encolar el correo no debe hacer fallar la actualización.
+      def send_shipped_email
+        return unless @order.shipped? && @order.shipped_notified_at.nil?
+        return if @order.purchase.user&.email.blank?
+
+        @order.update_column(:shipped_notified_at, Time.current)
+        begin
+          OrderMailer.shipped(@order).deliver_later
+        rescue StandardError => e
+          Rails.logger.error "Error enqueuing shipped email for order #{@order.id}: #{e.message}"
+        end
       end
 
       def failure(message)

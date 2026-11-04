@@ -14,6 +14,12 @@ class OrderMailerPreview < ActionMailer::Preview
     OrderMailer.admin_notification(sample_purchase)
   end
 
+  # http://localhost:3011/rails/mailers/order_mailer/shipped
+  # http://localhost:3011/rails/mailers/order_mailer/shipped?purchase_number=PUR-XXXX
+  def shipped
+    OrderMailer.shipped(sample_purchase.order)
+  end
+
   private
 
   # Sin `purchase_number`, usa la última compra con items (comportamiento
