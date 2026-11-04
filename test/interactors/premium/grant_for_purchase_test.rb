@@ -74,6 +74,16 @@ module Premium
       end
     end
 
+    test "indefinite premium (active, no expiry) stays indefinite" do
+      @user.update!(premium_active: true, premium_expires_at: nil)
+      add_physical(200_000)
+
+      assert_equal 30, GrantForPurchase.call(purchase: @purchase)
+      assert_nil @user.reload.premium_expires_at
+      assert @user.premium_active
+      assert @purchase.reload.premium_granted
+    end
+
     test "one plan plus physical items at the threshold grants 60 days" do
       add_physical(200_000)
       add_plan

@@ -27,8 +27,15 @@ module Premium
       days = threshold_days + digital_days
       return 0 unless days.positive?
 
-      base = [ @now, user.premium_expires_at ].compact.max
+      # Bloquea la fila para no perder una actualización concurrente.
+      user.lock!
       @purchase.update!(premium_granted: true)
+
+      # Premium indefinido (activo y sin vencimiento, lo fija el admin): no se
+      # le pone fecha de fin; la compra solo queda marcada como otorgada.
+      return days if user.premium_active && user.premium_expires_at.nil?
+
+      base = [ @now, user.premium_expires_at ].compact.max
       user.update!(premium_active: true, premium_expires_at: base + days.days)
       days
     end
