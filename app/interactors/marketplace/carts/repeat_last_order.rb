@@ -25,7 +25,11 @@ module Marketplace
 
         ActiveRecord::Base.transaction do
           @cart = Cart.for_user(@user.id).open.first_or_create!
-          purchase.purchase_items.includes(:product).each { |purchase_item| add_item(purchase_item) }
+          # Idempotente: si este carrito ya repitió esta compra, no se suma otra vez.
+          unless @cart.repeated_purchase_id == purchase.id
+            purchase.purchase_items.includes(:product).each { |purchase_item| add_item(purchase_item) }
+            @cart.update!(repeated_purchase_id: purchase.id)
+          end
         end
 
         @cart = Cart.with_marketplace_includes.find(@cart.id)

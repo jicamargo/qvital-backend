@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_11_04_120200) do
+ActiveRecord::Schema[8.0].define(version: 2026_11_04_130000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -86,6 +86,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_11_04_120200) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "repeated_purchase_id"
+    t.index ["repeated_purchase_id"], name: "index_carts_on_repeated_purchase_id"
     t.index ["user_id", "status"], name: "index_carts_on_user_id_and_status"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
@@ -452,6 +454,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_11_04_120200) do
   add_foreign_key "body_regions", "body_regions", column: "parent_id"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
+  add_foreign_key "carts", "purchases", column: "repeated_purchase_id"
   add_foreign_key "carts", "users"
   add_foreign_key "coach_consultation_entries", "body_emotion_insights"
   add_foreign_key "coach_consultation_entries", "body_regions"

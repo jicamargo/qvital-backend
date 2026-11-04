@@ -92,7 +92,9 @@ class PremiumMailerTest < ActionMailer::TestCase
   end
 
   test "falls back to /premium when the plan product does not exist" do
-    Product.where(sku: Product::PREMIUM_PLAN_SKU).delete_all
+    plan = Product.where(sku: Product::PREMIUM_PLAN_SKU)
+    ProductPrice.where(product_id: plan.select(:id)).delete_all
+    plan.delete_all
 
     body = PremiumMailer.reminder(@user).text_part.body.to_s
 
