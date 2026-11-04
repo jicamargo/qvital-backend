@@ -49,7 +49,8 @@ module Marketplace
           @purchase.update!(status: :confirmed)
           @orders.each { |order| order.update!(status: :confirmed) }
 
-          grant_premium_if_qualifies!
+          Premium::GrantForPurchase.call(purchase: @purchase)
+          mark_digital_only_orders_delivered!
           complete_cart!
         end
 
@@ -68,6 +69,15 @@ module Marketplace
 
       private
 
+      # Una compra solo de productos digitales (plan Premium) no tiene envío:
+      # sus órdenes quedan entregadas de inmediato.
+      def mark_digital_only_orders_delivered!
+        items = @purchase.purchase_items.includes(:product)
+        return if items.empty? || items.any? { |item| !item.product.digital? }
+
+        @orders.each { |order| order.update!(status: :delivered) }
+      end
+
       # Cierra el carrito que originó la compra (guardado al preparar la orden),
       # salvo que la clienta ya haya iniciado un checkout más nuevo con ese
       # carrito: entonces se pagó un intento viejo y el carrito sigue en uso.
@@ -81,21 +91,6 @@ module Marketplace
         return unless cart
 
         cart.update!(status: :completed)
-      end
-
-      # Beneficio Premium (no es una suscripción): toda compra confirmada con
-      # total >= al umbral configurado (Admin > Configuración) le da al
-      # usuario acceso Premium por 30 días desde este momento — se reinicia
-      # la ventana en cada compra que califique, sin acumular.
-      def grant_premium_if_qualifies!
-        user = @purchase.user
-        return unless user
-
-        threshold = AppSetting.current.premium_purchase_threshold
-        return unless @purchase.total_amount >= threshold
-
-        @purchase.update!(premium_granted: true)
-        user.update!(premium_active: true, premium_expires_at: 30.days.from_now)
       end
 
       # El pedido ya quedó confirmado en la transacción anterior; un fallo de

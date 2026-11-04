@@ -11,7 +11,24 @@ module Marketplace
         AppSetting.current.update!(premium_purchase_threshold: 100_000)
       end
 
-      def build_approved_purchase(total_amount:)
+      def add_item(purchase, product, subtotal:, quantity: 1)
+        PurchaseItem.create!(
+          purchase:, product:, quantity:, unit_price: subtotal / quantity,
+          line_subtotal: subtotal, line_tax: 0, line_total: subtotal
+        )
+      end
+
+      def physical_product
+        Product.create!(name: "Batido #{SecureRandom.hex(3)}")
+      end
+
+      def plan_product
+        Product.create!(name: "Plan #{SecureRandom.hex(3)}", premium_days: 30)
+      end
+
+      # Por defecto la compra lleva un único ítem físico por el total; los
+      # beneficios Premium se calculan sobre los ítems, no sobre total_amount.
+      def build_approved_purchase(total_amount:, physical: true)
         purchase_intent =
           PurchaseIntent.create!(user: @user, external_reference: SecureRandom.uuid, total_amount: total_amount)
         purchase =
@@ -24,6 +41,7 @@ module Marketplace
           purchase:, external_reference: purchase_intent.external_reference,
           provider: "wompi", status: :approved, amount: total_amount, currency: "COP"
         )
+        add_item(purchase, physical_product, subtotal: total_amount) if physical
         [ purchase, order ]
       end
 
@@ -37,6 +55,48 @@ module Marketplace
         assert @user.reload.premium_active
         assert_operator @user.premium_expires_at, :>, 29.days.from_now
         assert @user.premium?
+      end
+
+      test "stacks 30 days on top of the remaining premium time" do
+        freeze_time do
+          @user.update!(premium_active: true, premium_expires_at: 5.days.from_now)
+          purchase, order = build_approved_purchase(total_amount: 150_000)
+
+          Complete.call(purchase_id: purchase.id, order_ids: [ order.id ], cart_id: nil, user: @user)
+
+          assert_equal 35.days.from_now, @user.reload.premium_expires_at
+        end
+      end
+
+      test "a purchase with only the Premium plan is delivered right away" do
+        purchase, order = build_approved_purchase(total_amount: 30_000, physical: false)
+        add_item(purchase, plan_product, subtotal: 30_000)
+
+        result = Complete.call(purchase_id: purchase.id, order_ids: [ order.id ], cart_id: nil, user: @user)
+
+        assert result.success?, result.error
+        assert order.reload.delivered?
+        assert @user.reload.premium?
+      end
+
+      test "a mixed purchase leaves the order confirmed" do
+        purchase, order = build_approved_purchase(total_amount: 230_000)
+        add_item(purchase, plan_product, subtotal: 30_000)
+
+        Complete.call(purchase_id: purchase.id, order_ids: [ order.id ], cart_id: nil, user: @user)
+
+        assert order.reload.confirmed?
+      end
+
+      test "completing the same purchase twice grants days only once" do
+        freeze_time do
+          purchase, order = build_approved_purchase(total_amount: 30_000, physical: false)
+          add_item(purchase, plan_product, subtotal: 30_000)
+
+          2.times { Complete.call(purchase_id: purchase.id, order_ids: [ order.id ], cart_id: nil, user: @user) }
+
+          assert_equal 30.days.from_now, @user.reload.premium_expires_at
+        end
       end
 
       test "does not grant premium when the purchase total is below the threshold" do
