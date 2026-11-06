@@ -214,8 +214,8 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 
 - [ ] (J+C) Proyecto Supabase de **producción** (DB vacía, así los índices únicos nuevos no chocan con datos viejos): us-east-1, extensiones `unaccent` y `pg_trgm`, schema con `db:migrate` (no `schema:load`), catálogo sin usuarios de prueba.
 - [ ] (J+C) Storage: crear los buckets `products` y `recipes` con sus políticas (las de `products` no están en ninguna migración y se crean a mano), copiar las imágenes y reescribir los `image_url`.
-- [ ] (J+C) Seguridad de Supabase: RLS activado sin políticas en `public` (ya lo hace la migración `20261106120000` y el gancho de `db:migrate`; verificar con `bin/rails db:rls_check`); el Security Advisor en verde.
-- [ ] (J+C) Storage: hoy **cualquier usuaria con sesión** puede subir o cambiar imágenes en los buckets `products` y `recipes`; restringir INSERT/UPDATE al rol admin (`auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'`).
+- [ ] (J+C) Seguridad de Supabase: RLS activado sin políticas en `public` (aplicado en el Supabase actual el 2026-11-06; en producción lo hace la migración `20261106120000` y el gancho de `db:migrate`; verificar con `bin/rails db:rls_check`); el Security Advisor en verde.
+- [x] (C) Storage: solo el rol admin sube o cambia imágenes en `products` y `recipes` (migración `20261106130000`, aplicada y probada en el Supabase actual: la clienta recibe 400, el admin 200, la lectura pública sigue). En el proyecto de producción, comprobar que existan esas políticas. _2026-11-06_
 - [ ] (J+C) Auth de Supabase: URLs del sitio, plantillas en español, SMTP con Resend.
 - [ ] (J+C) Render con el **plan gratis**: BE y FE desde `main`, variables de entorno, Wompi **sandbox**.
 - [ ] (J+C) Verificar `WOMPI_REDIRECT_URL` = dominio real del FE, y probar "Volver al comercio" desde Wompi (hallazgo C3: en local apuntaba a un ngrok muerto).
