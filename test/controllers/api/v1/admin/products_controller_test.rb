@@ -80,6 +80,28 @@ module Api
           assert_equal 60, @product.reload.premium_days
         end
 
+        test "show returns the price of each level keyed by level id" do
+          vip = Level.find_or_create_by!(name: "Cliente VIP") { |l| l.priority = 2 }
+          @product.product_prices.create!(level: @level, price: 120_000)
+          @product.product_prices.create!(level: vip, price: 110_000)
+
+          stub_authenticated_as(@admin) do
+            get api_v1_admin_product_path(@product), headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          prices = JSON.parse(response.body)["prices"]
+          assert_equal({ @level.id.to_s => 120_000, vip.id.to_s => 110_000 }, prices.transform_values(&:to_i))
+        end
+
+        test "show returns an empty prices map for a product without prices" do
+          stub_authenticated_as(@admin) do
+            get api_v1_admin_product_path(@product), headers: auth_headers, as: :json
+          end
+
+          assert_equal({}, JSON.parse(response.body)["prices"])
+        end
+
         test "create is forbidden for a non-admin user" do
           params = { product: { name: "No debería crearse" } }
 

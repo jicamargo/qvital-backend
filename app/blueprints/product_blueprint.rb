@@ -24,5 +24,10 @@ class ProductBlueprint < Blueprinter::Base
   view :admin do
     include_view :default
     fields :active, :created_at, :updated_at
+
+    # Precio por nivel para el formulario del admin: { "<level_id>" => precio }.
+    field :prices do |product|
+      product.product_prices.to_h { |pp| [ pp.level_id.to_s, pp.price ] }
+    end
   end
 end
