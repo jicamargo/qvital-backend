@@ -83,8 +83,8 @@ module Api
         private
 
         # null si aún no hay `payment`/`purchase` resuelto para esta transacción
-        # (p. ej. mientras el pago sigue pending). Ver Marketplace::Orders::Complete
-        # #grant_premium_if_qualifies! — esto solo refleja lo que ya se decidió ahí.
+        # (p. ej. mientras el pago sigue pending). Ver Premium::GrantForPurchase
+        # (invocado desde Marketplace::Orders::Complete) — esto solo refleja lo que ya se decidió ahí.
         def premium_payload(payment)
           purchase = payment&.purchase
           return nil unless purchase

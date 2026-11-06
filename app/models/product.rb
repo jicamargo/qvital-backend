@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   include Searchable
 
+  PREMIUM_PLAN_SKU = "QVITAL-PREMIUM-1M".freeze
+
   belongs_to :category, optional: true
   has_many :product_prices, dependent: :destroy
   has_many :levels, through: :product_prices
@@ -12,14 +14,22 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :sku, uniqueness: true, allow_nil: true
   validates :pv, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :premium_days, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   # Scopes útiles
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
+  scope :digital, -> { where.not(premium_days: nil) }
+  scope :physical, -> { where(premium_days: nil) }
   scope :by_category, ->(category_id) { where(category_id: category_id) }
   scope :by_health_goal_key, ->(key) { joins(:health_goals).where(health_goals: { key: key }) }
 
   searchable_by :name, :description, :sku, :flavor, associated_against: { category: [ :name ] }
+
+  # Producto digital: no se envía; al comprarlo otorga días de premium.
+  def digital?
+    premium_days.present?
+  end
 
   # Método para obtener el precio según el nivel del usuario
   # Optimizado para usar datos ya cargados en memoria (evita N+1)

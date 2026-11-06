@@ -51,6 +51,7 @@ Rails.application.routes.draw do
       namespace :marketplace do
         resource :cart, only: [:show], controller: "carts" do
           post :clear, to: "carts_clear#create"
+          post :repeat_last_order, to: "carts_repeat#create"
         end
 
         # Endpoints de ítems de carrito usando la ruta /cart/items

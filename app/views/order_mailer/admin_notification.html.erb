@@ -1,12 +1,41 @@
 <div style="font-family: Arial, Helvetica, sans-serif; color: #171717; max-width: 480px; margin: 0 auto;">
-  <h1 style="font-size: 20px;">Nuevo pedido recibido: <%= @purchase.purchase_number %></h1>
+  <h1 style="font-size: 20px;">Nuevo pedido: <%= @purchase.purchase_number %></h1>
+  <% if @digital_only %>
+    <p><strong>Plan Premium, sin envío.</strong></p>
+  <% end %>
+
+  <h2 style="font-size: 16px;">Cliente</h2>
   <p>
-    Cliente: <strong><%= @purchase.user.name.presence || @purchase.user.email %></strong><br>
-    Email: <%= @purchase.user.email %><br>
-    <% if @purchase.recipient_name.present? %>
-      Recibe: <%= @purchase.recipient_name %> — <%= @purchase.recipient_phone %><br>
-    <% end %>
+    <strong><%= @purchase.user.name.presence || @purchase.user.email %></strong><br>
+    <%= @purchase.user.email %>
   </p>
 
-  <%= render partial: "order_mailer/summary", locals: { purchase: @purchase, order: @order, items: @items } %>
+  <% unless @digital_only %>
+    <h2 style="font-size: 16px;">Productos para pedir en Herbalife</h2>
+    <ul style="padding-left: 20px;">
+      <% @product_lines.each do |line| %>
+        <li style="margin-bottom: 6px;"><%= line %></li>
+      <% end %>
+    </ul>
+
+    <h2 style="font-size: 16px;">Enviar a</h2>
+    <p>
+      Quién recibe: <strong><%= @purchase.recipient_name %></strong><br>
+      Teléfono: <%= @recipient_phone %><br>
+      <% @address_lines.each do |line| %>
+        <%= line %><br>
+      <% end %>
+    </p>
+  <% end %>
+
+  <h2 style="font-size: 16px;">Pago</h2>
+  <p>
+    Total: <strong>$<%= number_with_delimiter(@purchase.total_amount.to_i) %> COP</strong><br>
+    <% if @payment_id %>ID Wompi: <%= @payment_id %><br><% end %>
+    <% if @paid_at %>Fecha del pago: <%= @paid_at %><% end %>
+  </p>
+
+  <p style="margin-top: 24px;">
+    <a href="<%= @admin_url %>" style="display: inline-block; background: #171717; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: bold;">Ver en el admin</a>
+  </p>
 </div>

@@ -1,0 +1,20 @@
+<%= @first_name.present? ? "Hola, #{@first_name}:" : "Hola:" %>
+
+Tu Premium vence pronto. Con Premium tienes:
+- Brújula Corporal completa
+- Mi Plan
+- Todas las recetas
+<% if @items.any? -%>
+
+Tu último pedido fue:
+<% @items.each do |item| -%>
+- <%= item.product.name %> x<%= item.quantity %>
+<% end -%>
+
+Repetir mi último pedido: <%= @repeat_url %>
+
+O compra solo el Plan Premium: <%= @plan_url %>
+<% else -%>
+
+Comprar el Plan Premium: <%= @plan_url %>
+<% end -%>

@@ -1,0 +1,18 @@
+¡Tu pedido va en camino, <%= @name %>!
+
+Tu pedido <%= @purchase.purchase_number %> ya salió.
+<% if @product_lines.any? %>
+<% @product_lines.each do |line| %>
+- <%= line %>
+<% end %>
+<% end %>
+<% if @has_tracking %>
+<% if @carrier %>Transportadora: <%= @carrier %>
+<% end %><% if @tracking_number %>Número de guía: <%= @tracking_number %>
+<% end %><% if @tracking_url %>Rastrear mi pedido: <%= @tracking_url %>
+<% end %>
+<% else %>
+Muy pronto te compartimos el número de guía.
+<% end %>
+
+Ver mi pedido: <%= @order_url %>
