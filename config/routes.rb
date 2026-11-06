@@ -67,6 +67,7 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        get "levels", to: "levels#index"
         namespace :coach_virtual do
           get "profile", to: "profile#show"
           patch "profile", to: "profile#update"

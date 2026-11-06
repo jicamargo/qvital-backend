@@ -56,6 +56,22 @@ module Api
           assert_response :created
           body = JSON.parse(response.body)
           assert_equal params[:product][:name], body["name"]
+          assert_equal 50_000, Product.find(body["id"]).price_for_level(@level.id).to_i
+        end
+
+        test "update saves the price of each level" do
+          vip = Level.find_or_create_by!(name: "Cliente VIP") { |l| l.priority = 2 }
+          params = { product: { prices: { @level.id.to_s => 139_418, vip.id.to_s => 134_824 } } }
+
+          stub_authenticated_as(@admin) do
+            patch api_v1_admin_product_path(@product), params: params, headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          assert_equal 139_418, @product.reload.price_for_level(@level.id).to_i
+          assert_equal 134_824, @product.price_for_level(vip.id).to_i
+          assert_equal({ @level.id.to_s => 139_418, vip.id.to_s => 134_824 },
+                       JSON.parse(response.body)["prices"].transform_values(&:to_i))
         end
 
         test "create saves premium_days for a digital product" do
@@ -78,6 +94,28 @@ module Api
 
           assert_response :success
           assert_equal 60, @product.reload.premium_days
+        end
+
+        test "show returns the price of each level keyed by level id" do
+          vip = Level.find_or_create_by!(name: "Cliente VIP") { |l| l.priority = 2 }
+          @product.product_prices.create!(level: @level, price: 120_000)
+          @product.product_prices.create!(level: vip, price: 110_000)
+
+          stub_authenticated_as(@admin) do
+            get api_v1_admin_product_path(@product), headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          prices = JSON.parse(response.body)["prices"]
+          assert_equal({ @level.id.to_s => 120_000, vip.id.to_s => 110_000 }, prices.transform_values(&:to_i))
+        end
+
+        test "show returns an empty prices map for a product without prices" do
+          stub_authenticated_as(@admin) do
+            get api_v1_admin_product_path(@product), headers: auth_headers, as: :json
+          end
+
+          assert_equal({}, JSON.parse(response.body)["prices"])
         end
 
         test "create is forbidden for a non-admin user" do

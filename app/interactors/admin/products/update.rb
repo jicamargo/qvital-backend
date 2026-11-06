@@ -55,6 +55,8 @@ module Admin
 
       def assign_prices!
         prices = @params[:prices]
+        # Desde el controller llega como ActionController::Parameters (ya permitido), no como Hash.
+        prices = prices.to_h if prices.is_a?(ActionController::Parameters)
         return unless prices.is_a?(Hash)
 
         prices.each do |level_key, price|
