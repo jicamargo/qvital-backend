@@ -31,6 +31,35 @@ Revisión completa de los dos repos y del flujo de dinero, hecha en paralelo. Re
 
 ---
 
+## Verificación antes de lanzar (20 puntos)
+
+_Agregada el 2026-11-06 a partir de la lista de Jorge. Cada punto apunta a la etapa donde se trabaja; se da por cumplido cuando esos ítems están en `[x]`._
+
+| # | Punto | Dónde se trabaja |
+|---|---|---|
+| 1 | Sin llaves ni secretos expuestos en el frontend | Etapa 4 (frontend) |
+| 2 | Permisos de la base de datos y políticas RLS | Etapa 7 (Seguridad de Supabase) |
+| 3 | La autenticación funciona bien | Etapa 5 (C1–A4, hecho) · Etapa 6 (pruebas del login) |
+| 4 | Una usuaria no puede ver los datos de otra | Etapa 1 (pagos, hecho) · Etapa 3 (resto de endpoints) |
+| 5 | Inyección SQL y XSS | Etapa 4 (Brakeman, SQL, HTML) |
+| 6 | Límites de peticiones contra abusos | Etapa 3 (`rate_limit`) |
+| 7 | Dependencias vulnerables | Etapa 4 (`bundler-audit`, `npm audit`) |
+| 8 | Todos los endpoints funcionan | Etapa 6 (prueba de humo) |
+| 9 | Manejo de errores | Etapa 5 (páginas de error) · Etapa 10 (`rescue_from` central) |
+| 10 | Registros sin información sensible | Etapa 3 (filtrar logs) |
+| 11 | Pruebas automáticas de login y contraseña perdida | Etapa 6 |
+| 12 | Los pagos y los webhooks funcionan | Etapa 6 (Wompi sandbox) · Etapa 8 (compra real) |
+| 13 | Copias de seguridad y cómo restaurarlas | Etapa 7 |
+| 14 | La interfaz se adapta a todos los tamaños | Etapa 5 |
+| 15 | Llamadas a la API y tiempos de carga | Etapa 5 |
+| 16 | Pantallas de carga, error y sin datos | Etapa 5 |
+| 17 | Auditoría de accesibilidad | Etapa 5 |
+| 18 | Analítica de los eventos de conversión | Etapa 5 (PostHog/GA4 + Meta Pixel) |
+| 19 | Monitoreo de errores y caídas | Etapa 4 (Sentry) · Etapa 8 (UptimeRobot y alertas) |
+| 20 | Permisos y política de privacidad | Etapa 3 |
+
+---
+
 ## Etapa 0: Decisiones y trámites (sin código)
 
 - [x] (J) Modelo de negocio: vender Herbalife en el marketplace; Premium se gana comprando. _2026-10-19_
@@ -98,6 +127,7 @@ Se diseña y se aprueba antes de programar.
 - [ ] (C) Derecho de supresión: mínimo un proceso documentado ("escríbenos a…") y un borrado desde el admin que funcione con compras (anonimizar) y elimine también el usuario de Supabase Auth. _(admin/users/destroy.rb:27-31)_
 - [ ] (C) Quitar o proteger como solo-admin el endpoint de depuración `POST auth/update_metadata`. _(routes.rb:12)_
 - [ ] (C) Límite de solicitudes (Rails 8 `rate_limit`) en `/evaluation_leads`, el webhook y el auth sync.
+- [ ] (C) **Ninguna usuaria ve datos de otra** (verificación #4): revisar endpoint por endpoint (pedidos, carrito, seguimiento, consultas de la Brújula, hábitos, perfil) que todo se busque desde `current_user`, con una prueba automática por recurso que intente leer o cambiar lo de otra usuaria.
 
 ## Etapa 4: Código listo para producción 🔴
 
@@ -115,6 +145,8 @@ Rama `feature/production-readiness`.
 - [ ] (C) **Cachear las JWKS** de Supabase (~10 min) en vez de pedirlas en cada request. _(sync_user.rb:117-151)_
 - [ ] (C) Sentry en el backend (plan gratis).
 - [ ] (C) Arreglar `bin/brakeman` (`--ensure-latest` lo rompe) para que CI quede verde. _(bin/brakeman:5)_
+- [ ] (C) **Inyección SQL y XSS** (verificación #5): Brakeman sin alertas y revisar a mano los SQL con texto interpolado (búsquedas con `pg_search`/`unaccent`).
+- [ ] (C) **Dependencias vulnerables** (verificación #7): `bundler-audit` en el BE y `npm audit` en el FE en CI; corregir las altas y críticas; activar Dependabot en GitHub.
 
 **Frontend:**
 - [ ] (C) Verificar que todas las `NEXT_PUBLIC_*` estén definidas en el build; si falta alguna, el build falla en vez de usar `placeholder.supabase.co`. _(lib/supabase/client.ts:16-17)_
@@ -123,6 +155,8 @@ Rama `feature/production-readiness`.
 - [ ] (C) Quitar los `console.log` de `productImages.ts`. _(productImages.ts:43-85)_
 - [ ] (C) Sentry en el frontend.
 - [ ] (C) Actualizar el `CLAUDE.md` del FE: Render, no Vercel; quitar las variables que no se usan.
+- [ ] (C) **Sin llaves secretas en el navegador** (verificación #1): revisar el build (`.next/static`) y el historial de los dos repos con `gitleaks`. En el FE solo pueden ir la llave anónima de Supabase y la pública de Wompi; la `service_role`, la privada de Wompi y los secretos de eventos e integridad solo en el BE.
+- [ ] (C) Revisar `dangerouslySetInnerHTML` y cualquier HTML que venga de la base (recetas, Brújula) para evitar XSS (verificación #5).
 
 ## Etapa 5: Experiencia mínima para el público 🟠
 
@@ -153,6 +187,10 @@ Rama `feature/production-readiness`.
 - [ ] (C) Vista previa al compartir: `metadataBase`, OpenGraph con imagen de marca (sin productos ni precios), favicon y apple-icon propios, robots.txt. Borrar los SVG por defecto de Next. _(layout.tsx:20-23; public/)_
 - [ ] (C) Analítica: PostHog o GA4 + Meta Pixel, con eventos de evaluación, registro y compra.
 - [ ] (C) Quitar `/admin/system-design` y "Opciones de configuración próximamente". _(perfil/page.tsx:340)_
+- [ ] (C) **Pantallas de carga, error y sin datos** (verificación #16): recorrer cada página con la API lenta, caída y sin datos; nunca una pantalla en blanco ni un error técnico.
+- [ ] (C) **Todos los tamaños de pantalla** (verificación #14): revisar las páginas principales a 360, 390, 768 y 1280 px, sin scroll horizontal.
+- [ ] (C) **Velocidad** (verificación #15): Lighthouse móvil ≥ 85 en inicio, marketplace y checkout; quitar llamadas repetidas a la API e imágenes pesadas.
+- [ ] (C) **Auditoría de accesibilidad** (verificación #17): axe + Lighthouse en las páginas principales; contraste, etiquetas, foco con teclado y tamaño de toque.
 
 ## Etapa 6: Prueba integral local con Wompi sandbox 🔴
 
@@ -169,6 +207,8 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 - [ ] (J+C) Reintentar `prepare` sobre una orden pagada → no cambia nada.
 - [ ] (J+C) Admin: marcar enviado con guía (llega el correo), entregado, y cancelar otra orden.
 - [ ] (J) **Recorrido completo desde el celular:** registro, evaluación, Brújula, recetas y compra.
+- [ ] (C) **Pruebas automáticas del login** (verificación #11): pruebas de navegador (Playwright) de registro, inicio de sesión, contraseña equivocada y recuperación de contraseña, que se puedan repetir antes de cada salida.
+- [ ] (C) **Prueba de todos los endpoints** (verificación #8): una prueba de humo que llame cada endpoint con y sin sesión y confirme la respuesta esperada (200, 401, 403, 404, 422).
 
 ## Etapa 7: Ensayo general en internet (gratis) 🔴
 
@@ -179,6 +219,7 @@ Requiere ngrok para recibir el webhook de Wompi. **No se pasa a la etapa 7 sin e
 - [ ] (J+C) Render con el **plan gratis**: BE y FE desde `main`, variables de entorno, Wompi **sandbox**.
 - [ ] (J+C) Verificar `WOMPI_REDIRECT_URL` = dominio real del FE, y probar "Volver al comercio" desde Wompi (hallazgo C3: en local apuntaba a un ngrok muerto).
 - [ ] (C) Respaldo diario `pg_dump` por GitHub Actions (Supabase Free no hace backups).
+- [ ] (J+C) **Restaurar un respaldo** (verificación #13): restaurar el último `pg_dump` en una base aparte, comprobar que la app arranca con esos datos y anotar los pasos.
 - [ ] (J+C) Repetir los puntos clave de la etapa 6 contra el ensayo general.
 - [ ] (C) Merge `develop` → `main` en los dos repos (producción siempre sale de `main`).
 
