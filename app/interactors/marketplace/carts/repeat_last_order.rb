@@ -26,7 +26,8 @@ module Marketplace
         ActiveRecord::Base.transaction do
           @cart = Cart.for_user(@user.id).open.first_or_create!
           # Idempotente: si este carrito ya repitió esta compra, no se suma otra vez.
-          unless @cart.repeated_purchase_id == purchase.id
+          # Si la clienta lo vació después, la marca ya no aplica y se vuelve a llenar.
+          unless @cart.repeated_purchase_id == purchase.id && @cart.cart_items.exists?
             purchase.purchase_items.includes(:product).each { |purchase_item| add_item(purchase_item) }
             @cart.update!(repeated_purchase_id: purchase.id)
           end

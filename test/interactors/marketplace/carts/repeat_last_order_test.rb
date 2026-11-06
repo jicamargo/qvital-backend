@@ -101,6 +101,18 @@ module Marketplace
         assert_equal purchase.id, result.cart.repeated_purchase_id
       end
 
+      test "repeats again after the customer emptied the cart" do
+        create_purchase(status: :confirmed, items: [ [ @product, 2 ] ])
+        first = RepeatLastOrder.call(user: @user)
+        Clear.call(user: @user)
+
+        result = RepeatLastOrder.call(user: @user)
+
+        assert result.success?, result.error
+        assert_equal first.cart.id, result.cart.id
+        assert_equal [ 2 ], result.cart.cart_items.map(&:quantity)
+      end
+
       test "a newer purchase can be repeated again after a previous repeat" do
         other = create_product
         create_purchase(status: :confirmed, items: [ [ @product, 2 ] ], created_at: 2.days.ago)
