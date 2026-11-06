@@ -56,6 +56,22 @@ module Api
           assert_response :created
           body = JSON.parse(response.body)
           assert_equal params[:product][:name], body["name"]
+          assert_equal 50_000, Product.find(body["id"]).price_for_level(@level.id).to_i
+        end
+
+        test "update saves the price of each level" do
+          vip = Level.find_or_create_by!(name: "Cliente VIP") { |l| l.priority = 2 }
+          params = { product: { prices: { @level.id.to_s => 139_418, vip.id.to_s => 134_824 } } }
+
+          stub_authenticated_as(@admin) do
+            patch api_v1_admin_product_path(@product), params: params, headers: auth_headers, as: :json
+          end
+
+          assert_response :success
+          assert_equal 139_418, @product.reload.price_for_level(@level.id).to_i
+          assert_equal 134_824, @product.price_for_level(vip.id).to_i
+          assert_equal({ @level.id.to_s => 139_418, vip.id.to_s => 134_824 },
+                       JSON.parse(response.body)["prices"].transform_values(&:to_i))
         end
 
         test "create saves premium_days for a digital product" do
