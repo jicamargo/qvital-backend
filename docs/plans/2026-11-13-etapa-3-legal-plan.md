@@ -155,7 +155,7 @@
 **Interfaces:**
 - Produces:
   - el `before_action :require_consent!`, que corre después de `authenticate_user!`;
-  - para exentar un controlador: `skip_before_action :require_consent!`. Eso aplica a Settings (`show`), Consents y Users (`destroy_me`, de la Tarea B6);
+  - para exentar un controlador: `skip_before_action :require_consent!`. Aquí aplica a Settings (`show`) y Consents. La exención de `users#destroy_me` se agrega en la Tarea B6, junto con la acción: Rails falla si `only:` nombra una acción que todavía no existe;
   - el namespace admin queda exento dentro del concern con `return if controller_path.start_with?("api/v1/admin/")`.
   - `AuthController` no hereda de `BaseController`, así que ya queda exento.
 
@@ -167,7 +167,7 @@
   - con `consent: true`, `GET /api/v1/tracking` → 200.
 - [ ] **Step 2:** correr las pruebas. Deben fallar.
 - [ ] **Step 3:** implementar el concern e incluirlo en `BaseController`.
-- [ ] **Step 4:** correr la suite completa. Debe quedar en verde, y la prueba de `DELETE /users/me` exento se agrega en la Tarea B6.
+- [ ] **Step 4:** correr la suite completa. Debe quedar en verde.
 - [ ] **Step 5:** documentar el 403 en `api-v1-consents.md` y hacer commit: `feat(consents): block authenticated endpoints until consent`.
 
 ### Task B5: `/evaluation_leads` exige consentimiento
